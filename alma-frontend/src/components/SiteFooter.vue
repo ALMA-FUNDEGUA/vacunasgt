@@ -291,13 +291,13 @@ export default {
 }
 
 .footer-light {
-  color: #4f4a88 !important;
+  color: #f8f6ff !important;
   padding: 5vh 0vw;
   bottom: 0;
 }
 
 .footer-dark {
-  background-color: #4f4a88 !important;
+  background-color: #f8f6ff !important;
   color: white !important;
   padding: 5vh 0vw;
   bottom: 0;
