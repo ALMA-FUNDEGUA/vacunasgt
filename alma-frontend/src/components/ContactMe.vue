@@ -32,7 +32,7 @@
               </section>
 
               <section class="mt-3 text-center">
-                <span style="font-weight: lighter !important;">
+                <span class="font-weight-light">
                   Habla con uno de nuestros agentes para resolver tus dudas
                 </span>
               </section>
