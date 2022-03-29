@@ -4,7 +4,7 @@
     <p class = "twitter-title">
       Ultimas Noticias
     </p>
-    <a class="twitter-timeline" data-lang="es" data-width="750" data-height="500" href="https://twitter.com/alma_guatemala?ref_src=twsrc%5Etfw">Tweets by alma_guatemala</a>
+    <a class="twitter-timeline" data-lang="es" data-width="750" data-height="500" href="https://twitter.com/alma_responde?ref_src=twsrc%5Etfw">Tweets by alma_responde</a>
   </center>
   <!-- End Twiter -->
 </template>
