@@ -3,7 +3,7 @@
     <v-container>
       <v-row>
         <v-col>
-          <p class="text-center mb-0">
+          <p class="text-center mb-0 font-weight-bold">
             Comunícate conmigo
           </p>
         </v-col>
@@ -18,11 +18,10 @@
               <section>
                 <!-- <span class="display-4">
                   📱
-                </span>
-                 -->
+                </span> -->
                 <span class="display-4">
-                  <v-img :src="require('@/assets/icons/svg-contact-me-phone.svg')"></v-img>
-                </span>                
+                  📞
+                </span>
               </section>
 
               <section class="mt-3">

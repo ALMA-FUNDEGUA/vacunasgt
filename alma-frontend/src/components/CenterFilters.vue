@@ -113,7 +113,8 @@
     </v-container>
 
     <v-app-bar absolute bottom>
-      <v-btn color="#FFD789" block rounded elevation="0">
+      <v-btn color="#FFD789" block rounded elevation="0"
+          @click="$router.push('dashboard')">
         Aplicar Filtros
       </v-btn>
     </v-app-bar>
@@ -154,8 +155,8 @@ export default {
         this.setDepartment(value)
         this.setMunicipality(null)
         // this.setVaccine(null)
-        // this.setDose(null)
-        // this.setGroup(null)
+        this.setDose(null)
+        this.setGroup(null)
       },
     },
 
