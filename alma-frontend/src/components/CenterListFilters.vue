@@ -2,10 +2,13 @@
   <section>
     <!-- <div v-if="$vuetify.breakpoint.mobile"> -->
     <div>
-      <v-dialog v-model="filters"
-          fullscreen hide-overlay
-          transition="dialog-bottom-transition">
-        <template #activator="{on, attrs}">
+      <v-dialog
+        v-model="filters"
+        fullscreen
+        hide-overlay
+        transition="dialog-bottom-transition"
+      >
+        <!--     <template #activator="{on, attrs}">
           <v-btn v-bind="attrs" v-on="on"
               fixed bottom right
               color="primary"
@@ -15,7 +18,7 @@
             <div class="mr-2"></div>
             Filtros
           </v-btn>
-        </template>
+        </template>  -->
 
         <v-card>
           <v-toolbar color="primary" dark flat fixed class="rounded-0">
@@ -23,9 +26,7 @@
               <v-icon>mdi-close</v-icon>
             </v-btn>
 
-            <v-toolbar-title>
-              Filtros
-            </v-toolbar-title>
+            <v-toolbar-title> Filtros </v-toolbar-title>
           </v-toolbar>
 
           <v-container>
@@ -33,7 +34,9 @@
               label="Departamento"
               v-model="department"
               :items="departments"
-              clearable solo hide-details
+              clearable
+              solo
+              hide-details
               class="mb-3"
             ></v-select>
 
@@ -41,7 +44,9 @@
               label="Municipio"
               v-model="municipality"
               :items="municipalities"
-              clearable solo hide-details
+              clearable
+              solo
+              hide-details
               class="mb-3"
             ></v-select>
 
@@ -49,7 +54,9 @@
               label="Vacuna"
               v-model="vaccine"
               :items="vaccines"
-              clearable solo hide-details
+              clearable
+              solo
+              hide-details
               class="mb-3"
             ></v-select>
 
@@ -57,20 +64,24 @@
               label="Grupo De Población"
               v-model="group"
               :items="groups"
-              clearable solo hide-details
+              clearable
+              solo
+              hide-details
               class="mb-3"
             ></v-select>
 
             <section class="mb-3">
               <span class="subtitle">Filtros Avanzados</span>
-              <hr>
+              <hr />
             </section>
 
             <v-select
               label="Dosis"
               v-model="dose"
               :items="doses"
-              clearable solo hide-details
+              clearable
+              solo
+              hide-details
               class="mb-3"
             ></v-select>
 
@@ -78,7 +89,9 @@
               label="Requisito"
               v-model="requirement"
               :items="requirements"
-              clearable solo hide-details
+              clearable
+              solo
+              hide-details
               class="mb-3"
             ></v-select>
 
@@ -86,7 +99,9 @@
               label="Afluencia"
               v-model="influx"
               :items="influxes"
-              clearable solo hide-details
+              clearable
+              solo
+              hide-details
               class="mb-3"
             ></v-select>
 
@@ -94,14 +109,15 @@
               label="Ingreso"
               v-model="entrance"
               :items="entrances"
-              clearable solo hide-details
+              clearable
+              solo
+              hide-details
               class="mb-3"
             ></v-select>
           </v-container>
 
           <v-row class="mt-3" justify="center">
-            <v-btn rounded color="primary"
-                @click="filters = false">
+            <v-btn rounded color="primary" @click="filters = false">
               Aplicar
             </v-btn>
           </v-row>
@@ -112,7 +128,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapGetters, mapMutations } from "vuex";
 export default {
   data: () => ({
     filters: false,
@@ -120,111 +136,137 @@ export default {
 
   computed: {
     ...mapGetters({
-      'departments': 'departments',
-      'municipalities': 'municipalities',
-      'vaccines': 'vaccines',
-      'groups': 'groups',
-      'doses': 'doses',
-      'requirements': 'requirements',
-      'influxes': 'influxes',
-      'entrances': 'entrances',
+      departments: "departments",
+      municipalities: "municipalities",
+      vaccines: "vaccines",
+      groups: "groups",
+      doses: "doses",
+      requirements: "requirements",
+      influxes: "influxes",
+      entrances: "entrances",
 
-      'getDepartment': 'department',
-      'getMunicipality': 'municipality',
-      'getVaccine': 'vaccine',
-      'getGroup': 'group',
-      'getDose': 'dose',
-      'getRequirement': 'requirement',
-      'getInflux': 'influx',
-      'getEntrance': 'entrance',
+      getDepartment: "department",
+      getMunicipality: "municipality",
+      getVaccine: "vaccine",
+      getGroup: "group",
+      getDose: "dose",
+      getRequirement: "requirement",
+      getInflux: "influx",
+      getEntrance: "entrance",
     }),
 
     department: {
-      get() { return this.getDepartment },
+      get() {
+        return this.getDepartment;
+      },
       set(value) {
-        this.setDepartment(value)
-        this.setMunicipality(null)
-        this.setVaccine(null)
-        this.setDose(null)
-        this.setGroup(null)
-        this.setRequirement(null)
-        this.setInflux(null)
-        this.setEntrance(null) },
+        this.setDepartment(value);
+        this.setMunicipality(null);
+        this.setVaccine(null);
+        this.setDose(null);
+        this.setGroup(null);
+        this.setRequirement(null);
+        this.setInflux(null);
+        this.setEntrance(null);
+      },
     },
 
     municipality: {
-      get() { return this.getMunicipality },
-      set(value) { 
-        this.setMunicipality(value)
-        this.setVaccine(null)
-        this.setDose(null)
-        this.setGroup(null)
-        this.setRequirement(null)
-        this.setInflux(null)
-        this.setEntrance(null) },
+      get() {
+        return this.getMunicipality;
+      },
+      set(value) {
+        this.setMunicipality(value);
+        this.setVaccine(null);
+        this.setDose(null);
+        this.setGroup(null);
+        this.setRequirement(null);
+        this.setInflux(null);
+        this.setEntrance(null);
+      },
     },
 
     vaccine: {
-      get() { return this.getVaccine },
-      set(value) { 
-        this.setVaccine(value)
-        this.setDose(null)
-        this.setGroup(null)
-        this.setRequirement(null)
-        this.setInflux(null)
-        this.setEntrance(null) },
+      get() {
+        return this.getVaccine;
+      },
+      set(value) {
+        this.setVaccine(value);
+        this.setDose(null);
+        this.setGroup(null);
+        this.setRequirement(null);
+        this.setInflux(null);
+        this.setEntrance(null);
+      },
     },
 
     group: {
-      get() { return this.getGroup },
-      set(value) { 
-        this.setGroup(value)
-        this.setDose(null)
-        this.setRequirement(null)
-        this.setInflux(null)
-        this.setEntrance(null) },
+      get() {
+        return this.getGroup;
+      },
+      set(value) {
+        this.setGroup(value);
+        this.setDose(null);
+        this.setRequirement(null);
+        this.setInflux(null);
+        this.setEntrance(null);
+      },
     },
 
     dose: {
-      get() { return this.getDose },
-      set(value) { 
-        this.setDose(value)
-        this.setRequirement(null)
-        this.setInflux(null)
-        this.setEntrance(null) },
+      get() {
+        return this.getDose;
+      },
+      set(value) {
+        this.setDose(value);
+        this.setRequirement(null);
+        this.setInflux(null);
+        this.setEntrance(null);
+      },
     },
 
     requirement: {
-      get() { return this.getRequirement },
-      set(value) { 
-        this.setRequirement(value)
-        this.setInflux(null)
-        this.setEntrance(null) },
+      get() {
+        return this.getRequirement;
+      },
+      set(value) {
+        this.setRequirement(value);
+        this.setInflux(null);
+        this.setEntrance(null);
+      },
     },
 
     influx: {
-      get() { return this.getInflux },
-      set(value) { this.setInflux(value)
-      this.setEntrance(null) },
+      get() {
+        return this.getInflux;
+      },
+      set(value) {
+        this.setInflux(value);
+        this.setEntrance(null);
+      },
     },
 
     entrance: {
-      get() { return this.getEntrance },
-      set(value) { this.setEntrance(value) },
+      get() {
+        return this.getEntrance;
+      },
+      set(value) {
+        this.setEntrance(value);
+      },
     },
   },
 
   methods: {
     ...mapMutations({
-      'setDepartment': 'SET_DEPARTMENT',
-      'setMunicipality': 'SET_MUNICIPALITY',
-      'setVaccine': 'SET_VACCINE',
-      'setGroup': 'SET_GROUP',
-      'setDose': 'SET_DOSE',
-      'setRequirement': 'SET_REQUIREMENT',
-      'setInflux': 'SET_INFLUX',
-      'setEntrance': 'SET_ENTRANCE',
-    })
-  }
-}
+      setDepartment: "SET_DEPARTMENT",
+      setMunicipality: "SET_MUNICIPALITY",
+      setVaccine: "SET_VACCINE",
+      setGroup: "SET_GROUP",
+      setDose: "SET_DOSE",
+      setRequirement: "SET_REQUIREMENT",
+      setInflux: "SET_INFLUX",
+      setEntrance: "SET_ENTRANCE",
+    }),
+  },
+};
 </script>

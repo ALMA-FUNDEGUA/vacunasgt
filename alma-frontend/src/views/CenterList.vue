@@ -9,13 +9,6 @@
 
       <v-spacer></v-spacer>
 
-      <!--
-        PENDIENTE:
-        
-        Llamar a Center List Filters para
-        ir a los filtros
-        -->
-
       <v-btn icon @click="$router.push('/filters')">
         <v-icon> mdi-filter-variant</v-icon>
       </v-btn>
