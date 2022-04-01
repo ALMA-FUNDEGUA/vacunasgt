@@ -8,7 +8,7 @@
       <v-row>
         <v-select
           label="Vacuna"
-          :items="vaccines"
+          :items="remove_centro(vaccines)"
           v-model="vaccine"
           dark color="white"
           background-color="primary"
@@ -19,7 +19,7 @@
 
         <v-select
           label="Dosis"
-          :items="doses"
+          :items="remove_out_of_stock(doses)"
           v-model="dose"
           dark color="white"
           background-color="primary"
@@ -92,12 +92,38 @@ export default {
     },
   },
 
+  // data(){ return {
+  //   filtered_doses : this.remove_out_of_stock('doses')
+  // }},
+
   methods: {
     ...mapMutations({
       'setVaccine': 'SET_VACCINE',
       'setDose': 'SET_DOSE',
       'setGroup': 'SET_GROUP',
     }),
+
+    remove_out_of_stock(list) {
+      for(let i = 0; i < list.length; i++) {
+        if(list[i].text.match(/AGOTAD/) || list[i].text.match(/CERRADO/)){
+          list.splice(i,1)
+          // Decrease value of i to properly traverse array since splice changes index values
+          i--
+        }
+      }
+      return list
+    },
+
+    remove_centro(list) {
+      for(let i = 0; i < list.length; i++) {
+        if(list[i].text.match(/CENTRO/)){
+          list.splice(i,1)
+          // Decrease value of i to properly traverse array since splice changes index values
+          i--
+        }
+      }
+      return list
+    },
 
     all() {
       this.vaccine = null
