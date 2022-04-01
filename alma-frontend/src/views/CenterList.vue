@@ -16,10 +16,10 @@
         ir a los filtros
         -->
 
-      <v-btn icon @click="filters = true">
+      <v-btn icon @click="$router.push('/filters')">
         <v-icon> mdi-filter-variant</v-icon>
       </v-btn>
-      <span @click="$router.go(filters)">Filtros</span>
+      <span @click="$router.push('/filters')">Filtros</span>
     </v-app-bar>
 
     <!--<div style="height: 15vh;"></div>-->
@@ -28,35 +28,50 @@
     <v-container>
       <template>
         <div class="text-center">
-          <v-chip class="ma-2" color="primary" v-if="department != null">
+          <v-chip
+            class="ma-2"
+            outlined
+            color="primary"
+            v-if="department != null"
+          >
             {{ department }}
           </v-chip>
 
-          <v-chip class="ma-2" color="primary" v-if="municipality != null">
+          <v-chip
+            class="ma-2"
+            outlined
+            color="primary"
+            v-if="municipality != null"
+          >
             {{ municipality }}
           </v-chip>
 
-          <v-chip class="ma-2" color="primary" v-if="vaccine != null">
+          <v-chip class="ma-2" outlined color="primary" v-if="vaccine != null">
             {{ vaccine }}
           </v-chip>
 
-          <v-chip class="ma-2" color="primary" v-if="group != null">
+          <v-chip class="ma-2" outlined color="primary" v-if="group != null">
             {{ group }}
           </v-chip>
 
-          <v-chip class="ma-2" color="primary" v-if="dose != null">
+          <v-chip class="ma-2" outlined color="primary" v-if="dose != null">
             {{ dose }}
           </v-chip>
 
-          <v-chip class="ma-2" color="primary" v-if="requirement != null">
+          <v-chip
+            class="ma-2"
+            outlined
+            color="primary"
+            v-if="requirement != null"
+          >
             {{ requirement }}
           </v-chip>
 
-          <v-chip class="ma-2" color="primary" v-if="influx != null">
+          <v-chip class="ma-2" outlined color="primary" v-if="influx != null">
             {{ influx }}
           </v-chip>
 
-          <v-chip class="ma-2" color="primary" v-if="entrance != null">
+          <v-chip class="ma-2" outlined color="primary" v-if="entrance != null">
             {{ entrance }}
           </v-chip>
         </div>
