@@ -19,9 +19,7 @@
                 <!-- <span class="display-4">
                   📱
                 </span> -->
-                <span class="display-4" max-height="120px" max-width="120px">
-                  📞
-                </span>
+                <span style="font-size: 85px"> 📞 </span>
               </section>
 
               <section class="mt-3">
@@ -70,8 +68,8 @@
                     :src="
                       require('@/assets/icons/svg-contact-me-whatsapp-icon.svg')
                     "
-                    max-height="120px"
-                    max-width="120px"
+                    max-height="140px"
+                    max-width="140px"
                   ></v-img>
                 </span>
               </section>
@@ -95,9 +93,7 @@
                 >
                   <v-icon style="margin-right: 6px">mdi-whatsapp</v-icon>
 
-                  <span style="text-transform: none; font-weight: bold">
-                    WhatsApp
-                  </span>
+                  <span style="text-transform: none"> WhatsApp </span>
                 </v-btn>
               </section>
             </section>
@@ -121,8 +117,8 @@
                 <span class="display-4">
                   <v-img
                     :src="require('@/assets/icons/svg-contact-me-heart.svg')"
-                    max-height="120px"
-                    max-width="120px"
+                    max-height="140px"
+                    max-width="140px"
                   ></v-img>
                 </span>
               </section>
@@ -150,9 +146,7 @@
                   >
                     <v-icon style="margin-right: 6px">mdi-twitter</v-icon>
 
-                    <span style="text-transform: none; font-weight: bold"
-                      >Twitter</span
-                    >
+                    <span style="text-transform: none">Twitter</span>
                   </v-btn>
 
                   <v-btn
@@ -162,9 +156,7 @@
                     href="https://www.facebook.com/chatbotALMA"
                   >
                     <v-icon style="margin-right: 6px">mdi-facebook</v-icon>
-                    <span style="text-transform: none; font-weight: bold"
-                      >Facebook</span
-                    >
+                    <span style="text-transform: none; f">Facebook</span>
                   </v-btn>
                 </section>
               </section>
