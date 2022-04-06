@@ -9,6 +9,9 @@
     </head> -->
     <section>
       <section class="d-flex justify-center align-center ma-5">
+        <new-center-list></new-center-list>
+      </section>
+      <section class="d-flex justify-center align-center ma-5">
         <site-header></site-header>
       </section>
       <section class="d-flex justify-center align-center ma-5">
@@ -32,6 +35,7 @@ import SiteFooter from '../components/SiteFooter.vue';
 import TwitterFeed from '../components/TwitterFeed.vue';
 import FrequentQuestions from '../components/FrequentQuestions.vue';
 import SiteHeader from '../components/SiteHeader.vue';
+import NewCenterList from '../components/NewCenterList.vue';
 
 
 
@@ -44,6 +48,7 @@ export default {
     TwitterFeed,
     FrequentQuestions,
     SiteHeader,
+    NewCenterList,
   },
 }
 </script>

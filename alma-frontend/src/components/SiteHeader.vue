@@ -15,40 +15,45 @@
     </v-toolbar-title>
     <v-spacer/>
         <v-btn
-          icon
+          fab
+          small
+          color=#F8F7FF
+          elevation=0
+          class="mr-3"
           href="https://api.whatsapp.com/send?phone=50224144321&text=Preg%C3%BAntale%20a%20ALMA"
         >
-          <v-icon @click="resetCase">
+          <v-icon color=#3E3E3E @click="resetCase">
             mdi-whatsapp
           </v-icon>
         </v-btn>
 
         <v-btn
-          icon
+          fab
+          small
+          color=#F8F7FF
+          elevation=0
           href="tel:1801-0054-321"
         >
-          <v-icon @click="resetCase">
+          <v-icon color=#3E3E3E @click="resetCase">
             mdi-phone-outline
           </v-icon>
         </v-btn>
     </v-toolbar>
-    <v-img src="@/assets/images/home-image.png">
+    <v-img src="@/assets/images/web alma-05.svg">
     </v-img>
-    <h2 style="font-weight: bold">
-      ¡Hola! Soy Alma y estoy aqui para ayudarte
+    <h2 style="font-weight:bold; text-align:center; justify-content:center">
+      ¡Hola! Soy Alma y estoy aqui para ayudarte.
     </h2>
     <v-btn
       rounded
       block
       color = "#FFE6B7"
-      style="font-weight: bold;"
       large
-      class="mt-2"
+      class="my-4"
       link to="/filters"
-      >
-      <!-- <p style="font-weight: bold;"> -->
+      style="text-transform: unset !important;"
+      >      
         Buscar mi vacuna
-      <!-- </p> -->
     </v-btn>
     </v-card>
   </header>
