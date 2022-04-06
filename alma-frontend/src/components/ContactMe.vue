@@ -89,8 +89,11 @@
                   elevation="0"
                   href="https://api.whatsapp.com/send?phone=50224144321&text=Preg%C3%BAntale%20a%20ALMA"
                 >
-                  <v-icon>mdi-whatsapp</v-icon>
-                  Whatsapp
+                  <v-icon style="margin-right: 6px">mdi-whatsapp</v-icon>
+
+                  <span style="text-transform: none; font-weight: bold">
+                    WhatsApp
+                  </span>
                 </v-btn>
               </section>
             </section>
