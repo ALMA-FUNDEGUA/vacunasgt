@@ -156,7 +156,7 @@
                     href="https://www.facebook.com/chatbotALMA"
                   >
                     <v-icon style="margin-right: 6px">mdi-facebook</v-icon>
-                    <span style="text-transform: none; f">Facebook</span>
+                    <span style="text-transform: none">Facebook</span>
                   </v-btn>
                 </section>
               </section>
