@@ -10,17 +10,24 @@ const routes = [
     name: 'Onboarding',
     component: Onboarding
   },
-  // {
-  //   path: '/dashboard',
-  //   name: 'CenterList',
-  //   component: import('@/views/CenterList.vue')
-  // },
 
   {
     path: '/dashboard',
     name: 'CenterList',
     component: () => import('@/views/CenterList.vue'),
-  }
+  },
+
+  {
+    path: '/filters',
+    name: 'FiltersView',
+    component: () => import('@/views/Filters.vue'),
+  },
+
+  {
+    path: '/testing',
+    name: 'TestingView',
+    component: () => import('@/views/TestingView.vue'),
+  },
 ]
 
 const router = new VueRouter({

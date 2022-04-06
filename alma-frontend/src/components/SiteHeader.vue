@@ -1,19 +1,11 @@
 <template>
-  <header class="text-center banner d-flex flex-column">
-
-    <v-card
-    :max-width="$vuetify.breakpoint.mobile ? '375px' : '500px'"
-        :width="$vuetify.breakpoint.mobile ? '375px' : '500px'"
-        flat
-        class="text-center">
-    
-    <v-toolbar
-      flat
-    >
-    <v-toolbar-title>
-      <span class="site-title">Alma</span>
-    </v-toolbar-title>
-    <v-spacer/>
+  <section>
+    <header class="banner mb-4">
+      <v-toolbar flat>
+        <v-toolbar-title>
+          <span class="site-title">Alma</span>
+        </v-toolbar-title>
+        <v-spacer />
         <v-btn
           fab
           small
@@ -61,12 +53,12 @@
 
 <style>
 .banner {
-  color: #7F6CF6;
+  color: #7f6cf6;
 }
 
 .site-title {
-  color: #7F6CF6;
-  font-family: 'AlmaExtraBolder';
+  color: #7f6cf6;
+  /* font-family: "AlmaExtraBolder"; */
   font-size: 2rem;
   font-weight: bolder;
   line-height: 1;
