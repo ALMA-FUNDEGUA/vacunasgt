@@ -72,6 +72,24 @@
     </v-container>
     <!-- End filter chips-->
 
+    <template>
+      <div class="mapa">
+        <l-map
+          style="height: 300px"
+          v-model="zoom"
+          :zoom="zoom"
+          :center="[14.4818156, -90.5351601]"
+          @move="log('move')"
+        >
+          <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
+          <l-marker :lat-lng="markerLatLng">
+            <l-icon :icon-url="iconUrl"
+          /></l-marker>
+          <l-control-layers />
+        </l-map>
+      </div>
+    </template>
+
     <v-container class="center-list-content">
       <v-data-iterator
         :items="centers"
@@ -82,8 +100,18 @@
       >
         <template #header="{ items }">
           <v-row justify="space-between" align="center">
+            <v-row>
+              <!-- <iframe
+                width="100%"
+                height="300"
+                style="border: 0"
+                loading="lazy"
+                :src="mapsSource"
+              >
+              </iframe> -->
+            </v-row>
             <v-col cols="6" md="4">
-              <span> Mostrando {{ items.length }} centros </span>
+              <span> Resultados ({{ items.length }}) </span>
             </v-col>
 
             <v-col cols="6" md="4">
@@ -288,14 +316,22 @@ import CenterDetail from "../components/CenterDetail.vue";
 import CenterListFilters from "../components/CenterListFilters.vue";
 import SiteFooter from "../components/SiteFooter.vue";
 
+import { LMap, LMarker, LTileLayer, LControlLayers, LIcon } from "vue2-leaflet";
+
 export default {
   components: {
     CenterDetail,
     CenterListFilters,
     SiteFooter,
+    LMap,
+    LMarker,
+    LTileLayer,
+    LControlLayers,
+    LIcon,
   },
 
   data: () => ({
+    apiKey: process.env.VUE_APP_GOOGLE_MAPS_APIKEY,
     loading: true,
     search: "",
     detail: false,
@@ -305,6 +341,11 @@ export default {
       { text: "Entre Semana", value: "week" },
       { text: "Fines de Semana", value: "weekend" },
     ],
+    url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    zoom: 15,
+    markerLatLng: [14.4818156, -90.5351601],
+    iconUrl: "http://www.clker.com/cliparts/R/B/J/Z/k/m/map-marker-hi.png",
+    iconSize: [50, 50],
   }),
 
   computed: {
@@ -319,6 +360,12 @@ export default {
       getInflux: "influx",
       getEntrance: "entrance",
     }),
+
+    // 1) Store all filtered map locations on an array
+
+    // 2) for loop to create positions on map
+
+    // 3) Render map
 
     department: {
       get() {
