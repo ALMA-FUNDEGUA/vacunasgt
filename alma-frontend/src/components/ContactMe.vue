@@ -19,7 +19,9 @@
                 <!-- <span class="display-4">
                   📱
                 </span> -->
-                <span class="display-4"> 📞 </span>
+                <span class="display-4" max-height="120px" max-width="120px">
+                  📞
+                </span>
               </section>
 
               <section class="mt-3">
@@ -68,6 +70,8 @@
                     :src="
                       require('@/assets/icons/svg-contact-me-whatsapp-icon.svg')
                     "
+                    max-height="120px"
+                    max-width="120px"
                   ></v-img>
                 </span>
               </section>
@@ -117,6 +121,8 @@
                 <span class="display-4">
                   <v-img
                     :src="require('@/assets/icons/svg-contact-me-heart.svg')"
+                    max-height="120px"
+                    max-width="120px"
                   ></v-img>
                 </span>
               </section>
