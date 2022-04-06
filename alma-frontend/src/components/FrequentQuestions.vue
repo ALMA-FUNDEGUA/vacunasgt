@@ -25,7 +25,7 @@
         <v-expansion-panels v-model="panel">
           <v-expansion-panel class="my-2">
             <!-- <v-expansion-panel> -->
-            <v-expansion-panel-header>
+            <v-expansion-panel-header style="font-weight: bold">
               ¿Qué es COVID-19?
             </v-expansion-panel-header>
             <v-expansion-panel-content>
@@ -47,7 +47,7 @@
 
           <v-expansion-panel class="my-2">
             <!-- <v-expansion-panel> -->
-            <v-expansion-panel-header>
+            <v-expansion-panel-header style="font-weight: bold">
               ¿Vacuna para niños de 6 a 11 años?
             </v-expansion-panel-header>
             <v-expansion-panel-content>
@@ -94,7 +94,7 @@
 
           <v-expansion-panel class="my-2">
             <!-- <v-expansion-panel> -->
-            <v-expansion-panel-header>
+            <v-expansion-panel-header style="font-weight: bold">
               ¿Registro de vacunas para niños de 6 a 11 años?
             </v-expansion-panel-header>
             <v-expansion-panel-content>
@@ -140,7 +140,7 @@
 
           <v-expansion-panel class="my-2">
             <!-- <v-expansion-panel> -->
-            <v-expansion-panel-header>
+            <v-expansion-panel-header style="font-weight: bold">
               ¿Cuales son los sintomas comunes?
             </v-expansion-panel-header>
             <v-expansion-panel-content>
@@ -236,7 +236,7 @@
 
           <v-expansion-panel class="my-2">
             <!-- <v-expansion-panel> -->
-            <v-expansion-panel-header>
+            <v-expansion-panel-header style="font-weight: bold">
               ¿Refuerzo para menores?
             </v-expansion-panel-header>
             <v-expansion-panel-content>
@@ -304,7 +304,6 @@
     </v-row>
   </v-container>
 </template>
-
 
 <script>
 export default {
