@@ -3,7 +3,12 @@
     <v-container>
       <v-row>
         <v-col>
-          <p class="text-center mb-0 font-weight-bold">Comunícate conmigo</p>
+          <p
+            class="text-center font-weight-bold"
+            style="margin-top: -5%; margin-bottom: -5%"
+          >
+            Comunícate conmigo
+          </p>
         </v-col>
       </v-row>
     </v-container>

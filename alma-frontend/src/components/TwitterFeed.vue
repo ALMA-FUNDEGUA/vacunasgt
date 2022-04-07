@@ -13,11 +13,13 @@
       ></a>
       <a
         href="https://twitter.com/alma_responde"
+        target="_blank"
         style="
           color: #3e3e3e;
           font-weight: bold;
           height: 40px;
           margin-top: 15px;
+          margin-bottom: 10px;
         "
         >Ver más noticias en Twitter</a
       >
