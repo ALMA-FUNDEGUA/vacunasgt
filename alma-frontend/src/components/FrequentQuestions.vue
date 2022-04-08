@@ -22,13 +22,13 @@
       <!-- <v-col cols="7"> -->
       <!-- <ul> -->
       <v-col>
-        <v-expansion-panels v-model="panel">
+        <v-expansion-panels v-model="panel" :active-class="activeClass">
           <v-expansion-panel class="my-2">
             <!-- <v-expansion-panel> -->
             <v-expansion-panel-header style="font-weight: bold">
               ¿Qué es COVID-19?
             </v-expansion-panel-header>
-            <v-expansion-panel-content>
+            <v-expansion-panel-content class="paragraph">
               <!-- <a :href="dir.value" target="blank" rel="noopener noreferrer"> -->
               COVID-19 es el nombre de la enfermedad causada por el virus
               coronavirus conocido como SARS-CoV-2. SARS por sus siglas en
@@ -50,7 +50,7 @@
             <v-expansion-panel-header style="font-weight: bold">
               ¿Vacuna para niños de 6 a 11 años?
             </v-expansion-panel-header>
-            <v-expansion-panel-content>
+            <v-expansion-panel-content class="paragraph">
               <!-- <a :href="dir.value" target="blank" rel="noopener noreferrer"> -->
               <p>
                 El ministerio de Salud habilit&oacute; el 11 de marzo el
@@ -94,10 +94,12 @@
 
           <v-expansion-panel class="my-2">
             <!-- <v-expansion-panel> -->
-            <v-expansion-panel-header style="font-weight: bold">
+            <v-expansion-panel-header
+              style="font-weight: bold; line-height: 1.5"
+            >
               ¿Registro de vacunas para niños de 6 a 11 años?
             </v-expansion-panel-header>
-            <v-expansion-panel-content>
+            <v-expansion-panel-content class="paragraph">
               <!-- <a :href="dir.value" target="blank" rel="noopener noreferrer"> -->
               <p>
                 El ministerio de Salud habilit&oacute; el 11 de marzo el
@@ -143,7 +145,7 @@
             <v-expansion-panel-header style="font-weight: bold">
               ¿Cuales son los sintomas comunes?
             </v-expansion-panel-header>
-            <v-expansion-panel-content>
+            <v-expansion-panel-content class="paragraph">
               <!-- <a :href="dir.value" target="blank" rel="noopener noreferrer"> -->
               <p>Los s&iacute;ntomas m&aacute;s comunes son:</p>
 
@@ -239,7 +241,7 @@
             <v-expansion-panel-header style="font-weight: bold">
               ¿Refuerzo para menores?
             </v-expansion-panel-header>
-            <v-expansion-panel-content>
+            <v-expansion-panel-content class="paragraph">
               <!-- <a :href="dir.value" target="blank" rel="noopener noreferrer"> -->
               <p>
                 En los centros de vacunaci&oacute;n ya puede encontrar el
@@ -305,8 +307,24 @@
   </v-container>
 </template>
 
+<style>
+.active-panel-normal {
+  color: #6651ee !important;
+  background-color: #f8f6ff !important;
+}
+
+.paragraph {
+  color: #434342 !important;
+}
+</style>
+
 <script>
 export default {
+  computed: {
+    activeClass() {
+      return this.edited ? "" : "active-panel-normal";
+    },
+  },
   data: () => ({
     links: [
       {
