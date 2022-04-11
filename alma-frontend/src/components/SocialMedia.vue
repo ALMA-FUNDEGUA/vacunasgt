@@ -2,9 +2,9 @@
   <section>
     <v-container>
       <v-row>
-        <v-col cols="12">
+        <v-col cols="9">
           <v-card color="#FFEBE8" flat class="rounded-lg">
-            <section class="d-flex flex-column py-5 justify-center">
+            <section class="d-flex flex-column py-8 justify-center">
               <section class="mt-0 ml-15">
                 <h2 class="font-weight-bold">
                   Sigueme por nuestras redes sociales
@@ -13,33 +13,53 @@
 
               <section class="mt-3 text-jusfify ml-15">
                 <span class="font-weight-light">
-                  Te podrás enterar de muchas cosas relacionas con COVID y
-                  además pregúntame lo que quieras.
+                  Te podrás enterar de muchas cosas relacionadas a COVID y
+                  además preguntarme lo que quieras.
                 </span>
               </section>
 
               <section class="mt-3" style="width: 100%">
                 <section class="d-flex justify-space-around">
-                  <v-btn
+                  <span rounded color="#FFE6B7" elevation="0">
+                    <v-icon style="margin-right: 6px">mdi-twitter</v-icon>
+
+                    <a
+                      href="https://twitter.com/alma_responde"
+                      target="_blank"
+                      style="text-transform: none"
+                      >Twitter</a
+                    >
+                  </span>
+
+                  <span
                     rounded
                     color="#FFE6B7"
                     elevation="0"
-                    href="https://twitter.com/alma_responde"
+                    href="https://www.facebook.com/chatbotALMA"
                   >
-                    <v-icon style="margin-right: 6px">mdi-twitter</v-icon>
+                    <v-icon style="margin-right: 6px">mdi-instagram</v-icon>
+                    <a
+                      href="https://www.instagram.com/alma_responde/"
+                      target="_blank"
+                      style="text-transform: none"
+                      >Instagram</a
+                    >
+                  </span>
 
-                    <span style="text-transform: none">Twitter</span>
-                  </v-btn>
-
-                  <v-btn
+                  <span
                     rounded
                     color="#FFE6B7"
                     elevation="0"
                     href="https://www.facebook.com/chatbotALMA"
                   >
                     <v-icon style="margin-right: 6px">mdi-facebook</v-icon>
-                    <span style="text-transform: none">Facebook</span>
-                  </v-btn>
+                    <a
+                      href="https://www.facebook.com/chatbotALMA"
+                      target="_blank"
+                      style="text-transform: none"
+                      >Facebook</a
+                    >
+                  </span>
                 </section>
               </section>
             </section>
