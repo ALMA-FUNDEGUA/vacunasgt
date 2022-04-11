@@ -5,7 +5,7 @@
         <v-icon>mdi-chevron-left</v-icon>
       </v-btn>
 
-      <v-toolbar-title class="pl-0">
+      <v-toolbar-title class="pl-0 font-weight-bold">
         Vacunas
       </v-toolbar-title>
     </v-app-bar>
@@ -13,7 +13,7 @@
     <v-container>
       <v-row>
         <v-col class="pb-1">
-          <span class="font-weight-black">
+          <span class="font-weight-bold">
             ¿Qué estás buscando?
           </span>
         </v-col>
@@ -26,6 +26,7 @@
           </p>
 
           <v-select
+            placeholder="Ver Todos"
             v-model="vaccine"
             :items="vaccines"
             hide-details outlined dense
@@ -42,6 +43,7 @@
           </p>
 
           <v-select
+            placeholder="Ver Todos"
             v-model="department"
             :items="departments"
             hide-details outlined dense
@@ -89,7 +91,7 @@
 
       <v-row>
         <v-col class="pb-1">
-          <span class="font-weight-black">
+          <span class="font-weight-bold">
             Otros filtros
           </span>
         </v-col>
@@ -102,6 +104,7 @@
           </p>
 
           <v-select
+            placeholder="Ver Todos"
             v-model="municipality"
             :items="municipalities"
             hide-details outlined dense
@@ -126,7 +129,7 @@ import { mapMutations, mapGetters } from 'vuex'
 
 export default {
   data: () => ({
-    schedule: null,
+    schedule: 'week',
     schedules: [
       { text: 'Entre Semana', value: 'week' },
       { text: 'Fines de Semana', value: 'weekend' },

@@ -298,6 +298,13 @@ let getters = {
 
   dose: state => state.dose,
   doses: (state, getters) => {
+    const OrderCondition = {
+      'PRIMERA': 0,
+      'SEGUNDA': 1,
+      'REFUERZO': 3,
+      'CERRADO HOY': 4,
+    }
+
     let ordered = []
     for (const center of getters.filtered) {
       for (const [vaccine, doses] of Object.entries(center.vaccines)) {
@@ -307,6 +314,7 @@ let getters = {
     }
 
     return toUpperCase(_.orderBy(_.uniq(ordered)))
+        .sort((a, b) => OrderCondition[a.text] - OrderCondition[b.text])
   },
 
   group: state => state.group,
