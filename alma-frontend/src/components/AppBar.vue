@@ -4,31 +4,36 @@
       <v-container>
         <v-row justify="center">
           <v-col cols="12" md="9">
-            <div class="d-flex justify-space-around align-center">
-              <span class="text-h4 font-weight-medium"
+            <div class="d-flex justify-space-between align-center">
+              <span class="text-h4 font-weight-bold"
                   style="color: #7F6CF6; font-family: 'Poppins', sans-serif !important;">
                 alma
               </span>
 
-              <v-btn text small>
+              <v-btn text small to="/filters"
+                  class="no-uppercase font-weight-bold">
                 Busca Tu Vacuna
               </v-btn>
 
-              <v-btn text small>
+              <v-btn text small class="no-uppercase font-weight-bold">
                 Directorio de Salud
               </v-btn>
 
-              <v-btn text small>
+              <v-btn text small class="no-uppercase font-weight-bold"
+                  href="https://docs.almabot.com/"
+                  target="_blank">
                 Preguntas Frecuentes
               </v-btn>
 
               <v-btn rounded color="#FFE6B7" elevation="0"
+                  class="no-uppercase font-weight-bold"
                   href="tel:1801-0054-321">
                 <v-icon>mdi-phone-outline</v-icon>
                 1801-0054-321
               </v-btn>
 
               <v-btn rounded color="#FFE6B7" elevation="0"
+                  class="no-uppercase font-weight-bold"
                   href="https://api.whatsapp.com/send?phone=50224144321&text=Preg%C3%BAntale%20a%20ALMA">
                 <v-icon>mdi-whatsapp</v-icon>
                 Whatsapp
