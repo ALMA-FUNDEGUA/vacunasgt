@@ -31,9 +31,9 @@
           </v-icon>
         </v-btn>
     </v-toolbar>
-    <v-img src="@/assets/images/web alma-05.svg">
+    <v-img class="mb-5" src="@/assets/images/web alma-05.svg">
     </v-img>
-    <h2 style="font-weight:bold; text-align:center; justify-content:center">
+    <h2 style="font-weight:bold; text-align:center; justify-content:center;color: #3E3E3E;">
       ¡Hola! Soy Alma y estoy aqui para ayudarte.
     </h2>
     <v-btn
@@ -41,14 +41,15 @@
       block
       color = "#FFE6B7"
       large
-      class="my-4"
+      class="my-5"
       link to="/filters"
       style="text-transform: unset !important;"
       >      
         Buscar mi vacuna
     </v-btn>
-    </v-card>
+    <!-- </v-card> -->
   </header>
+  </section>
 </template>
 
 <style>

@@ -1,5 +1,6 @@
 <template>
   <section>
+    <!-- <new-center-list></new-center-list> -->
     <site-header></site-header>
     <twitter-feed></twitter-feed>
     <contact-me></contact-me>
@@ -24,7 +25,7 @@ import TwitterFeed from '../components/TwitterFeed.vue';
 import SiteFooter from "../components/SiteFooter.vue";
 import FrequentQuestions from '../components/FrequentQuestions.vue';
 import SiteHeader from '../components/SiteHeader.vue';
-import NewCenterList from '../components/NewCenterList.vue';
+// import NewCenterList from '../components/NewCenterList.vue';
 
 export default {
   components: {
@@ -33,6 +34,7 @@ export default {
     SiteFooter,
     FrequentQuestions,
     SiteHeader,
+    // NewCenterList
   }
 }
 
