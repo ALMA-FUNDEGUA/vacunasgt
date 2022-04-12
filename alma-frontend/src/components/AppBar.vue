@@ -5,10 +5,9 @@
         <v-row justify="center">
           <v-col cols="12" md="9">
             <div class="d-flex justify-space-between align-center">
-              <span class="text-h4 font-weight-bold"
-                  style="color: #7F6CF6; font-family: 'Poppins', sans-serif !important;">
+              <a href="/" class="text-h4 font-weight-bold site-title">
                 alma
-              </span>
+              </a>
 
               <v-btn text small to="/filters"
                   class="no-uppercase font-weight-bold">
@@ -45,3 +44,11 @@
     </v-app-bar>
   </section>
 </template>
+
+<style scoped>
+.site-title {
+  color: #7F6CF6;
+  font-family: 'Poppins', sans-serif !important;
+  text-decoration: none;
+}
+</style>
