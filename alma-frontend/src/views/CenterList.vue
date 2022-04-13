@@ -85,6 +85,14 @@
           <l-marker :lat-lng="markerLatLng">
             <l-icon :icon-url="iconUrl"
           /></l-marker>
+
+          <l-marker :lat-lng="markerLatLng2">
+            <l-icon :icon-url="iconUrl"
+          /></l-marker>
+
+          <l-marker :lat-lng="markerLatLng3">
+            <l-icon :icon-url="iconUrl"
+          /></l-marker>
           <l-control-layers />
         </l-map>
       </div>
@@ -315,6 +323,7 @@ import { mapGetters, mapMutations } from "vuex";
 import CenterDetail from "../components/CenterDetail.vue";
 import CenterListFilters from "../components/CenterListFilters.vue";
 import SiteFooter from "../components/SiteFooter.vue";
+import "leaflet/dist/leaflet.css";
 
 import { LMap, LMarker, LTileLayer, LControlLayers, LIcon } from "vue2-leaflet";
 
@@ -330,6 +339,23 @@ export default {
     LIcon,
   },
 
+  ngAfterViewChecked: () => {
+    this.map.invalidateSize(true);
+    this.map.center = this.center;
+  },
+
+  // Data de prueba de punteros
+  PuntosMapa: () => {
+    var centrosVacunas = [];
+
+    for (var i = 0; i < centrosVacunas.length; i++) {
+      var marker = new LMarker([centrosVacunas[i][1], centrosVacunas[i][2]]);
+      console.log(marker);
+    }
+  },
+
+  //14.5644777,-90.5648528
+  //https://www.google.es/maps/place/Centra+Norte/@14.6453045,-90.4604147,13.82z/data=!4m5!3m4!1s0x8589a2ad5be3bb13:0x37a1521338b0c9c2!8m2!3d14.6470499!4d-90.4511337?hl=es
   data: () => ({
     apiKey: process.env.VUE_APP_GOOGLE_MAPS_APIKEY,
     loading: true,
@@ -342,10 +368,12 @@ export default {
       { text: "Fines de Semana", value: "weekend" },
     ],
     url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    zoom: 15,
+    zoom: 9,
     markerLatLng: [14.4818156, -90.5351601],
+    markerLatLng2: [14.5644777, -90.5648528],
+    markerLatLng3: [14.6453045, -90.4604147],
     iconUrl: "http://www.clker.com/cliparts/R/B/J/Z/k/m/map-marker-hi.png",
-    iconSize: [50, 50],
+    iconSize: [100, 100],
   }),
 
   computed: {
