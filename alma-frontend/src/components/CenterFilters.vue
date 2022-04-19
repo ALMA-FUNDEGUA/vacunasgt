@@ -1,17 +1,15 @@
 <template>
   <section>
-    <v-app-bar flat color="#E4DFFF">
-      <v-btn icon @click="$router.go(-1)">
-        <v-icon>mdi-chevron-left</v-icon>
-      </v-btn>
-
-      <v-toolbar-title class="pl-0 font-weight-bold">
-        Vacunas
-      </v-toolbar-title>
-    </v-app-bar>
-
     <v-container>
-      <v-row>
+      <v-row v-if="$vuetify.breakpoint.mdAndUp">
+        <v-col class="pb-1">
+          <span class="text-h5 font-weight-bold">
+            Encuentra tu vacuna COVID-19
+          </span>
+        </v-col>
+      </v-row>
+
+      <v-row v-else>
         <v-col class="pb-1">
           <span class="font-weight-bold">
             ¿Qué estás buscando?
@@ -59,17 +57,21 @@
             ¿Qué dosis buscas? (opcional)
           </p>
 
-          <div>
-            <v-radio-group v-model="dose">
-              <v-radio
-                v-for="(dose, i) in doses"
-                :key="i"
-                :label="dose.text"
-                :value="dose.value"
-                color="#6751EE"
-              ></v-radio>
-            </v-radio-group>
-          </div>
+          <v-radio-group v-model="dose">
+            <v-container>
+              <v-row>
+                <v-col cols="12" md="6"
+                    v-for="(dose, i) in doses" :key="i"
+                    class="pb-0">
+                  <v-radio
+                    :label="dose.text"
+                    :value="dose.value"
+                    color="#6751EE"
+                  ></v-radio>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-radio-group>
         </v-col>
       </v-row>
 
@@ -114,13 +116,6 @@
         </v-col>
       </v-row>
     </v-container>
-
-    <v-app-bar absolute bottom>
-      <v-btn color="#FFD789" block rounded elevation="0"
-          @click="$router.push('mobile-centers')">
-        Aplicar Filtros
-      </v-btn>
-    </v-app-bar>
   </section>
 </template>
 

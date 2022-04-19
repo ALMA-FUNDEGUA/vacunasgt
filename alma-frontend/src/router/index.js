@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Onboarding from '../views/Onboarding.vue'
 
 Vue.use(VueRouter)
 
@@ -8,7 +7,7 @@ const routes = [
   {
     path: '/',
     name: 'Onboarding',
-    component: Onboarding
+    component: () => import('@/views/HomeView.vue')
   },
 
   {
@@ -26,7 +25,7 @@ const routes = [
   {
     path: '/testing',
     name: 'TestingView',
-    component: () => import('@/views/TestingView.vue'),
+    component: () => import('@/views/HomeView.vue'),
   },
 
   {
