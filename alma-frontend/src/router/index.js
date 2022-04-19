@@ -28,6 +28,12 @@ const routes = [
     name: 'TestingView',
     component: () => import('@/views/TestingView.vue'),
   },
+
+  {
+    path: '/mobile-centers',
+    name: 'MobileCenterList',
+    component: () => import('@/views/MobileCenterList.vue'),
+  },
 ]
 
 const router = new VueRouter({
