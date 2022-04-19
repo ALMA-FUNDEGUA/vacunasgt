@@ -117,7 +117,7 @@
 
     <v-app-bar absolute bottom>
       <v-btn color="#FFD789" block rounded elevation="0"
-          @click="$router.push('dashboard')">
+          @click="$router.push('mobile-centers')">
         Aplicar Filtros
       </v-btn>
     </v-app-bar>
