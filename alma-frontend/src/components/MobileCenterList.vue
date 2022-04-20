@@ -291,9 +291,9 @@ color: #000000">
         hide-default-footer
       >
         <!-- MAPA -->
-        <map-filter-mobile> </map-filter-mobile>
 
         <template #header="{ items }">
+          <map-filter-mobile> </map-filter-mobile>
           <v-card-title
             style="
               font-family: 'Poppins';
