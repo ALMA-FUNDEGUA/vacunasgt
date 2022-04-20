@@ -27,7 +27,7 @@
     </section>
 
     <section v-else>
-      <v-app-bar flat color="#E4DFFF">
+      <v-app-bar app flat color="#E4DFFF">
         <v-btn icon @click="$router.go(-1)">
           <v-icon>mdi-chevron-left</v-icon>
         </v-btn>
@@ -39,7 +39,7 @@
 
       <center-filters></center-filters>
 
-      <v-app-bar absolute bottom>
+      <v-app-bar class="mt-2">
         <v-btn
           color="#FFD789"
           block
