@@ -17,6 +17,8 @@
 
     <!--<div style="height: 15vh;"></div>-->
 
+    <map-filter-mobile> </map-filter-mobile>
+
     <!-- Filter chips -->
     <v-container>
       <template>
@@ -71,24 +73,6 @@
       </template>
     </v-container>
     <!-- End filter chips-->
-
-    <template>
-      <div class="mapa">
-        <l-map
-          style="height: 300px"
-          v-model="zoom"
-          :zoom="zoom"
-          :center="[14.4818156, -90.5351601]"
-          @move="log('move')"
-        >
-          <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-          <l-marker :lat-lng="markerLatLng">
-            <l-icon :icon-url="iconUrl"
-          /></l-marker>
-          <l-control-layers />
-        </l-map>
-      </div>
-    </template>
 
     <v-container class="center-list-content">
       <v-data-iterator
@@ -316,20 +300,24 @@ import CenterDetail from "../components/CenterDetail.vue";
 import CenterListFilters from "../components/CenterListFilters.vue";
 import SiteFooter from "../components/SiteFooter.vue";
 
-import { LMap, LMarker, LTileLayer, LControlLayers, LIcon } from "vue2-leaflet";
+import MapFilterMobile from "../components/MapFilterMobile.vue";
 
 export default {
   components: {
     CenterDetail,
     CenterListFilters,
     SiteFooter,
-    LMap,
-    LMarker,
-    LTileLayer,
-    LControlLayers,
-    LIcon,
+
+    MapFilterMobile,
   },
 
+  ngAfterViewChecked: () => {
+    this.map.invalidateSize(true);
+    this.map.center = this.center;
+  },
+
+  //14.5644777,-90.5648528
+  //https://www.google.es/maps/place/Centra+Norte/@14.6453045,-90.4604147,13.82z/data=!4m5!3m4!1s0x8589a2ad5be3bb13:0x37a1521338b0c9c2!8m2!3d14.6470499!4d-90.4511337?hl=es
   data: () => ({
     apiKey: process.env.VUE_APP_GOOGLE_MAPS_APIKEY,
     loading: true,
@@ -341,11 +329,6 @@ export default {
       { text: "Entre Semana", value: "week" },
       { text: "Fines de Semana", value: "weekend" },
     ],
-    url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    zoom: 15,
-    markerLatLng: [14.4818156, -90.5351601],
-    iconUrl: "http://www.clker.com/cliparts/R/B/J/Z/k/m/map-marker-hi.png",
-    iconSize: [50, 50],
   }),
 
   computed: {
@@ -360,12 +343,6 @@ export default {
       getInflux: "influx",
       getEntrance: "entrance",
     }),
-
-    // 1) Store all filtered map locations on an array
-
-    // 2) for loop to create positions on map
-
-    // 3) Render map
 
     department: {
       get() {
