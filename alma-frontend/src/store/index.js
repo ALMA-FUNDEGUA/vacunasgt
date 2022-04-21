@@ -301,7 +301,9 @@ let getters = {
     const OrderCondition = {
       'PRIMERA': 0,
       'SEGUNDA': 1,
-      'REFUERZO': 3,
+      'TERCERA': 3,
+      'CUARTA': 4,
+      'REFUERZO': 5,
       'CERRADO HOY': 4,
     }
 
@@ -315,6 +317,7 @@ let getters = {
 
     return toUpperCase(_.orderBy(_.uniq(ordered)))
         .sort((a, b) => OrderCondition[a.text] - OrderCondition[b.text])
+        .filter(item => item.text !== 'CERRADO HOY')
   },
 
   group: state => state.group,
