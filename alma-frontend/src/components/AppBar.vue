@@ -48,7 +48,6 @@
 <style scoped>
 .site-title {
   color: #7F6CF6;
-  font-family: 'Poppins', sans-serif !important;
   text-decoration: none;
 }
 </style>
