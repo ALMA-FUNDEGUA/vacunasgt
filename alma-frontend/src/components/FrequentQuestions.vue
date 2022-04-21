@@ -2,14 +2,12 @@
   <v-container>
     <!-- <v-row justify="center"> -->
     <!-- <v-col cols="7"> -->
-    <p
+    <p class="text-center"
       style="
-        font-family: 'Poppins';
         font-style: normal;
         font-weight: 700;
         font-size: 18px;
         line-height: 27px;
-        text-align: center;
         color: #3e3e3e;
       "
     >
@@ -291,7 +289,6 @@
       >
         <p
           style="
-            font-family: 'Poppins';
             font-style: normal;
             font-weight: 600;
             font-size: 16px;
