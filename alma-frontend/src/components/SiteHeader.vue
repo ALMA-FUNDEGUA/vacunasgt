@@ -37,11 +37,13 @@
       >
         ¡Hola! Soy Alma y estoy aqui para ayudarte.
       </h2>
+
       <v-btn
         rounded
         color="#FFE6B7"
         large
-        class="my-5 mb-15 ma-12"
+        block
+        class="mt-9 my-5 mb-15 d-flex justify-center"
         link
         to="/filters"
         style="
@@ -53,6 +55,7 @@
       >
         Buscar mi vacuna
       </v-btn>
+
       <!-- </v-card> -->
     </header>
   </section>

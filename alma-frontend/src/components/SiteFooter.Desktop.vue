@@ -15,7 +15,7 @@
               href="tel:1801-0054-321"
               class="no-uppercase mr-5"
             >
-              <v-icon>mdi-phone-outline</v-icon>
+              <v-icon style="margin-right: 10px">mdi-phone-outline</v-icon>
               1-801-00-54321
             </v-btn>
 
@@ -27,7 +27,7 @@
               href="https://api.whatsapp.com/send?phone=50224144321&text=Preg%C3%BAntale%20a%20ALMA"
               target="_blank"
             >
-              <v-icon>mdi-whatsapp</v-icon>
+              <v-icon style="margin-right: 10px">mdi-whatsapp</v-icon>
               Hablanos por Whatsapp
             </v-btn>
           </section>
