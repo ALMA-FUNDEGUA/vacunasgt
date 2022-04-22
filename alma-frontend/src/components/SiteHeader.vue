@@ -9,46 +9,52 @@
         <v-btn
           fab
           small
-          color=#F8F7FF
-          elevation=0
+          color="#F8F7FF"
+          elevation="0"
           class="mr-3"
           href="https://api.whatsapp.com/send?phone=50224144321&text=Preg%C3%BAntale%20a%20ALMA"
         >
-          <v-icon color=#3E3E3E @click="resetCase">
-            mdi-whatsapp
-          </v-icon>
+          <v-icon color="#3E3E3E" @click="resetCase"> mdi-whatsapp </v-icon>
         </v-btn>
 
-        <v-btn
-          fab
-          small
-          color=#F8F7FF
-          elevation=0
-          href="tel:1801-0054-321"
-        >
-          <v-icon color=#3E3E3E @click="resetCase">
+        <v-btn fab small color="#F8F7FF" elevation="0" href="tel:1801-0054-321">
+          <v-icon color="#3E3E3E" @click="resetCase">
             mdi-phone-outline
           </v-icon>
         </v-btn>
-    </v-toolbar>
-    <v-img class="mb-5" src="@/assets/images/web alma-05.svg">
-    </v-img>
-    <h2 style="font-weight:bold; text-align:center; justify-content:center;color: #3E3E3E;">
-      ¡Hola! Soy Alma y estoy aqui para ayudarte.
-    </h2>
-    <v-btn
-      rounded
-      block
-      color = "#FFE6B7"
-      large
-      class="my-5"
-      link to="/filters"
-      style="text-transform: unset !important;"
-      >      
+      </v-toolbar>
+
+      <v-img class="mt-n14 mb-5" src="@/assets/images/web alma-05.svg"> </v-img>
+      <h2
+        style="
+          font-weight: bold;
+          text-align: center;
+          justify-content: center;
+          color: #3e3e3e;
+          margin-right: 20px;
+          margin-left: 20px;
+        "
+      >
+        ¡Hola! Soy Alma y estoy aqui para ayudarte.
+      </h2>
+      <v-btn
+        rounded
+        color="#FFE6B7"
+        large
+        class="my-5 mb-15 ma-12"
+        link
+        to="/filters"
+        style="
+          text-align: center;
+          justify-content: center;
+          text-transform: unset !important;
+          width: 72%;
+        "
+      >
         Buscar mi vacuna
-    </v-btn>
-    <!-- </v-card> -->
-  </header>
+      </v-btn>
+      <!-- </v-card> -->
+    </header>
   </section>
 </template>
 
