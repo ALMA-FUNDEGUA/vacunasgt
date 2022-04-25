@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import MobileCenterList from '../components/MobileCenterList.vue';
+import MobileCenterList from "../components/MobileCenterList.vue";
 
 export default {
   components: {
-    MobileCenterList
-  }
-}
+    MobileCenterList,
+  },
+};
 </script>

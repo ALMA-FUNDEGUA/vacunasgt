@@ -36,7 +36,7 @@
         <v-col cols="12" md="9" class="pb-0">
           <div class="d-flex justify-space-between align-center">
             <span class="text-h3 font-weight-bold"
-                style="color: #7F6CF6; font-family: 'Poppins', sans-serif !important;">
+                style="color: #7F6CF6">
               alma
             </span>
 
