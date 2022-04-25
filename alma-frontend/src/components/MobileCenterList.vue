@@ -244,71 +244,7 @@
         </template>
       </v-data-iterator>
 
-      <v-bottom-navigation fixed app horizontal grow height=70 background-color=#E4DFFF>
-        <v-btn @click="$router.push('/');moveToTop()">
-          <v-col cols="12">
-            <v-row style="place-content: center;">
-              <v-icon large color=#A698FF>
-                mdi-home
-              </v-icon>
-            </v-row>
-            
-            <v-row style="place-content: center">
-              <span style="font-family: 'Poppins'; font-style: normal; font-weight: 400; font-size: 10px; line-height: 22px; color: #A698FF;">
-                Inicio
-              </span>
-            </v-row>
-          </v-col>
-        </v-btn>
-
-        <v-btn text @click="$router.push('/filters')">
-          <v-col cols="12">
-            <v-row style="place-content: center;">
-              <v-icon large color=#A698FF>
-                mdi-needle
-              </v-icon>
-            </v-row>
-            
-            <v-row style="place-content: center">
-              <span style="font-family: 'Poppins'; font-style: normal; font-weight: 400; font-size: 10px; line-height: 22px; color: #A698FF;">
-                Vacunas
-              </span>
-            </v-row>
-          </v-col>
-        </v-btn>
-
-        <v-btn text href="https://docs.almabot.com/docs" target="_blank">
-          <v-col cols="12">
-            <v-row style="place-content: center;">
-              <v-icon large color=#A698FF>
-                mdi-account-box
-              </v-icon>
-            </v-row>
-            
-            <v-row style="place-content: center">
-              <span style="font-family: 'Poppins'; font-style: normal; font-weight: 400; font-size: 10px; line-height: 22px; color: #A698FF;">
-                Directorio
-              </span>
-            </v-row>
-          </v-col>
-        </v-btn>
-
-        <v-btn text href="https://docs.almabot.com/" target="blank">
-          <v-col cols="12">
-            <v-row style="place-content: center;">
-              <v-icon large color=#A698FF>
-                mdi-help-circle
-              </v-icon>
-            </v-row>
-            
-            <v-row style="place-content: center">
-              <span style="font-family: 'Poppins'; font-style: normal; font-weight: 400; font-size: 10px; line-height: 22px; color: #A698FF;">
-                Preguntas
-              </span>
-            </v-row>
-          </v-col>
-        </v-btn>
-      </v-bottom-navigation>
+      <bottom-navigation-mobile></bottom-navigation-mobile>
     </v-card>
 
     <v-dialog v-model="detail"
@@ -327,9 +263,12 @@ import CenterDetail from "../components/CenterDetail.vue";
 // import CenterListFilters from "../components/CenterListFilters.vue";
 // import SiteFooter from "../components/SiteFooter.vue";
 
+import BottomNavigationMobile from '../components/BottomNavigation.Mobile.vue';
+
 export default {
   components: {
     CenterDetail,
+    BottomNavigationMobile,
   },
 
   data: () => ({
