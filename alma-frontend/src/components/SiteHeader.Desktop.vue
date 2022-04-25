@@ -22,7 +22,9 @@
         </v-col>
 
         <v-col cols="6">
-          <v-img :src="require('@/assets/images/web alma-05.svg')"></v-img>
+          <v-img
+            :src="require('@/assets/images/web alma izquierda-01.svg')"
+          ></v-img>
         </v-col>
       </v-row>
     </v-container>
