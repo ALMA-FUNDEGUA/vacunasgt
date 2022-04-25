@@ -39,13 +39,13 @@
 </template>
 
 <script>
-import AppBar from '@/components/AppBar.vue';
-import SiteHeaderDesktop from '@/components/SiteHeader.Desktop.vue';
-import TwitterFeed from '@/components/TwitterFeed.vue';
-import ContactMeDesktop from '@/components/ContactMe.Desktop.vue';
-import SocialMediaDesktop from '@/components/SocialMedia.Desktop.vue';
-import FrequentQuestions from '@/components/FrequentQuestions.vue';
-import SiteFooterDesktop from '@/components/SiteFooter.Desktop.vue';
+import AppBar from "@/components/AppBar.vue";
+import SiteHeaderDesktop from "@/components/SiteHeader.Desktop.vue";
+import TwitterFeed from "@/components/TwitterFeed.vue";
+import ContactMeDesktop from "@/components/ContactMe.Desktop.vue";
+import SocialMediaDesktop from "@/components/SocialMedia.Desktop.vue";
+import FrequentQuestions from "@/components/FrequentQuestions.vue";
+import SiteFooterDesktop from "@/components/SiteFooter.Desktop.vue";
 
 export default {
   components: {
@@ -56,6 +56,6 @@ export default {
     SocialMediaDesktop,
     FrequentQuestions,
     SiteFooterDesktop,
-  }
-}
+  },
+};
 </script>

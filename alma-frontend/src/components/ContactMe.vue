@@ -5,7 +5,7 @@
         <v-col>
           <p
             class="text-center font-weight-bold"
-            style="margin-top: -5%; margin-bottom: -5%"
+            style="margin-top: 2%; margin-bottom: -5%"
           >
             Comunícate conmigo
           </p>
@@ -16,7 +16,7 @@
     <v-container>
       <v-row>
         <v-col cols="12">
-          <v-card color="#F8F6FF" flat>
+          <v-card color="#F8F6FF" flat class="rounded-xl">
             <section
               class="d-flex flex-column py-5 justify-center align-center"
             >
@@ -44,10 +44,10 @@
                   rounded
                   color="#FFE6B7"
                   elevation="0"
-                  href="tel:1801-0054-321"
+                  href="tel:1-801-00-54321"
                 >
-                  <v-icon>mdi-phone-outline</v-icon>
-                  1801-0054-321
+                  <v-icon style="margin-right: 10px">mdi-phone-outline</v-icon>
+                  1-801-00-54321
                 </v-btn>
               </section>
             </section>
@@ -59,7 +59,7 @@
     <v-container>
       <v-row>
         <v-col cols="12">
-          <v-card color="#DFF5EB" flat>
+          <v-card color="#DFF5EB" flat class="rounded-xl">
             <section
               class="d-flex flex-column py-5 justify-center align-center"
             >
@@ -96,7 +96,7 @@
                   elevation="0"
                   href="https://api.whatsapp.com/send?phone=50224144321&text=Preg%C3%BAntale%20a%20ALMA"
                 >
-                  <v-icon style="margin-right: 6px">mdi-whatsapp</v-icon>
+                  <v-icon style="margin-right: 10px">mdi-whatsapp</v-icon>
 
                   <span style="text-transform: none"> WhatsApp </span>
                 </v-btn>
@@ -110,7 +110,7 @@
     <v-container>
       <v-row>
         <v-col cols="12">
-          <v-card color="#FFEBE8" flat>
+          <v-card color="#FFEBE8" flat class="rounded-xl">
             <section
               class="d-flex flex-column py-5 justify-center align-center"
             >
@@ -149,7 +149,7 @@
                     elevation="0"
                     href="https://twitter.com/alma_responde"
                   >
-                    <v-icon style="margin-right: 6px">mdi-twitter</v-icon>
+                    <v-icon style="margin-right: 8px">mdi-twitter</v-icon>
 
                     <span style="text-transform: none">Twitter</span>
                   </v-btn>
@@ -160,7 +160,7 @@
                     elevation="0"
                     href="https://www.facebook.com/chatbotALMA"
                   >
-                    <v-icon style="margin-right: 6px">mdi-facebook</v-icon>
+                    <v-icon style="margin-right: 8px">mdi-facebook</v-icon>
                     <span style="text-transform: none">Facebook</span>
                   </v-btn>
                 </section>
