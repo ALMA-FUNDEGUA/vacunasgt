@@ -1,408 +1,208 @@
 <template>
- <section>
-    <v-card
-        
-        flat
-        class="text-center">
-    
-    <!-- Top bar -->
-    <v-toolbar
-      flat
-      color=#E4DFFF
-    >
-    <v-btn
-          icon
-          large
-          link to="/"
-        >
-          <v-icon>
-            mdi-chevron-left
-          </v-icon>
+  <section>
+    <v-card flat class="text-center">
+      <v-toolbar flat color=#E4DFFF>
+        <v-btn icon large link to="/">
+          <v-icon>mdi-chevron-left</v-icon>
         </v-btn>
-      
-      <span style="font-family: 'Poppins';
-font-style: normal;
-font-weight: 700;
-font-size: 18px;
-line-height: 27px;">Vacunas</span>
-    <v-spacer/>
-        <v-btn
-          icon
-          link to="/filters"
-        >
+
+        <span style="font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 18px; line-height: 27px;">
+          Vacunas
+        </span>
+        
+        <v-spacer/>
+        
+        <v-btn icon link to="/filters">
           <v-icon @click="resetCase">
             mdi-filter-variant
           </v-icon>
         </v-btn>
 
-        <span style="font-family: 'Poppins';
-font-style: normal;
-font-weight: 700;
-font-size: 14px;
-line-height: 21px;">
+        <span style="font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 14px; line-height: 21px;">
           Filtros
         </span>
-    </v-toolbar>
-    <!-- Top bar end -->
+      </v-toolbar>
 
+      <v-container>
+        <template>
+          <div class="text-center">
+            <v-chip class="ma-2" color=#CDC4FF outlined v-if="department != null">
+              <span style = "font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 12px; line-height: 16px; color: black;">
+                {{department}}
+              </span>
 
-    <!-- Filter chips -->
-    <v-container>  
-      <template>
-        <div class="text-center">
+              <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
+              
+              <v-icon color="black">
+                mdi-chevron-down
+              </v-icon>
+            </v-chip>
 
-          <v-chip
-            class="ma-2"
-            color=#CDC4FF
-            outlined
-            v-if="department != null"
-          >
-          <span style = "font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 12px;
-            line-height: 16px;
-            color: black;"
-          >
-            {{department}}
-          </span>
-          <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
-          <v-icon color="black">
-            mdi-chevron-down
-          </v-icon>
-          </v-chip>
+            <v-chip class="ma-2" color=#CDC4FF outlined v-if="municipality != null">
+              <span style = "font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 12px; line-height: 16px; color: black;">
+                {{municipality}}
+              </span>
 
-          <v-chip
-            class="ma-2"
-            color=#CDC4FF
-            outlined
-            v-if="municipality != null"
-          >
-          <span style = "font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 12px;
-            line-height: 16px;
-            color: black;"
-          >
-            {{municipality}}
-          </span>
-          <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
-          <v-icon color="black">
-            mdi-chevron-down
-          </v-icon>
-          </v-chip>
+              <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
 
-          <!-- Test chip -->
-          <v-chip
-            class="ma-2"
-            color=#CDC4FF
-            outlined
-            v-if="vaccine != null"
-          >
-          <span style = "font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 12px;
-            line-height: 16px;
-            color: black;"
-          >
-            {{vaccine}}
-          </span>
-          <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
-          <v-icon color="black">
-            mdi-chevron-down
-          </v-icon>
-          </v-chip>
-          <!-- Test chip end -->
+              <v-icon color="black">
+                mdi-chevron-down
+              </v-icon>
+            </v-chip>
 
-          <v-chip
-            class="ma-2"
-            color=#CDC4FF
-            outlined
-            v-if="group != null"
-          >
-          <span style = "font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 12px;
-            line-height: 16px;
-            color: black;"
-          >
-            {{group}}
-          </span>
-          <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
-          <v-icon color="black">
-            mdi-chevron-down
-          </v-icon>
-          </v-chip>
+            <v-chip class="ma-2" color=#CDC4FF outlined v-if="vaccine != null">
+              <span style = "font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 12px; line-height: 16px; color: black;">
+                {{vaccine}}
+              </span>
 
-          <v-chip
-            class="ma-2"
-            color=#CDC4FF
-            outlined
-            v-if="dose != null"
-          >
-          <span style = "font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 12px;
-            line-height: 16px;
-            color: black;"
-          >
-            {{dose}}
-          </span>
-          <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
-          <v-icon color="black">
-            mdi-chevron-down
-          </v-icon>
-          </v-chip>
+              <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
 
-          <v-chip
-            class="ma-2"
-            color=#CDC4FF
-            outlined
-            v-if="requirement != null"
-          >
-          <span style = "font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 12px;
-            line-height: 16px;
-            color: black;"
-          >
-            {{requirement}}
-          </span>
-          <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
-          <v-icon color="black">
-            mdi-chevron-down
-          </v-icon>
-          </v-chip>
+              <v-icon color="black">
+                mdi-chevron-down
+              </v-icon>
+            </v-chip>
 
-          <v-chip
-            class="ma-2"
-            color=#CDC4FF
-            outlined
-            v-if="influx != null"
-          >
-          <span style = "font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 12px;
-            line-height: 16px;
-            color: black;"
-          >
-            {{influx}}
-          </span>
-          <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
-          <v-icon color="black">
-            mdi-chevron-down
-          </v-icon>
-          </v-chip>
+            <v-chip class="ma-2" color=#CDC4FF outlined v-if="group != null">
+              <span style = "font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 12px; line-height: 16px; color: black;">
+                {{group}}
+              </span>
 
-          <v-chip
-            class="ma-2"
-            color=#CDC4FF
-            outlined
-            v-if="entrance != null"
-          >
-          <span style = "font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 12px;
-            line-height: 16px;
-            color: black;"
-          >
-            {{entrance}}
-          </span>
-          <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
-          <v-icon color="black">
-            mdi-chevron-down
-          </v-icon>
-          </v-chip>
-  
-        </div>
-      </template>
-    </v-container>
-    <!-- End filter chips-->
+              <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
 
+              <v-icon color="black">
+                mdi-chevron-down
+              </v-icon>
+            </v-chip>
 
-    <!-- Map placeholder -->
-    <iframe
-          width="100%"
-          height="300"
-          style="border:0"
-          loading="lazy"
-          :src="`https://www.google.com/maps/embed/v1/place?key=${this.apiKey}&q=Auditorio Municipal Villa Canales`">
-        </iframe>
+            <v-chip class="ma-2" color=#CDC4FF outlined v-if="dose != null">
+              <span style = "font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 12px; line-height: 16px; color: black;">
+                {{dose}}
+              </span>
 
+              <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
 
-    <!-- Title and cards for centers -->
+              <v-icon color="black">
+                mdi-chevron-down
+              </v-icon>
+            </v-chip>
 
-    
-    
-    <!-- <v-spacer/> -->
-    
-    <!-- Vaccine center card test -->
-            <!-- <v-card>
-              <v-card-title style="font-family: 'Poppins';
-font-style: normal;
-font-weight: 700;
-font-size: 18px;
-line-height: 27px;
-color: #000000;"
-              class="subtitile-padding:2px"
-              >
-                Lugar
-                <v-spacer/>
-                <v-icon large color=#A698FF>
-            mdi-chevron-right
-          </v-icon>
-              </v-card-title>             
-              <v-card-subtitle class="pb-1" style="text-align:left"> 
-                Ultima actualización de datos:
-              </v-card-subtitle>
-              <v-card-text style="font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 22px;
-text-align: left;
-color: #000000">
-                Horario
-                <br>
-                Direccion
-              </v-card-text>
-            </v-card> -->
+            <v-chip class="ma-2" color=#CDC4FF outlined v-if="requirement != null">
+              <span style = "font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 12px; line-height: 16px; color: black;">
+                {{requirement}}
+              </span>
 
+              <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
 
+              <v-icon color="black">
+                mdi-chevron-down
+              </v-icon>
+            </v-chip>
+
+            <v-chip class="ma-2" color=#CDC4FF outlined v-if="influx != null">
+              <span style = "font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 12px; line-height: 16px; color: black;">
+                {{influx}}
+              </span>
+
+              <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
+
+              <v-icon color="black">
+                mdi-chevron-down
+              </v-icon>
+            </v-chip>
+
+            <v-chip class="ma-2" color=#CDC4FF outlined v-if="entrance != null">
+              <span style = "font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 12px; line-height: 16px; color: black;">
+                {{entrance}}
+              </span>
+
+              <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
+
+              <v-icon color="black">
+                mdi-chevron-down
+              </v-icon>
+            </v-chip>    
+          </div>
+        </template>
+      </v-container>
+
+      <iframe
+        width="100%"
+        height="300"
+        style="border:0"
+        loading="lazy"
+        :src="`https://www.google.com/maps/embed/v1/place?key=${this.apiKey}&q=Auditorio Municipal Villa Canales`">
+      </iframe>
 
       <v-data-iterator
-        :items="centers"
-        :search="search"
-        :loading="loading"
-        :items-per-page="-1"
-        hide-default-footer
-      >
+          :items="centers"
+          :search="search"
+          :loading="loading"
+          :items-per-page="-1"
+          hide-default-footer>
         <template #header="{ items }">
-    <v-card-title style="font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 18px;
-            line-height: 27px;"
-            class="justify-center"
-    >
-      Resultados ({{ items.length }})
-      
-    </v-card-title>
-    <v-divider></v-divider>
-
+          <v-card-title class="justify-center" style="font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 18px; line-height: 27px;">
+            Resultados ({{ items.length }})
+          </v-card-title>
+          
+          <v-divider></v-divider>
         </template>
 
         <template #default="{ items }">
-          <!-- <v-row> -->
-            <!-- Center List -->
-            <v-card v-for="(center, i) in items" :key="`center-${i}`">
-              <!-- <v-card @click="onSelect(center.name)"> -->
-               
-                <v-card-title style="font-family: 'Poppins';
-font-style: normal;
-font-weight: 700;
-font-size: 18px;
-line-height: 27px;
-color: #000000;
-text-align:left;
-word-break: break-word;"
-              
-              >
+          <v-card v-for="(center, i) in items" :key="`center-${i}`">
+            <v-card-title style="font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 18px; line-height: 27px; color: #000000; text-align:left; word-break: break-word;">
               <v-row dense>
                 <v-col cols="11">
-                      Lugar: {{ center.name }}
+                  Lugar: {{ center.name }}
                 </v-col>
 
-
-                <v-col cols="1">    
-                  <!-- <v-spacer/> -->
-                 <v-icon large color=#A698FF>
-            mdi-chevron-right
-          </v-icon>
+                <v-col cols="1">
+                  <v-icon large color=#A698FF>
+                    mdi-chevron-right
+                  </v-icon>
                 </v-col>
               </v-row>
-                </v-card-title>
-                <v-card-subtitle class="pb-1" style="text-align:left
-                font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-line-height: 22px;
-color: #848282;"> 
-                Ultima actualización de datos:
-              </v-card-subtitle>
-              
+            </v-card-title>
+            
+            <v-card-subtitle class="pb-1" style="text-align:left font-family: 'Poppins'; font-style: normal; font-weight: 400; font-size: 12px; line-height: 22px; color: #848282;"> 
+              Ultima actualización de datos:
+            </v-card-subtitle>
+            
+            <v-card-text style="font-family: 'Poppins'; font-style: normal; font-weight: 400; font-size: 14px; line-height: 22px;">
+              <v-row dense>
+                <v-col cols="1">
+                  <v-icon size=25 top>
+                    mdi-clock-outline
+                  </v-icon>
+                </v-col>
 
-                <v-card-text style="font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 22px;">
+                <v-col cols="11" class="d-flex flex-column justify-end black--text text-left">
+                  <div>
+                    <span v-if="center.schedule.week">      
+                      Lun - Vie > {{ center.schedule.week }}
+                      <br>
+                    </span>
 
-                  <!-- Schedule -->
-                  <v-row dense>
-                    <v-col
-                      cols="1"
-                    >
-                        <v-icon size=25 top>
-                        mdi-clock-outline
-                        </v-icon>
-                    </v-col>
-                    <v-col
-                      cols="11"
-                      class="d-flex flex-column justify-end black--text text-left"
-                    >
-                        <div>
-                      <span v-if="center.schedule.week">      
-                        Lun - Vie > {{ center.schedule.week }}
-                        <br>
-                      </span>
+                    <span v-if="center.schedule.weekend">
+                      Sab > {{ center.days.saturday ? center.schedule.weekend : "No disponible" }}
+                      <br />
 
-                      <span v-if="center.schedule.weekend">
-                        Sab >
-                        {{
-                          center.days.saturday
-                            ? center.schedule.weekend
-                            : "No disponible"
-                        }}
-                        <br />
-                        Dom >
-                        {{
-                          center.days.sunday
-                            ? center.schedule.weekend
-                            : "No disponible"
-                        }}
-                      </span>
-                      </div>
-                    </v-col>
-                  <!-- </v-row> -->
+                      Dom > {{ center.days.sunday ? center.schedule.weekend : "No disponible"}}
+                    </span>
+                  </div>
+                </v-col>
 
-                  <!-- Address -->
-                  <!-- <v-row> -->
-                    <v-col
-                      cols="1"
-                    >
-                        <v-icon size=25 top>
-                        mdi-map-marker-outline
-                        </v-icon>
-                    </v-col>
-                    <v-col
-                      cols="11"
-                      class="d-flex flex-column justify-end black--text text-left"
-                    >
-                        {{center.address}}
-                    </v-col>
-                  </v-row>
-                </v-card-text>
+                <v-col cols="1">
+                  <v-icon size=25 top>
+                    mdi-map-marker-outline
+                  </v-icon>
+                </v-col>
 
-              </v-card>
+                <v-col cols="11" class="d-flex flex-column justify-end black--text text-left">
+                  {{ center.address }}
+                </v-col>
+              </v-row>
+            </v-card-text>
+          </v-card>
         </template>
 
         <template #loading>
@@ -443,151 +243,82 @@ line-height: 22px;">
           </div>
         </template>
       </v-data-iterator>
-            <!-- End vaccine center card -->
 
+      <v-bottom-navigation fixed app horizontal grow height=70 background-color=#E4DFFF>
+        <v-btn @click="$router.push('/');moveToTop()">
+          <v-col cols="12">
+            <v-row style="place-content: center;">
+              <v-icon large color=#A698FF>
+                mdi-home
+              </v-icon>
+            </v-row>
+            
+            <v-row style="place-content: center">
+              <span style="font-family: 'Poppins'; font-style: normal; font-weight: 400; font-size: 10px; line-height: 22px; color: #A698FF;">
+                Inicio
+              </span>
+            </v-row>
+          </v-col>
+        </v-btn>
 
-          <!-- Bottom navigation bar -->
+        <v-btn text @click="$router.push('/filters')">
+          <v-col cols="12">
+            <v-row style="place-content: center;">
+              <v-icon large color=#A698FF>
+                mdi-needle
+              </v-icon>
+            </v-row>
+            
+            <v-row style="place-content: center">
+              <span style="font-family: 'Poppins'; font-style: normal; font-weight: 400; font-size: 10px; line-height: 22px; color: #A698FF;">
+                Vacunas
+              </span>
+            </v-row>
+          </v-col>
+        </v-btn>
 
-          <v-bottom-navigation fixed app horizontal grow height=70 background-color=#E4DFFF>
+        <v-btn text href="https://docs.almabot.com/docs" target="_blank">
+          <v-col cols="12">
+            <v-row style="place-content: center;">
+              <v-icon large color=#A698FF>
+                mdi-account-box
+              </v-icon>
+            </v-row>
+            
+            <v-row style="place-content: center">
+              <span style="font-family: 'Poppins'; font-style: normal; font-weight: 400; font-size: 10px; line-height: 22px; color: #A698FF;">
+                Directorio
+              </span>
+            </v-row>
+          </v-col>
+        </v-btn>
 
-      <v-btn @click="$router.push('/');moveToTop()">
-        <v-col
-    cols="12"
-  >
-    <v-row
-      style="place-content: center;"
-    >
-      <v-icon large color=#A698FF
-      >
-        mdi-home
-      </v-icon>
-    </v-row>
-    <v-row
-      style="place-content: center"
-    >
-      <span
-        style="font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 10px;
-line-height: 22px;
-color: #A698FF;"
-      >
-        Inicio
-      </span>
-    </v-row>
-  </v-col>
-      </v-btn>
-
-      <v-btn text @click="$router.push('/filters')">
-        <v-col
-    cols="12"
-  >
-    <v-row
-      style="place-content: center;"
-    >
-      <v-icon large color=#A698FF
-      >
-        mdi-needle
-      </v-icon>
-    </v-row>
-    <v-row
-      style="place-content: center"
-    >
-      <span
-        style="font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 10px;
-line-height: 22px;
-color: #A698FF;"
-      >
-        Vacunas
-      </span>
-    </v-row>
-  </v-col>
-      </v-btn>
-
-      <v-btn text href="https://docs.almabot.com/docs" target="_blank">
-        <v-col
-    cols="12"
-  >
-    <v-row
-      style="place-content: center;"
-    >
-      <v-icon large color=#A698FF
-      >
-        mdi-account-box
-      </v-icon>
-    </v-row>
-    <v-row
-      style="place-content: center"
-    >
-      <span
-        style="font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 10px;
-line-height: 22px;
-color: #A698FF;"
-      >
-        Directorio
-      </span>
-    </v-row>
-  </v-col>
-      </v-btn>
-
-      <v-btn text href="https://docs.almabot.com/" target="blank">
-        <v-col
-    cols="12"
-  >
-    <v-row
-      style="place-content: center;"
-    >
-      <v-icon large color=#A698FF
-      >
-        mdi-help-circle
-      </v-icon>
-    </v-row>
-    <v-row
-      style="place-content: center"
-    >
-      <span
-        style="font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 10px;
-line-height: 22px;
-color: #A698FF;"
-      >
-        Preguntas
-      </span>
-    </v-row>
-  </v-col>
-      </v-btn>
-
-          </v-bottom-navigation>
-
-
+        <v-btn text href="https://docs.almabot.com/" target="blank">
+          <v-col cols="12">
+            <v-row style="place-content: center;">
+              <v-icon large color=#A698FF>
+                mdi-help-circle
+              </v-icon>
+            </v-row>
+            
+            <v-row style="place-content: center">
+              <span style="font-family: 'Poppins'; font-style: normal; font-weight: 400; font-size: 10px; line-height: 22px; color: #A698FF;">
+                Preguntas
+              </span>
+            </v-row>
+          </v-col>
+        </v-btn>
+      </v-bottom-navigation>
     </v-card>
 
-    <v-dialog
-      v-model="detail"
-      fullscreen
-      hide-overlay
-      transition="dialog-bottom-transition"
-    >
+    <v-dialog v-model="detail"
+        fullscreen
+        hide-overlay
+        transition="dialog-bottom-transition">
       <center-detail @close="detail = false"></center-detail>
     </v-dialog>
-
-    
-  <!-- </header> -->
- </section>
+  </section>
 </template>
-
-
-
-
 
 <script>
 import { mapGetters, mapMutations } from "vuex";
