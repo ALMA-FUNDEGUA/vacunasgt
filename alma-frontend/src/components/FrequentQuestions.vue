@@ -2,13 +2,15 @@
   <v-container>
     <!-- <v-row justify="center"> -->
     <!-- <v-col cols="7"> -->
-    <p class="text-center"
+    <p
+      class="text-center"
       style="
         font-style: normal;
         font-weight: 700;
         font-size: 18px;
         line-height: 27px;
         color: #3e3e3e;
+        margin-top: 5%;
       "
     >
       ¡Lee lo que otras personas nos preguntan!
