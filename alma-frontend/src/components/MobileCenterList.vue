@@ -448,7 +448,7 @@ line-height: 22px;">
 
           <!-- Bottom navigation bar -->
 
-          <v-bottom-navigation horizontal grow height=70 background-color=#E4DFFF>
+          <v-bottom-navigation fixed app horizontal grow height=70 background-color=#E4DFFF>
 
       <v-btn @click="$router.push('/');moveToTop()">
         <v-col
@@ -571,14 +571,14 @@ color: #A698FF;"
 
     </v-card>
 
-    <!-- <v-dialog
+    <v-dialog
       v-model="detail"
       fullscreen
       hide-overlay
       transition="dialog-bottom-transition"
     >
       <center-detail @close="detail = false"></center-detail>
-    </v-dialog> -->
+    </v-dialog>
 
     
   <!-- </header> -->
@@ -592,11 +592,15 @@ color: #A698FF;"
 <script>
 import { mapGetters, mapMutations } from "vuex";
 
-// import CenterDetail from "../components/CenterDetail.vue";
+import CenterDetail from "../components/CenterDetail.vue";
 // import CenterListFilters from "../components/CenterListFilters.vue";
 // import SiteFooter from "../components/SiteFooter.vue";
 
 export default {
+
+  components: {
+    CenterDetail,
+  },
 
   data: () => ({
     loading: true,
