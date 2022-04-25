@@ -25,7 +25,7 @@
           </v-col>
 
           <v-col cols="1" offset="1">
-            <map-filter></map-filter>
+            <selected-map-desktop></selected-map-desktop>
           </v-col>
         </v-row>
       </v-container>
@@ -62,14 +62,14 @@ import { mapGetters, mapMutations } from 'vuex';
 import AppBar from "../components/AppBar.vue";
 import SiteFooter from "../components/SiteFooter.Desktop.vue";
 import CenterDetail from '../components/CenterDetail.vue';
-import MapFilter from "../components/MapFilter.vue";
+import SelectedMapDesktop from '../components/SelectedMapDesktop.vue';
 
 export default {
   components: {
     AppBar,
     SiteFooter,
     CenterDetail,
-    MapFilter,
+    SelectedMapDesktop,
   },
 
   beforeMount() {
