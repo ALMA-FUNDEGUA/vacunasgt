@@ -193,10 +193,13 @@
                     href="https://twitter.com/alma_responde"
                     style="margin-top: 35px"
                   >
-                    <i
-                      class="fab fa-twitter"
+                    <!-- <i
+                      class='fab fa-twitter'
                       style="color: #3e3e3e; font-size: 25px"
-                    ></i>
+                    ></i> -->
+                    <v-icon color=#3e3e3e size=35>
+                      mdi-twitter
+                    </v-icon>
                   </v-btn>
                 </template>
 
@@ -208,16 +211,20 @@
                   <v-btn
                     text
                     class="btn-social"
+                    color=#3e3e3e
                     target="_blank"
                     v-bind="attrs"
                     v-on="on"
                     href="https://www.instagram.com/alma_responde/"
                     style="margin-top: 35px"
                   >
-                    <i
+                    <!-- <i
                       class="fab fa-instagram"
                       style="color: #3e3e3e; font-size: 25px"
-                    ></i>
+                    ></i> -->
+                    <v-icon color=#3e3e3e size=35 dark="true">
+                      mdi-instagram
+                    </v-icon>
                   </v-btn>
                 </template>
 
@@ -235,10 +242,13 @@
                     href="https://www.facebook.com/chatbotALMA"
                     style="margin-top: 35px"
                   >
-                    <i
+                    <!-- <i
                       class="fab fa-facebook-f"
                       style="color: #3e3e3e; font-size: 25px"
-                    ></i>
+                    ></i> -->
+                    <v-icon color=#3e3e3e size=35 dark="true">
+                      mdi-facebook
+                    </v-icon>
                   </v-btn>
                 </template>
 
@@ -262,6 +272,64 @@
         </span>
       </v-container>
     </footer>
+    
+        <!-- Bottom navigation bar -->
+        
+    <v-bottom-navigation fixed app horizontal grow height=70 background-color=#E4DFFF>
+
+          <v-btn @click="$router.push('/');moveToTop()">
+            <v-col cols="12">
+              <v-row
+                style="place-content: center;"
+              >
+                <v-icon large color=#A698FF
+                >
+                  mdi-home
+                </v-icon>
+              </v-row>
+              <v-row
+                style="place-content: center"
+              >
+                <span
+                  style="font-family: 'Poppins';
+                  font-style: normal;
+                  font-weight: 400;
+                  font-size: 10px;
+                  line-height: 22px;
+                  color: #A698FF;"
+                >
+                  Inicio
+                </span>
+              </v-row>
+            </v-col>
+          </v-btn>
+
+          <v-btn text link to="/filters">
+            <v-col cols="12">
+              <v-row
+                style="place-content: center;"
+              >
+                <v-icon large color=#A698FF
+                >
+                  mdi-needle
+                </v-icon>
+              </v-row>
+              <v-row
+                style="place-content: center"
+              >
+                <span
+                  style="font-family: 'Poppins';
+                  font-style: normal;
+                  font-weight: 400;
+                  font-size: 10px;
+                  line-height: 22px;
+                  color: #A698FF;"
+                >
+                  Vacunas
+                </span>
+              </v-row>
+            </v-col>
+          </v-btn>
 
     <!-- Bottom navigation bar -->
 
@@ -366,8 +434,22 @@
   </div>
 </template>
 
+
 <script>
+
+// import fontawesome from "@fortawesome/fontawesome";
+// import brands from "@fortawesome/fontawesome-free-brands";
+// // import 1 icon if you just need this one. Otherwise you can import the whole module
+// import faSpinner from "@fortawesome/fontawesome-free-solid/faSpinner"; 
+// import FontAwesomeIcon from "@fortawesome/vue-fontawesome";
+// fontawesome.library.add(brands, faSpinner);
+
 export default {
+
+  // components: {
+  //   FontAwesomeIcon,
+  // },
+
   props: {
     information: {
       type: Boolean,
