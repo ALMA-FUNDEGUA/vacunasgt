@@ -9,7 +9,6 @@
 
         <span
           style="
-            font-family: 'Poppins';
             font-style: normal;
             font-weight: 700;
             font-size: 18px;
@@ -24,7 +23,6 @@
 
         <span
           style="
-            font-family: 'Poppins';
             font-style: normal;
             font-weight: 700;
             font-size: 14px;
@@ -48,7 +46,6 @@
             >
               <span
                 style="
-                  font-family: 'Poppins';
                   font-style: normal;
                   font-weight: 700;
                   font-size: 12px;
@@ -75,7 +72,6 @@
             >
               <span
                 style="
-                  font-family: 'Poppins';
                   font-style: normal;
                   font-weight: 700;
                   font-size: 12px;
@@ -103,7 +99,6 @@
             >
               <span
                 style="
-                  font-family: 'Poppins';
                   font-style: normal;
                   font-weight: 700;
                   font-size: 12px;
@@ -312,7 +307,8 @@ color: #000000">
         <template #default="{ items }">
           <!-- <v-row> -->
           <!-- Center List -->
-          <v-card v-for="(center, i) in items" :key="`center-${i}`">
+          <v-card v-for="(center, i) in items" :key="`center-${i}`"
+              @click="onSelect(center.name)">
             <!-- <v-card @click="onSelect(center.name)"> -->
 
             <v-card-title
@@ -699,8 +695,14 @@ export default {
     },
 
     onSelect(name) {
-      this.setSelected(name);
-      this.detail = true;
+      this.$router.push({
+        name: 'CenterDetailView',
+        params: {
+          name: name,
+        }
+      })
+      // this.setSelected(name);
+      // this.detail = true;
     },
 
     moveToTop() {
