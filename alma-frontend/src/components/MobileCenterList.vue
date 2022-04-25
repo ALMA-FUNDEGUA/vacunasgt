@@ -328,7 +328,6 @@ import CenterDetail from "../components/CenterDetail.vue";
 // import SiteFooter from "../components/SiteFooter.vue";
 
 export default {
-
   components: {
     CenterDetail,
   },
@@ -468,7 +467,7 @@ export default {
       });
     },
 
-    // scroll(id) {  
+    // scroll(id) {
     //   document.getElementById(id).scrollIntoView({
     //     behavior: "smooth"
     //   });
