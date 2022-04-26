@@ -38,9 +38,9 @@
 
       <center-filters></center-filters>
 
-      <v-app-bar absolute bottom>
+      <v-app-bar flat>
         <v-btn color="#FFD789" block rounded elevation="0"
-            @click="$router.push('mobile-centers')">
+            @click="$router.push('/centers')">
           Aplicar Filtros
         </v-btn>
       </v-app-bar>
