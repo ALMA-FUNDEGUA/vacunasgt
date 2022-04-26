@@ -8,18 +8,17 @@
           <v-col cols="4" offset="1">
             <center-filters></center-filters>
 
-            <v-btn
-              color="#FFD789"
-              block
-              rounded
-              elevation="0"
-              class="no-uppercase"
-              @click="$router.push('dashboard')"
-            >
+            <v-btn color="#FFD789"
+                block rounded elevation="0"
+                class="no-uppercase"
+                @click="$router.push('/centers')">
               Buscar mi vacuna
             </v-btn>
           </v-col>
-          <v-col cols="1" offset="1"> <map-filter></map-filter> </v-col>
+
+          <v-col cols="1" offset="1">
+            <map-filter></map-filter>
+          </v-col>
         </v-row>
       </v-container>
 

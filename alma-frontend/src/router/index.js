@@ -11,7 +11,7 @@ const routes = [
   },
 
   {
-    path: '/dashboard',
+    path: '/centers',
     name: 'CenterList',
     component: () => import('@/views/CenterList.vue'),
   },
