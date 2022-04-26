@@ -33,6 +33,12 @@ const routes = [
     name: 'MobileCenterList',
     component: () => import('@/views/MobileCenterList.vue'),
   },
+
+  {
+    path: '/centers/:name',
+    name: 'CenterDetailView',
+    component: () => import('@/views/CenterDetail.vue'),
+  },
 ]
 
 const router = new VueRouter({

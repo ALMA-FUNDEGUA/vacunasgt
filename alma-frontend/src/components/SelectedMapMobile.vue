@@ -57,7 +57,7 @@ export default {
   data: () => ({
     apiKey: process.env.VUE_APP_GOOGLE_MAPS_APIKEY,
     url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    zoom: 9,
+    zoom: 15,
     iconUrl: "http://www.clker.com/cliparts/R/B/J/Z/k/m/map-marker-hi.png",
     iconSize: [100, 100],
   }),
@@ -66,11 +66,10 @@ export default {
     ...mapGetters(["selected"]),
 
     locations() {
-      const centrosFiltrados = this._centers.filter((centro) => !!centro.maps);
       // if (!center.maps) {
       //  return center.maps;
       //}
-      return centrosFiltrados.map(this.mapsLatLon);
+      return this.mapsLatLon(this.selected);
     },
 
     department: {
