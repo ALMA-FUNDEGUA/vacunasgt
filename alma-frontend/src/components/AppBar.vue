@@ -16,7 +16,13 @@
                 Busca Tu Vacuna
               </v-btn>
 
-              <v-btn text small class="no-uppercase font-weight-bold">
+              <v-btn
+                text
+                small
+                href="https://docs.almabot.com/docs/directorios-existentes-2"
+                target="_blank"
+                class="no-uppercase font-weight-bold"
+              >
                 Directorio de Salud
               </v-btn>
 
