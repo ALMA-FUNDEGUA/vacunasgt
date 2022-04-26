@@ -70,6 +70,8 @@
                     text
                     class="no-uppercase"
                     style="text-decoration: underline"
+                    href="https://docs.almabot.com/docs/directorios-existentes-2"
+                    target="_blank"
                   >
                     <v-icon
                       style="
