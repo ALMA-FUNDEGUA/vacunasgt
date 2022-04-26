@@ -53,16 +53,17 @@
 
       <center-detail></center-detail>
     </section>
-  </section>  
+  </section>
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex';
+import { mapGetters, mapMutations } from "vuex";
+import "leaflet/dist/leaflet.css";
 
 import AppBar from "../components/AppBar.vue";
 import SiteFooter from "../components/SiteFooter.Desktop.vue";
-import CenterDetail from '../components/CenterDetail.vue';
-import SelectedMapDesktop from '../components/SelectedMapDesktop.vue';
+import CenterDetail from "../components/CenterDetail.vue";
+import SelectedMapDesktop from "../components/SelectedMapDesktop.vue";
 
 export default {
   components: {
@@ -73,11 +74,11 @@ export default {
   },
 
   beforeMount() {
-    this.setSelected(this.$route.params.name)
+    this.setSelected(this.$route.params.name);
   },
 
   computed: {
-    ...mapGetters(['selected']),
+    ...mapGetters(["selected"]),
   },
 
   methods: {
@@ -88,6 +89,6 @@ export default {
     onSelect(name) {
       this.setSelected(name);
     },
-  }
-}
+  },
+};
 </script>
