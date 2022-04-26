@@ -125,13 +125,15 @@
         </template>
       </v-container>
 
-      <iframe
+      <!-- <iframe
         width="100%"
         height="300"
         style="border:0"
         loading="lazy"
         :src="`https://www.google.com/maps/embed/v1/place?key=${this.apiKey}&q=Auditorio Municipal Villa Canales`">
-      </iframe>
+      </iframe> -->
+
+      <map-filter-mobile></map-filter-mobile>
 
       <v-data-iterator
           :items="centers"
@@ -148,7 +150,8 @@
         </template>
 
         <template #default="{ items }">
-          <v-card v-for="(center, i) in items" :key="`center-${i}`">
+          <v-card v-for="(center, i) in items" :key="`center-${i}`"
+              @click="onSelect(center.name)">
             <v-card-title style="font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 18px; line-height: 27px; color: #000000; text-align:left; word-break: break-word;">
               <v-row dense>
                 <v-col cols="11">
@@ -262,11 +265,13 @@ import { mapGetters, mapMutations } from "vuex";
 import CenterDetail from "../components/CenterDetail.vue";
 // import CenterListFilters from "../components/CenterListFilters.vue";
 // import SiteFooter from "../components/SiteFooter.vue";
+import MapFilterMobile from "../components/MapFilterMobile.vue";
 
 import BottomNavigationMobile from '../components/BottomNavigation.Mobile.vue';
 
 export default {
   components: {
+    MapFilterMobile,
     CenterDetail,
     BottomNavigationMobile,
   },
