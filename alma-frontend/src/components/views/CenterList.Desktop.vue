@@ -24,7 +24,7 @@
           <list-iterator-desktop></list-iterator-desktop>
         </v-col>
 
-        <v-col cols="1" offset="1">
+        <v-col cols="5" offset="1">
           <map-filter></map-filter>
         </v-col>
       </v-row>
@@ -39,7 +39,7 @@ import { mapGetters } from 'vuex';
 
 import AppBar from "@/components/AppBar.vue";
 import SiteFooter from "@/components/SiteFooter.Desktop.vue";
-import MapFilter from "@/components/MapFilter.vue";
+import MapFilter from '@/components/MapFilter.vue';
 import FilterTopBarDesktop from '@/components/filters/FilterTopBar.Desktop.vue';
 import ListIteratorDesktop from '@/components/list/ListIterator.Desktop.vue';
 
