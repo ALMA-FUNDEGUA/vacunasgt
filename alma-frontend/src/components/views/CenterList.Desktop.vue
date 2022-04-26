@@ -21,39 +21,7 @@
             </v-list-item>
           </v-list>
 
-          <v-data-iterator
-              :items="items"
-              :loading="loading"
-              :search="search"
-              :items-per-page="-1"
-              hide-default-footer>
-            <template #header="{ items }">
-              <v-list class="pb-0">
-                <v-list-item>
-                  <v-list-item-content>
-                    <v-list-item-subtitle>
-                      Resultados ({{ items.length }})
-                    </v-list-item-subtitle>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list>
-
-              <span class="px-3 font-weight-bold text-h5"
-                  v-if="getVaccine">
-                Vacuna para COVID-19: {{ getVaccine }}
-              </span>
-
-              <div class="mb-5"></div>
-            </template>
-
-            <template #default="{ items }">
-              <list-item-desktop
-                v-for="(item, i) in items"
-                :key="`list-item-${i}`"
-                :item="item"
-              ></list-item-desktop>
-            </template>
-          </v-data-iterator>
+          <list-iterator-desktop></list-iterator-desktop>
         </v-col>
 
         <v-col cols="1" offset="1">
@@ -73,7 +41,7 @@ import AppBar from "@/components/AppBar.vue";
 import SiteFooter from "@/components/SiteFooter.Desktop.vue";
 import MapFilter from "@/components/MapFilter.vue";
 import FilterTopBarDesktop from '@/components/filters/FilterTopBar.Desktop.vue';
-import ListItemDesktop from '@/components/list/ListItem.Desktop.vue';
+import ListIteratorDesktop from '@/components/list/ListIterator.Desktop.vue';
 
 export default {
   components: {
@@ -81,7 +49,7 @@ export default {
     SiteFooter,
     MapFilter,
     FilterTopBarDesktop,
-    ListItemDesktop,
+    ListIteratorDesktop,
   },
 
   data: () => ({
