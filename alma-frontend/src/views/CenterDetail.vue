@@ -40,9 +40,9 @@
         </v-btn>
 
         <div class="d-flex flex-column">
-          <v-toolbar-title class="pl-0 font-weight-bold">
+          <v-card-title class="pl-0 font-weight-bold" style="word-break: break-word; line-height: 27px;">
             {{ selected.name }}
-          </v-toolbar-title>
+          </v-card-title>
 
           <!-- Add Update Feature -->
           <span class="caption d-none">
