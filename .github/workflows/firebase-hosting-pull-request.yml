@@ -17,3 +17,16 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_COVID_19_BOT }}'
           projectId: covid-19-bot
+          NODE_ENV: production
+          VUE_APP_TITLE: ALMA
+          VUE_APP_HOST: '${{ secrets.VUE_APP_HOST }}' 
+          VUE_APP_ENGINE: '${{ secrets.VUE_APP_ENGINE }}'
+          VUE_APP_FIRECONFIG_APIKEY: '${{ secrets.VUE_APP_FIRECONFIG_APIKEY }}'
+          VUE_APP_FIRECONFIG_AUTHDOMAIN: '${{ secrets.VUE_APP_FIRECONFIG_AUTHDOMAIN }}'
+          VUE_APP_FIRECONFIG_DBURL: '${{ secrets.VUE_APP_FIRECONFIG_DBURL }}'
+          VUE_APP_FIRECONFIG_PROJECTID: covid-19-bot
+          VUE_APP_FIRECONFIG_STORAGE: '${{ secrets.VUE_APP_FIRECONFIG_STORAGE }}'
+          VUE_APP_FIRECONFIG_MSGSENDERID: '${{ secrets.VUE_APP_FIRECONFIG_MSGSENDERID }}'
+          VUE_APP_FIRECONFIG_APPID: '${{ secrets.VUE_APP_FIRECONFIG_APPID }}'
+          VUE_APP_FIRECONFIG_MEASUREMENTID: '${{ secrets.VUE_APP_FIRECONFIG_MEASUREMENTID }}'
+          VUE_APP_GOOGLE_MAPS_APIKEY: '${{ secrets.VUE_APP_GOOGLE_MAPS_APIKEY }}'
