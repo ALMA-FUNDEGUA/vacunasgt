@@ -1,22 +1,20 @@
 <template>
   <section>
     <template>
-      <div class="mapa">
-        <l-map
-          style="height: 500px; width: 600px"
-          v-model="zoom"
-          :zoom="zoom"
-          :center="locations"
-          @move="log('move')"
-        >
-          <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-          <l-marker :lat-lng="locations">
-            <l-icon :icon-url="iconUrl"
-          /></l-marker>
+      <l-map
+        style="height: 500px; width: 600px; z-index: 0"
+        v-model="zoom"
+        :zoom="zoom"
+        :center="locations"
+        @move="log('move')"
+      >
+        <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
+        <l-marker :lat-lng="locations">
+          <l-icon :icon-url="iconUrl"
+        /></l-marker>
 
-          <l-control-layers />
-        </l-map>
-      </div>
+        <l-control-layers />
+      </l-map>
     </template>
   </section>
 </template>

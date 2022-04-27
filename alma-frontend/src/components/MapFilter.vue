@@ -2,15 +2,19 @@
   <section>
     <template>
       <div class="mapa">
-        <l-map style="height: 500px; width: 600px"
-            :zoom="zoom"
-            :center="[14.4818156, -90.5351601]">
+        <l-map
+          style="height: 500px; width: 600px; z-index: 0"
+          :zoom="zoom"
+          :center="[14.4818156, -90.5351601]"
+        >
           <l-tile-layer :url="url"></l-tile-layer>
 
-          <l-marker v-for="(item, i) in items"
-              :key="`item-marker-${i}`"
-              :lat-lng="mapsLatLon(item)">
-            <l-icon :icon-url="iconUrl"/>
+          <l-marker
+            v-for="(item, i) in items"
+            :key="`item-marker-${i}`"
+            :lat-lng="mapsLatLon(item)"
+          >
+            <l-icon :icon-url="iconUrl" />
 
             <l-popup>
               <list-item-desktop :item="item" popup></list-item-desktop>
@@ -31,10 +35,17 @@
 <script>
 import { mapGetters } from "vuex";
 
-import { LMap, LMarker, LTileLayer, LControlLayers, LIcon, LPopup } from "vue2-leaflet";
+import {
+  LMap,
+  LMarker,
+  LTileLayer,
+  LControlLayers,
+  LIcon,
+  LPopup,
+} from "vue2-leaflet";
 import "leaflet/dist/leaflet.css";
 
-import ListItemDesktop from '@/components/list/ListItem.Desktop.vue';
+import ListItemDesktop from "@/components/list/ListItem.Desktop.vue";
 
 export default {
   components: {
@@ -60,7 +71,7 @@ export default {
     }),
 
     items() {
-      return this._centers.filter(item => !!item.maps)
+      return this._centers.filter((item) => !!item.maps);
     },
   },
 
@@ -71,5 +82,5 @@ export default {
       return [location[0], location[1]];
     },
   },
-}
+};
 </script>
