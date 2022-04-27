@@ -6,14 +6,8 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Onboarding',
+    name: 'HomeView',
     component: () => import('@/views/HomeView.vue')
-  },
-
-  {
-    path: '/dashboard',
-    name: 'CenterList',
-    component: () => import('@/views/CenterList.vue'),
   },
 
   {
@@ -23,15 +17,9 @@ const routes = [
   },
 
   {
-    path: '/testing',
-    name: 'TestingView',
-    component: () => import('@/views/HomeView.vue'),
-  },
-
-  {
-    path: '/mobile-centers',
-    name: 'MobileCenterList',
-    component: () => import('@/views/MobileCenterList.vue'),
+    path: '/centers',
+    name: 'CenterList',
+    component: () => import('@/views/CenterList.vue'),
   },
 
   {
