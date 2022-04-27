@@ -131,13 +131,13 @@
 
               <section class="mt-3">
                 <span class="font-weight-bold">
-                  ¡Sigueme por nuestras redes sociales!
+                  ¡Sígueme por nuestras redes sociales!
                 </span>
               </section>
 
               <section class="mt-3 text-center">
                 <span class="font-weight-light">
-                  Te podrás enterar de muchas cosas relacionas con COVID y
+                  Te podrás enterar de muchas cosas relacionadas con COVID y
                   además pregúntame lo que quieras
                 </span>
               </section>
