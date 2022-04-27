@@ -298,7 +298,7 @@
             color: #3e3e3e;
           "
         >
-          Ver mas Preguntas frecuentes Aquí
+          Ver más preguntas frecuentes Aquí
         </p>
       </a>
       <!-- </v-col> -->
