@@ -94,6 +94,7 @@
                   rounded
                   color="#FFE6B7"
                   elevation="0"
+                  target="_blank"
                   href="https://api.whatsapp.com/send?phone=50224144321&text=Preg%C3%BAntale%20a%20ALMA"
                 >
                   <v-icon style="margin-right: 10px">mdi-whatsapp</v-icon>
@@ -148,6 +149,7 @@
                     color="#FFE6B7"
                     elevation="0"
                     href="https://twitter.com/alma_responde"
+                    target="_blank"
                   >
                     <v-icon style="margin-right: 8px">mdi-twitter</v-icon>
 
@@ -159,6 +161,7 @@
                     color="#FFE6B7"
                     elevation="0"
                     href="https://www.facebook.com/chatbotALMA"
+                    target="_blank"
                   >
                     <v-icon style="margin-right: 8px">mdi-facebook</v-icon>
                     <span style="text-transform: none">Facebook</span>
