@@ -3,7 +3,7 @@
     <template>
       <div class="mapa">
         <l-map
-          style="height: 300px"
+          style="height: 300px; z-index: 0"
           v-model="zoom"
           :zoom="zoom"
           :center="i"
