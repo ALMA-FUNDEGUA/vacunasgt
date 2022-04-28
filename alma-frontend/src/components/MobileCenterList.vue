@@ -394,10 +394,6 @@ export default {
       return formatted */
     },
 
-    goBack() {
-      this.$router.go(-1);
-    },
-
     onSelect(name) {
       this.$router.push({
         name: 'CenterDetailView',
