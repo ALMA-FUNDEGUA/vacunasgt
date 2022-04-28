@@ -27,7 +27,7 @@
 
     <section v-else>
       <v-app-bar app flat color="#E4DFFF">
-        <v-btn icon @click="$router.go(-1)">
+        <v-btn icon @click="$router.push('/filters')">
           <v-icon>mdi-chevron-left</v-icon>
         </v-btn>
 
