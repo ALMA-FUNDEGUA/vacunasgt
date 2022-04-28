@@ -193,10 +193,6 @@ export default {
       return [location[0], location[1]];
     },
 
-    goBack() {
-      this.$router.go(-1);
-    },
-
     onSelect(name) {
       this.setSelected(name);
       this.detail = true;

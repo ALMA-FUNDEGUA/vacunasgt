@@ -7,7 +7,7 @@
         <v-row>
           <v-col cols="4" offset="1">
             <v-list class="pb-0">
-              <v-list-item @click="$router.back()">
+              <v-list-item @click="$router.push('/centers')">
                 <v-list-item-avatar>
                   <v-icon>mdi-chevron-left</v-icon>
                 </v-list-item-avatar>
@@ -35,7 +35,7 @@
 
     <section v-else>
       <v-app-bar flat color="#E4DFFF">
-        <v-btn icon @click="$router.back()">
+        <v-btn icon @click="$router.push('/centers')">
           <v-icon>mdi-chevron-left</v-icon>
         </v-btn>
 
