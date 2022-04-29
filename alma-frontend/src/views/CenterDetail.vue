@@ -6,6 +6,11 @@
       <v-container>
         <v-row>
           <v-col cols="4" offset="1">
+            <div class="d-flex flex-column">
+              <v-card-title class="pl-0 font-weight-bold" style="word-break: break-word; line-height: 27px;">
+                {{ selected.name }}
+              </v-card-title>
+            </div>
             <v-list class="pb-0">
               <v-list-item @click="$router.back()">
                 <v-list-item-avatar>
