@@ -6,25 +6,88 @@
           <span class="site-title">Alma</span>
         </v-toolbar-title>
         <v-spacer />
-        <v-btn
+      </v-toolbar>
+      <v-img class="mt-n13 mb-5" src="@/assets/images/web alma-05.svg">
+        <div class="mt-1 mr-3 d-flex" style="justify-content: flex-end">
+          <v-btn
+            href="https://api.whatsapp.com/send?phone=50224144321&text=Preg%C3%BAntale%20a%20ALMA"
+            fab
+            small
+            color="#F8F7FF"
+            elevation="0"
+            class="ml-0"
+            target="_blank"
+          >
+            <v-icon color="#3E3E3E"> mdi-whatsapp </v-icon>
+          </v-btn>
+
+          <v-btn
+            fab
+            small
+            color="#F8F7FF"
+            elevation="0"
+            target="_blank"
+            class="ml-3"
+            href="tel:1801-0054-321"
+          >
+            <v-icon color="#3E3E3E"> mdi-phone-outline </v-icon>
+          </v-btn>
+        </div>
+      </v-img>
+
+      <!-- <v-btn
+          href="https://api.whatsapp.com/send?phone=50224144321&text=Preg%C3%BAntale%20a%20ALMA"
           fab
           small
           color="#F8F7FF"
           elevation="0"
           class="mr-3"
-          href="https://api.whatsapp.com/send?phone=50224144321&text=Preg%C3%BAntale%20a%20ALMA"
+          target="_blank"
         >
-          <v-icon color="#3E3E3E" @click="resetCase"> mdi-whatsapp </v-icon>
+          <v-icon color="#3E3E3E"> mdi-whatsapp </v-icon>
         </v-btn>
 
-        <v-btn fab small color="#F8F7FF" elevation="0" href="tel:1801-0054-321">
-          <v-icon color="#3E3E3E" @click="resetCase">
-            mdi-phone-outline
-          </v-icon>
+        <v-btn
+          fab
+          small
+          color="#F8F7FF"
+          elevation="0"
+          target="_blank"
+          href="tel:1801-0054-321"
+        >
+          <v-icon color="#3E3E3E"> mdi-phone-outline </v-icon>
         </v-btn>
       </v-toolbar>
 
-      <v-img class="mt-n14 mb-5" src="@/assets/images/web alma-05.svg"> </v-img>
+      <v-img class="mt-n13 mb-5" src="@/assets/images/web alma-05.svg"> </v-img> -->
+
+      <!--
+    <v-img class="mt-n13 mb-5" src="@/assets/images/web alma-05.svg">
+        <v-btn
+          href="https://api.whatsapp.com/send?phone=50224144321&text=Preg%C3%BAntale%20a%20ALMA"
+          fab
+          small
+          color="#F8F7FF"
+          elevation="0"
+          class="mr-3"
+          target="_blank"
+        >
+          <v-icon color="#3E3E3E"> mdi-whatsapp </v-icon>
+        </v-btn>
+
+        <v-btn
+          fab
+          small
+          color="#F8F7FF"
+          elevation="0"
+          target="_blank"
+          href="tel:1801-0054-321"
+        >
+          <v-icon color="#3E3E3E"> mdi-phone-outline </v-icon>
+        </v-btn>
+      </v-img>
+        -->
+
       <h2
         style="
           font-weight: bold;
