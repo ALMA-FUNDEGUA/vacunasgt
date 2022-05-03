@@ -1,7 +1,7 @@
 <template>
   <!-- Twitter -->
   <center>
-    <p class="twitter-title">Ultimas noticias en Twitter</p>
+    <p class="twitter-title">Últimas noticias en Twitter</p>
     <div class="d-flex flex-column align-center">
       <a
         class="twitter-timeline"
