@@ -3,15 +3,13 @@
     <v-card color="#FFEBE8" flat class="rounded-lg">
       <section class="d-flex flex-column py-8 justify-center">
         <section class="mt-0 ml-15">
-          <h2 class="font-weight-bold">
-            Sigueme por nuestras redes sociales
-          </h2>
+          <h2 class="font-weight-bold">Sígueme por nuestras redes sociales</h2>
         </section>
 
         <section class="mt-3 text-jusfify ml-15">
           <span class="font-weight-light">
-            Te podrás enterar de muchas cosas relacionadas a COVID y
-            además preguntarme lo que quieras.
+            Te podrás enterar de muchas cosas relacionadas a COVID y además
+            preguntarme lo que quieras.
           </span>
         </section>
 
