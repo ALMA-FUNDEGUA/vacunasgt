@@ -219,6 +219,10 @@ export default {
           return "1era";
         case "SEGUNDA":
           return "2nda";
+        case "TERCERA":
+          return "3ra";
+        case "CUARTA":
+          return "4ta";
         default:
           return dose;
       }
