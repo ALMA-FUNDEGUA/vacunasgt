@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-main>
+    <v-main class="no-scroll">
       <router-view />
     </v-main>
   </v-app>
@@ -39,5 +39,9 @@ export default {
 
 .no-uppercase {
   text-transform: unset !important;
+}
+
+.no-scroll {
+  overflow-x: hidden !important;
 }
 </style>
