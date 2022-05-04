@@ -8,10 +8,14 @@
           <v-col cols="4" offset="1">
             <center-filters></center-filters>
 
-            <v-btn color="#FFD789"
-                block rounded elevation="0"
-                class="no-uppercase"
-                @click="$router.push('/centers')">
+            <v-btn
+              color="#FFD789"
+              block
+              rounded
+              elevation="0"
+              class="no-uppercase"
+              @click="$router.push('/centers')"
+            >
               Buscar mi vacuna
             </v-btn>
           </v-col>
@@ -27,7 +31,7 @@
 
     <section v-else>
       <v-app-bar app flat color="#E4DFFF">
-        <v-btn icon @click="$router.push('/filters')">
+        <v-btn icon @click="$router.push('/')">
           <v-icon>mdi-chevron-left</v-icon>
         </v-btn>
 
@@ -37,10 +41,14 @@
       </v-app-bar>
 
       <center-filters></center-filters>
-
-      <v-app-bar flat>
-        <v-btn color="#FFD789" block rounded elevation="0"
-            @click="$router.push('/centers')">
+      <v-app-bar class="mt-9" flat>
+        <v-btn
+          color="#FFD789"
+          block
+          rounded
+          elevation="0"
+          @click="$router.push('/centers')"
+        >
           Aplicar Filtros
         </v-btn>
       </v-app-bar>
