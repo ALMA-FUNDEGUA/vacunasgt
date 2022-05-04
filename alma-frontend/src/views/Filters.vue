@@ -41,18 +41,18 @@
       </v-app-bar>
 
       <center-filters></center-filters>
+      <v-app-bar class="mt-9" flat>
+        <v-btn
+          color="#FFD789"
+          block
+          rounded
+          elevation="0"
+          @click="$router.push('/centers')"
+        >
+          Aplicar Filtros
+        </v-btn>
+      </v-app-bar>
     </section>
-    <v-app-bar class="mt-9" flat>
-      <v-btn
-        color="#FFD789"
-        block
-        rounded
-        elevation="0"
-        @click="$router.push('/centers')"
-      >
-        Aplicar Filtros
-      </v-btn>
-    </v-app-bar>
   </section>
 </template>
 
