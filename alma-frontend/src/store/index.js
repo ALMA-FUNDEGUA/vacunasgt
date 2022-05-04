@@ -8,11 +8,12 @@ var _ = require('lodash')
 
 Vue.use(Vuex)
 
-const toUpperCase = items => _.map(items,
-    item => ({
-      text: item.toUpperCase(),
-      value: item,
-    })
+const toUpperCase = items => _.map(
+  _.filter(items, item => !!item),
+  item => ({
+    text: item.toUpperCase(),
+    value: item,
+  })
 )
 
 let state = {
