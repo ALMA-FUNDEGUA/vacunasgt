@@ -1,20 +1,29 @@
 <template>
   <section>
     <template>
-      <l-map
-        style="height: 500px; width: 600px; z-index: 0"
-        v-model="zoom"
-        :zoom="zoom"
-        :center="locations"
-        @move="log('move')"
-      >
-        <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-        <l-marker :lat-lng="locations">
-          <l-icon :icon-url="iconUrl"
-        /></l-marker>
+      <section v-if="!hasMap">
+        <img
+          style="height: 500px; width: 600px; z-index: 100"
+          :src="require('@/assets/images/mapNotFound.svg')"
+        />
+      </section>
+      <section v-else>
+        <l-map
+          style="height: 500px; width: 600px; z-index: 0"
+          v-model="zoom"
+          :zoom="zoom"
+          :center="locations"
+          @move="log('move')"
+        >
+          >
+          <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
+          <l-marker :lat-lng="locations">
+            <l-icon :icon-url="iconUrl"
+          /></l-marker>
 
-        <l-control-layers />
-      </l-map>
+          <l-control-layers />
+        </l-map>
+      </section>
     </template>
   </section>
 </template>
@@ -40,18 +49,6 @@ export default {
     this.map.center = this.center;
   },
 
-  // Data de prueba de punteros
-  PuntosMapa: () => {
-    var coordenadas = this.locations;
-    for (var i = 0; i < coordenadas.length; i++) {
-      var marker = new LMarker([coordenadas[i][1], coordenadas[i][2]]);
-      console.log(marker);
-      LMap.fitBounds(coordenadas);
-    }
-  },
-
-  //14.5644777,-90.5648528
-  //https://www.google.es/maps/place/Centra+Norte/@14.6453045,-90.4604147,13.82z/data=!4m5!3m4!1s0x8589a2ad5be3bb13:0x37a1521338b0c9c2!8m2!3d14.6470499!4d-90.4511337?hl=es
   data: () => ({
     apiKey: process.env.VUE_APP_GOOGLE_MAPS_APIKEY,
     url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
@@ -63,11 +60,14 @@ export default {
   computed: {
     ...mapGetters(["selected"]),
 
+    hasMap() {
+      return this.selected.maps.length;
+    },
+
     locations() {
       console.log(this.selected);
-      // if (!center.maps) {
-      //  return center.maps;
-      //}
+      console.log(this.mapsLatLon(this.selected));
+
       return this.mapsLatLon(this.selected);
     },
 
@@ -148,6 +148,10 @@ export default {
           return "1era";
         case "SEGUNDA":
           return "2nda";
+        case "TERCERA":
+          return "3era";
+        case "CUARTA":
+          return "4ta";
         default:
           return dose;
       }
