@@ -229,10 +229,20 @@ export default {
     },
 
     async onShare() {
-      await navigator.share({
-        title: "VacunasGT Center",
-        url: window.location.href,
-      });
+      if(navigator.canShare){
+        await navigator.share({
+          title: "VacunasGT Center",
+          url: window.location.href,
+        });
+      }
+      else{
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+          alert('URL copiado');
+        } catch($e) {
+          alert('No se pudo copiar el URL');
+        }
+      }
     },
   },
 };
