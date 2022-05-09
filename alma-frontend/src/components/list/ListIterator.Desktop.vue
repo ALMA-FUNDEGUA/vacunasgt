@@ -1,11 +1,12 @@
 <template>
   <section>
     <v-data-iterator
-        :items="items"
-        :loading="loading"
-        :search="search"
-        :items-per-page="-1"
-        hide-default-footer>
+      :items="items"
+      :loading="loading"
+      :search="search"
+      :items-per-page="-1"
+      hide-default-footer
+    >
       <template #header="{ items }">
         <v-list class="pb-0">
           <v-list-item>
@@ -17,20 +18,35 @@
           </v-list-item>
         </v-list>
 
-        <span class="px-3 font-weight-bold text-h5"
-            v-if="getVaccine">
-          Vacuna para COVID-19: {{ getVaccine }}
+        <span class="font-weight-bold text-h5" v-if="getVaccine">
+          <span class="text-h5">Vacuna para COVID-19:</span>
+          {{ getVaccine }}
         </span>
 
         <div class="mb-5"></div>
       </template>
 
       <template #default="{ items }">
-        <list-item-desktop
-          v-for="(item, i) in items"
-          :key="`list-item-${i}`"
-          :item="item"
-        ></list-item-desktop>
+        <section v-if="items.length > 5">
+          <v-virtual-scroll
+            :items="items"
+            :item-height="100 * items.length"
+            height="400"
+          >
+            <list-item-desktop
+              v-for="(item, i) in items"
+              :key="`list-item-${i}`"
+              :item="item"
+            ></list-item-desktop>
+          </v-virtual-scroll>
+        </section>
+        <section v-else>
+          <list-item-desktop
+            v-for="(item, i) in items"
+            :key="`list-item-${i}`"
+            :item="item"
+          ></list-item-desktop>
+        </section>
       </template>
 
       <template #loading>
@@ -47,7 +63,8 @@
 
       <template #no-data>
         <div class="d-flex flex-column align-center my-5">
-          <i class="fas fa-hospital-user"
+          <i
+            class="fas fa-hospital-user"
             style="font-size: 72px; color: #c3c1d8"
           ></i>
 
@@ -57,7 +74,8 @@
 
       <template #no-results>
         <div class="d-flex flex-column align-center my-5">
-          <i class="fas fa-hospital-user"
+          <i
+            class="fas fa-hospital-user"
             style="font-size: 72px; color: #c3c1d8"
           ></i>
 
@@ -69,9 +87,9 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 
-import ListItemDesktop from '@/components/list/ListItem.Desktop.vue';
+import ListItemDesktop from "@/components/list/ListItem.Desktop.vue";
 
 export default {
   components: {
@@ -80,14 +98,14 @@ export default {
 
   data: () => ({
     loading: true,
-    search: '',
+    search: "",
   }),
 
   computed: {
     ...mapGetters({
-      items: 'filtered',
-      getVaccine: 'vaccine',
-    })
+      items: "filtered",
+      getVaccine: "vaccine",
+    }),
   },
-}
+};
 </script>
