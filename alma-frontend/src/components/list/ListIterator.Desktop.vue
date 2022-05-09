@@ -27,11 +27,26 @@
       </template>
 
       <template #default="{ items }">
-        <list-item-desktop
-          v-for="(item, i) in items"
-          :key="`list-item-${i}`"
-          :item="item"
-        ></list-item-desktop>
+        <section v-if="items.length > 5">
+          <v-virtual-scroll
+            :items="items"
+            :item-height="100 * items.length"
+            height="400"
+          >
+            <list-item-desktop
+              v-for="(item, i) in items"
+              :key="`list-item-${i}`"
+              :item="item"
+            ></list-item-desktop>
+          </v-virtual-scroll>
+        </section>
+        <section v-else>
+          <list-item-desktop
+            v-for="(item, i) in items"
+            :key="`list-item-${i}`"
+            :item="item"
+          ></list-item-desktop>
+        </section>
       </template>
 
       <template #loading>

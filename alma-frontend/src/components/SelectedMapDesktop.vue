@@ -1,7 +1,7 @@
 <template>
   <section>
     <template>
-      <section v-if="!hasMap">
+      <section v-if="!hasMap || hasMap == null">
         <img
           style="height: 500px; width: 600px; z-index: 100"
           :src="require('@/assets/images/mapNotFound.svg')"
