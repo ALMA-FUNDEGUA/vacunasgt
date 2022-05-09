@@ -13,7 +13,10 @@
         <v-icon large class="item-icon"> mdi-needle </v-icon>
       </v-btn>
 
-      <v-btn href="https://docs.almabot.com/docs" target="_blank">
+      <v-btn
+        href="https://docs.almabot.com/docs/directorios-existentes-2"
+        target="_blank"
+      >
         <span class="item-text"> Directorio </span>
 
         <v-icon large class="item-icon"> mdi-account-box </v-icon>
