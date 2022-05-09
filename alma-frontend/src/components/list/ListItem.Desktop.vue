@@ -5,8 +5,12 @@
         <v-card-title class="pt-1 pb-0 px-0">
           <v-container fluid class="pb-0">
             <v-row dense>
-              <v-col cols="11" class="font-weight-bold">
-                Lugar: {{ item.name }}
+              <v-col
+                cols="11"
+                class="font-weight-bold"
+                style="word-break: break-word"
+              >
+                {{ item.name }}
               </v-col>
 
               <v-col cols="1">
@@ -20,9 +24,7 @@
           <v-container fluid>
             <v-row dense>
               <v-col cols="1">
-                <v-icon size=25 top>
-                  mdi-clock-outline
-                </v-icon>
+                <v-icon size="25" top> mdi-clock-outline </v-icon>
               </v-col>
 
               <v-col cols="11">
@@ -48,9 +50,7 @@
           <v-container fluid class="px-0">
             <v-row dense>
               <v-col cols="12">
-                <v-icon small top>
-                  mdi-clock-outline
-                </v-icon>
+                <v-icon small top> mdi-clock-outline </v-icon>
 
                 <span class="caption">
                   {{ getSchedule(item) }}
@@ -58,9 +58,7 @@
               </v-col>
 
               <v-col cols="12">
-                <v-icon small top>
-                  mdi-map-marker-outline
-                </v-icon>
+                <v-icon small top> mdi-map-marker-outline </v-icon>
 
                 <span class="caption">
                   {{ item.address }}
@@ -71,9 +69,12 @@
         </v-card-text>
 
         <v-card-actions class="pa-0 justify-center">
-          <v-btn text small
-              class="text-decoration-underline font-weight-light no-uppercase"
-              @click="onSelect(item.name)">
+          <v-btn
+            text
+            small
+            class="text-decoration-underline font-weight-light no-uppercase"
+            @click="onSelect(item.name)"
+          >
             Ver mas información
           </v-btn>
         </v-card-actions>
@@ -92,55 +93,55 @@ export default {
     popup: {
       default: false,
       type: Boolean,
-    }
+    },
   },
 
   methods: {
     onSelect(name) {
       this.$router.push({
-        name: 'CenterDetailView',
+        name: "CenterDetailView",
         params: {
           name: name,
-        }
-      })
+        },
+      });
     },
 
     getWeekSchedule(item) {
-      let start = ''
-      let end = ''
+      let start = "";
+      let end = "";
 
       if (item.days.monday) {
-        start = 'Lun'
+        start = "Lun";
       } else if (item.days.tuesday) {
-        start = 'Mar'
+        start = "Mar";
       }
 
       if (item.days.friday) {
-        end = 'Vie'
+        end = "Vie";
       } else if (item.days.thursday) {
-        end = 'Jue'
+        end = "Jue";
       }
 
-      return `${start}-${end}.`
+      return `${start}-${end}.`;
     },
 
     getSchedule(item) {
-      let week = ''
-      let weekend = ''
+      let week = "";
+      let weekend = "";
 
       if (item.schedule.week)
-        week = `${this.getWeekSchedule(item)} ${item.schedule.week}`
+        week = `${this.getWeekSchedule(item)} ${item.schedule.week}`;
 
       if (item.schedule.weekend) {
         if (item.days.saturday)
-          weekend = `${weekend} | Sab. ${item.schedule.weekend}`
+          weekend = `${weekend} | Sab. ${item.schedule.weekend}`;
 
         if (item.days.sunday)
-          weekend = `${weekend} | Dom. ${item.schedule.weekend}`
+          weekend = `${weekend} | Dom. ${item.schedule.weekend}`;
       }
 
-      return `${week}${weekend}`
+      return `${week}${weekend}`;
     },
   },
-}
+};
 </script>
