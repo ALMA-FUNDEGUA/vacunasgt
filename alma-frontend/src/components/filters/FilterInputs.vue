@@ -1,52 +1,26 @@
 <template>
   <section>
     <section class="d-flex align-center justify-center">
-      <v-text-field
-        :value="getVaccine"
-        dense solo rounded flat
-        hide-details readonly
-        placeholder="Vacuna"
-        class="mr-3"
-      ></v-text-field>
-
-      <v-text-field
-        :value="getDose"
-        dense solo rounded flat
-        hide-details readonly
-        placeholder="Dosis"
-        class="mr-3"
-      ></v-text-field>
-
-      <v-text-field
-        :value="getMunicipality"
-        dense solo rounded flat
-        hide-details readonly
-        placeholder="Municipio"
-        class="mr-3"
-      ></v-text-field>
-
-      <v-text-field
-        :value="getDepartment"
-        dense solo rounded flat
-        hide-details readonly
-        placeholder="Departamento"
-        class="mr-3"
-      ></v-text-field>
+      <filter-vaccine-dialog></filter-vaccine-dialog>
+      <filter-dose-dialog></filter-dose-dialog>
+      <filter-municipality-dialog></filter-municipality-dialog>
+      <filter-department-dialog></filter-department-dialog>
     </section>
   </section>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import FilterVaccineDialog from './FilterVaccineDialog.vue';
+import FilterDoseDialog from './FilterDoseDialog.vue';
+import FilterMunicipalityDialog from './FilterMunicipalityDialog.vue';
+import FilterDepartmentDialog from './FilterDepartmentDialog.vue';
 
 export default {
-  computed: {
-    ...mapGetters({
-      'getDepartment': 'department',
-      'getMunicipality': 'municipality',
-      'getVaccine': 'vaccine',
-      'getDose': 'dose',
-    })
+  components: {
+    FilterVaccineDialog,
+    FilterDoseDialog,
+    FilterMunicipalityDialog,
+    FilterDepartmentDialog,
   },
 }
 </script>

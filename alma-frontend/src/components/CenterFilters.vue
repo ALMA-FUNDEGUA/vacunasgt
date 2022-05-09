@@ -1,7 +1,7 @@
 <template>
   <section>
     <v-container>
-      <v-row v-if="$vuetify.breakpoint.mdAndUp">
+      <v-row v-if="$vuetify.breakpoint.mdAndUp && !dialog">
         <v-col class="pb-1">
           <span class="text-h5 font-weight-bold">
             Encuentra tu vacuna COVID-19
@@ -123,6 +123,13 @@
 import { mapMutations, mapGetters } from 'vuex'
 
 export default {
+  props: {
+    dialog: {
+      type: Boolean,
+      default: false,
+    },
+  },
+
   data: () => ({
     schedule: 'week',
     schedules: [
