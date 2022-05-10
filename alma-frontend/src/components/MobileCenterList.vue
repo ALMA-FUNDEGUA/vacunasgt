@@ -133,7 +133,7 @@
         :src="`https://www.google.com/maps/embed/v1/place?key=${this.apiKey}&q=Auditorio Municipal Villa Canales`">
       </iframe> -->
 
-      <map-filter-mobile></map-filter-mobile>
+      <map-filter></map-filter>
 
       <v-data-iterator
           :items="centers"
@@ -263,15 +263,13 @@
 import { mapGetters, mapMutations } from "vuex";
 
 import CenterDetail from "../components/CenterDetail.vue";
-// import CenterListFilters from "../components/CenterListFilters.vue";
-// import SiteFooter from "../components/SiteFooter.vue";
-import MapFilterMobile from "../components/MapFilterMobile.vue";
+import MapFilter from "../components/maps/MapFilter.vue";
 
 import BottomNavigationMobile from '../components/BottomNavigation.Mobile.vue';
 
 export default {
   components: {
-    MapFilterMobile,
+    MapFilter,
     CenterDetail,
     BottomNavigationMobile,
   },
