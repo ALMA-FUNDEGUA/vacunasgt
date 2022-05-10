@@ -27,6 +27,12 @@ const routes = [
     name: 'CenterDetailView',
     component: () => import('@/views/CenterDetail.vue'),
   },
+
+  {
+    path: '/testing',
+    name: 'TestingView',
+    component: () => import('@/views/Testing.vue'),
+  },
 ]
 
 const router = new VueRouter({

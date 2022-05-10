@@ -13,6 +13,7 @@
     "dotenv": "^10.0.0",
     "firebase": "^9.0.1",
     "leaflet": "^1.8.0",
+    "lodash": "^4.17.21",
     "twitter-widgets": "^2.0.0",
     "vue": "^2.6.11",
     "vue-axios": "^3.2.5",
