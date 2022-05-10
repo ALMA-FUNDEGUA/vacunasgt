@@ -1,6 +1,6 @@
 <template>
   <section>
-    <v-container>
+    <!-- <v-container> -->
       <v-img :src="require('@/assets/icons/svg-desktopFooter.svg')">
         <v-container class="mt-15 ml-5 mr-5">
           <v-row>
@@ -149,6 +149,6 @@
           </v-row>
         </v-container>
       </v-img>
-    </v-container>
+    <!-- </v-container> -->
   </section>
 </template>
