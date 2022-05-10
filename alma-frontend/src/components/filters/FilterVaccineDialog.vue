@@ -81,7 +81,7 @@ export default {
         return this.getVaccine
       },
 
-      set(value) { 
+      set(value) {
         this.setVaccine(value)
       },
     },
