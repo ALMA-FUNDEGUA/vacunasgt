@@ -23,7 +23,7 @@
         </span>
       </v-toolbar>
 
-      <v-container>
+      <!-- <v-container class="d-none">
         <template>
           <div class="text-center">
             <v-chip class="ma-2" color=#CDC4FF outlined v-if="department != null">
@@ -123,7 +123,9 @@
             </v-chip>    
           </div>
         </template>
-      </v-container>
+      </v-container> -->
+
+      <filter-inputs></filter-inputs>
 
       <!-- <iframe
         width="100%"
@@ -266,14 +268,15 @@ import CenterDetail from "../components/CenterDetail.vue";
 // import CenterListFilters from "../components/CenterListFilters.vue";
 // import SiteFooter from "../components/SiteFooter.vue";
 import MapFilterMobile from "../components/MapFilterMobile.vue";
-
 import BottomNavigationMobile from '../components/BottomNavigation.Mobile.vue';
+import FilterInputs from './filters/FilterInputs.vue';
 
 export default {
   components: {
     MapFilterMobile,
     CenterDetail,
     BottomNavigationMobile,
+    FilterInputs,
   },
 
   data: () => ({

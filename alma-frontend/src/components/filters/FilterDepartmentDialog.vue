@@ -5,12 +5,13 @@
       dense solo rounded flat
       hide-details readonly
       placeholder="Departamento"
-      class="mr-3"
+      class="mr-3 selected"
       @click="dialog = true"
+      :background-color="dialog ? '#E4DFFF' : 'none'"
     ></v-text-field>
 
     <v-dialog v-model="dialog" max-width="670px">
-      <v-card class="filter-dialog-padding">
+      <v-card :class="{'filter-dialog-padding': $vuetify.breakpoint.mdAndUp}">
         <v-card-title>
           Departamento
           <v-spacer></v-spacer>
