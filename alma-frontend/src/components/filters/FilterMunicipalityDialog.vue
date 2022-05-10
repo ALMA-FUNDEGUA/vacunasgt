@@ -7,10 +7,11 @@
       placeholder="Municipio"
       class="mr-3"
       @click="dialog = true"
+      :background-color="dialog ? '#E4DFFF' : 'none'"
     ></v-text-field>
 
     <v-dialog v-model="dialog" max-width="670px">
-      <v-card class="filter-dialog-padding">
+      <v-card :class="{'filter-dialog-padding': $vuetify.breakpoint.mdAndUp}">
         <v-card-title>
           Municipio
           <v-spacer></v-spacer>
