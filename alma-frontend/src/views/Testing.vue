@@ -22,7 +22,7 @@
               </p>
 
               <p class="mb-0 font-weight-bold">
-                {{ k2 }}
+                {{ formatDose(k2) }}
               </p>
 
               <p class="mb-2 font-weight-bold">
@@ -66,42 +66,44 @@ export default {
     },
 
     generate() {
+      const OrderDoseCondition = {
+        'PRIMERA': 0,
+        'SEGUNDA': 1,
+        'TERCERA': 3,
+        'CUARTA': 4,
+        'REFUERZO': 5,
+        'CERRADO HOY': 4,
+      }
+
       return _.chain(this.centers)
+        .filter(item => !!item.schedule.week)
         .map(item => ({
-          init: item,
           name: item.name,
           vaccines: item['vaccines'],
         }))
-        .map(item => _.chain(item.vaccines)
-            .keys()
+        .map(item => Object.keys(item.vaccines)
             .map(v => ({
-              init: item.init,
               name: item.name,
               vaccine: v,
               doses: item.vaccines[v]
             }))
-            .value()
         ).flattenDepth(2)
-        .map(item => _.chain(item.doses)
-            .keys()
+        .map(item => Object.keys(item.doses)
+            .sort((a, b) => OrderDoseCondition[a] - OrderDoseCondition[b])
             .map(d => ({
-              init: item.init,
               name: item.name,
               vaccine: item.vaccine,
               dose: d,
               requirements: item.doses[d]
             }))
-            .value()
         ).flattenDepth(2)
-        .map(item => _.chain(item.requirements)
+        .map(item => item.requirements
             .map(req => ({
-              init: item.init,
               name: item.name,
               vaccine: item.vaccine,
               dose: item.dose,
               group: req.group,
             }))
-            .value()
         ).flattenDepth(2)
         .groupBy('vaccine')
         .mapValues(items => _.chain(items)
@@ -109,12 +111,20 @@ export default {
             .omit(['CERRADO HOY'])
             .mapValues(items => _.chain(items)
                 .groupBy('group')
-                .mapValues(items => _.map(items, i => i.name))
+                .mapValues(items => items.map(i => i.name))
                 .value()
-            )
-            .value()
-        )
-        .value()
+            ).value()
+        ).value()
+    },
+
+    formatDose(dose) {
+      switch (dose) {
+        case "PRIMERA": return "1era Dosis";
+        case "SEGUNDA": return "2nda Dosis";
+        case "TERCERA": return "3ra Dosis";
+        case "CUARTA": return "4ta Dosis";
+        default: return dose;
+      }
     }
   }
 }
