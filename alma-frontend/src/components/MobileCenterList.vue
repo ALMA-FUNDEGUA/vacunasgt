@@ -13,7 +13,7 @@
         <v-spacer/>
         
         <v-btn icon link to="/filters">
-          <v-icon @click="resetCase">
+          <v-icon>
             mdi-filter-variant
           </v-icon>
         </v-btn>
@@ -23,116 +23,7 @@
         </span>
       </v-toolbar>
 
-      <v-container>
-        <template>
-          <div class="text-center">
-            <v-chip class="ma-2" color=#CDC4FF outlined v-if="department != null">
-              <span style = "font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 12px; line-height: 16px; color: black;">
-                {{department}}
-              </span>
-
-              <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
-              
-              <v-icon color="black">
-                mdi-chevron-down
-              </v-icon>
-            </v-chip>
-
-            <v-chip class="ma-2" color=#CDC4FF outlined v-if="municipality != null">
-              <span style = "font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 12px; line-height: 16px; color: black;">
-                {{municipality}}
-              </span>
-
-              <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
-
-              <v-icon color="black">
-                mdi-chevron-down
-              </v-icon>
-            </v-chip>
-
-            <v-chip class="ma-2" color=#CDC4FF outlined v-if="vaccine != null">
-              <span style = "font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 12px; line-height: 16px; color: black;">
-                {{vaccine}}
-              </span>
-
-              <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
-
-              <v-icon color="black">
-                mdi-chevron-down
-              </v-icon>
-            </v-chip>
-
-            <v-chip class="ma-2" color=#CDC4FF outlined v-if="group != null">
-              <span style = "font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 12px; line-height: 16px; color: black;">
-                {{group}}
-              </span>
-
-              <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
-
-              <v-icon color="black">
-                mdi-chevron-down
-              </v-icon>
-            </v-chip>
-
-            <v-chip class="ma-2" color=#CDC4FF outlined v-if="dose != null">
-              <span style = "font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 12px; line-height: 16px; color: black;">
-                {{dose}}
-              </span>
-
-              <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
-
-              <v-icon color="black">
-                mdi-chevron-down
-              </v-icon>
-            </v-chip>
-
-            <v-chip class="ma-2" color=#CDC4FF outlined v-if="requirement != null">
-              <span style = "font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 12px; line-height: 16px; color: black;">
-                {{requirement}}
-              </span>
-
-              <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
-
-              <v-icon color="black">
-                mdi-chevron-down
-              </v-icon>
-            </v-chip>
-
-            <v-chip class="ma-2" color=#CDC4FF outlined v-if="influx != null">
-              <span style = "font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 12px; line-height: 16px; color: black;">
-                {{influx}}
-              </span>
-
-              <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
-
-              <v-icon color="black">
-                mdi-chevron-down
-              </v-icon>
-            </v-chip>
-
-            <v-chip class="ma-2" color=#CDC4FF outlined v-if="entrance != null">
-              <span style = "font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 12px; line-height: 16px; color: black;">
-                {{entrance}}
-              </span>
-
-              <v-divider inset color=#CDC4FF vertical class="mx-2"></v-divider>
-
-              <v-icon color="black">
-                mdi-chevron-down
-              </v-icon>
-            </v-chip>    
-          </div>
-        </template>
-      </v-container>
-
-      <!-- <iframe
-        width="100%"
-        height="300"
-        style="border:0"
-        loading="lazy"
-        :src="`https://www.google.com/maps/embed/v1/place?key=${this.apiKey}&q=Auditorio Municipal Villa Canales`">
-      </iframe> -->
-
+      <filter-inputs></filter-inputs>
       <map-filter-mobile></map-filter-mobile>
 
       <v-data-iterator
@@ -266,14 +157,15 @@ import CenterDetail from "../components/CenterDetail.vue";
 // import CenterListFilters from "../components/CenterListFilters.vue";
 // import SiteFooter from "../components/SiteFooter.vue";
 import MapFilterMobile from "../components/MapFilterMobile.vue";
-
 import BottomNavigationMobile from '../components/BottomNavigation.Mobile.vue';
+import FilterInputs from './filters/FilterInputs.vue';
 
 export default {
   components: {
     MapFilterMobile,
     CenterDetail,
     BottomNavigationMobile,
+    FilterInputs,
   },
 
   data: () => ({
