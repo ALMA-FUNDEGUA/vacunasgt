@@ -3,9 +3,9 @@
     <template>
       <div class="mapa">
         <l-map
-          style="height: 500px; width: 600px; z-index: 0"
+          style="height: 300px; width: 600px; z-index: 0"
           :zoom="zoom"
-          :center="[16.01, -90.5351601]"
+          :center="mapsLatLon(items[0])"
         >
           <l-tile-layer :url="url"></l-tile-layer>
 
@@ -61,7 +61,7 @@ export default {
 
   data: () => ({
     url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    zoom: 7,
+    zoom: 10,
     iconUrl: "http://www.clker.com/cliparts/R/B/J/Z/k/m/map-marker-hi.png",
   }),
 
