@@ -14,6 +14,7 @@
     "firebase": "^9.0.1",
     "leaflet": "^1.8.0",
     "lodash": "^4.17.21",
+    "register-service-worker": "^1.7.2",
     "twitter-widgets": "^2.0.0",
     "vue": "^2.6.11",
     "vue-axios": "^3.2.5",
@@ -26,6 +27,7 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-pwa": "~5.0.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
