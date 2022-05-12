@@ -28,7 +28,7 @@
             <v-expansion-panel-header style="font-weight: bold">
               ¿Qué es COVID-19?
             </v-expansion-panel-header>
-            <v-expansion-panel-content class="paragraph">
+            <v-expansion-panel-content class="paragraph text-justify">
               <!-- <a :href="dir.value" target="blank" rel="noopener noreferrer"> -->
               COVID-19 es el nombre de la enfermedad causada por el virus
               coronavirus conocido como SARS-CoV-2. SARS por sus siglas en
@@ -40,6 +40,32 @@
               aparecido nuevas variantes que afectan humanos. El SARS-CoV-2 es
               un nuevo coronavirus, que causa la enfermedad conocida como
               COVID-19, descubierta el 31 de diciembre de 2019 en China.
+              <p></p>
+              <p>Referencias:</p>
+              <p>
+                Organización Mundial de la Salud. (2020). Información básica
+                sobre la COVID-19. en:
+                <a
+                  href="https://www.who.int/es/news-room/questions-and-answers/item/coronavirus-disease-covid-19"
+                  target="_blank"
+                >
+                  https://www.who.int/es/news-room/questions-and-answers/item/coronavirus-disease-covid-19</a
+                >
+
+                [Con acceso el 08 de marzo de 2022].
+              </p>
+              <p>
+                Síndrome respiratorio agudo severo SARS. en:
+                <a
+                  href="https://www.who.int/health-topics/severe-acute-respiratory-syndrome#tab=tab_1"
+                  target="_blank"
+                >
+                  https://www.who.int/health-topics/severe-acute-respiratory-syndrome#tab=tab_1</a
+                >
+
+                [Con acceso el 08 de marzo de 2022].
+              </p>
+
               <!-- </a> -->
             </v-expansion-panel-content>
             <!-- </v-expansion-panel> -->
@@ -48,45 +74,93 @@
           <v-expansion-panel class="my-2">
             <!-- <v-expansion-panel> -->
             <v-expansion-panel-header style="font-weight: bold">
-              ¿Vacuna para niños de 6 a 11 años?
+              ¿COVID-19 largo?
             </v-expansion-panel-header>
-            <v-expansion-panel-content class="paragraph">
+            <v-expansion-panel-content class="paragraph text-justify">
               <!-- <a :href="dir.value" target="blank" rel="noopener noreferrer"> -->
               <p>
-                El ministerio de Salud habilit&oacute; el 11 de marzo el
-                registro para inscribir a personas menores de entre 6 y 11
-                a&ntilde;os de edad en el programa de vacunaci&oacute;n contra
-                COVID-19.&nbsp;
+                Aunque la mayoría de las personas con COVID-19 mejora después de
+                unas semanas de haber estado enfermos, algunas personas
+                experimentan una variedad de problemas de salud, que no
+                desaparecen o nuevos por cuatro semanas o más después de haberse
+                infectado por primera vez por el virus que causa el COVID-19.
+                Pueden presentarse como diferentes tipos y combinaciones de
+                problemas de salud por diferentes periodos. A estos síntomas se
+                les llama afecciones posteriores al COVID-19. Incluso las
+                personas que no tuvieron síntomas de COVID-19 en los días o
+                semanas después de haberse infectado pueden experimentar
+                afecciones posteriores al COVID-19.
               </p>
 
               <p>
-                La vacuna que se estar&aacute; utilizando es Moderna, ahora
-                conocida tambi&eacute;n como &nbsp;&quot;Spikevax&quot;
-                &nbsp;(dosis de 0.25 ml).&nbsp; Fue &nbsp;aprobada para su uso
-                en menores de edad de 6 a 11 a&ntilde;os por la Agencia Europea
-                de Medicamentos (EMA).&nbsp;
+                Las afecciones posteriores al COVID-19 también pueden conocerse
+                como COVID-19 persistente, COVID-19 de larga duración, COVID-19
+                postagudo, efectos a largo plazo del COVID-19 o COVID-19
+                crónico.
               </p>
 
               <p>
-                Se administrar&aacute; la segunda dosis 8 semanas (56
-                d&iacute;as) despu&eacute;s de haber recibido la primera
-                dosis.&nbsp;
+                A diferencia de algunos de los síntomas después de tener
+                COVID-19 que solo suelen ocurrir en personas que se enfermaron
+                gravemente, estos síntomas pueden presentarse en cualquier
+                persona que haya tenido COVID-19, incluso si la enfermedad fue
+                leve, o si no tuvieron síntomas iniciales. Las personas
+                comúnmente notifican combinaciones de los siguientes síntomas:
               </p>
 
-              <p>
-                La vacuna contiene la mol&eacute;cula llamada ARN mensajero que
-                da instrucciones al cuerpo humano para poder defenderse del
-                COVID-19.&nbsp;
-              </p>
+              <ul>
+                <li>Dificultad para respirar o falta de aire</li>
+                <li>Cansancio o fatiga</li>
+                <li>
+                  Síntomas que empeoran luego de realizar actividades físicas o
+                  mentales (también conocidos como malestar general posesfuerzo)
+                </li>
+                <li>
+                  Dificultad para pensar o concentrarse (conocida como "neblina
+                  mental")
+                </li>
+                <li>Tos</li>
+                <li>Dolor en el pecho o en el estómago</li>
+                <li>Dolor de cabeza</li>
+                <li>
+                  Corazón que late rápido o muy fuerte (conocido como
+                  palpitaciones)
+                </li>
+                <li>Dolor muscular o en las articulaciones</li>
+                <li>Sensación de hormigueo</li>
+                <li>Diarrea</li>
+                <li>Problemas para dormir</li>
+                <li>Fiebre</li>
+                <li>Mareos (vértigo) al ponerse de pie</li>
+                <li>Sarpullido (ronchas o alergia)</li>
+                <li>Cambios en el estado de ánimo</li>
+                <li>Cambios del gusto o el olfato</li>
+                <li>Cambios en los ciclos del periodo menstrual</li>
+              </ul>
+              <p></p>
 
               <p>
-                La vacuna no contiene el virus y no puede causar COVID-19.&nbsp;
+                La mejor forma de prevenir el COVID-19 largo, es evitar contraer
+                COVID-19. Para quienes cumplen los requisitos, vacunarse contra
+                el COVID-19 lo antes posible es la mejor manera de evitar
+                contraer COVID-19 y también puede ayudar a proteger a quienes lo
+                rodean.
+              </p>
+              <p>Referencias:</p>
+              <p>
+                Centros para el control y la prevención de enfermedades. (2022).
+                COVID-19 largo . En:
+
+                <a
+                  href="https://espanol.cdc.gov/coronavirus/2019-ncov/long-term-effects/index.html"
+                  target="_blank"
+                >
+                  https://espanol.cdc.gov/coronavirus/2019-ncov/long-term-effects/index.html.</a
+                >
+
+                [Con acceso el 12 de abril de 2022].
               </p>
 
-              <p>
-                Extra: Se utilizar&aacute; una jeringa de 23G x1&#39;&#39; x1 ml
-                milimetrada para dosis de 0.25ml
-              </p>
               <!-- </a> -->
             </v-expansion-panel-content>
             <!-- </v-expansion-panel> -->
@@ -97,43 +171,101 @@
             <v-expansion-panel-header
               style="font-weight: bold; line-height: 1.5"
             >
-              ¿Registro de vacunas para niños de 6 a 11 años?
+              ¿Requisitos para segundo refuerzo?
             </v-expansion-panel-header>
-            <v-expansion-panel-content class="paragraph">
+            <v-expansion-panel-content class="paragraph text-justify">
               <!-- <a :href="dir.value" target="blank" rel="noopener noreferrer"> -->
               <p>
-                El ministerio de Salud habilit&oacute; el 11 de marzo el
-                registro para inscribir a personas menores de entre 6 y 11
-                a&ntilde;os de edad en el programa de vacunaci&oacute;n contra
-                COVID-19.
+                Las personas que tienen un esquema primario de Sputnik y que
+                tengan un primer refuerzo de AstraZeneca, Moderna o Pfizer, ya
+                pueden acudir al centro de vacunación de Cayala, dónde están
+                administrando un segundo refuerzo a personas que van a viajar.
+                Los requisitos son: cumplir 4 meses desde que se colocó el
+                primer refuerzo y llevar una copia del boleto de viaje. Se
+                estarán colocando las vacunas AstraZeneca, Moderna y Pfizer.
               </p>
 
               <p>
-                Puede registrarse a los menores directamente en el centro de
-                vacunaci&oacute;n. Debe presentarse el c&oacute;digo
-                &uacute;nico de Identificaci&oacute;n del menor&nbsp;CUI (que
-                se&nbsp;encuentra en la partida de nacimiento, es el primer
-                n&uacute;mero que aparece en la secci&oacute;n &quot;Datos del
-                inscrito&quot;) y el DPI de uno de los padres de familia o
-                encargado.
+                A nivel nacional, en todos los establecimientos de salud y el
+                IGSS, además de otros centros de vacunación están habilitados
+                para vacunar a la población.
               </p>
 
+              <p>Población que será vacunada con un segundo refuerzo:</p>
+
+              <ul>
+                <li>
+                  Personas de 12 a 17 años con inmunosupresión y enfermedades
+                  crónicas (cuarta dosis de Moderna o Pfizer, 4 meses después a
+                  la dosis adicional).
+                </li>
+                <li>
+                  Personas de 18 años o más con inmunosupresión y enfermedades
+                  crónicas (Moderna, Pfizer o AstraZeneca, 4 meses posterior a
+                  la dosis adicional).
+                </li>
+                <li>
+                  Adultos de 50 años o más (Moderna, Pfizer o AstraZeneca, 4
+                  meses después de la primera dosis de refuerzo)
+                </li>
+                <li>
+                  Trabajadores de salud (Moderna, Pfizer o AstraZeneca, 4 meses
+                  después de la primera dosis de refuerzo)
+                </li>
+              </ul>
               <p>
-                Tambi&eacute;n, puede ingresar al sitio
-                &quot;registrovacunas.mspas.gob.gt&quot; , donde podr&aacute;
-                visualizar varias pesta&ntilde;as que tienen los puntos de
-                vacunaci&oacute;n habilitados y puestos de registro. M&aacute;s
-                abajo, podr&aacute; encontrar la inscripci&oacute;n de la fase
-                mayores de 18 y de menores de edad.&nbsp;
+                *Aplica para extranjeros que hayan recibido una dosis de
+                refuerzo en Guatemala y que estén registrados en el sistema.
               </p>
+              <p>
+                Factores de riesgo de Inmunosupresión y enfermedades crónicas.
+              </p>
+              <ul>
+                <li>
+                  Tratamiento activo de tumores sólidos y neoplasias
+                  hematológicas.
+                </li>
+                <li>
+                  Enfermedad renal crónica con terapia de reemplazo renal y
+                  diálisis.
+                </li>
+                <li>
+                  Recepción de trasplante de órgano sólido y tratamiento
+                  inmunosupresor.
+                </li>
+                <li>Inmunodeficiencia primaria moderada o grave.</li>
+                <li>Infección por VIH</li>
+                <li>
+                  Tratamiento activo con corticosteroides en dosis altas,
+                  agentes alquilantes, antimetabolitos, fármacos
+                  inmunosupresores relacionados con el trasplante, agentes
+                  quimioterapéuticos contra el cáncer, inhibidores del factor de
+                  necrosis tumoral y otros biológicos que son inmunosupresores o
+                  inmunomoduladores.
+                </li>
+                <li>Hipertensión arterial que requiere medicamentos.</li>
+                <li>Diabetes mellitus.</li>
+                <li>Enfermedad pulmonar crónica.</li>
+                <li>Enfermedad renal crónica.</li>
+                <li>Enfermedad cardiovascular y cerebrovascular.</li>
+                <li>Obesidad (índice de masa corporal mayor o igual de 30).</li>
+              </ul>
 
               <p>
-                Se debe registrar el c&oacute;digo &uacute;nico de
-                Identificaci&oacute;n del menor CUI y despu&eacute;s de la
-                inscripci&oacute;n, el Ministerio de Salud le informar&aacute;
-                cu&aacute;les ser&aacute;n los centros de vacunaci&oacute;n
-                m&aacute;s cercanos habilitados para llevar a los menores y que
-                tengan su primera dosis.
+                En Guatemala todavía no se tiene la autorización para
+                administrar una segunda dosis de refuerzo (cuarta dosis de
+                vacuna) para la población en general.
+              </p>
+              <p>Referencias:</p>
+              <p>
+                MSPAS. (2022). Cuarta dosis. en:
+                <a
+                  href="https://mspas.gob.gt/descargas-mspas?task=download.send&id=2933&catid=606&m=0"
+                  target="_blank"
+                  >https://mspas.gob.gt/descargas-mspas?task=download.send&id=2933&catid=606&m=0</a
+                >
+
+                [Con acceso el 08 de abril de 2022].
               </p>
               <!-- </a> -->
             </v-expansion-panel-content>
@@ -143,94 +275,114 @@
           <v-expansion-panel class="my-2">
             <!-- <v-expansion-panel> -->
             <v-expansion-panel-header style="font-weight: bold">
-              ¿Cuales son los sintomas comunes?
+              ¿Vacuna contra Hepatitis B?
             </v-expansion-panel-header>
-            <v-expansion-panel-content class="paragraph">
+            <v-expansion-panel-content class="paragraph text-justify">
               <!-- <a :href="dir.value" target="blank" rel="noopener noreferrer"> -->
-              <p>Los s&iacute;ntomas m&aacute;s comunes son:</p>
-
-              <ul>
-                <li>Fiebre&nbsp;</li>
-                <li>Tos</li>
-                <li>Cansancio</li>
-              </ul>
+              <p><b> 1) ¿Qué previene?</b></p>
 
               <p>
-                Otros s&iacute;ntomas que son normales, pero menos frecuentes
-                son:
+                La vacuna contra la Hepatitis B previene de la infección por el
+                virus de la hepatitis B y evita el desarrollo de complicaciones,
+                como enfermedades crónicas y cáncer de hígado.
               </p>
 
-              <ul>
-                <li>P&eacute;rdida del gusto o el olfato</li>
-                <li>Congesti&oacute;n nasal</li>
-                <li>
-                  Enrojecimiento en los ojos ( al que se le refiere como
-                  conjuntivitis)
-                </li>
-                <li>Dolor de cabeza</li>
-                <li>Dolor de garganta</li>
-                <li>
-                  Dolor en las articulaciones, de los codos o las rodillas
-                </li>
-                <li>Dolor muscular&nbsp;</li>
-                <li>
-                  Diferentes ronchas en la piel ( a las que se les refiere como
-                  erupciones cut&aacute;neas)
-                </li>
-                <li>N&aacute;usea o v&oacute;mito</li>
-                <li>Diarrea</li>
-                <li>Escalofr&iacute;os o v&eacute;rtigo&nbsp;</li>
-              </ul>
+              <p>Fue la primera vacuna para prevenir el cáncer.</p>
 
-              <p>
-                Otros s&iacute;ntomas graves relacionados a COVID-19 incluyen:
-              </p>
-
-              <ul>
-                <li>Dificultad para respirar</li>
-                <li>P&eacute;rdida de apetito&nbsp;</li>
-                <li>Confusi&oacute;n&nbsp;</li>
-                <li>
-                  &nbsp;Presi&oacute;n o dolor en el pecho que no desaparece
-                </li>
-                <li>
-                  No lograr despertarse o dificultad para permanecer despierto
-                </li>
-                <li>Color azul en los labios o el rostro</li>
-                <li>Fiebre alta ( m&aacute;s de 38&nbsp;&deg; C)</li>
-              </ul>
-
-              <p>
-                Y otros s&iacute;ntomas que son menos frecuentes, pero si
-                est&aacute;n asociados a COVID-19, pueden ser: &nbsp;
-              </p>
+              <p><b>2) ¿Cuándo debe administrarse?</b></p>
+              <p><b> MSPAS:</b></p>
 
               <ul>
                 <li>
-                  Irritabilidad&nbsp;( Estado de &aacute;nimo que cosas comunes
-                  le enojan)
+                  La administración es a las 24 horas de vida, o lo antes
+                  posible, antes de cumplir un mes de edad.
                 </li>
+              </ul>
+              <p></p>
+              <p><b> IGSS:</b></p>
+
+              <ul>
+                <li>Se administra una dosis a los recién nacidos.</li>
                 <li>
-                  P&eacute;rdida de la conciencia (a veces asociada a
-                  convulsiones)&nbsp;
-                </li>
-                <li>Ansiedad&nbsp;</li>
-                <li>Depresi&oacute;n&nbsp;</li>
-                <li>Cambios en el sue&ntilde;o&nbsp;</li>
-                <li>
-                  Complicaciones neurol&oacute;gicas m&aacute;s graves y raras,
-                  como inflamaci&oacute;n del cerebro, &nbsp;delirios y lesiones
-                  neurales y &nbsp;accidentes cerebrovasculares.&nbsp;
+                  Para el adulto mayor y población en riesgo (personal de salud,
+                  enfermos crónicos e inmunocomprometidos) , se administran 3
+                  dosis. La segunda 1 mes después de la primera. La tercera, 5
+                  meses después de la segunda.
                 </li>
               </ul>
 
+              <p></p>
+              <p><b>3) ¿Cuáles son los efectos secundarios?</b></p>
               <p>
-                Se debe buscar atenci&oacute;n m&eacute;dica inmediata para
-                todas las personas, de cualquier edad, &nbsp;que tengan fiebre o
-                tos y adem&aacute;s respiren con dificultad, sientan dolor o
-                presi&oacute;n en el pecho o tengan dificultades para hablar o
-                moverse.&nbsp;
+                Los efectos secundarios más comunes de la vacuna contra la
+                hepatitis B son leves e incluyen:
               </p>
+              <ul>
+                <li>Fiebre baja</li>
+                <li>Dolor en el brazo por la inyección</li>
+              </ul>
+
+              <p></p>
+              <p>Referencias:</p>
+
+              <p>
+                Organización Panamericana de la Salud. (2021). Hepatitis B. En:
+                <a
+                  href="https://www.paho.org/es/tag/vacunas-contra-hepatitis"
+                  target="_blank"
+                  >https://www.paho.org/es/tag/vacunas-contra-hepatitis</a
+                >
+                . [Con acceso el 25 de abril de 2022].
+              </p>
+
+              <p>
+                Centros para el control y la prevención de enfermedades. (2021).
+                Hepatitis B. En:
+                <a
+                  href="https://www.cdc.gov/vaccines/parents/diseases/hepb-sp.html"
+                  target="_blank"
+                >
+                  https://www.cdc.gov/vaccines/parents/diseases/hepb-sp.html</a
+                >
+                . [Con acceso el 25 de abril de 2022].
+              </p>
+
+              <p>
+                IGSS. (2020). Esquema de vacunación. en:
+                <a
+                  href="https://www.igssgt.org/wp-content/uploads/2020/09/esquema-de-vacunas-IGSS.pdf"
+                  target="_blank"
+                >
+                  https://www.igssgt.org/wp-content/uploads/2020/09/esquema-de-vacunas-IGSS.pdf</a
+                >
+
+                [Con acceso el 28 de abril de 2022].
+              </p>
+
+              <p>
+                SIGSA. (2018). Esquema de vacunación MSPAS. En:
+                <a
+                  href="https://sigsa.mspas.gob.gt/component/jdownloads/send/14-sigsa-web/93-sigsa-17-carne-otros-grupos?option=com_jdownloads"
+                  target="_blank"
+                >
+                  https://sigsa.mspas.gob.gt/component/jdownloads/send/14-sigsa-web/93-sigsa-17-carne-otros-grupos?option=com_jdownloads</a
+                >
+
+                [Con acceso el 2 de mayo de 2022].
+              </p>
+
+              <p>
+                MSPAS. (2021). Esquema de vacunación MSPAS. En:
+                <a
+                  href="https://prensa.gob.gt/comunicado/programa-vacunacion-integral-para-toda-la-familia"
+                  target="_blank"
+                >
+                  https://prensa.gob.gt/comunicado/programa-vacunacion-integral-para-toda-la-familia</a
+                >
+
+                [Con acceso el 2 de mayo de 2022].
+              </p>
+
               <!-- </a> -->
             </v-expansion-panel-content>
             <!-- </v-expansion-panel> -->
@@ -239,38 +391,75 @@
           <v-expansion-panel class="my-2">
             <!-- <v-expansion-panel> -->
             <v-expansion-panel-header style="font-weight: bold">
-              ¿Refuerzo para menores?
+              ¿A qué edad se pone la vacuna del VPH?
             </v-expansion-panel-header>
-            <v-expansion-panel-content class="paragraph">
+            <v-expansion-panel-content class="paragraph text-justify">
               <!-- <a :href="dir.value" target="blank" rel="noopener noreferrer"> -->
+              <p>Sobre la vacuna contra el virus del papiloma humano (VPH)</p>
+
+              <p><b>De los 10 a 14 años, solo a niñas (gratuita) MSPAS:</b></p>
+
+              <ul>
+                <li>
+                  Se necesitan 2 dosis de la vacuna contra el VPH, con 6 meses
+                  entre cada dosis.
+                </li>
+              </ul>
+              <p></p>
+              <p><b>Menores de 15 años, IGSS:</b></p>
+              <ul>
+                <li>Dos dosis. Segunda dosis 6 meses después de la primera.</li>
+              </ul>
+              <p></p>
               <p>
-                En los centros de vacunaci&oacute;n ya puede encontrar el
-                refuerzo para ni&ntilde;os de 12 a 17 a&ntilde;os. &nbsp;
+                <b>Si se empieza la vacunación después de los 15 años, IGSS:</b>
+              </p>
+              <ul>
+                <li>
+                  Se necesitan 3 dosis de la vacuna contra el VPH, la segunda
+                  dosis 1 mes después de la primera. La tercera dosis, 5 meses
+                  después de la segunda.
+                </li>
+              </ul>
+              <p></p>
+
+              <p>Referencias:</p>
+              <p>
+                IGSS. (2020). Vacuna VPH. en:
+                <a
+                  href="https://www.igssgt.org/wp-content/uploads/2020/09/esquema-de-vacunas-IGSS.pdf"
+                  target="_blank"
+                >
+                  https://www.igssgt.org/wp-content/uploads/2020/09/esquema-de-vacunas-IGSS.pdf</a
+                >
+
+                [Con acceso el 28 de abril de 2022].
               </p>
 
               <p>
-                Est&aacute;n autorizados para recibir una dosis de refuerzo,
-                despu&eacute;s de haber recibido dos dosis de las vacunas Pfizer
-                o Moderna (esquema primario).&nbsp;
+                SIGSA. (2018). Esquema de vacunación MSPAS. En:
+                <a
+                  href="https://sigsa.mspas.gob.gt/component/jdownloads/send/14-sigsa-web/93-sigsa-17-carne-otros-grupos?option=com_jdownloads"
+                  target="_blank"
+                >
+                  https://sigsa.mspas.gob.gt/component/jdownloads/send/14-sigsa-web/93-sigsa-17-carne-otros-grupos?option=com_jdownloads</a
+                >
+
+                [Con acceso el 2 de mayo de 2022].
               </p>
 
               <p>
-                Pude vacunar a su hijo con un refuerzo, 4 meses despu&eacute;s
-                de haber recibido la segunda dosis o una dosis adicional del
-                esquema primario.&nbsp;
+                MSPAS. (2021). Esquema de vacunación MSPAS. En:
+                <a
+                  href="https://prensa.gob.gt/comunicado/programa-vacunacion-integral-para-toda-la-familia"
+                  target="_blank"
+                >
+                  https://prensa.gob.gt/comunicado/programa-vacunacion-integral-para-toda-la-familia</a
+                >
+
+                [Con acceso el 2 de mayo de 2022].
               </p>
 
-              <p>
-                Las dosis que ser&aacute;n administradas son Pfizer (volumen 0.3
-                ml) y Moderna (0.25 ml). &nbsp;
-              </p>
-
-              <p>
-                Es importante que uno de sus padres lleve su DPI y el CUI del
-                menor al centro de vacunaci&oacute;n.
-              </p>
-
-              <p>&nbsp;</p>
               <!-- </a> -->
             </v-expansion-panel-content>
             <!-- </v-expansion-panel> -->

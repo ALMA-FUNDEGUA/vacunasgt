@@ -7,21 +7,19 @@
 
       <v-divider vertical inset></v-divider>
 
-      <v-btn text class="no-uppercase"
-          @click="$router.push('/filters')">
-        <v-icon>mdi-filter-variant</v-icon>
-        Filtros
-      </v-btn>
+      <filter-dialog></filter-dialog>
     </v-app-bar>
   </section>  
 </template>
 
 <script>
 import FilterInputs from '../../components/filters/FilterInputs.vue';
+import FilterDialog from './FilterDialog.vue';
 
 export default {
   components: {
     FilterInputs,
+    FilterDialog,
   }
 }
 </script>
