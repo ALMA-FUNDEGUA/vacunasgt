@@ -1,9 +1,9 @@
 <template>
   <section>
-    <!-- <v-container> -->
+    <!-- <v-container fluid class="ma-0"> -->
       <v-img :src="require('@/assets/icons/svg-desktopFooter.svg')">
-        <v-container class="mt-15 ml-5 mr-5">
-          <v-row>
+        <v-container fluid class="mt-15 ml-5 mr-5">
+          <v-row justify="center">
             <v-col class="text-center">
               <span class="display-1 font-weight-bold">
                 ¡Ponte en contacto con nosotros!
@@ -37,7 +37,7 @@
           </v-row>
         </v-container>
 
-        <v-container>
+        <v-container fluid>
           <v-row justify="center">
             <v-col cols="12" md="9" class="pb-0">
               <div class="d-flex justify-space-between align-center">
@@ -109,7 +109,7 @@
           </v-row>
         </v-container>
 
-        <v-container>
+        <v-container fluid>
           <v-row justify="center">
             <v-col cols="12" md="9">
               <v-divider color="#CDC4FF"></v-divider>
