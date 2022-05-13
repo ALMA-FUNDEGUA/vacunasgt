@@ -15,6 +15,14 @@ export default {
   data: () => ({
     //
   }),
+
+  created() {
+    if (this.$workbox) {
+      this.$workbox.addEventListener("waiting", () => {
+        this.showUpdateUI = true;
+      });
+    }
+  },
   beforeMount() {
     this.$store.dispatch("CENTROS_HORARIOS_VACUNA");
 
