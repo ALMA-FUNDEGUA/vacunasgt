@@ -60,7 +60,7 @@
 import CenterFilters from "../components/CenterFilters.vue";
 import AppBar from "../components/AppBar.vue";
 import SiteFooter from "../components/SiteFooter.Desktop.vue";
-import MapFilter from "../components/MapFilter.vue";
+import MapFilter from "../components/maps/MapFilter.vue";
 
 export default {
   components: {
