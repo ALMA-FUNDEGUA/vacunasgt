@@ -4,7 +4,7 @@ module.exports = {
     workboxOptions: {
       skipWaiting: true,
     },
-    name: "VacunasGT ALMA",
+    name: "VacunasGT",
     themeColor: "",
     msTileColor: "",
     workboxPluginMode: "GenerateSW",
