@@ -42,7 +42,8 @@
 
     <section v-else>
       <v-card flat>
-        <v-card-title class="pa-0 caption font-weight-bold">
+        <v-card-title class="pa-0 caption font-weight-bold"
+            style="word-break: break-word;">
           Lugar: {{ item.name }}
         </v-card-title>
 

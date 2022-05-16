@@ -1,7 +1,7 @@
 <template>
   <section>
     <!-- <v-container fluid class="ma-0"> -->
-      <v-img :src="require('@/assets/icons/svg-desktopFooter.svg')">
+      <v-img :src="require('@/assets/icons/svg-desktopFooter-cropped.svg')" contain width="100%">
         <v-container fluid class="mt-15 ml-5 mr-5">
           <v-row justify="center">
             <v-col class="text-center">
