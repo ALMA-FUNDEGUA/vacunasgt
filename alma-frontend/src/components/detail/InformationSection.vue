@@ -25,7 +25,17 @@
     </v-container>
 
     <section class="expandable-content" :class="{'expanded': isExpanded}">
-      <slot name="content"></slot>
+      <slot name="content">
+        <v-container fluid>
+          <v-row>
+            <v-col cols="8" offset="2" class="px-0 pt-0">
+              <slot name="information">
+                <span>Insert Information Here!</span>
+              </slot>
+            </v-col>
+          </v-row>
+        </v-container>
+      </slot>
     </section>
   </section>
 </template>

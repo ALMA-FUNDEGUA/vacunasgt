@@ -1,116 +1,17 @@
 <template>
   <section>
     <v-list two-line>
-      <v-list-item>
-        <v-list-item-avatar>
-          <v-icon> mdi-clock-outline </v-icon>
-        </v-list-item-avatar>
-
-        <v-list-item-content>
-          <v-list-item-title class="font-weight-bold">
-            Horario de Atención
-          </v-list-item-title>
-
-          <v-list-item-subtitle
-            v-if="selected.schedule.week"
-            class="font-weight-medium"
-          >
-            {{ getSchedule }} {{ selected.schedule.week }}
-          </v-list-item-subtitle>
-
-          <v-list-item-subtitle
-            v-if="selected.schedule.weekend"
-            class="font-weight-medium"
-          >
-            Sab:
-            {{
-              selected.days.saturday
-                ? selected.schedule.weekend
-                : "No disponible"
-            }}
-          </v-list-item-subtitle>
-
-          <v-list-item-subtitle
-            v-if="selected.schedule.weekend"
-            class="font-weight-medium"
-          >
-            Dom:
-            {{
-              selected.days.sunday ? selected.schedule.weekend : "No disponible"
-            }}
-          </v-list-item-subtitle>
-        </v-list-item-content>
-
-        <v-list-item-action>
-          <v-icon>mdi-chevron-right</v-icon>
-        </v-list-item-action>
-      </v-list-item>
-
-      <v-divider></v-divider>
-      
-      <!-- Vaccines Information -->
-      <item-vaccines :item="selected"></item-vaccines>
-
-      <v-list-item class="d-none">
-        <v-list-item-avatar>
-          <v-icon> mdi-checkbox-marked-circle-outline </v-icon>
-        </v-list-item-avatar>
-
-        <v-list-item-content>
-          <v-list-item-title class="font-weight-bold">
-            Vacunas Disponibles
-          </v-list-item-title>
-
-          <v-list-item-subtitle v-for="(item, i) in formatedVaccines" :key="i">
-            <span class="font-weight-bold"> {{ item.vaccine }}: </span>
-
-            <span class="font-weight-medium">
-              {{ item.detail }}
-            </span>
-          </v-list-item-subtitle>
-        </v-list-item-content>
-
-        <v-list-item-action>
-          <v-icon>mdi-chevron-right</v-icon>
-        </v-list-item-action>
-      </v-list-item>
-
+      <item-schedule :item="item"></item-schedule>
       <v-divider></v-divider>
 
-      <v-list-item>
-        <v-list-item-avatar>
-          <v-icon> mdi-map-marker-outline </v-icon>
-        </v-list-item-avatar>
+      <item-vaccines :item="item"></item-vaccines>
+      <v-divider></v-divider>
 
-        <v-list-item-content>
-          <v-list-item-title class="font-weight-bold">
-            Dirección
-          </v-list-item-title>
-
-          <v-list-item-subtitle class="font-weight-medium">
-            {{ selected.address }}
-          </v-list-item-subtitle>
-
-          <div>
-            <v-btn color="#65CBF9" rounded class="mt-2 mb-2" @click="openMaps">
-              Abrir en Waze
-            </v-btn>
-          </div>
-
-          <div class="mt-2">
-            <v-btn rounded @click="onShare" class="mb-2"> Compartir </v-btn>
-          </div>
-        </v-list-item-content>
-
-        <v-list-item-action>
-          <v-icon>mdi-chevron-right</v-icon>
-        </v-list-item-action>
-      </v-list-item>
-
+      <item-address :item="item"></item-address>
       <v-divider></v-divider>
     </v-list>
 
-    <section class="d-none">
+    <!-- <section class="d-none">
       <v-list>
         <v-list-item>
           <v-list-item-avatar>
@@ -161,98 +62,28 @@
           </v-col>
         </v-row>
       </v-container>
-    </section>
+    </section> -->
   </section>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 
+import ItemSchedule from './detail/ItemSchedule.vue';
 import ItemVaccines from './detail/ItemVaccines.vue';
+import ItemAddress from './detail/ItemAddress.vue';
 
 export default {
   components: {
+    ItemSchedule,
     ItemVaccines,
+    ItemAddress,
   },
 
   computed: {
-    ...mapGetters(["selected"]),
-
-    getSchedule() {
-      let start = "";
-      let end = "";
-
-      if (this.selected.days.monday) {
-        start = "Lun";
-      } else if (this.selected.days.tuesday) {
-        start = "Mar";
-      }
-
-      if (this.selected.days.friday) {
-        end = "Vie";
-      } else if (this.selected.days.thursday) {
-        end = "Jue";
-      }
-
-      return `${start} - ${end}:`;
-    },
-
-    formatedVaccines() {
-      const vaccines = [];
-
-      Object.entries(this.selected.vaccines).forEach(([vaccine, dose]) => {
-        Object.entries(dose).forEach(([doseKey, doseData]) => {
-          doseData.forEach((req) => {
-            if (req.available) {
-              vaccines.push({
-                vaccine: vaccine,
-                detail: `${this.formatDose(doseKey)} / ${req.group}`,
-              });
-            }
-          });
-        });
-      });
-
-      return vaccines;
-    },
-  },
-
-  methods: {
-    openMaps() {
-      window.open(`https://waze.com/ul?q=${this.selected.name}`);
-    },
-
-    formatDose(dose) {
-      switch (dose) {
-        case "PRIMERA":
-          return "1era";
-        case "SEGUNDA":
-          return "2nda";
-        case "TERCERA":
-          return "3ra";
-        case "CUARTA":
-          return "4ta";
-        default:
-          return dose;
-      }
-    },
-
-    async onShare() {
-      if(navigator.canShare){
-        await navigator.share({
-          title: "VacunasGT Center",
-          url: window.location.href,
-        });
-      }
-      else{
-        try {
-          await navigator.clipboard.writeText(window.location.href);
-          alert('URL copiado');
-        } catch($e) {
-          alert('No se pudo copiar el URL');
-        }
-      }
-    },
+    ...mapGetters({
+      item: 'selected',
+    }),
   },
 };
 </script>
