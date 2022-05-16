@@ -47,8 +47,11 @@
       </v-list-item>
 
       <v-divider></v-divider>
+      
+      <!-- Vaccines Information -->
+      <item-vaccines :item="selected"></item-vaccines>
 
-      <v-list-item>
+      <v-list-item class="d-none">
         <v-list-item-avatar>
           <v-icon> mdi-checkbox-marked-circle-outline </v-icon>
         </v-list-item-avatar>
@@ -165,7 +168,13 @@
 <script>
 import { mapGetters } from "vuex";
 
+import ItemVaccines from './detail/ItemVaccines.vue';
+
 export default {
+  components: {
+    ItemVaccines,
+  },
+
   computed: {
     ...mapGetters(["selected"]),
 
