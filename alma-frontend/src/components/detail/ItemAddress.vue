@@ -4,6 +4,15 @@
         icon="mdi-map-marker-outline"
         title="Dirección">
       <template #information>
+        <p class="caption mb-0">
+          <span class="font-weight-bold">
+            Entrada:
+          </span>
+          <span class="font-weight-medium">
+            {{ item.entrance }}
+          </span>
+        </p>
+
         <span class="font-weight-medium caption">
           {{ item.address }}
         </span>
