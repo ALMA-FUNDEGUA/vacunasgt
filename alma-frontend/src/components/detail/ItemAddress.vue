@@ -6,7 +6,7 @@
       <template #information>
         <p class="caption mb-0">
           <span class="font-weight-bold">
-            Entrada:
+            Ingreso:
           </span>
           <span class="font-weight-medium">
             {{ item.entrance }}
