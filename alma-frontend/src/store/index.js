@@ -8,11 +8,12 @@ var _ = require('lodash')
 
 Vue.use(Vuex)
 
-const toUpperCase = items => _.map(items,
-    item => ({
-      text: item.toUpperCase(),
-      value: item,
-    })
+const toUpperCase = items => _.map(
+  _.filter(items, item => !!item),
+  item => ({
+    text: item.toUpperCase(),
+    value: item,
+  })
 )
 
 let state = {
@@ -298,6 +299,15 @@ let getters = {
 
   dose: state => state.dose,
   doses: (state, getters) => {
+    const OrderCondition = {
+      'PRIMERA': 0,
+      'SEGUNDA': 1,
+      'TERCERA': 3,
+      'CUARTA': 4,
+      'REFUERZO': 5,
+      'CERRADO HOY': 4,
+    }
+
     let ordered = []
     for (const center of getters.filtered) {
       for (const [vaccine, doses] of Object.entries(center.vaccines)) {
@@ -307,6 +317,8 @@ let getters = {
     }
 
     return toUpperCase(_.orderBy(_.uniq(ordered)))
+        .sort((a, b) => OrderCondition[a.text] - OrderCondition[b.text])
+        .filter(item => item.text !== 'CERRADO HOY')
   },
 
   group: state => state.group,

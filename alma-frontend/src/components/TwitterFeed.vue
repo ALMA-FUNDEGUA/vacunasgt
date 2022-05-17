@@ -1,33 +1,51 @@
 <template>
   <!-- Twitter -->
   <center>
-    <p class = "twitter-title">
-      Ultimas Noticias
-    </p>
-    <a class="twitter-timeline" data-lang="es" data-width="750" data-height="500" href="https://twitter.com/alma_guatemala?ref_src=twsrc%5Etfw">Tweets by alma_guatemala</a>
+    <p class="twitter-title">Últimas noticias en Twitter</p>
+    <div class="d-flex flex-column align-center">
+      <a
+        class="twitter-timeline"
+        data-lang="es"
+        data-width="750"
+        data-height="500"
+        href="https://twitter.com/alma_responde?s=20&t=E0_MtBK3l4HNIQgy7CaVQA"
+        data-chrome="nofooter noheader transparent"
+      ></a>
+      <a
+        href="https://twitter.com/alma_responde"
+        target="_blank"
+        style="
+          color: #3e3e3e;
+          font-weight: bold;
+          height: 40px;
+          margin-top: 15px;
+          margin-bottom: 10px;
+        "
+        >Ver más noticias en Twitter</a
+      >
+    </div>
   </center>
+
   <!-- End Twiter -->
 </template>
 
-
 <style scoped>
 .twitter-title {
-  color: #4F4A88;
-  font-size: 2rem;
-  font-weight: bold;
+  color: #3e3e3e;
+  font-size: 1.2rem;
+  font-weight: bolder;
 }
 </style>
 
 <script>
 // Enable twitter
-var TwitterWidgetsLoader = require('twitter-widgets');
+var TwitterWidgetsLoader = require("twitter-widgets");
 
 export default {
-
   mounted() {
     TwitterWidgetsLoader.load();
-  }
-}
+  },
+};
 // end
 </script>
 

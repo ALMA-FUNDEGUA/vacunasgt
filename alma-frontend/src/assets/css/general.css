@@ -1,8 +1,8 @@
-* {
+/* * {
     font-family: 'Alma';
-}
+} */
 
-@font-face {
+/* @font-face {
     font-family: 'Alma';
     src: url('../fonts/Montserrat-Medium.otf');
 }
@@ -10,12 +10,12 @@
 @font-face {
     font-family: 'AlmaExtraBolder';
     src: url('../fonts/Montserrat-ExtraBold.otf');
-}
+} */
 
 
-h1,h2,h3,h4,h5,h6,p,label{
+/* h1,h2,h3,h4,h5,h6,p,label{
     font-family: 'Alma';
-}
+} */
 
 .hidden{
     display: none !important;
