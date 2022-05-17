@@ -3,7 +3,7 @@
     <template>
       <div class="mapa">
         <l-map
-          style="height: 300px; width: 600px; z-index: 0"
+          style="height: 500px; width: 600px; z-index: 0"
           :zoom="zoom"
           :center="mapsLatLon(items[0])"
         >
