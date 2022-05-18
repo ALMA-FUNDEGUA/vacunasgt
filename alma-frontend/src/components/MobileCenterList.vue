@@ -1,27 +1,6 @@
 <template>
   <section>
-    <section class="search-box">
-      <v-container fluid>
-        <v-row>
-          <v-col cols="12" class="d-flex justify-end">
-            <v-text-field
-              v-model="search"
-              dense outlined :rounded="fab"
-              hide-details
-              placeholder="Buscar Centro..."
-              prepend-inner-icon="mdi-magnify"
-              append-icon="mdi-close"
-              @click:prepend-inner="fab = true"
-              @click:append="fab = !fab"
-              class="expandable-input"
-              :class="{'closed': !fab}"
-              :dark="!fab"
-              :background-color="!fab ? 'primary' : 'white'"
-            ></v-text-field>
-          </v-col>
-        </v-row>
-      </v-container>
-    </section>
+    <search-bar-mobile v-model="search"></search-bar-mobile>
 
     <v-card flat class="text-center">
       <v-toolbar flat color=#E4DFFF>
@@ -182,6 +161,7 @@ import MapFilter from "../components/maps/MapFilter.vue";
 
 import BottomNavigationMobile from '../components/BottomNavigation.Mobile.vue';
 import FilterInputs from './filters/FilterInputs.vue';
+import SearchBarMobile from './list/SearchBar.Mobile.vue';
 
 export default {
   components: {
@@ -189,6 +169,7 @@ export default {
     CenterDetail,
     BottomNavigationMobile,
     FilterInputs,
+    SearchBarMobile,
   },
 
   data: () => ({
@@ -298,16 +279,6 @@ export default {
         default:
           return dose;
       }
-      /* const mapper = ([key,]) => {
-        switch (key) {
-          case 'PRIMERA': return '1era'
-          case 'SEGUNDA': return '2nda'
-          default: return key
-        }
-      }
-
-      const formatted = Object.entries(dose).map(mapper).toString()
-      return formatted */
     },
 
     onSelect(name) {
@@ -317,8 +288,6 @@ export default {
           name: name,
         }
       })
-      // this.setSelected(name);
-      // this.detail = true;
     },
 
     moveToTop() {
@@ -328,41 +297,6 @@ export default {
         behavior: "smooth",
       });
     },
-
-    // scroll(id) {
-    //   document.getElementById(id).scrollIntoView({
-    //     behavior: "smooth"
-    //   });
-    // },
-
-    // mapsSource() {
-    //   const mapUrl = `https://www.google.com/maps/embed/v1/place?key=${this.apiKey}`
-    //   // const mapCenter = `&center=${this.mapsLatLon}`
-    //   const mapQuery = `&q=${this.selected.name}`
-    //   return `${mapUrl}${mapQuery}`
-    // },
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.search-box {
-  position: fixed;
-  width: 100vw;
-  height: auto;
-  z-index: 1;
-  bottom: 9vh;
-}
-
-.expandable-input {
-  width: auto;
-  max-width: 100vw;
-  // transition: max-width 0.5s linear;
-}
-
-.closed {
-  max-width: 45px;
-  // border-radius: 100%;
-  transition: border-radius 0.1s linear;
-}
-</style>
