@@ -1,5 +1,28 @@
 <template>
   <section>
+    <section class="search-box">
+      <v-container fluid>
+        <v-row>
+          <v-col cols="12" class="d-flex justify-end">
+            <v-text-field
+              v-model="search"
+              dense outlined :rounded="fab"
+              hide-details
+              placeholder="Buscar Centro..."
+              prepend-inner-icon="mdi-magnify"
+              append-icon="mdi-close"
+              @click:prepend-inner="fab = true"
+              @click:append="fab = !fab"
+              class="expandable-input"
+              :class="{'closed': !fab}"
+              :dark="!fab"
+              :background-color="!fab ? 'primary' : 'white'"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+      </v-container>
+    </section>
+
     <v-card flat class="text-center">
       <v-toolbar flat color=#E4DFFF>
         <v-btn icon large link to="/">
@@ -170,6 +193,7 @@ export default {
 
   data: () => ({
     loading: true,
+    fab: false,
     search: "",
     detail: false,
     schedule: null,
@@ -320,3 +344,25 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.search-box {
+  position: fixed;
+  width: 100vw;
+  height: auto;
+  z-index: 1;
+  bottom: 9vh;
+}
+
+.expandable-input {
+  width: auto;
+  max-width: 100vw;
+  // transition: max-width 0.5s linear;
+}
+
+.closed {
+  max-width: 45px;
+  // border-radius: 100%;
+  transition: border-radius 0.1s linear;
+}
+</style>
