@@ -29,7 +29,7 @@
       <template #default="{ items }">
         <section v-if="items.length > 5">
           <VueAutoVirtualScrollList
-            :totalHeight="800"
+            :totalHeight="400"
             :defaultHeight="80"
             style="width: 100%"
           >
