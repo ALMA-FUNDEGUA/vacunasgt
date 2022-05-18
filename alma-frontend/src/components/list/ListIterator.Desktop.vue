@@ -28,17 +28,17 @@
 
       <template #default="{ items }">
         <section v-if="items.length > 5">
-          <v-virtual-scroll
-            :items="items"
-            :item-height="100 * items.length"
-            height="400"
+          <VueAutoVirtualScrollList
+            :totalHeight="800"
+            :defaultHeight="80"
+            style="width: 100%"
           >
             <list-item-desktop
               v-for="(item, i) in items"
               :key="`list-item-${i}`"
               :item="item"
             ></list-item-desktop>
-          </v-virtual-scroll>
+          </VueAutoVirtualScrollList>
         </section>
         <section v-else>
           <list-item-desktop
@@ -87,25 +87,26 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
-import ListItemDesktop from "@/components/list/ListItem.Desktop.vue";
+import { mapGetters } from 'vuex'
+import VueAutoVirtualScrollList from 'vue-auto-virtual-scroll-list'
+import ListItemDesktop from '@/components/list/ListItem.Desktop.vue'
 
 export default {
   components: {
     ListItemDesktop,
+    VueAutoVirtualScrollList,
   },
 
   data: () => ({
     loading: true,
-    search: "",
+    search: '',
   }),
 
   computed: {
     ...mapGetters({
-      items: "filtered",
-      getVaccine: "vaccine",
+      items: 'filtered',
+      getVaccine: 'vaccine',
     }),
   },
-};
+}
 </script>
