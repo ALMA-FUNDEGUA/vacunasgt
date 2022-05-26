@@ -1,5 +1,7 @@
 <template>
   <section>
+    <search-bar-mobile v-model="search"></search-bar-mobile>
+
     <v-card flat class="text-center">
       <v-toolbar flat color=#E4DFFF>
         <v-btn icon large link to="/">
@@ -159,6 +161,7 @@ import MapFilter from "../components/maps/MapFilter.vue";
 
 import BottomNavigationMobile from '../components/BottomNavigation.Mobile.vue';
 import FilterInputs from './filters/FilterInputs.vue';
+import SearchBarMobile from './list/SearchBar.Mobile.vue';
 
 export default {
   components: {
@@ -166,10 +169,12 @@ export default {
     CenterDetail,
     BottomNavigationMobile,
     FilterInputs,
+    SearchBarMobile,
   },
 
   data: () => ({
     loading: true,
+    fab: false,
     search: "",
     detail: false,
     schedule: null,
@@ -274,16 +279,6 @@ export default {
         default:
           return dose;
       }
-      /* const mapper = ([key,]) => {
-        switch (key) {
-          case 'PRIMERA': return '1era'
-          case 'SEGUNDA': return '2nda'
-          default: return key
-        }
-      }
-
-      const formatted = Object.entries(dose).map(mapper).toString()
-      return formatted */
     },
 
     onSelect(name) {
@@ -293,8 +288,6 @@ export default {
           name: name,
         }
       })
-      // this.setSelected(name);
-      // this.detail = true;
     },
 
     moveToTop() {
@@ -304,19 +297,6 @@ export default {
         behavior: "smooth",
       });
     },
-
-    // scroll(id) {
-    //   document.getElementById(id).scrollIntoView({
-    //     behavior: "smooth"
-    //   });
-    // },
-
-    // mapsSource() {
-    //   const mapUrl = `https://www.google.com/maps/embed/v1/place?key=${this.apiKey}`
-    //   // const mapCenter = `&center=${this.mapsLatLon}`
-    //   const mapQuery = `&q=${this.selected.name}`
-    //   return `${mapUrl}${mapQuery}`
-    // },
   },
 };
 </script>

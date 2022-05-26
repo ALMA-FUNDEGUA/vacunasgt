@@ -3,7 +3,7 @@
     <template>
       <div class="mapa">
         <l-map
-          style="height: 500px; width: 600px; z-index: 0"
+          :style="style"
           :zoom="zoom"
           :center="mapsLatLon(items[0])"
         >
@@ -72,6 +72,14 @@ export default {
 
     items() {
       return this._centers.filter((item) => !!item.maps);
+    },
+
+    style() {
+      return {
+        'height': this.$vuetify.breakpoint.mdAndUp ? '555px' : '350px',
+        'width': '600px',
+        'z-index': '0',
+      }
     },
   },
 
