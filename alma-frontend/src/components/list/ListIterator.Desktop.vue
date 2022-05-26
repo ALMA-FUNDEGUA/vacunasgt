@@ -8,22 +8,37 @@
       hide-default-footer
     >
       <template #header="{ items }">
-        <v-list class="pb-0">
+        <v-list class="pb-0" dense>
           <v-list-item>
-            <v-list-item-content>
+            <v-list-item-content class="pt-0">
               <v-list-item-subtitle>
                 Resultados ({{ items.length }})
               </v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
+
+          <v-list-item v-if="getVaccine">
+            <v-list-item-content class="pt-0">
+              <span class="font-weight-bold text-h5">
+                <span class="text-h5">Vacuna para COVID-19:</span>
+                {{ getVaccine }}
+              </span>
+            </v-list-item-content>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-content class="pb-0">
+              <v-text-field
+                v-model="search"
+                hide-details
+                rounded
+                outlined
+                dense
+                placeholder="Buscar Centro..."
+              ></v-text-field>
+            </v-list-item-content>
+          </v-list-item>
         </v-list>
-
-        <span class="font-weight-bold text-h5" v-if="getVaccine">
-          <span class="text-h5">Vacuna para COVID-19:</span>
-          {{ getVaccine }}
-        </span>
-
-        <div class="mb-5"></div>
       </template>
 
       <template #default="{ items }">
