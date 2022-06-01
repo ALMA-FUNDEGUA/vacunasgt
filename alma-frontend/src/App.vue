@@ -1,5 +1,7 @@
 <template>
   <v-app>
+    <loading-page></loading-page>
+
     <v-main class="no-scroll">
       <router-view />
     </v-main>
@@ -9,8 +11,14 @@
 <script>
 import { mapActions } from "vuex";
 
+import LoadingPage from './components/LoadingPage.vue';
+
 export default {
   name: "App",
+
+  components: {
+    LoadingPage,
+  },
 
   data: () => ({
     //

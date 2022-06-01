@@ -17,6 +17,8 @@ const toUpperCase = items => _.map(
 )
 
 let state = {
+  loading: true,
+
   centros: null,
   selectedDepartamento: null,
   selectedMunicipio: null,
@@ -43,6 +45,8 @@ let state = {
 }
 
 let getters = {
+  loading: state => state.loading,
+
   CENTROS: state => {
     return state.centros
   },
@@ -379,6 +383,8 @@ let getters = {
 }
 
 let mutations = {
+  SET_LOADING: (state, payload) => state.loading = payload,
+
   set_centros: (state, payload) => {
     state.centros = payload
   },
@@ -448,6 +454,8 @@ let actions = {
   },
 
   async fetchCenters({ commit }) {
+    commit('SET_LOADING', true)
+
     const centers = await db.collection('centros_vacunacion').get()
 
     function formatVaccines(vaccines = {}) {
@@ -508,6 +516,7 @@ let actions = {
     const formatted = centers.docs.map(format)
 
     commit('SET_CENTERS', formatted)
+    commit('SET_LOADING', false)
   },
 }
 
