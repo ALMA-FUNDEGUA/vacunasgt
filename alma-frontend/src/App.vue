@@ -25,17 +25,25 @@ export default {
   }),
 
   created() {
-    if (this.$workbox) {
-      this.$workbox.addEventListener("waiting", () => {
-        this.showUpdateUI = true;
-      });
+    document.onreadystatechange = () => {
+      if (this.$workbox) {
+        this.$workbox.addEventListener("waiting", () => {
+          this.showUpdateUI = true;
+        });
+      }
+
+      if (document.readyState === 'complete') {
+        this.$store.dispatch("CENTROS_HORARIOS_VACUNA");
+        this.fetchCenters();
+      }
     }
   },
-  beforeMount() {
-    this.$store.dispatch("CENTROS_HORARIOS_VACUNA");
 
-    this.fetchCenters();
-  },
+  // beforeMount() {
+  //   this.$store.dispatch("CENTROS_HORARIOS_VACUNA");
+
+  //   this.fetchCenters();
+  // },
 
   methods: {
     ...mapActions(["fetchCenters"]),
