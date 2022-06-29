@@ -8,37 +8,52 @@
       hide-default-footer
     >
       <template #header="{ items }">
-        <v-list class="pb-0">
+        <v-list class="pb-0" dense>
           <v-list-item>
-            <v-list-item-content>
+            <v-list-item-content class="pt-0">
               <v-list-item-subtitle>
                 Resultados ({{ items.length }})
               </v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
+
+          <v-list-item v-if="getVaccine">
+            <v-list-item-content class="pt-0">
+              <span class="font-weight-bold text-h5">
+                <span class="text-h5">Vacuna para COVID-19:</span>
+                {{ getVaccine }}
+              </span>
+            </v-list-item-content>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-content class="pb-0">
+              <v-text-field
+                v-model="search"
+                hide-details
+                rounded
+                outlined
+                dense
+                placeholder="Buscar Centro..."
+              ></v-text-field>
+            </v-list-item-content>
+          </v-list-item>
         </v-list>
-
-        <span class="font-weight-bold text-h5" v-if="getVaccine">
-          <span class="text-h5">Vacuna para COVID-19:</span>
-          {{ getVaccine }}
-        </span>
-
-        <div class="mb-5"></div>
       </template>
 
       <template #default="{ items }">
         <section v-if="items.length > 5">
-          <v-virtual-scroll
-            :items="items"
-            :item-height="100 * items.length"
-            height="400"
+          <VueAutoVirtualScrollList
+            :totalHeight="400"
+            :defaultHeight="80"
+            style="width: 100%"
           >
             <list-item-desktop
               v-for="(item, i) in items"
               :key="`list-item-${i}`"
               :item="item"
             ></list-item-desktop>
-          </v-virtual-scroll>
+          </VueAutoVirtualScrollList>
         </section>
         <section v-else>
           <list-item-desktop
@@ -87,25 +102,26 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
-import ListItemDesktop from "@/components/list/ListItem.Desktop.vue";
+import { mapGetters } from 'vuex'
+import VueAutoVirtualScrollList from 'vue-auto-virtual-scroll-list'
+import ListItemDesktop from '@/components/list/ListItem.Desktop.vue'
 
 export default {
   components: {
     ListItemDesktop,
+    VueAutoVirtualScrollList,
   },
 
   data: () => ({
     loading: true,
-    search: "",
+    search: '',
   }),
 
   computed: {
     ...mapGetters({
-      items: "filtered",
-      getVaccine: "vaccine",
+      items: 'filtered',
+      getVaccine: 'vaccine',
     }),
   },
-};
+}
 </script>
