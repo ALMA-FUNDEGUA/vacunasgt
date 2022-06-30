@@ -16,15 +16,49 @@
                 Busca Tu Vacuna
               </v-btn>
 
-              <v-btn
-                text
-                small
-                href="https://docs.almabot.com/docs/directorios-existentes-2"
-                target="_blank"
-                class="no-uppercase font-weight-bold"
-              >
-                Directorio de Salud
-              </v-btn>
+              <DropdownMenu mode="hover">
+                <v-btn
+                  text
+                  small
+                  class="no-uppercase font-weight-bold"
+                  slot="trigger"
+                >
+                  Directorios
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/direccion-area-de-salud-1"
+                  target="_blank"
+                >
+                  Dirección Área de Salud
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/comisarias-pnc-1"
+                  target="_blank"
+                >
+                  Comisarías PNC
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/instituciones-nacionales"
+                  target="_blank"
+                >
+                  Instituciones nacionales
+                </v-btn>
+              </DropdownMenu>
 
               <v-btn
                 text
@@ -35,6 +69,49 @@
               >
                 Preguntas Frecuentes
               </v-btn>
+              <DropdownMenu mode="hover">
+                <v-btn
+                  text
+                  small
+                  class="no-uppercase font-weight-bold"
+                  slot="trigger"
+                >
+                  Dispocisiones
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/requerimientos-ingresosalida-del-pais"
+                  target="_blank"
+                >
+                  Requerimientos de migración
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/disposiciones-presidenciales-2"
+                  target="_blank"
+                >
+                  Disposiciones presidenciales
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/noticias-gubernamentales-y-ministeriales-1"
+                  target="_blank"
+                >
+                  Noticias gubernamentales
+                </v-btn>
+              </DropdownMenu>
 
               <v-btn
                 rounded
@@ -64,7 +141,16 @@
     </v-app-bar>
   </section>
 </template>
+<script>
+import DropdownMenu from 'v-dropdown-menu'
+import 'v-dropdown-menu/dist/v-dropdown-menu.css' // Base style, required.
 
+export default {
+  components: {
+    DropdownMenu,
+  },
+}
+</script>
 <style scoped>
 .site-title {
   color: #7f6cf6;
