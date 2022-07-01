@@ -16,277 +16,66 @@
       </v-app-bar>
 
       <v-card-title
-        class="justify-center"
         style="
           font-family: 'Poppins';
-          font-style: normal;
           font-weight: 700;
           font-size: 18px;
           line-height: 27px;
         "
       >
-        Directorios existentes
       </v-card-title>
 
-      <v-divider></v-divider>
-
-      <v-card
-        href="https://docs.almabot.com/docs/direccion-area-de-salud-1"
-        target="_blank"
-      >
-        <v-card-title
-          style="
-            font-family: 'Poppins';
-            font-style: light;
-            font-weight: 700;
-            font-size: 15px;
-            line-height: 27px;
-            color: #000000;
-            text-align: left;
-            word-break: break-word;
-          "
-        >
-          <v-row dense>
-            <v-col cols="11"> Dirección Área de Salud </v-col>
-
-            <v-col cols="1">
-              <v-icon large color="#A698FF"> mdi-chevron-right </v-icon>
-            </v-col>
-          </v-row>
-        </v-card-title>
-
-        <!--     <v-card-text
-          style="
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 22px;
-          "
-        >
-          Enlace: https://docs.almabot.com/docs/direccion-area-de-salud-1
-        </v-card-text> -->
-      </v-card>
-
-      <v-card
-        href="https://docs.almabot.com/docs/comisarias-pnc-1"
-        target="_blank"
-      >
-        <v-card-title
-          style="
-            font-family: 'Poppins';
-            font-style: light;
-            font-weight: 700;
-            font-size: 15px;
-            line-height: 27px;
-            color: #000000;
-            text-align: left;
-            word-break: break-word;
-          "
-        >
-          <v-row dense>
-            <v-col cols="11"> Comisarías PNC </v-col>
-
-            <v-col cols="1">
-              <v-icon large color="#A698FF"> mdi-chevron-right </v-icon>
-            </v-col>
-          </v-row>
-        </v-card-title>
-
-        <!--     <v-card-text
-          style="
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 22px;
-          "
-        >
-          Enlace: https://docs.almabot.com/docs/comisarias-pnc-1
-        </v-card-text> -->
-      </v-card>
-      <v-card
-        href="https://docs.almabot.com/docs/instituciones-nacionales"
-        target="_blank"
-      >
-        <v-card-title
-          style="
-            font-family: 'Poppins';
-            font-style: light;
-            font-weight: 700;
-            font-size: 15px;
-            line-height: 27px;
-            color: #000000;
-            text-align: left;
-            word-break: break-word;
-          "
-        >
-          <v-row dense>
-            <v-col cols="11"> Instituciones Nacionales </v-col>
-
-            <v-col cols="1">
-              <v-icon large color="#A698FF"> mdi-chevron-right </v-icon>
-            </v-col>
-          </v-row>
-        </v-card-title>
-
-        <!--   <v-card-text
-          style="
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 22px;
-          "
-        >
-          Enlace: https://docs.almabot.com/docs/instituciones-nacionales
-        </v-card-text>
-        -->
-      </v-card>
-
-      <v-card-title
-        class="justify-center"
-        style="
-          font-family: 'Poppins';
-          font-style: normal;
-          font-weight: 700;
-          font-size: 18px;
-          line-height: 27px;
-        "
-      >
-        Disposiciones nacionales
-      </v-card-title>
-
-      <v-divider></v-divider>
-      <v-card
-        href="https://docs.almabot.com/docs/requerimientos-ingresosalida-del-pais"
-        target="_blank"
-      >
-        <v-card-title
-          style="
-            font-family: 'Poppins';
-            font-style: light;
-            font-weight: 700;
-            font-size: 15px;
-            line-height: 27px;
-            color: #000000;
-            text-align: left;
-            word-break: break-word;
-          "
-        >
-          <v-row dense>
-            <v-col cols="11"> Requerimientos de ingreso/salida del país </v-col>
-
-            <v-col cols="1">
-              <v-icon large color="#A698FF"> mdi-chevron-right </v-icon>
-            </v-col>
-          </v-row>
-        </v-card-title>
-
-        <!--     <v-card-text
-          style="
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 22px;
-          "
-        >
-          Enlace:
-          https://docs.almabot.com/docs/requerimientos-ingresosalida-del-pais
-        </v-card-text>
-        -->
-      </v-card>
-
-      <v-card
-        href="https://docs.almabot.com/docs/disposiciones-presidenciales-2"
-        target="_blank"
-      >
-        <v-card-title
-          style="
-            font-family: 'Poppins';
-            font-style: light;
-            font-weight: 700;
-            font-size: 15px;
-            line-height: 27px;
-            color: #000000;
-            text-align: left;
-            word-break: break-word;
-          "
-        >
-          <v-row dense>
-            <v-col cols="11"> Disposiciones Presidenciales </v-col>
-
-            <v-col cols="1">
-              <v-icon large color="#A698FF"> mdi-chevron-right </v-icon>
-            </v-col>
-          </v-row>
-        </v-card-title>
-
-        <!--     <v-card-text
-          style="
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 22px;
-          "
-        >
-          Enlace:
-         https://docs.almabot.com/docs/disposiciones-presidenciales-2
-        </v-card-text>
-        -->
-      </v-card>
-
-      <v-card
-        href="https://docs.almabot.com/docs/noticias-gubernamentales-y-ministeriales-1"
-        target="_blank"
-      >
-        <v-card-title
-          style="
-            font-family: 'Poppins';
-            font-style: light;
-            font-weight: 700;
-            font-size: 15px;
-            line-height: 27px;
-            color: #000000;
-            text-align: left;
-            word-break: break-word;
-          "
-        >
-          <v-row dense>
-            <v-col cols="11"> Noticias Gubernamentales y Ministeriales </v-col>
-
-            <v-col cols="1">
-              <v-icon large color="#A698FF"> mdi-chevron-right </v-icon>
-            </v-col>
-          </v-row>
-        </v-card-title>
-
-        <!--     <v-card-text
-          style="
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 22px;
-          "
-        >
-          Enlace:
-         https://docs.almabot.com/docs/noticias-gubernamentales-y-ministeriales-1
-        </v-card-text>
-        -->
-      </v-card>
+      <v-container>
+        <v-row dense>
+          <v-col cols="12">
+            <v-card
+              color="#F8F6F6"
+              elevation="0"
+              round
+              @click="$router.push('/existingDirectories')"
+            >
+              <v-card-title style="font-size: 18px">
+                Directorios existentes
+                <v-row dense style="justify-content: right">
+                  <v-icon large> mdi-chevron-right </v-icon>
+                </v-row></v-card-title
+              >
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+      <v-container>
+        <v-row dense>
+          <v-col cols="12">
+            <v-card
+              color="#F8F6F6"
+              elevation="0"
+              round
+              @click="$router.push('/dispositions')"
+            >
+              <v-card-title style="font-size: 18px">
+                Disposiciones
+                <v-row dense style="justify-content: right">
+                  <v-icon large> mdi-chevron-right </v-icon>
+                </v-row></v-card-title
+              >
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
     </section>
+    <BottomNavigationMobile></BottomNavigationMobile>
   </section>
 </template>
 
 <script>
 import HomeViewDesktop from '../components/views/HomeView.Desktop.vue'
+import BottomNavigationMobile from '../components/BottomNavigation.Mobile.vue'
 
 export default {
   components: {
     HomeViewDesktop,
+    BottomNavigationMobile,
   },
 }
 </script>
