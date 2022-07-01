@@ -35,9 +35,20 @@ const routes = [
   },
 
   {
+    path: '/existingDirectories',
+    name: 'ExistingDirectories',
+    component: () => import('@/views/ExistingDirectories.vue'),
+  },
+
+  {
     path: '/directories',
     name: 'DirectoriesView',
     component: () => import('@/views/Directories.vue'),
+  },
+  {
+    path: '/dispositions',
+    name: 'DispositionsView',
+    component: () => import('@/views/Dispositions.vue'),
   },
 ]
 
