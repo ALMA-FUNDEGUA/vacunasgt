@@ -7,14 +7,46 @@
             <div class="d-flex justify-space-between align-center">
               <a href="/" class="text-h4 font-weight-bold site-title"> alma </a>
 
-              <v-btn
-                text
-                small
-                to="/filters"
-                class="no-uppercase font-weight-bold"
-              >
-                Busca Tu Vacuna
-              </v-btn>
+              <DropdownMenu mode="hover">
+                <v-btn
+                  text
+                  small
+                  class="no-uppercase font-weight-bold"
+                  slot="trigger"
+                >
+                  Busca Tu Vacuna
+                </v-btn>
+
+                <v-btn
+                  text
+                  small
+                  to="/filters"
+                  class="no-uppercase font-weight-bold"
+                >
+                  Busca Tu Vacuna
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  to="/filters"
+                >
+                  Vacunas
+                </v-btn>
+
+                <v-btn
+                  slot="footer"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/comisarias-pnc-1"
+                  target="_blank"
+                >
+                  Hisopados
+                </v-btn>
+              </DropdownMenu>
 
               <DropdownMenu mode="hover">
                 <v-btn
@@ -57,6 +89,72 @@
                   target="_blank"
                 >
                   Instituciones nacionales
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/donde-hacerse-hisopados-pcr-y-antigeno-en-el-departamento-de-guatemala-gratis-y-pagados-1"
+                  target="_blank"
+                >
+                  Hisopados
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/paginas-oficiales-de-centros-de-vacunaciones-por-departamento-1"
+                  target="_blank"
+                >
+                  Centros de Vacunación
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/donde-conseguir-oxigeno-1"
+                  target="_blank"
+                >
+                  ¿Dónde conseguir oxígeno?
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/medicos-y-centros-que-atienden-covid-19-en-persona-y-digital-1"
+                  target="_blank"
+                >
+                  Médicos y centros
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/servicios-de-salud-mental-1"
+                  target="_blank"
+                >
+                  Salud Mental
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/listado-de-hospitales-publicos-nacionales-1"
+                  target="_blank"
+                >
+                  Hospitales públicos
                 </v-btn>
               </DropdownMenu>
 
