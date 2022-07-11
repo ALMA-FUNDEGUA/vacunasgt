@@ -14,16 +14,7 @@
                   class="no-uppercase font-weight-bold"
                   slot="trigger"
                 >
-                  Busca Tu Vacuna
-                </v-btn>
-
-                <v-btn
-                  text
-                  small
-                  to="/filters"
-                  class="no-uppercase font-weight-bold"
-                >
-                  Busca Tu Vacuna
+                  Vacunas e Hisopados
                 </v-btn>
 
                 <v-btn
@@ -41,8 +32,7 @@
                   text
                   small
                   class="no-uppercase"
-                  href="https://docs.almabot.com/docs/comisarias-pnc-1"
-                  target="_blank"
+                  to="/testsfilters"
                 >
                   Hisopados
                 </v-btn>
