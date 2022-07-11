@@ -19,6 +19,18 @@
           >
             <span class="font-weight-bold"> ¡Buscar mi vacuna! </span>
           </v-btn>
+
+          <v-btn
+            rounded
+            block
+            large
+            elevation="0"
+            color="#FFE6B7"
+            class="mt-5 no-uppercase"
+            to="/testsfilters"
+          >
+            <span class="font-weight-bold"> ¡Buscar hisopados! </span>
+          </v-btn>
         </v-col>
 
         <v-col cols="6">

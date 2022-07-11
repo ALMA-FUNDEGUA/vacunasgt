@@ -74,6 +74,23 @@
                   text
                   class="no-uppercase"
                   style="text-decoration: underline"
+                  to="/testsfilters"
+                >
+                  <v-icon
+                    style="
+                      margin-right: 5px;
+                      display: inline-block;
+                      text-decoration: none;
+                    "
+                    >mdi-magnify</v-icon
+                  >
+                  Busca hisopados
+                </v-btn>
+
+                <v-btn
+                  text
+                  class="no-uppercase"
+                  style="text-decoration: underline"
                   href="https://docs.almabot.com/"
                   target="_blank"
                 >
