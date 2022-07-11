@@ -116,19 +116,162 @@
             </v-col>
           </v-row>
         </v-card-title>
+      </v-card>
 
-        <!--   <v-card-text
+      <v-card
+        href="https://docs.almabot.com/docs/donde-hacerse-hisopados-pcr-y-antigeno-en-el-departamento-de-guatemala-gratis-y-pagados-1"
+        target="_blank"
+      >
+        <v-card-title
           style="
             font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 22px;
+            font-style: light;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 27px;
+            color: #000000;
+            text-align: left;
+            word-break: break-word;
           "
         >
-          Enlace: https://docs.almabot.com/docs/instituciones-nacionales
-        </v-card-text>
-        -->
+          <v-row dense>
+            <v-col cols="11"> Hisopados </v-col>
+
+            <v-col cols="1">
+              <v-icon large color="#A698FF"> mdi-chevron-right </v-icon>
+            </v-col>
+          </v-row>
+        </v-card-title>
+      </v-card>
+
+      <v-card
+        href="https://docs.almabot.com/docs/paginas-oficiales-de-centros-de-vacunaciones-por-departamento-1"
+        target="_blank"
+      >
+        <v-card-title
+          style="
+            font-family: 'Poppins';
+            font-style: light;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 27px;
+            color: #000000;
+            text-align: left;
+            word-break: break-word;
+          "
+        >
+          <v-row dense>
+            <v-col cols="11"> Centros de Vacunación </v-col>
+
+            <v-col cols="1">
+              <v-icon large color="#A698FF"> mdi-chevron-right </v-icon>
+            </v-col>
+          </v-row>
+        </v-card-title>
+      </v-card>
+
+      <v-card
+        href="https://docs.almabot.com/docs/donde-conseguir-oxigeno-1"
+        target="_blank"
+      >
+        <v-card-title
+          style="
+            font-family: 'Poppins';
+            font-style: light;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 27px;
+            color: #000000;
+            text-align: left;
+            word-break: break-word;
+          "
+        >
+          <v-row dense>
+            <v-col cols="11"> ¿Dónde conseguir oxígeno? </v-col>
+
+            <v-col cols="1">
+              <v-icon large color="#A698FF"> mdi-chevron-right </v-icon>
+            </v-col>
+          </v-row>
+        </v-card-title>
+      </v-card>
+
+      <v-card
+        href="https://docs.almabot.com/docs/medicos-y-centros-que-atienden-covid-19-en-persona-y-digital-1"
+        target="_blank"
+      >
+        <v-card-title
+          style="
+            font-family: 'Poppins';
+            font-style: light;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 27px;
+            color: #000000;
+            text-align: left;
+            word-break: break-word;
+          "
+        >
+          <v-row dense>
+            <v-col cols="11"> Médicos y centros </v-col>
+
+            <v-col cols="1">
+              <v-icon large color="#A698FF"> mdi-chevron-right </v-icon>
+            </v-col>
+          </v-row>
+        </v-card-title>
+      </v-card>
+
+      <v-card
+        href="https://docs.almabot.com/docs/servicios-de-salud-mental-1"
+        target="_blank"
+      >
+        <v-card-title
+          style="
+            font-family: 'Poppins';
+            font-style: light;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 27px;
+            color: #000000;
+            text-align: left;
+            word-break: break-word;
+          "
+        >
+          <v-row dense>
+            <v-col cols="11"> Salud Mental </v-col>
+
+            <v-col cols="1">
+              <v-icon large color="#A698FF"> mdi-chevron-right </v-icon>
+            </v-col>
+          </v-row>
+        </v-card-title>
+      </v-card>
+
+      <v-card
+        href="https://docs.almabot.com/docs/listado-de-hospitales-publicos-nacionales-1"
+        target="_blank"
+      >
+        <v-card-title
+          style="
+            font-family: 'Poppins';
+            font-style: light;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 27px;
+            color: #000000;
+            text-align: left;
+            word-break: break-word;
+          "
+        >
+          <v-row dense>
+            <v-col cols="11"> Hospitales públicos </v-col>
+
+            <v-col cols="1">
+              <v-icon large color="#A698FF"> mdi-chevron-right </v-icon>
+            </v-col>
+          </v-row>
+        </v-card-title>
       </v-card>
     </section>
     <BottomNavigationMobile></BottomNavigationMobile>
