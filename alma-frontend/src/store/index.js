@@ -1,20 +1,23 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from "axios"
+import axios from 'axios'
 
-import { db } from '../plugins/firebase';
+import { db } from '../plugins/firebase'
+
+import covidTests from './covidTests'
 
 var _ = require('lodash')
 
 Vue.use(Vuex)
 
-const toUpperCase = items => _.map(
-  _.filter(items, item => !!item),
-  item => ({
-    text: item.toUpperCase(),
-    value: item,
-  })
-)
+const toUpperCase = (items) =>
+  _.map(
+    _.filter(items, (item) => !!item),
+    (item) => ({
+      text: item.toUpperCase(),
+      value: item,
+    })
+  )
 
 let state = {
   loading: true,
@@ -42,181 +45,236 @@ let state = {
   influx: null,
   entrance: null,
   days: null,
+
+  // COVID Test Centers
+  centrosPruebas: null,
+  address: null,
+  available: null,
+  center: null,
+  departmentTest: null,
+  descriptionTest: null,
+  mapsLink: null,
+  municipalityTest: null,
+  phoneNumber: null,
+
+  selectedAddress: null,
+  selectedDisponibilidad: null,
+  selectedCentro: null,
+  selectedDepartamentoPrueba: null,
+  selectedDescripcion: null,
+  selectedMunicipioPrueba: null,
+
+  selectedTestCenters: null,
+  testCenters: [],
 }
 
 let getters = {
-  loading: state => state.loading,
+  loading: (state) => state.loading,
 
-  CENTROS: state => {
+  CENTROSPRUEBAS: (state) => {
+    return state.centrosPruebas
+  },
+
+  FILTERED_COVIDTESTCENTERS: (state) => {
+    try {
+      let filteredDepartamento = state.centros.filter(
+        (item) =>
+          item.departamento === state.selectedDepartamento ||
+          state.selectedDepartamento == null
+      )
+      return filteredDepartamento
+    } catch {
+      return []
+    }
+  },
+  CENTROS: (state) => {
     return state.centros
   },
-  FILTERED_CENTROS: state => {
+
+  FILTERED_CENTROS: (state) => {
     try {
-      let filteredDepartamento = state.centros.filter(item => item.departamento === state.selectedDepartamento || state.selectedDepartamento == null )
-      let filteredMunicipio = filteredDepartamento.filter(item => item.municipio === state.selectedMunicipio || state.selectedMunicipio == null )
-      let filteredVacuna = filteredMunicipio.filter(item => item.vacuna === state.selectedVacuna || state.selectedVacuna == null )
-      let filteredGrupo = filteredVacuna.filter(item => item.grupo === state.selectedGrupo || state.selectedGrupo == null )
-      let filteredDosis = filteredGrupo.filter(item => item.dosis === state.selectedDosis || state.selectedDosis == null )
-      let filteredRequisito = filteredDosis.filter(item => item.requisito === state.selectedRequisito || state.selectedRequisito == null )
-      let filteredAfluencia = filteredRequisito.filter(item => item.afluencia === state.selectedAfluencia || state.selectedAfluencia == null )
-      let filteredIngreso = filteredAfluencia.filter(item => item.ingreso === state.selectedIngreso || state.selectedIngreso == null )
+      let filteredDepartamento = state.centros.filter(
+        (item) =>
+          item.departamento === state.selectedDepartamento ||
+          state.selectedDepartamento == null
+      )
+      let filteredMunicipio = filteredDepartamento.filter(
+        (item) =>
+          item.municipio === state.selectedMunicipio ||
+          state.selectedMunicipio == null
+      )
+      let filteredVacuna = filteredMunicipio.filter(
+        (item) =>
+          item.vacuna === state.selectedVacuna || state.selectedVacuna == null
+      )
+      let filteredGrupo = filteredVacuna.filter(
+        (item) =>
+          item.grupo === state.selectedGrupo || state.selectedGrupo == null
+      )
+      let filteredDosis = filteredGrupo.filter(
+        (item) =>
+          item.dosis === state.selectedDosis || state.selectedDosis == null
+      )
+      let filteredRequisito = filteredDosis.filter(
+        (item) =>
+          item.requisito === state.selectedRequisito ||
+          state.selectedRequisito == null
+      )
+      let filteredAfluencia = filteredRequisito.filter(
+        (item) =>
+          item.afluencia === state.selectedAfluencia ||
+          state.selectedAfluencia == null
+      )
+      let filteredIngreso = filteredAfluencia.filter(
+        (item) =>
+          item.ingreso === state.selectedIngreso ||
+          state.selectedIngreso == null
+      )
       // let filteredDias = filteredIngreso.filter(item => item.ingreso === state.selectedDias || state.selectedDias == null )
       return filteredIngreso
-    }
-    catch {
+    } catch {
       return []
     }
   },
 
-  DEPARTAMENTOS_AVAILABLE: state => {
-    const ordered = _.orderBy(_.uniq(_.map(
-      state.centros,
-      'departamento'
-    )))
+  DEPARTAMENTOS_AVAILABLE: (state) => {
+    const ordered = _.orderBy(_.uniq(_.map(state.centros, 'departamento')))
 
-    return _.map(ordered, item => ({
+    return _.map(ordered, (item) => ({
       text: item.toUpperCase(),
       value: item,
     }))
   },
-// Problem might be here
+  // Problem might be here
   MUNICIPIOS_AVAILABLE: (_state, getters) => {
-    const ordered = _.orderBy(_.uniq(_.map(
-      getters.FILTERED_CENTROS,
-      'municipio',
-    )))
+    const ordered = _.orderBy(
+      _.uniq(_.map(getters.FILTERED_CENTROS, 'municipio'))
+    )
 
-    return _.map(ordered, item => ({
+    return _.map(ordered, (item) => ({
       text: item.toUpperCase(),
       value: item,
     }))
   },
 
   VACUNAS_AVAILABLE: (_state, getters) => {
-    const ordered = _.orderBy(_.uniq(_.map(
-      getters.FILTERED_CENTROS,
-      'vacuna',
-    )))
+    const ordered = _.orderBy(_.uniq(_.map(getters.FILTERED_CENTROS, 'vacuna')))
 
-    return _.map(ordered, item => ({
+    return _.map(ordered, (item) => ({
       text: item.toUpperCase(),
       value: item,
     }))
   },
 
   DOSIS_AVAILABLE: (_state, getters) => {
-    const ordered = _.orderBy(_.uniq(_.map(
-      getters.FILTERED_CENTROS,
-      'dosis',
-    )))
+    const ordered = _.orderBy(_.uniq(_.map(getters.FILTERED_CENTROS, 'dosis')))
 
-    return _.map(ordered, item => ({
+    return _.map(ordered, (item) => ({
       text: item.toUpperCase(),
       value: item,
     }))
   },
 
   GRUPOS_AVAILABLE: (_state, getters) => {
-    const ordered = _.orderBy(_.uniq(_.map(
-      getters.FILTERED_CENTROS,
-      'grupo',
-    )))
+    const ordered = _.orderBy(_.uniq(_.map(getters.FILTERED_CENTROS, 'grupo')))
 
-    return _.map(ordered, item => ({
+    return _.map(ordered, (item) => ({
       text: item.toUpperCase(),
       value: item,
     }))
   },
 
   REQUISITOS_AVAILABLE: (_state, getters) => {
-    const ordered = _.orderBy(_.uniq(_.map(
-      getters.FILTERED_CENTROS,
-      'requisito',
-    )))
+    const ordered = _.orderBy(
+      _.uniq(_.map(getters.FILTERED_CENTROS, 'requisito'))
+    )
 
-    return _.map(ordered, item => ({
+    return _.map(ordered, (item) => ({
       text: item.toUpperCase(),
       value: item,
     }))
   },
 
   AFLUENCIA_AVAILABLE: (_state, getters) => {
-    const ordered = _.orderBy( _.uniq(_.map(
-      getters.FILTERED_CENTROS, 
-      'afluencia',
-    )))
+    const ordered = _.orderBy(
+      _.uniq(_.map(getters.FILTERED_CENTROS, 'afluencia'))
+    )
 
-    return _.map(ordered, item => ({
+    return _.map(ordered, (item) => ({
       text: item.toUpperCase(),
       value: item,
     }))
   },
 
   INGRESO_AVAILABLE: (_state, getters) => {
-    const ordered = _.orderBy(_.uniq(_.map(
-      getters.FILTERED_CENTROS, 'ingreso',
-    )))
+    const ordered = _.orderBy(
+      _.uniq(_.map(getters.FILTERED_CENTROS, 'ingreso'))
+    )
 
-    return _.map(ordered, item => ({
+    return _.map(ordered, (item) => ({
       text: item.toUpperCase(),
       value: item,
     }))
   },
 
-  selectedDepartamento: state => {
+  selectedDepartamento: (state) => {
     return state.selectedDepartamento
   },
-  selectedMunicipio: state => {
+  selectedMunicipio: (state) => {
     return state.selectedMunicipio
   },
-  selectedVacuna: state => {
+  selectedVacuna: (state) => {
     return state.selectedVacuna
   },
-  selectedGrupo: state => {
+  selectedGrupo: (state) => {
     return state.selectedGrupo
   },
-  selectedDosis: state => {
+  selectedDosis: (state) => {
     return state.selectedDosis
   },
-  selectedRequisito: state => {
+  selectedRequisito: (state) => {
     return state.selectedRequisito
   },
-  selectedAfluencia: state => {
+  selectedAfluencia: (state) => {
     return state.selectedAfluencia
   },
-  selectedIngreso: state => {
+  selectedIngreso: (state) => {
     return state.selectedIngreso
   },
-  selectedDias: state => {
+  selectedDias: (state) => {
     return state.selectedDias
   },
 
-  centers: state => state.centers,
-  selected: state => state.centers.find(
-      center => state.selected === center.name),
+  centers: (state) => state.centers,
+  selected: (state) =>
+    state.centers.find((center) => state.selected === center.name),
 
-  filtered: state => {
+  filtered: (state) => {
     let centers = state.centers
 
     const filters = [
-      { // Filter by department
+      {
+        // Filter by department
         condition: () => !!state.department,
-        predicate: item => item.department === state.department
+        predicate: (item) => item.department === state.department,
       },
 
-      { // Filter by municipality
+      {
+        // Filter by municipality
         condition: () => !!state.municipality,
-        predicate: item => item.municipality === state.municipality
+        predicate: (item) => item.municipality === state.municipality,
       },
 
-      { // Filter by vaccine
+      {
+        // Filter by vaccine
         condition: () => !!state.vaccine,
-        predicate: item => state.vaccine in item.vaccines,
+        predicate: (item) => state.vaccine in item.vaccines,
       },
 
-      { // Filter by dose
+      {
+        // Filter by dose
         condition: () => !!state.dose,
-        predicate: item => {
+        predicate: (item) => {
           for (const [vaccine, doses] of Object.entries(item.vaccines)) {
             if (!!state.vaccine && vaccine !== state.vaccine) continue
             const includes = Object.keys(doses).includes(state.dose)
@@ -224,12 +282,13 @@ let getters = {
           }
 
           return false
-        }
+        },
       },
 
-      { // Filter by group
+      {
+        // Filter by group
         condition: () => !!state.group,
-        predicate: item => {
+        predicate: (item) => {
           for (const [vaccine, doses] of Object.entries(item.vaccines)) {
             if (!!state.vaccine && vaccine !== state.vaccine) continue
 
@@ -243,12 +302,13 @@ let getters = {
           }
 
           return false
-        }
+        },
       },
 
-      { // Filter by requirement
+      {
+        // Filter by requirement
         condition: () => !!state.requirement,
-        predicate: item => {
+        predicate: (item) => {
           for (const [vaccine, doses] of Object.entries(item.vaccines)) {
             if (!!state.vaccine && vaccine !== state.vaccine) continue
 
@@ -262,53 +322,47 @@ let getters = {
           }
 
           return false
-        }
+        },
       },
     ]
 
-    for (const filter of filters) if (filter.condition())
-      centers = centers.filter(filter.predicate)
+    for (const filter of filters)
+      if (filter.condition()) centers = centers.filter(filter.predicate)
 
     return centers
   },
 
-  department: state => state.department,
-  departments: state => {
-    const ordered = _.orderBy(_.uniq(_.map(
-        state.centers, 'department')))
+  department: (state) => state.department,
+  departments: (state) => {
+    const ordered = _.orderBy(_.uniq(_.map(state.centers, 'department')))
 
     return toUpperCase(ordered)
   },
 
-  municipality: state => state.municipality,
+  municipality: (state) => state.municipality,
   municipalities: (_state, getters) => {
-    const ordered = _.orderBy(_.uniq(_.map(
-        getters.filtered, 'municipality')))
+    const ordered = _.orderBy(_.uniq(_.map(getters.filtered, 'municipality')))
 
     return toUpperCase(ordered)
   },
 
-  vaccine: state => state.vaccine,
+  vaccine: (state) => state.vaccine,
   vaccines: (_state, getters) => {
     const ordered = _.orderBy(
-      _.uniq(
-        _.flatten(
-          _.map(
-            _.map(getters.filtered, 'vaccines'),
-            Object.keys
-          ))))
+      _.uniq(_.flatten(_.map(_.map(getters.filtered, 'vaccines'), Object.keys)))
+    )
 
     return toUpperCase(ordered)
   },
 
-  dose: state => state.dose,
+  dose: (state) => state.dose,
   doses: (state, getters) => {
     const OrderCondition = {
-      'PRIMERA': 0,
-      'SEGUNDA': 1,
-      'TERCERA': 3,
-      'CUARTA': 4,
-      'REFUERZO': 5,
+      PRIMERA: 0,
+      SEGUNDA: 1,
+      TERCERA: 3,
+      CUARTA: 4,
+      REFUERZO: 5,
       'CERRADO HOY': 4,
     }
 
@@ -321,11 +375,11 @@ let getters = {
     }
 
     return toUpperCase(_.orderBy(_.uniq(ordered)))
-        .sort((a, b) => OrderCondition[a.text] - OrderCondition[b.text])
-        .filter(item => item.text !== 'CERRADO HOY')
+      .sort((a, b) => OrderCondition[a.text] - OrderCondition[b.text])
+      .filter((item) => item.text !== 'CERRADO HOY')
   },
 
-  group: state => state.group,
+  group: (state) => state.group,
   groups: (state, getters) => {
     let ordered = []
     for (const center of getters.filtered) {
@@ -339,13 +393,12 @@ let getters = {
       }
     }
 
-    ordered = _.orderBy(_.uniq(_.map(
-        ordered, 'group')))
+    ordered = _.orderBy(_.uniq(_.map(ordered, 'group')))
 
     return toUpperCase(ordered)
   },
 
-  requirement: state => state.requirement,
+  requirement: (state) => state.requirement,
   requirements: (state, getters) => {
     let ordered = []
     for (const center of getters.filtered) {
@@ -359,31 +412,28 @@ let getters = {
       }
     }
 
-    ordered = _.orderBy(_.uniq(_.map(
-        ordered, 'requirement')))
+    ordered = _.orderBy(_.uniq(_.map(ordered, 'requirement')))
 
     return toUpperCase(ordered)
   },
 
-  influx: state => state.influx,
+  influx: (state) => state.influx,
   influxes: (_state, getters) => {
-    const ordered = _.orderBy(_.uniq(_.map(
-        getters.filtered, 'influx')))
+    const ordered = _.orderBy(_.uniq(_.map(getters.filtered, 'influx')))
 
     return toUpperCase(ordered)
   },
-  
-  entrance: state => state.entrance,
+
+  entrance: (state) => state.entrance,
   entrances: (_state, getters) => {
-    const ordered = _.orderBy(_.uniq(_.map(
-        getters.filtered, 'entrance')))
+    const ordered = _.orderBy(_.uniq(_.map(getters.filtered, 'entrance')))
 
     return toUpperCase(ordered)
   },
 }
 
 let mutations = {
-  SET_LOADING: (state, payload) => state.loading = payload,
+  SET_LOADING: (state, payload) => (state.loading = payload),
 
   set_centros: (state, payload) => {
     state.centros = payload
@@ -416,21 +466,21 @@ let mutations = {
     state.selectedDias = payload
   },
 
-  SET_CENTERS: (state, payload) => state.centers = payload,
-  SET_SELECTED: (state, payload) => state.selected = payload,
+  SET_CENTERS: (state, payload) => (state.centers = payload),
+  SET_SELECTED: (state, payload) => (state.selected = payload),
 
-  SET_DEPARTMENT: (state, payload) => state.department = payload,
-  SET_MUNICIPALITY: (state, payload) => state.municipality = payload,
-  SET_VACCINE: (state, payload) => state.vaccine = payload,
-  SET_DOSE: (state, payload) => state.dose = payload,
-  SET_GROUP: (state, payload) => state.group = payload,
-  SET_REQUIREMENT: (state, payload) => state.requirement = payload,
-  SET_INFLUX: (state, payload) => state.influx = payload,
-  SET_ENTRANCE: (state, payload) => state.entrance = payload,
+  SET_DEPARTMENT: (state, payload) => (state.department = payload),
+  SET_MUNICIPALITY: (state, payload) => (state.municipality = payload),
+  SET_VACCINE: (state, payload) => (state.vaccine = payload),
+  SET_DOSE: (state, payload) => (state.dose = payload),
+  SET_GROUP: (state, payload) => (state.group = payload),
+  SET_REQUIREMENT: (state, payload) => (state.requirement = payload),
+  SET_INFLUX: (state, payload) => (state.influx = payload),
+  SET_ENTRANCE: (state, payload) => (state.entrance = payload),
 }
 
 let actions = {
-  CENTROS_HORARIOS_VACUNA: ({commit}) => {
+  CENTROS_HORARIOS_VACUNA: ({ commit }) => {
     let postParams = {
       departamento: '',
       municipio: '',
@@ -441,16 +491,18 @@ let actions = {
       afluencia: '',
       ingreso: '',
       dia: '',
-    };
-    axios.post(process.env.VUE_APP_HOST + "/filtrarCentrosVacunacion", postParams).then((result) => {
-      let data = result.data.value;
-      data.forEach((element) => {
-        delete element.$loki;
+    }
+    axios
+      .post(process.env.VUE_APP_HOST + '/filtrarCentrosVacunacion', postParams)
+      .then((result) => {
+        let data = result.data.value
+        data.forEach((element) => {
+          delete element.$loki
+        })
+        if (data.length > 0) {
+          commit('set_centros', data)
+        }
       })
-      if (data.length > 0) {
-        commit('set_centros', data)
-      }
-    });
   },
 
   async fetchCenters({ commit }) {
@@ -488,7 +540,7 @@ let actions = {
         wednesday: days['MIERCOLES'],
         thursday: days['JUEVES'],
         friday: days['VIERNES'],
-        saturday: days['SABADO']
+        saturday: days['SABADO'],
       }
     }
 
@@ -524,5 +576,5 @@ export default new Vuex.Store({
   state,
   getters,
   mutations,
-  actions
+  actions,
 })
