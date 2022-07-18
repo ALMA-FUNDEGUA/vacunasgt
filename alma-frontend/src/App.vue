@@ -35,6 +35,8 @@ export default {
       if (document.readyState === 'complete') {
         this.$store.dispatch("CENTROS_HORARIOS_VACUNA");
         this.fetchCenters();
+
+        this.fetchCovidTest()
       }
     }
   },
@@ -47,6 +49,9 @@ export default {
 
   methods: {
     ...mapActions(["fetchCenters"]),
+    ...mapActions('covidTestStore', {
+      'fetchCovidTest': 'fetchCenters',
+    })
   },
 };
 </script>
