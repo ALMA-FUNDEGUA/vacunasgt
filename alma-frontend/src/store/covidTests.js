@@ -1,12 +1,10 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import axios from 'axios'
+// import axios from 'axios'
 
 import { db } from '../plugins/firebase'
 
 var _ = require('lodash')
 
-Vue.use(Vuex)
+// Vue.use(Vuex)
 
 const toUpperCase = (items) =>
   _.map(
@@ -186,42 +184,44 @@ let mutations = {
 }
 
 let actions = {
-  CENTROS_HORARIOS_VACUNA: ({ commit }) => {
-    let postParams = {
-      address: '',
-      available: '',
-      department: '',
-      description: '',
-      mapsLink: '',
-      municipality: '',
-      phoneNumber: '',
-    }
-    axios
-      .post(process.env.VUE_APP_HOST + '/filtrarCentrosCovid', postParams)
-      .then((result) => {
-        let data = result.data.value
-        data.forEach((element) => {
-          delete element.$loki
-        })
-        if (data.length > 0) {
-          commit('set_centros_covid', data)
-        }
-      })
-  },
+  // CENTROS_HORARIOS_VACUNA: ({ commit }) => {
+  //   let postParams = {
+  //     address: '',
+  //     available: '',
+  //     department: '',
+  //     description: '',
+  //     mapsLink: '',
+  //     municipality: '',
+  //     phoneNumber: '',
+  //   }
+  //   axios
+  //     .post(process.env.VUE_APP_HOST + '/filtrarCentrosCovid', postParams)
+  //     .then((result) => {
+  //       let data = result.data.value
+  //       data.forEach((element) => {
+  //         delete element.$loki
+  //       })
+  //       if (data.length > 0) {
+  //         commit('set_centros_covid', data)
+  //       }
+  //     })
+  // },
 
   async fetchCenters({ commit }) {
     commit('SET_LOADING', true)
 
     const testcenters = await db.collection('centers_covid_tests').get()
 
-    commit('SET_TESTSCENTERS', testcenters)
+    commit('SET_TESTSCENTERS', testcenters.docs.map(doc => doc.data()))
     commit('SET_LOADING', false)
   },
 }
 
-export default new Vuex.Store({
-  state,
+const covidTestStore = {
+  state: () => state,
   getters,
   mutations,
   actions,
-})
+}
+
+export default covidTestStore
