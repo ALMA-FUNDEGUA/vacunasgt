@@ -41,7 +41,7 @@ import {
 } from 'vue2-leaflet'
 import 'leaflet/dist/leaflet.css'
 
-import ListItemDesktop from '@/components/list/ListItem.Desktop.vue'
+import ListItemDesktop from '@/components/list/TestListItem.Desktop.vue'
 
 export default {
   components: {
@@ -51,6 +51,7 @@ export default {
     LControlLayers,
     LIcon,
     LPopup,
+
     ListItemDesktop,
   },
 
@@ -61,12 +62,13 @@ export default {
   }),
 
   computed: {
-    ...mapGetters({
+    ...mapGetters('covidTestStore', {
       _centers: 'filtered',
     }),
 
     items() {
-      return this._centers.filter((item) => !!item.maps)
+      console.log(this._centers.filter((item) => !!item.mapsLink))
+      return this._centers.filter((item) => !!item.mapsLink)
     },
 
     style() {

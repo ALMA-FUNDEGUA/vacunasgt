@@ -108,13 +108,9 @@ export default {
     ...mapGetters({
       departments: 'departments',
       municipalities: 'municipalities',
-      vaccines: 'vaccines',
-      doses: 'doses',
 
       getDepartment: 'department',
       getMunicipality: 'municipality',
-      getVaccine: 'vaccine',
-      getDose: 'dose',
     }),
 
     department: {
@@ -122,48 +118,11 @@ export default {
         return this.getDepartment
       },
 
-      set(value) {
-        this.setDepartment(value)
+      set() {
+        this.setDepartment(null)
         this.setMunicipality(null)
-        // this.setVaccine(null)
         this.setDose(null)
         this.setGroup(null)
-      },
-    },
-
-    municipality: {
-      get() {
-        return this.getMunicipality
-      },
-
-      set(value) {
-        this.setMunicipality(value)
-        // this.setVaccine(null)
-        // this.setDose(null)
-        // this.setGroup(null)
-      },
-    },
-
-    vaccine: {
-      get() {
-        return this.getVaccine
-      },
-
-      set(value) {
-        this.setVaccine(value)
-        // this.setDose(null)
-        // this.setGroup(null)
-      },
-    },
-
-    dose: {
-      get() {
-        return this.getDose
-      },
-
-      set(value) {
-        this.setDose(value)
-        // this.setGroup(null)
       },
     },
   },
@@ -171,10 +130,11 @@ export default {
   methods: {
     ...mapMutations({
       setDepartment: 'SET_DEPARTMENT',
+      setCenter: 'SET_CENTER',
       setMunicipality: 'SET_MUNICIPALITY',
-      setVaccine: 'SET_VACCINE',
-      setDose: 'SET_DOSE',
-      setGroup: 'SET_GROUP',
+      setDescription: 'SET_DESCRIPTION',
+      setMapsLink: 'SET_MAPSLINK',
+      setPhonenumber: 'SET_PHONENUMBER',
     }),
   },
 }
