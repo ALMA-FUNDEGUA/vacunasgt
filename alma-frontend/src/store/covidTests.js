@@ -15,7 +15,7 @@ const toUpperCase = (items) =>
     })
   )
 
-let state = {
+let state = () => ({
   loading: true,
 
   centrosPruebas: null,
@@ -37,7 +37,7 @@ let state = {
 
   selectedTestCenters: null,
   centers: [],
-}
+})
 
 let getters = {
   loading: (state) => state.loading,
@@ -198,11 +198,25 @@ let actions = {
   },
 }
 
-const covidTestStore = {
-  state: () => ({ ...state}),
+export default {
+  namespaced: true,
+
+  state,
   getters,
   mutations,
   actions,
 }
 
-export default covidTestStore
+// export default {
+//   namespaced: true,
+
+//   state: () => ({
+//     loading: true,
+//     centers: []
+//   }),
+
+//   getters: {
+//     loading: state => state.loading,
+//     centers: state => state.centers,
+//   }
+// }

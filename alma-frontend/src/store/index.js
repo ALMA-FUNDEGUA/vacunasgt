@@ -19,7 +19,7 @@ const toUpperCase = (items) =>
     })
   )
 
-let state = {
+let state = () => ({
   loading: true,
 
   centros: null,
@@ -66,7 +66,7 @@ let state = {
 
   selectedTestCenters: null,
   testCenters: [],
-}
+})
 
 let getters = {
   loading: (state) => state.loading,
@@ -573,7 +573,7 @@ let actions = {
 }
 
 export default new Vuex.Store({
-  state: () => ({...state}),
+  state,
   getters,
   mutations,
   actions,
