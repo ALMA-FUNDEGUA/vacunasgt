@@ -48,12 +48,13 @@
         ¡Hola! Soy Alma y estoy aqui para ayudarte.
       </h2>
 
+      <v-container>
       <v-btn
         rounded
         color="#FFE6B7"
         large
         block
-        class="mt-9 my-5 mb-15 d-flex justify-center"
+        class="mt-9 my-5 d-flex justify-center"
         link
         to="/filters"
         style="
@@ -65,6 +66,25 @@
       >
         Buscar mi vacuna
       </v-btn>
+
+      <v-btn
+        rounded
+        color="#FFE6B7"
+        large
+        block
+        class="mt-9 my-5 mb-15 d-flex justify-center"
+        link
+        to="/testFilters"
+        style="
+          text-align: center;
+          justify-content: center;
+          text-transform: unset !important;
+          width: 72%;
+        "
+      >
+        Buscar mi prueba
+      </v-btn>
+      </v-container>
 
       <!-- </v-card> -->
     </header>
