@@ -66,7 +66,9 @@ export default {
   },
 
   computed: {
-    ...mapGetters('covidTestStore', ['loading', 'centers']),
+    ...mapGetters('covidTestStore', {
+      _centers: 'filtered',
+    }),
 
     items() {
       console.log(this._centers.filter((item) => !!item.mapsLink))
