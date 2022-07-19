@@ -17,6 +17,24 @@ const routes = [
   },
 
   {
+    path: '/testFilters',
+    name: 'TestFiltersView',
+    component: () => import('@/views/TestFilters.vue'),
+  },
+
+  {
+    path: '/testList',
+    name: 'TestList',
+    component: () => import('@/views/TestList.vue'),
+  },
+
+  {
+    path: '/testList/:name',
+    name: 'TestDetailView',
+    component: () => import('@/views/TestDetail.vue'),
+  },
+
+  {
     path: '/centers',
     name: 'CenterList',
     component: () => import('@/views/CenterList.vue'),
