@@ -60,7 +60,7 @@
 import TestCenterFilters from '../components/TestCenterFilters.vue'
 import AppBar from '../components/AppBar.vue'
 import SiteFooter from '../components/SiteFooter.Desktop.vue'
-import MapFilter from '../components/maps/MapFilter.vue'
+import MapFilter from '../components/maps/CovidTestMapFilter.vue'
 
 export default {
   components: {
