@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 import LoadingPage from './components/LoadingPage.vue'
 
@@ -23,6 +23,10 @@ export default {
   data: () => ({
     //
   }),
+
+  computed: {
+    ...mapGetters('covidTestStore', ['loading', 'centers']),
+  },
 
   created() {
     document.onreadystatechange = () => {
