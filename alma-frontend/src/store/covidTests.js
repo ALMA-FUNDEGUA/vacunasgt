@@ -36,7 +36,7 @@ let state = {
   selectedMunicipioPrueba: null,
 
   selectedTestCenters: null,
-  testCenters: [],
+  centers: [],
 }
 
 let getters = {
@@ -199,7 +199,7 @@ let actions = {
 }
 
 const covidTestStore = {
-  state: () => state,
+  state: () => ({ ...state}),
   getters,
   mutations,
   actions,

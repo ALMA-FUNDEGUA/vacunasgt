@@ -1,6 +1,6 @@
 <template>
-  <section>
-    <template>
+  <section v-if="!loading">
+    <!-- <template> -->
       <div class="mapa">
         <l-map :style="style" :zoom="zoom" :center="mapsLatLon(items[0])">
           <l-tile-layer :url="url"></l-tile-layer>
@@ -24,7 +24,7 @@
           <l-control-layers />
         </l-map>
       </div>
-    </template>
+    <!-- </template> -->
   </section>
 </template>
 
@@ -61,10 +61,12 @@ export default {
     iconUrl: 'http://www.clker.com/cliparts/R/B/J/Z/k/m/map-marker-hi.png',
   }),
 
+  beforeMount() {
+    console.log(this.centers)
+  },
+
   computed: {
-    ...mapGetters('covidTestStore', {
-      _centers: 'filtered',
-    }),
+    ...mapGetters('covidTestStore', ['loading', 'centers']),
 
     items() {
       console.log(this._centers.filter((item) => !!item.mapsLink))
