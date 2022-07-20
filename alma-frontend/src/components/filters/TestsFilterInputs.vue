@@ -15,15 +15,7 @@
           </v-col>
 
           <v-col cols="6" class="pl-0 pb-3">
-            <filter-dose-dialog></filter-dose-dialog>
-          </v-col>
-
-          <v-col cols="6" class="pr-0 pt-0">
-            <filter-municipality-dialog></filter-municipality-dialog>
-          </v-col>
-
-          <v-col cols="6" class="pl-0 pt-0">
-            <filter-department-dialog></filter-department-dialog>
+            <filter-test-price></filter-test-price>
           </v-col>
         </v-row>
       </v-container>
@@ -34,15 +26,9 @@
 <script>
 import FilterTestType from './FilterTestType.vue'
 import FilterTestPrice from './FilterTestPrice.vue'
-import FilterDoseDialog from './FilterDoseDialog.vue'
-import FilterMunicipalityDialog from './FilterMunicipalityDialog.vue'
-import FilterDepartmentDialog from './FilterDepartmentDialog.vue'
 
 export default {
   components: {
-    FilterDoseDialog,
-    FilterMunicipalityDialog,
-    FilterDepartmentDialog,
     FilterTestType,
     FilterTestPrice,
   },

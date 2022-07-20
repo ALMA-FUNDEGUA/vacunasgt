@@ -188,7 +188,6 @@ let actions = {
     commit('SET_LOADING', true)
 
     const testcenters = await db.collection('centers_covid_tests').get()
-    console.log('CENTROS DE PRUEBAS:', testcenters)
 
     commit(
       'SET_CENTERS',
