@@ -18,7 +18,6 @@
       <v-row>
         <v-col>
           <p class="mb-1 font-weight-medium">Tipo de hisopado</p>
-
           <v-select
             placeholder="Ver Todos"
             :items="testType"
