@@ -35,48 +35,23 @@ export default {
   },
 
   computed: {
-    formatedVaccines() {
-      const vaccines = []
+    formatedTests() {
+      const tests = []
 
-      Object.entries(this.item.vaccines).forEach(([vaccine, dose]) => {
-        Object.entries(dose).forEach(([doseKey, doseData]) => {
-          doseData.forEach((req) => {
+      Object.entries(this.item.available).forEach(([type, price]) => {
+        Object.entries(price).forEach(([testKey, testData]) => {
+          testData.forEach((req) => {
             if (req.available) {
-              vaccines.push({
-                vaccine: vaccine,
-                detail: `${this.formatDose(doseKey)} / ${req.group}`,
+              tests.push({
+                type: type,
+                price: testKey,
               })
             }
           })
         })
       })
 
-      return vaccines
-    },
-    formatedTests() {
-      const tests = []
-
-      tests.push({ type: 'Antígeno', price: 'Q250' })
-      tests.push({ type: 'PCR', price: 'Q600' })
-
       return tests
-    },
-  },
-
-  methods: {
-    formatDose(dose) {
-      switch (dose) {
-        case 'PRIMERA':
-          return '1era'
-        case 'SEGUNDA':
-          return '2nda'
-        case 'TERCERA':
-          return '3ra'
-        case 'CUARTA':
-          return '4ta'
-        default:
-          return dose
-      }
     },
   },
 }

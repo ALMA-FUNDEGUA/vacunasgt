@@ -36,20 +36,20 @@
         </v-btn>
 
         <v-toolbar-title class="pl-0 font-weight-bold">
-          Vacunas
+          Hisopados
         </v-toolbar-title>
       </v-app-bar>
-
-      <center-filters></center-filters>
+      <test-center-filters></test-center-filters>
       <v-app-bar class="mt-9" flat>
         <v-btn
           color="#FFD789"
           block
           rounded
           elevation="0"
-          @click="$router.push('/centers')"
+          class="no-uppercase"
+          @click="$router.push('/testscenters')"
         >
-          Aplicar Filtros
+          Buscar hisopado
         </v-btn>
       </v-app-bar>
     </section>
@@ -60,7 +60,7 @@
 import TestCenterFilters from '../components/TestCenterFilters.vue'
 import AppBar from '../components/AppBar.vue'
 import SiteFooter from '../components/SiteFooter.Desktop.vue'
-import MapFilter from '../components/maps/MapFilter.vue'
+import MapFilter from '../components/maps/CovidTestMapFilter.vue'
 
 export default {
   components: {
@@ -69,5 +69,28 @@ export default {
     SiteFooter,
     MapFilter,
   },
+  data: () => ({
+    schedule: 'week',
+    schedules: [
+      { text: 'Entre Semana', value: 'week' },
+      { text: 'Fines de Semana', value: 'weekend' },
+    ],
+
+    testTypes: ['PCR', 'Antigeno'],
+    costs: ['Gratis', 'Pagado', 'Ver todos'],
+  }),
 }
 </script>
+
+<style scoped>
+.filter-input {
+  background-color: #f3f3f3;
+  border: 0px solid white !important;
+}
+.v-text-field--outlined >>> fieldset {
+  border: 0px solid black;
+}
+.v-input--selection-controls__input {
+  background: black;
+}
+</style>
