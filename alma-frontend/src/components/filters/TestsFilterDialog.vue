@@ -66,17 +66,20 @@ export default {
   methods: {
     ...mapMutations({
       setDepartment: 'SET_DEPARTMENT',
+      setCenter: 'SET_CENTER',
       setMunicipality: 'SET_MUNICIPALITY',
-      setVaccine: 'SET_VACCINE',
-      setDose: 'SET_DOSE',
-      setGroup: 'SET_GROUP',
+      setDescription: 'SET_DESCRIPTION',
+      setMapsLink: 'SET_MAPSLINK',
+      setPhonenumber: 'SET_PHONENUMBER',
     }),
 
     clearForm() {
-      this.setVaccine(null)
       this.setDepartment(null)
-      this.setDose(null)
       this.setMunicipality(null)
+      this.setCenter(null)
+      this.setDescription(null)
+      this.setMapsLink(null)
+      this.setPhonenumber(null)
     },
   },
 }
