@@ -170,60 +170,28 @@ let getters = {
 }
 
 let mutations = {
-  SET_LOADING: (state, payload) => (state.loading = payload),
+  SET_LOADING: (state, payload) => state.loading = payload,
 
-  set_centros_covid: (state, payload) => {
-    state.centros = payload
-  },
-  set_address: (state, payload) => {
-    state.selectedAddress = payload
-  },
-  set_selectedAvailable: (state, payload) => {
-    state.selectedAvailable = payload
-  },
-  set_selectedCenter: (state, payload) => {
-    state.selectedCenter = payload
-  },
-  set_selectedDepartment: (state, payload) => {
-    state.selectedDepartment = payload
-  },
-  set_selectedDescription: (state, payload) => {
-    state.selectedDescription = payload
-  },
-  set_selectedMapsLink: (state, payload) => {
-    state.selectedMapsLink = payload
-  },
-  set_selectedMunicipality: (state, payload) => {
-    state.selectedMunicipality = payload
-  },
-  set_selectedPhoneNumber: (state, payload) => {
-    state.selectedPhoneNumber = payload
-  },
+  SET_CENTERS: (state, payload) => state.centers = payload,
+  SET_SELECTED: (state, payload) => state.selected = payload,
 
-  SET_CENTERS: (state, payload) => (state.centers = payload),
-  SET_SELECTED: (state, payload) => (state.selected = payload),
+  SET_DEPARTMENT: (state, payload) => state.department = payload,
+  SET_MUNICIPALITY: (state, payload) => state.municipality = payload,
+  SET_ZONE: (state, payload) => state.zone = payload,
 
-  SET_ADDRESS: (state, payload) => (state.centers = payload),
-  SET_AVAILABLE: (state, payload) => (state.centers = payload),
-  SET_CENTER: (state, payload) => (state.centers = payload),
-  SET_DEPARTMENT: (state, payload) => (state.centers = payload),
-  SET_DESCRIPTION: (state, payload) => (state.centers = payload),
-  SET_MAPSLINK: (state, payload) => (state.centers = payload),
-  SET_MUNICIPALITY: (state, payload) => (state.centers = payload),
-  SET_PHONENUMBER: (state, payload) => (state.centers = payload),
+  SET_TEST_TYPE: (state, payload) => state.testType = payload,
+  SET_SERVICE_TYPE: (state, payload) => state.serviceType = payload,
+  SET_SIMPLE_SCHEDULE: (state, payload) => state.simpleSchedule = payload,
 }
 
 let actions = {
   async fetchCenters({ commit }) {
     commit('SET_LOADING', true)
 
-    const testcenters = await db.collection('centers_covid_tests').get()
-    console.log('CENTROS DE PRUEBAS:', testcenters)
+    const snapshot = await db.collection('centers_covid_tests').get()
+    const centers = snapshot.docs.map((doc) => doc.data())
 
-    commit(
-      'SET_CENTERS',
-      testcenters.docs.map((doc) => doc.data())
-    )
+    commit('SET_CENTERS', centers)
     commit('SET_LOADING', false)
   },
 }
