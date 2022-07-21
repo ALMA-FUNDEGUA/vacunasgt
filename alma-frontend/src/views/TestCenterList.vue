@@ -12,7 +12,7 @@
 
 <script>
 import CenterListDesktop from '@/components/views/TestCenterList.Desktop.vue'
-import CenterListMobile from '@/components/MobileCenterList.vue'
+import CenterListMobile from '@/components/MobileTestList.vue'
 
 export default {
   components: {

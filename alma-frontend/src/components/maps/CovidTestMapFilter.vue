@@ -1,29 +1,29 @@
 <template>
   <section v-if="!loading">
     <!-- <template> -->
-      <div class="mapa">
-        <l-map :style="style" :zoom="zoom" :center="mapsLatLon(items[0])">
-          <l-tile-layer :url="url"></l-tile-layer>
+    <div class="mapa">
+      <l-map :style="style" :zoom="zoom" :center="mapsLatLon(items[0])">
+        <l-tile-layer :url="url"></l-tile-layer>
 
-          <l-marker
-            v-for="(item, i) in items"
-            :key="`item-marker-${i}`"
-            :lat-lng="mapsLatLon(item)"
-          >
-            <l-icon :icon-url="iconUrl" />
+        <l-marker
+          v-for="(item, i) in items"
+          :key="`item-marker-${i}`"
+          :lat-lng="mapsLatLon(item)"
+        >
+          <l-icon :icon-url="iconUrl" />
 
-            <l-popup>
-              <list-item-desktop :item="item" popup></list-item-desktop>
+          <l-popup>
+            <list-item-desktop :item="item" popup></list-item-desktop>
 
-              <span class="white--text d-none">
-                -------------------------------------------------------
-              </span>
-            </l-popup>
-          </l-marker>
+            <span class="white--text d-none">
+              -------------------------------------------------------
+            </span>
+          </l-popup>
+        </l-marker>
 
-          <l-control-layers />
-        </l-map>
-      </div>
+        <l-control-layers />
+      </l-map>
+    </div>
     <!-- </template> -->
   </section>
 </template>
@@ -70,11 +70,6 @@ export default {
       _centers: 'filtered',
     }),
 
-    items() {
-      console.log(this._centers.filter((item) => !!item.mapsLink))
-      return this._centers.filter((item) => !!item.mapsLink)
-    },
-
     style() {
       return {
         height: this.$vuetify.breakpoint.mdAndUp ? '555px' : '350px',
@@ -88,7 +83,16 @@ export default {
     mapsLatLon(center) {
       const elements = center.maps.split('/')
       const location = elements[elements.length - 2].slice(1).split(',')
+      console.log('LOCACION', location[0], location[1])
       return [location[0], location[1]]
+    },
+
+    items() {
+      console.log(
+        'DATOS:',
+        this._centers.filter((item) => !!item.mapsLink)
+      )
+      return this._centers.filter((item) => !!item.mapsLink)
     },
   },
 }
