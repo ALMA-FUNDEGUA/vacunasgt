@@ -1,5 +1,21 @@
 <template>
   <section>
+    <!-- <v-row class="mx-1 mt-1">
+    <v-col cols=2 style="font-weight:bold;text-align:right">
+    Nota: 
+    </v-col>
+    <v-col cols=10 style="text-align:left">
+      Esta es información recopilada y no garantiza los precios mostrados 
+    </v-col>
+    </v-row> -->
+    <v-col class="mx-1 mt-1">
+    <span style="font-weight:bold;">
+      Nota:&nbsp;  
+    </span>
+    <span>
+      Esta es información recopilada y no garantiza los precios mostrados 
+    </span>
+    </v-col>
     <v-list two-line>
       <test-item-schedule :item="item"></test-item-schedule>
       <v-divider></v-divider>
