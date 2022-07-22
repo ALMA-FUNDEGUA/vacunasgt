@@ -13,7 +13,7 @@
     <v-dialog v-model="dialog" max-width="670px">
       <v-card :class="{'filter-dialog-padding': $vuetify.breakpoint.mdAndUp}">
         <v-card-title>
-          Vacunas
+          Tipo
           <v-spacer></v-spacer>
           <v-btn icon @click="dialog = false">
             <v-icon>mdi-close</v-icon>
