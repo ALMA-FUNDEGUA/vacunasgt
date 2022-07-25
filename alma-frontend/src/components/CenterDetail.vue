@@ -9,6 +9,9 @@
 
       <item-address :item="item"></item-address>
       <v-divider></v-divider>
+
+      <item-observations :item="item"></item-observations>
+      <v-divider></v-divider>
     </v-list>
 
     <!-- <section class="d-none">
@@ -72,12 +75,14 @@ import { mapGetters } from "vuex";
 import ItemSchedule from './detail/ItemSchedule.vue';
 import ItemVaccines from './detail/ItemVaccines.vue';
 import ItemAddress from './detail/ItemAddress.vue';
+import ItemObservations from './detail/ItemObservations.vue';
 
 export default {
   components: {
     ItemSchedule,
     ItemVaccines,
     ItemAddress,
+    ItemObservations,
   },
 
   computed: {
