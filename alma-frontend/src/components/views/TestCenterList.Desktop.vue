@@ -58,7 +58,7 @@ export default {
   }),
 
   computed: {
-    ...mapGetters({
+    ...mapGetters('covidTestStore', {
       items: 'filtered',
     }),
   },

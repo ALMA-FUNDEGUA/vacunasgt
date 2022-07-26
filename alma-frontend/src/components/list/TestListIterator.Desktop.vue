@@ -17,14 +17,14 @@
             </v-list-item-content>
           </v-list-item>
 
-          <v-list-item v-if="getVaccine">
+          <!-- <v-list-item v-if="getVaccine">
             <v-list-item-content class="pt-0">
               <span class="font-weight-bold text-h5">
                 <span class="text-h5">Hisopados</span>
                 {{ getVaccine }}
               </span>
             </v-list-item-content>
-          </v-list-item>
+          </v-list-item> -->
 
           <v-list-item>
             <v-list-item-content class="pb-0">
@@ -118,9 +118,9 @@ export default {
   }),
 
   computed: {
-    ...mapGetters({
+    ...mapGetters('covidTestStore', {
       items: 'filtered',
-      getVaccine: 'vaccine',
+      // getVaccine: 'vaccine',
     }),
   },
 }
