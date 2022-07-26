@@ -18,9 +18,11 @@
       <v-row>
         <v-col>
           <p class="mb-1 font-weight-medium">Tipo de hisopado</p>
+ 
           <v-select
+            v-model="testType"
             placeholder="Ver Todos"
-            :items="testType"
+            :items="testTypes"
             hide-details
             outlined
             dense
@@ -32,27 +34,20 @@
 
       <v-row>
         <v-col>
-          <p class="mb-1 font-weight-medium">Precio de prueba</p>
+          <p class="mb-1 font-weight-medium">
+            ¿En qué departamento estas buscando?
+          </p>
 
-          <v-radio-group>
-            <v-container>
-              <v-row>
-                <v-col
-                  cols="12"
-                  md="6"
-                  v-for="(price, i) in testPrice"
-                  :key="i"
-                  class="pb-0"
-                >
-                  <v-radio
-                    :label="price.text"
-                    :value="price.value"
-                    color="#6751EE"
-                  ></v-radio>
-                </v-col>
-              </v-row>
-            </v-container>
-          </v-radio-group>
+          <v-select
+            placeholder="Ver Todos"
+            v-model="department"
+            :items="departments"
+            hide-details
+            outlined
+            dense
+            clearable
+            class="filter-input"
+          ></v-select>
         </v-col>
       </v-row>
 
@@ -63,6 +58,30 @@
           <v-select
             v-model="schedule"
             :items="schedules"
+            placeholder="Ver Todos"
+            hide-details
+            outlined
+            dense
+            clearable
+            class="filter-input"
+          ></v-select>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col class="pb-1">
+          <span class="font-weight-bold"> Otros filtros </span>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col>
+          <p class="mb-1 font-weight-medium">¿En que municipio buscas?</p>
+
+          <v-select
+            placeholder="Ver Todos"
+            v-model="municipality"
+            :items="municipalities"
             hide-details
             outlined
             dense
@@ -87,15 +106,6 @@ export default {
   },
 
   data: () => ({
-    schedule: 'week',
-    schedules: [
-      { text: 'Entre Semana', value: 'week' },
-      { text: 'Fines de Semana', value: 'weekend' },
-    ],
-    testType: [
-      { text: 'Antígeno', value: 'Antígeno' },
-      { text: 'PCR', value: 'PCR' },
-    ],
     testPrice: [
       { text: 'Gratuito', value: 'Gratuito' },
       { text: 'Pagado', value: 'Pagado' },
@@ -104,36 +114,67 @@ export default {
   }),
 
   computed: {
-    ...mapGetters({
-      departments: 'departments',
-      municipalities: 'municipalities',
+    ...mapGetters('covidTestStore', {
+      testTypes: 'testTypes',
+      getTestType: 'testType',
 
+      schedules: 'simpleSchedules',
+      getSchedule: 'simpleSchedule',
+
+      departments: 'departments',
       getDepartment: 'department',
+
+      municipalities: 'municipalities',
       getMunicipality: 'municipality',
     }),
+
+    testType: {
+      get() {
+        return this.getTestType
+      },
+
+      set(value) {
+        this.setTestType(value)
+      },
+    },
+
+    schedule: {
+      get() {
+        return this.getSchedule
+      },
+
+      set(value) {
+        this.setSchedule(value)
+      },
+    },
 
     department: {
       get() {
         return this.getDepartment
       },
 
-      set() {
-        this.setDepartment(null)
-        this.setMunicipality(null)
-        this.setDose(null)
-        this.setGroup(null)
+      set(value) {
+        this.setDepartment(value)
       },
     },
+
+    municipality: {
+      get() {
+        return this.getMunicipality
+      },
+
+      set(value) {
+        this.setMunicipality(value)
+      },
+    } 
   },
 
   methods: {
-    ...mapMutations({
+    ...mapMutations('covidTestStore', {
+      setTestType: 'SET_TEST_TYPE',
+      setSchedule: 'SET_SIMPLE_SCHEDULE',
       setDepartment: 'SET_DEPARTMENT',
-      setCenter: 'SET_CENTER',
       setMunicipality: 'SET_MUNICIPALITY',
-      setDescription: 'SET_DESCRIPTION',
-      setMapsLink: 'SET_MAPSLINK',
-      setPhonenumber: 'SET_PHONENUMBER',
     }),
   },
 }

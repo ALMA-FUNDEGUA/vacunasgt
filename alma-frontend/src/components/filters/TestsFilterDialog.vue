@@ -64,22 +64,20 @@ export default {
   }),
 
   methods: {
-    ...mapMutations({
+    ...mapMutations('covidTestStore', {
       setDepartment: 'SET_DEPARTMENT',
-      setCenter: 'SET_CENTER',
       setMunicipality: 'SET_MUNICIPALITY',
-      setDescription: 'SET_DESCRIPTION',
-      setMapsLink: 'SET_MAPSLINK',
-      setPhonenumber: 'SET_PHONENUMBER',
+      setTestType: 'SET_TEST_TYPE',
+      setServiceType: 'SET_SERVICE_TYPE',
+      setSchedule: 'SET_SCHEDULE',
     }),
 
     clearForm() {
       this.setDepartment(null)
       this.setMunicipality(null)
-      this.setCenter(null)
-      this.setDescription(null)
-      this.setMapsLink(null)
-      this.setPhonenumber(null)
+      this.setTestType(null)
+      this.setServiceType(null)
+      this.setSchedule(null)
     },
   },
 }
