@@ -39,7 +39,7 @@ import { mapGetters } from 'vuex'
 
 import AppBar from '@/components/AppBar.vue'
 import SiteFooter from '@/components/SiteFooter.Desktop.vue'
-import MapFilter from '@/components/maps/MapFilter.vue'
+import MapFilter from '@/components/maps/CovidTestMapFilter.vue'
 import FilterTopBarDesktop from '@/components/filters/TestFilterTopBar.Desktop.vue'
 import ListIteratorDesktop from '@/components/list/TestListIterator.Desktop.vue'
 
