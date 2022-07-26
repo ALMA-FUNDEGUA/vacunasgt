@@ -1,7 +1,7 @@
 <template>
   <section>
     <v-text-field
-      :value="getVaccine"
+      :value="getTestType"
       dense
       solo
       rounded
@@ -17,7 +17,7 @@
     <v-dialog v-model="dialog" max-width="670px">
       <v-card :class="{ 'filter-dialog-padding': $vuetify.breakpoint.mdAndUp }">
         <v-card-title>
-          Tipo de hisopado
+          Tipo de Hisopado
           <v-spacer></v-spacer>
           <v-btn icon @click="dialog = false">
             <v-icon>mdi-close</v-icon>
@@ -27,12 +27,12 @@
         <v-divider></v-divider>
 
         <section class="my-4">
-          <v-radio-group v-model="type">
+          <v-radio-group v-model="testType">
             <v-container>
               <v-row>
                 <v-col
                   cols="12"
-                  v-for="(type, i) in testType"
+                  v-for="(type, i) in testTypes"
                   :key="i"
                   class="pb-0"
                 >
@@ -52,7 +52,7 @@
         <v-card-actions>
           <v-btn
             text
-            @click="vaccine = null"
+            @click="testType = null"
             class="no-uppercase text-decoration-underline"
           >
             Borrar
@@ -81,34 +81,28 @@ import { mapGetters, mapMutations } from 'vuex'
 export default {
   data: () => ({
     dialog: false,
-    testType: [
-      { text: 'Antígeno', value: 'Antígeno' },
-      { text: 'PCR', value: 'PCR' },
-    ],
   }),
 
   computed: {
-    ...mapGetters({
-      vaccines: 'vaccines',
-      getVaccine: 'vaccine',
+    ...mapGetters('covidTestStore', {
+      testTypes: 'testTypes',
+      getTestType: 'testType',
     }),
 
-    testTypes: {},
-
-    vaccine: {
+    testType: {
       get() {
-        return this.getVaccine
+        return this.getTestType
       },
 
       set(value) {
-        this.setVaccine(value)
+        this.setTestType(value)
       },
     },
   },
 
   methods: {
-    ...mapMutations({
-      setVaccine: 'SET_VACCINE',
+    ...mapMutations('covidTestStore', {
+      setTestType: 'SET_TEST_TYPE',
     }),
   },
 }
