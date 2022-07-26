@@ -1,5 +1,5 @@
 <template>
-  <section v-if="!loading">
+  <section>
     <!-- <template> -->
     <div class="mapa">
       <l-map :style="style" :zoom="zoom" :center="mapsLatLon(items[0])">
@@ -12,13 +12,13 @@
         >
           <l-icon :icon-url="iconUrl" />
 
-          <l-popup>
+          <!-- <l-popup>
             <list-item-desktop :item="item" popup></list-item-desktop>
 
             <span class="white--text d-none">
               -------------------------------------------------------
             </span>
-          </l-popup>
+          </l-popup> -->
         </l-marker>
 
         <l-control-layers />
@@ -37,11 +37,11 @@ import {
   LTileLayer,
   LControlLayers,
   LIcon,
-  LPopup,
+  // LPopup,
 } from 'vue2-leaflet'
 import 'leaflet/dist/leaflet.css'
 
-import ListItemDesktop from '@/components/list/TestListItem.Desktop.vue'
+// import ListItemDesktop from '@/components/list/TestListItem.Desktop.vue'
 
 export default {
   components: {
@@ -50,9 +50,9 @@ export default {
     LTileLayer,
     LControlLayers,
     LIcon,
-    LPopup,
+    // LPopup,
 
-    ListItemDesktop,
+    // ListItemDesktop,
   },
 
   data: () => ({
@@ -61,14 +61,14 @@ export default {
     iconUrl: 'http://www.clker.com/cliparts/R/B/J/Z/k/m/map-marker-hi.png',
   }),
 
-  beforeMount() {
-    console.log(this.centers)
-  },
-
   computed: {
     ...mapGetters('covidTestStore', {
       _centers: 'filtered',
     }),
+
+    items() {
+      return this._centers.filter((item) => !!item.mapsLink)
+    },
 
     style() {
       return {
@@ -81,18 +81,10 @@ export default {
 
   methods: {
     mapsLatLon(center) {
-      const elements = center.maps.split('/')
+      const elements = center.mapsLink.split('/')
       const location = elements[elements.length - 2].slice(1).split(',')
       console.log('LOCACION', location[0], location[1])
       return [location[0], location[1]]
-    },
-
-    items() {
-      console.log(
-        'DATOS:',
-        this._centers.filter((item) => !!item.mapsLink)
-      )
-      return this._centers.filter((item) => !!item.mapsLink)
     },
   },
 }
