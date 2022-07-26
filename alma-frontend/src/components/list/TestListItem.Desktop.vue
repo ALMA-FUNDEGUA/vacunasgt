@@ -10,7 +10,7 @@
                 class="font-weight-bold"
                 style="word-break: break-word"
               >
-                {{ item.name }}
+                {{ item.center }}
               </v-col>
 
               <v-col cols="1">
@@ -20,7 +20,7 @@
           </v-container>
         </v-card-title>
 
-        <v-card-text class="pb-0">
+        <v-card-text class="pb-0" v-if="item.tests.length > 0 && item.tests[0].specificSchedule">
           <v-container fluid>
             <v-row dense>
               <v-col cols="1">
@@ -29,7 +29,7 @@
 
               <v-col cols="11">
                 <span class="caption">
-                  {{ getSchedule(item) }}
+                  {{ item.tests[0].specificSchedule }}
                 </span>
               </v-col>
             </v-row>
@@ -46,17 +46,17 @@
           class="pa-0 caption font-weight-bold"
           style="word-break: break-word"
         >
-          Lugar: {{ item.name }}
+          Lugar: {{ item.center }}
         </v-card-title>
 
         <v-card-text class="pa-0">
           <v-container fluid class="px-0">
             <v-row dense>
-              <v-col cols="12">
+              <v-col cols="12" v-if="item.tests.length > 0 && item.tests[0].specificSchedule">
                 <v-icon small top> mdi-clock-outline </v-icon>
 
                 <span class="caption">
-                  {{ getSchedule(item) }}
+                  {{ item.tests[0].specificSchedule }}
                 </span>
               </v-col>
 
