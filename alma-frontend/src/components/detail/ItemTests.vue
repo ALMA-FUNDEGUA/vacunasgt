@@ -60,7 +60,7 @@ export default {
 
   methods: {
     formatTestPrice({ serviceType, price }) {
-      if (serviceType == 'GRATUITO') {
+      if (serviceType === 'Gratis') {
         return 'Servicio Gratuito'
       }
 
