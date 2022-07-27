@@ -30,7 +30,7 @@ let getters = {
 
   centers: (state) => state.centers,
   selected: (state) =>
-    state.centers.find((center) => state.selected === center.name),
+    state.centers.find((center) => state.selected === center.center),
 
   // TODO: add filters conditions
   filtered: (state) => {
