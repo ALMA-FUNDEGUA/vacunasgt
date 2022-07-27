@@ -3,24 +3,38 @@
     <search-bar-mobile v-model="search"></search-bar-mobile>
 
     <v-card flat class="text-center">
-      <v-toolbar flat color=#E4DFFF>
+      <v-toolbar flat color="#E4DFFF">
         <v-btn icon large link to="/">
           <v-icon>mdi-chevron-left</v-icon>
         </v-btn>
 
-        <span style="font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 18px; line-height: 27px;">
+        <span
+          style="
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 27px;
+          "
+        >
           Hisopados
         </span>
-        
-        <v-spacer/>
-        
-        <v-btn icon link to="/testFilters">
-          <v-icon>
-            mdi-filter-variant
-          </v-icon>
+
+        <v-spacer />
+
+        <v-btn icon link to="/testsfilters">
+          <v-icon> mdi-filter-variant </v-icon>
         </v-btn>
 
-        <span style="font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 14px; line-height: 21px;">
+        <span
+          style="
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 21px;
+          "
+        >
           Filtros
         </span>
       </v-toolbar>
@@ -161,12 +175,13 @@
                 </v-col>
 
                 <v-col cols="1">
-                  <v-icon size=25 top>
-                    mdi-map-marker-outline
-                  </v-icon>
+                  <v-icon size="25" top> mdi-map-marker-outline </v-icon>
                 </v-col>
 
-                <v-col cols="11" class="d-flex flex-column justify-end black--text text-left">
+                <v-col
+                  cols="11"
+                  class="d-flex flex-column justify-end black--text text-left"
+                >
                   {{ center.address }}
                 </v-col>
               </v-row>
@@ -216,25 +231,27 @@
       <bottom-navigation-mobile></bottom-navigation-mobile>
     </v-card>
 
-    <v-dialog v-model="detail"
-        fullscreen
-        hide-overlay
-        transition="dialog-bottom-transition">
+    <v-dialog
+      v-model="detail"
+      fullscreen
+      hide-overlay
+      transition="dialog-bottom-transition"
+    >
       <center-detail @close="detail = false"></center-detail>
     </v-dialog>
   </section>
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters, mapMutations } from 'vuex'
 
-import CenterDetail from "../components/CenterDetail.vue";
+import CenterDetail from '../components/CenterDetail.vue'
 
-import MapFilter from "../components/maps/MapFilter.vue";
+import MapFilter from '../components/maps/MapFilter.vue'
 
-import BottomNavigationMobile from '../components/BottomNavigation.Mobile.vue';
-import TestFilterInputs from './filters/TestFilterInputs.vue';
-import SearchBarMobile from './list/SearchBar.Mobile.vue';
+import BottomNavigationMobile from '../components/BottomNavigation.Mobile.vue'
+import TestFilterInputs from './filters/TestsFilterInputs.vue'
+import SearchBarMobile from './list/SearchBar.Mobile.vue'
 
 export default {
   components: {
@@ -248,137 +265,144 @@ export default {
   data: () => ({
     loading: true,
     fab: false,
-    search: "",
+    search: '',
     detail: false,
     schedule: null,
     // unavailable: false,
     schedules: [
-      { text: "Entre Semana", value: "week" },
-      { text: "Fines de Semana", value: "weekend" },
+      { text: 'Entre Semana', value: 'week' },
+      { text: 'Fines de Semana', value: 'weekend' },
     ],
     apiKey: process.env.VUE_APP_GOOGLE_MAPS_APIKEY,
   }),
 
   computed: {
     ...mapGetters({
-      _centers: "filtered",
-      getDepartment: "department",
-      getMunicipality: "municipality",
-      getVaccine: "vaccine",
-      getGroup: "group",
-      getDose: "dose",
-      getRequirement: "requirement",
-      getInflux: "influx",
-      getEntrance: "entrance",
+      _centers: 'filtered',
+      getDepartment: 'department',
+      getMunicipality: 'municipality',
+      getVaccine: 'vaccine',
+      getGroup: 'group',
+      getDose: 'dose',
+      getRequirement: 'requirement',
+      getInflux: 'influx',
+      getEntrance: 'entrance',
     }),
 
     department: {
       get() {
-        return this.getDepartment;
+        return this.getDepartment
       },
     },
 
     municipality: {
       get() {
-        return this.getMunicipality;
+        return this.getMunicipality
       },
     },
 
     vaccine: {
       get() {
-        return this.getVaccine;
+        return this.getVaccine
       },
     },
 
     group: {
       get() {
-        return this.getGroup;
+        return this.getGroup
       },
     },
 
     dose: {
       get() {
-        return this.getDose;
+        return this.getDose
       },
     },
 
     requirement: {
       get() {
-        return this.getRequirement;
+        return this.getRequirement
       },
     },
 
     influx: {
       get() {
-        return this.getInflux;
+        return this.getInflux
       },
     },
 
     entrance: {
       get() {
-        return this.getEntrance;
+        return this.getEntrance
       },
     },
 
     centers() {
       return this._centers.filter((center) => {
         switch (this.schedule) {
-          case "week":
-            return !!center.schedule.week;
+          case 'week':
+            return !!center.schedule.week
 
-          case "weekend":
-            return !!center.schedule.weekend;
+          case 'weekend':
+            return !!center.schedule.weekend
 
           default:
-            return true;
+            return true
         }
-      });
+      })
     },
   },
 
   methods: {
     ...mapMutations({
-      setSelected: "SET_SELECTED",
+      setSelected: 'SET_SELECTED',
     }),
 
     formatDose(dose) {
       switch (dose) {
         case dose.match(/AGOTADA/)?.input:
-          return "Agotada";
-        case "PRIMERA":
-          return "1era";
-        case "SEGUNDA":
-          return "2nda";
+          return 'Agotada'
+        case 'PRIMERA':
+          return '1era'
+        case 'SEGUNDA':
+          return '2nda'
         default:
-          return dose;
+          return dose
       }
     },
 
     onSelect(name) {
       this.$router.push({
-        name: 'TestDetailView',
+        name: 'TestsCenterDetailView',
         params: {
           name: name,
-        }
+        },
       })
     },
 
     onSelectTest() {
       this.$router.push({
-        name: 'TestDetailView',
+        name: 'TestsCenterDetailView',
         params: {
           name: 'CAP Palencia',
-        }
+        },
       })
+      // this.$router.push({
+      //   name: 'TestsCenterDetailView',
+      //   params: {
+      //     name: name,
+      //   },
+      // })
+      
     },
 
     moveToTop() {
       window.scrollTo({
         top: 0,
         left: 0,
-        behavior: "smooth",
-      });
+        behavior: 'smooth',
+      })
     },
   },
-};
+}
 </script>

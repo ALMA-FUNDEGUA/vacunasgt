@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import FilterInputs from '../../components/filters/FilterInputs.vue'
-import FilterDialog from './FilterDialog.vue'
+import FilterInputs from './TestsFilterInputs.vue'
+import FilterDialog from './TestsFilterDialog.vue'
 
 export default {
   components: {
