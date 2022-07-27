@@ -11,7 +11,7 @@
                 class="pl-0 font-weight-bold"
                 style="word-break: break-word; line-height: 27px"
               >
-                {{ selected.name }}
+                {{ selected.center }}
               </v-card-title>
             </div>
             <v-list class="pb-0">
@@ -52,10 +52,9 @@
             class="pl-0 font-weight-bold"
             style="word-break: break-word; line-height: 27px"
           >
-            {{ selected.name }}
+            {{ selected.center }}
           </v-card-title>
 
-          <!-- Add Update Feature -->
           <span class="caption d-none">
             Ultima actualizacion de datos: 2 de diciembre 2021
           </span>
@@ -74,7 +73,7 @@ import 'leaflet/dist/leaflet.css'
 import AppBar from '../components/AppBar.vue'
 import SiteFooter from '../components/SiteFooter.Desktop.vue'
 import CenterDetail from '../components/TestCenterDetail.vue'
-import SelectedMapDesktop from '../components/SelectedMapDesktop.vue'
+import SelectedMapDesktop from '../components/maps/covid_tests/TestMap.Desktop.vue'
 
 export default {
   components: {
@@ -89,11 +88,11 @@ export default {
   },
 
   computed: {
-    ...mapGetters(['selected']),
+    ...mapGetters('covidTestStore', ['selected']),
   },
 
   methods: {
-    ...mapMutations({
+    ...mapMutations('covidTestStore', {
       setSelected: 'SET_SELECTED',
     }),
 
