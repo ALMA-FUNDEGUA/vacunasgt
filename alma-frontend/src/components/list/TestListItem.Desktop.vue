@@ -1,7 +1,7 @@
 <template>
   <section>
     <section v-if="!popup">
-      <v-card flat @click="onSelect(item.name)">
+      <v-card flat @click="onSelect(item.center)">
         <v-card-title class="pt-1 pb-0 px-0">
           <v-container fluid class="pb-0">
             <v-row dense>
@@ -76,7 +76,7 @@
             text
             small
             class="text-decoration-underline font-weight-light no-uppercase"
-            @click="onSelect(item.name)"
+            @click="onSelect(item.center)"
           >
             Ver mas información
           </v-btn>

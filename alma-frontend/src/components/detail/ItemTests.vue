@@ -6,16 +6,34 @@
     >
       <template #content>
         <v-container fluid>
-          <v-row v-for="(item, i) in formatedTests" :key="i">
+          <v-row v-for="(item, i) in testsAvailable" :key="i">
             <v-col
               cols="8"
               offset="2"
               class="pa-0 caption"
-              :class="{ 'pb-1': i == formatedTests.length - 1 }"
             >
-              <span class="font-weight-bold"> {{ item.type }}: </span>
+              <span class="font-weight-bold">
+                {{ item.testType }}:
+              </span>
 
-              <span class="font-weight-medium"> {{ item.price }} </span>
+              <span class="font-weight-medium">
+                &nbsp;&nbsp;
+                {{ formatTestPrice(item) }}
+              </span>
+            </v-col>
+
+            <v-col
+              cols="8"
+              offset="2"
+              class="pa-0 pb-2 caption"
+            >
+              <span class="font-weight-bold">
+                Horario:
+              </span>
+
+              <span class="font-weight-medium">
+                {{ item.specificSchedule }}
+              </span>
             </v-col>
           </v-row>
         </v-container>
@@ -35,24 +53,19 @@ export default {
   },
 
   computed: {
-    formatedTests() {
-      const tests = []
-
-      Object.entries(this.item.available).forEach(([type, price]) => {
-        Object.entries(price).forEach(([testKey, testData]) => {
-          testData.forEach((req) => {
-            if (req.available) {
-              tests.push({
-                type: type,
-                price: testKey,
-              })
-            }
-          })
-        })
-      })
-
-      return tests
+    testsAvailable() {
+      return this.item.tests.filter(item => item.available)
     },
   },
+
+  methods: {
+    formatTestPrice({ serviceType, price }) {
+      if (serviceType == 'GRATUITO') {
+        return 'Servicio Gratuito'
+      }
+
+      return `Q${ price }`
+    }
+  }
 }
 </script>
