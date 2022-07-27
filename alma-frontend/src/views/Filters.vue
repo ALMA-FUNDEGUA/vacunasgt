@@ -47,9 +47,10 @@
           block
           rounded
           elevation="0"
+          class="no-uppercase"
           @click="$router.push('/centers')"
         >
-          Aplicar Filtros
+          Buscar mi vacuna
         </v-btn>
       </v-app-bar>
     </section>
@@ -57,10 +58,10 @@
 </template>
 
 <script>
-import CenterFilters from "../components/CenterFilters.vue";
-import AppBar from "../components/AppBar.vue";
-import SiteFooter from "../components/SiteFooter.Desktop.vue";
-import MapFilter from "../components/maps/MapFilter.vue";
+import CenterFilters from '../components/CenterFilters.vue'
+import AppBar from '../components/AppBar.vue'
+import SiteFooter from '../components/SiteFooter.Desktop.vue'
+import MapFilter from '../components/maps/MapFilter.vue'
 
 export default {
   components: {
@@ -69,5 +70,5 @@ export default {
     SiteFooter,
     MapFilter,
   },
-};
+}
 </script>

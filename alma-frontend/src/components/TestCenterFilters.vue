@@ -4,7 +4,7 @@
       <v-row v-if="$vuetify.breakpoint.mdAndUp && !dialog">
         <v-col class="pb-1">
           <span class="text-h5 font-weight-bold">
-            Encuentra tu vacuna COVID-19
+            Centros para hisopados COVID-19
           </span>
         </v-col>
       </v-row>
@@ -17,12 +17,10 @@
 
       <v-row>
         <v-col>
-          <p class="mb-1 font-weight-medium">Tipo de Vacuna</p>
-
+          <p class="mb-1 font-weight-medium">Tipo de hisopado</p>
           <v-select
             placeholder="Ver Todos"
-            v-model="vaccine"
-            :items="vaccines"
+            :items="testType"
             hide-details
             outlined
             dense
@@ -34,40 +32,21 @@
 
       <v-row>
         <v-col>
-          <p class="mb-1 font-weight-medium">
-            ¿En qué departamento estas buscando?
-          </p>
+          <p class="mb-1 font-weight-medium">Precio de prueba</p>
 
-          <v-select
-            placeholder="Ver Todos"
-            v-model="department"
-            :items="departments"
-            hide-details
-            outlined
-            dense
-            clearable
-            class="filter-input"
-          ></v-select>
-        </v-col>
-      </v-row>
-
-      <v-row>
-        <v-col>
-          <p class="mb-1 font-weight-medium">¿Qué dosis buscas? (opcional)</p>
-
-          <v-radio-group v-model="dose">
+          <v-radio-group>
             <v-container>
               <v-row>
                 <v-col
                   cols="12"
                   md="6"
-                  v-for="(dose, i) in doses"
+                  v-for="(price, i) in testPrice"
                   :key="i"
                   class="pb-0"
                 >
                   <v-radio
-                    :label="dose.text"
-                    :value="dose.value"
+                    :label="price.text"
+                    :value="price.value"
                     color="#6751EE"
                   ></v-radio>
                 </v-col>
@@ -84,29 +63,6 @@
           <v-select
             v-model="schedule"
             :items="schedules"
-            hide-details
-            outlined
-            dense
-            clearable
-            class="filter-input"
-          ></v-select>
-        </v-col>
-      </v-row>
-
-      <v-row>
-        <v-col class="pb-1">
-          <span class="font-weight-bold"> Otros filtros </span>
-        </v-col>
-      </v-row>
-
-      <v-row>
-        <v-col>
-          <p class="mb-1 font-weight-medium">¿En que municipio buscas?</p>
-
-          <v-select
-            placeholder="Ver Todos"
-            v-model="municipality"
-            :items="municipalities"
             hide-details
             outlined
             dense
@@ -136,19 +92,24 @@ export default {
       { text: 'Entre Semana', value: 'week' },
       { text: 'Fines de Semana', value: 'weekend' },
     ],
+    testType: [
+      { text: 'Antígeno', value: 'Antígeno' },
+      { text: 'PCR', value: 'PCR' },
+    ],
+    testPrice: [
+      { text: 'Gratuito', value: 'Gratuito' },
+      { text: 'Pagado', value: 'Pagado' },
+      { text: 'Ver todos', value: 'Ver todos' },
+    ],
   }),
 
   computed: {
     ...mapGetters({
       departments: 'departments',
       municipalities: 'municipalities',
-      vaccines: 'vaccines',
-      doses: 'doses',
 
       getDepartment: 'department',
       getMunicipality: 'municipality',
-      getVaccine: 'vaccine',
-      getDose: 'dose',
     }),
 
     department: {
@@ -156,48 +117,11 @@ export default {
         return this.getDepartment
       },
 
-      set(value) {
-        this.setDepartment(value)
+      set() {
+        this.setDepartment(null)
         this.setMunicipality(null)
-        // this.setVaccine(null)
         this.setDose(null)
         this.setGroup(null)
-      },
-    },
-
-    municipality: {
-      get() {
-        return this.getMunicipality
-      },
-
-      set(value) {
-        this.setMunicipality(value)
-        // this.setVaccine(null)
-        // this.setDose(null)
-        // this.setGroup(null)
-      },
-    },
-
-    vaccine: {
-      get() {
-        return this.getVaccine
-      },
-
-      set(value) {
-        this.setVaccine(value)
-        // this.setDose(null)
-        // this.setGroup(null)
-      },
-    },
-
-    dose: {
-      get() {
-        return this.getDose
-      },
-
-      set(value) {
-        this.setDose(value)
-        // this.setGroup(null)
       },
     },
   },
@@ -205,10 +129,11 @@ export default {
   methods: {
     ...mapMutations({
       setDepartment: 'SET_DEPARTMENT',
+      setCenter: 'SET_CENTER',
       setMunicipality: 'SET_MUNICIPALITY',
-      setVaccine: 'SET_VACCINE',
-      setDose: 'SET_DOSE',
-      setGroup: 'SET_GROUP',
+      setDescription: 'SET_DESCRIPTION',
+      setMapsLink: 'SET_MAPSLINK',
+      setPhonenumber: 'SET_PHONENUMBER',
     }),
   },
 }

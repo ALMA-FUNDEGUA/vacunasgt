@@ -6,7 +6,7 @@
       <v-container>
         <v-row>
           <v-col cols="4" offset="1">
-            <center-filters></center-filters>
+            <test-center-filters></test-center-filters>
 
             <v-btn
               color="#FFD789"
@@ -14,9 +14,9 @@
               rounded
               elevation="0"
               class="no-uppercase"
-              @click="$router.push('/centers')"
+              @click="$router.push('/testscenters')"
             >
-              Buscar mi vacuna
+              Buscar hisopado
             </v-btn>
           </v-col>
 
@@ -39,17 +39,17 @@
           Hisopados
         </v-toolbar-title>
       </v-app-bar>
-
-      <test-filters></test-filters>
+      <test-center-filters></test-center-filters>
       <v-app-bar class="mt-9" flat>
         <v-btn
           color="#FFD789"
           block
           rounded
           elevation="0"
-          @click="$router.push('/testList')"
+          class="no-uppercase"
+          @click="$router.push('/testscenters')"
         >
-          Aplicar Filtros
+          Buscar hisopado
         </v-btn>
       </v-app-bar>
     </section>
@@ -57,19 +57,40 @@
 </template>
 
 <script>
-import CenterFilters from "../components/CenterFilters.vue";
-import TestFilters from "../components/TestFilters.vue";
-import AppBar from "../components/AppBar.vue";
-import SiteFooter from "../components/SiteFooter.Desktop.vue";
-import MapFilter from "../components/maps/MapFilter.vue";
+import TestCenterFilters from '../components/TestCenterFilters.vue'
+import AppBar from '../components/AppBar.vue'
+import SiteFooter from '../components/SiteFooter.Desktop.vue'
+import MapFilter from '../components/maps/CovidTestMapFilter.vue'
 
 export default {
   components: {
     AppBar,
-    CenterFilters,
-    TestFilters,
+    TestCenterFilters,
     SiteFooter,
     MapFilter,
   },
-};
+  data: () => ({
+    schedule: 'week',
+    schedules: [
+      { text: 'Entre Semana', value: 'week' },
+      { text: 'Fines de Semana', value: 'weekend' },
+    ],
+
+    testTypes: ['PCR', 'Antigeno'],
+    costs: ['Gratis', 'Pagado', 'Ver todos'],
+  }),
+}
 </script>
+
+<style scoped>
+.filter-input {
+  background-color: #f3f3f3;
+  border: 0px solid white !important;
+}
+.v-text-field--outlined >>> fieldset {
+  border: 0px solid black;
+}
+.v-input--selection-controls__input {
+  background: black;
+}
+</style>

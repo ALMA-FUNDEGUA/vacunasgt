@@ -1,16 +1,19 @@
 <template>
   <section>
     <information-section
-        icon="mdi-checkbox-marked-circle-outline"
-        title="Vacunas Disponibles">
+      icon="mdi-checkbox-marked-circle-outline"
+      title="Vacunas Disponibles"
+    >
       <template #content>
         <v-container fluid>
           <v-row v-for="(item, i) in formatedVaccines" :key="i">
-            <v-col cols="8" offset="2" class="pa-0 caption"
-                :class="{'pb-1': (i == formatedVaccines.length - 1)}">
-              <span class="font-weight-bold">
-                {{ item.vaccine }}:
-              </span>
+            <v-col
+              cols="8"
+              offset="2"
+              class="pa-0 caption"
+              :class="{ 'pb-1': i == formatedVaccines.length - 1 }"
+            >
+              <span class="font-weight-bold"> {{ item.vaccine }}: </span>
 
               <span class="font-weight-medium">
                 {{ item.detail }}
@@ -24,7 +27,7 @@
 </template>
 
 <script>
-import InformationSection from './InformationSection.vue';
+import InformationSection from './InformationSection.vue'
 
 export default {
   props: ['item'],
@@ -35,7 +38,7 @@ export default {
 
   computed: {
     formatedVaccines() {
-      const vaccines = [];
+      const vaccines = []
 
       Object.entries(this.item.vaccines).forEach(([vaccine, dose]) => {
         Object.entries(dose).forEach(([doseKey, doseData]) => {
@@ -44,31 +47,31 @@ export default {
               vaccines.push({
                 vaccine: vaccine,
                 detail: `${this.formatDose(doseKey)} / ${req.group}`,
-              });
+              })
             }
-          });
-        });
-      });
+          })
+        })
+      })
 
-      return vaccines;
+      return vaccines
     },
   },
 
   methods: {
     formatDose(dose) {
       switch (dose) {
-        case "PRIMERA":
-          return "1era";
-        case "SEGUNDA":
-          return "2nda";
-        case "TERCERA":
-          return "3ra";
-        case "CUARTA":
-          return "4ta";
+        case 'PRIMERA':
+          return '1era'
+        case 'SEGUNDA':
+          return '2nda'
+        case 'TERCERA':
+          return '3ra'
+        case 'CUARTA':
+          return '4ta'
         default:
-          return dose;
+          return dose
       }
     },
-  }
+  },
 }
 </script>
