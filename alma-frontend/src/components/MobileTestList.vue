@@ -43,189 +43,133 @@
       <map-filter></map-filter>
 
       <!-- Placeholder -->
-      <v-card @click="onSelectTest()">
-        <v-card-title
-          style="
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 18px;
-            line-height: 27px;
-            color: #000000;
-            text-align: left;
-            word-break: break-word;
-          "
-        >
-          <v-row dense>
-            <v-col cols="11"> Blue Medical VHII </v-col>
+        <v-card @click="onSelectTest()">
+        <v-card-title style="font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 18px; line-height: 27px; color: #000000; text-align:left; word-break: break-word;">
+              <v-row dense>
+                <v-col cols="11">
+                  Blue Medical VHII
+                </v-col>
 
-            <v-col cols="1">
-              <v-icon large color="#A698FF"> mdi-chevron-right </v-icon>
-            </v-col>
-          </v-row>
-        </v-card-title>
-
-        <!-- <v-card-subtitle class="pb-1" style="text-align:left font-family: 'Poppins'; font-style: normal; font-weight: 400; font-size: 12px; line-height: 22px; color: #848282;"> 
+                <v-col cols="1">
+                  <v-icon large color=#A698FF>
+                    mdi-chevron-right
+                  </v-icon>
+                </v-col>
+              </v-row>
+            </v-card-title>
+            
+            <!-- <v-card-subtitle class="pb-1" style="text-align:left font-family: 'Poppins'; font-style: normal; font-weight: 400; font-size: 12px; line-height: 22px; color: #848282;"> 
               Ultima actualización de datos:
             </v-card-subtitle> -->
+            
+            <v-card-text style="font-family: 'Poppins'; font-style: normal; font-weight: 400; font-size: 14px; line-height: 22px;">
+              <v-row dense>
+                <v-col cols="1">
+                  <v-icon size=25 top>
+                    mdi-clock-outline
+                  </v-icon>
+                </v-col>
 
-        <v-card-text
-          style="
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 22px;
-          "
-        >
-          <v-row dense>
-            <v-col cols="1">
-              <v-icon size="25" top> mdi-clock-outline </v-icon>
-            </v-col>
+                <v-col cols="11" class="d-flex flex-column justify-end black--text text-left">
+                  <div>
+                    <span>      
+                      Lun - Vie > 7am - 10pm
+                      <br>
+                    </span>
 
-            <v-col
-              cols="11"
-              class="d-flex flex-column justify-end black--text text-left"
-            >
-              <div>
-                <span>
-                  Lun - Vie > 7am - 10pm
-                  <br />
-                </span>
-
-                <!-- <span v-if="center.schedule.weekend">
+                    <!-- <span v-if="center.schedule.weekend">
                       Sab > {{ center.days.saturday ? center.schedule.weekend : "No disponible" }}
                       <br />
 
                       Dom > {{ center.days.sunday ? center.schedule.weekend : "No disponible"}}
                     </span> -->
-              </div>
-            </v-col>
-
-            <v-col cols="1">
-              <v-icon size="25" top> mdi-google-circles </v-icon>
-            </v-col>
-
-            <v-col
-              cols="11"
-              class="d-flex flex-column justify-end black--text text-left"
-            >
-              <div>Antígeno: 250 / PCR: Q600.00</div>
-            </v-col>
-
-            <v-col cols="1">
-              <v-icon size="25" top> mdi-phone-outline </v-icon>
-            </v-col>
-
-            <v-col
-              cols="11"
-              class="d-flex flex-column justify-end black--text text-left"
-            >
-              2223-5567
-            </v-col>
-          </v-row>
-        </v-card-text>
-      </v-card>
-
-      <!-- End placeholder -->
-
-      <v-data-iterator
-        :items="centers"
-        :search="search"
-        :loading="loading"
-        :items-per-page="-1"
-        hide-default-footer
-      >
-        <template #header="{ items }">
-          <v-card-title
-            class="justify-center"
-            style="
-              font-family: 'Poppins';
-              font-style: normal;
-              font-weight: 700;
-              font-size: 18px;
-              line-height: 27px;
-            "
-          >
-            Resultados ({{ items.length }})
-          </v-card-title>
-
-          <v-divider></v-divider>
-        </template>
-
-        <template #default="{ items }">
-          <v-card
-            v-for="(center, i) in items"
-            :key="`center-${i}`"
-            @click="onSelect(center.name)"
-          >
-            <v-card-title
-              style="
-                font-family: 'Poppins';
-                font-style: normal;
-                font-weight: 700;
-                font-size: 18px;
-                line-height: 27px;
-                color: #000000;
-                text-align: left;
-                word-break: break-word;
-              "
-            >
-              <v-row dense>
-                <v-col cols="11"> Lugar: {{ center.name }} </v-col>
+                  </div>
+                </v-col>
 
                 <v-col cols="1">
-                  <v-icon large color="#A698FF"> mdi-chevron-right </v-icon>
+                  <v-icon size=25 top>
+                    mdi-google-circles
+                  </v-icon>
+                </v-col>
+
+                <v-col cols="11" class="d-flex flex-column justify-end black--text text-left">
+                  <div>
+                    Antígeno: 250 / PCR: Q600.00
+                  </div>
+                </v-col>
+
+                <v-col cols="1">
+                  <v-icon size=25 top>
+                    mdi-phone-outline
+                  </v-icon>
+                </v-col>
+
+                <v-col cols="11" class="d-flex flex-column justify-end black--text text-left">
+                  2223-5567
+                </v-col>
+              </v-row>
+            </v-card-text>
+        </v-card>
+
+            <!-- End placeholder -->
+
+      <v-data-iterator
+          :items="centers"
+          :search="search"
+          :loading="loading"
+          :items-per-page="-1"
+          hide-default-footer>
+        <template #header="{ items }">
+          <v-card-title class="justify-center" style="font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 18px; line-height: 27px;">
+            Resultados ({{ items.length }})
+          </v-card-title>
+          
+          <v-divider></v-divider>
+
+        </template>
+
+
+        <template #default="{ items }">
+          <v-card v-for="(center, i) in items" :key="`center-${i}`"
+              @click="onSelect(center.name)">
+            <v-card-title style="font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 18px; line-height: 27px; color: #000000; text-align:left; word-break: break-word;">
+              <v-row dense>
+                <v-col cols="11">
+                  Lugar: {{ center.name }}
+                </v-col>
+
+                <v-col cols="1">
+                  <v-icon large color=#A698FF>
+                    mdi-chevron-right
+                  </v-icon>
                 </v-col>
               </v-row>
             </v-card-title>
-
-            <v-card-subtitle
-              class="pb-1"
-              style="text-align:left font-family: 'Poppins'; font-style: normal; font-weight: 400; font-size: 12px; line-height: 22px; color: #848282;"
-            >
+            
+            <v-card-subtitle class="pb-1" style="text-align:left font-family: 'Poppins'; font-style: normal; font-weight: 400; font-size: 12px; line-height: 22px; color: #848282;"> 
               Ultima actualización de datos:
             </v-card-subtitle>
-
-            <v-card-text
-              style="
-                font-family: 'Poppins';
-                font-style: normal;
-                font-weight: 400;
-                font-size: 14px;
-                line-height: 22px;
-              "
-            >
+            
+            <v-card-text style="font-family: 'Poppins'; font-style: normal; font-weight: 400; font-size: 14px; line-height: 22px;">
               <v-row dense>
                 <v-col cols="1">
-                  <v-icon size="25" top> mdi-clock-outline </v-icon>
+                  <v-icon size=25 top>
+                    mdi-clock-outline
+                  </v-icon>
                 </v-col>
 
-                <v-col
-                  cols="11"
-                  class="d-flex flex-column justify-end black--text text-left"
-                >
+                <v-col cols="11" class="d-flex flex-column justify-end black--text text-left">
                   <div>
-                    <span v-if="center.schedule.week">
+                    <span v-if="center.schedule.week">      
                       Lun - Vie > {{ center.schedule.week }}
-                      <br />
+                      <br>
                     </span>
 
                     <span v-if="center.schedule.weekend">
-                      Sab >
-                      {{
-                        center.days.saturday
-                          ? center.schedule.weekend
-                          : 'No disponible'
-                      }}
+                      Sab > {{ center.days.saturday ? center.schedule.weekend : "No disponible" }}
                       <br />
 
-                      Dom >
-                      {{
-                        center.days.sunday
-                          ? center.schedule.weekend
-                          : 'No disponible'
-                      }}
+                      Dom > {{ center.days.sunday ? center.schedule.weekend : "No disponible"}}
                     </span>
                   </div>
                 </v-col>
@@ -429,7 +373,7 @@ export default {
 
     onSelect(name) {
       this.$router.push({
-        name: 'TestDetailView',
+        name: 'TestsCenterDetailView',
         params: {
           name: name,
         },
@@ -438,11 +382,18 @@ export default {
 
     onSelectTest() {
       this.$router.push({
-        name: 'TestDetailView',
+        name: 'TestsCenterDetailView',
         params: {
           name: 'CAP Palencia',
         },
       })
+      // this.$router.push({
+      //   name: 'TestsCenterDetailView',
+      //   params: {
+      //     name: name,
+      //   },
+      // })
+      
     },
 
     moveToTop() {

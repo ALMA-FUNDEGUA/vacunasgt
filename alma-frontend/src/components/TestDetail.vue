@@ -1,17 +1,34 @@
 <template>
   <section>
+    <!-- <v-row class="mx-1 mt-1">
+    <v-col cols=2 style="font-weight:bold;text-align:right">
+    Nota: 
+    </v-col>
+    <v-col cols=10 style="text-align:left">
+      Esta es información recopilada y no garantiza los precios mostrados 
+    </v-col>
+    </v-row> -->
+    <v-col class="mx-1 mt-1">
+    <span style="font-weight:bold;">
+      Nota:&nbsp;  
+    </span>
+    <span>
+      Esta es información recopilada y no garantiza los precios mostrados 
+    </span>
+    </v-col>
     <v-list two-line>
-      <item-schedule :item="item"></item-schedule>
+      <test-item-schedule :item="item"></test-item-schedule>
       <v-divider></v-divider>
 
-      <item-vaccines :item="item"></item-vaccines>
+      <item-tests :item="item"></item-tests>
       <v-divider></v-divider>
 
-      <item-address :item="item"></item-address>
+      <test-item-address :item="item"></test-item-address>
       <v-divider></v-divider>
 
-      <item-observations :item="item"></item-observations>
+      <test-observations :item="item"></test-observations>
       <v-divider></v-divider>
+
     </v-list>
 
     <!-- <section class="d-none">
@@ -72,17 +89,30 @@
 <script>
 import { mapGetters } from "vuex";
 
-import ItemSchedule from './detail/ItemSchedule.vue';
-import ItemVaccines from './detail/ItemVaccines.vue';
-import ItemAddress from './detail/ItemAddress.vue';
-import ItemObservations from './detail/ItemObservations.vue';
+import TestItemSchedule from './detail/TestItemSchedule.vue';
+import ItemTests from './detail/ItemTests.vue';
+import TestItemAddress from './detail/TestItemAddress.vue';
+import TestObservations from './detail/TestObservations.vue';
 
 export default {
+  
+  data: () => ({
+    schedule: 'week',
+    schedules: [
+      { text: 'Entre Semana', value: 'week' },
+      { text: 'Fines de Semana', value: 'weekend' },
+    ],
+
+    // placeholder variables
+    testTypes:['PCR','Antigeno'],
+    costs:['Gratis','Pagado','Ver todos'],
+  }),
+
   components: {
-    ItemSchedule,
-    ItemVaccines,
-    ItemAddress,
-    ItemObservations,
+    TestItemSchedule,
+    ItemTests,
+    TestItemAddress,
+    TestObservations,
   },
 
   computed: {
