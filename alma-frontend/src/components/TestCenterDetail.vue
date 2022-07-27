@@ -7,6 +7,15 @@
       <item-address :item="item"></item-address>
       <v-divider></v-divider>
     </v-list>
+
+    <v-col class="mx-1 mt-1 caption">
+      <span style="font-weight: bold;">
+        Nota:&nbsp;  
+      </span>
+      <span>
+        Esta es información recopilada y no garantiza los precios mostrados.
+      </span>
+    </v-col>
   </section>
 </template>
 

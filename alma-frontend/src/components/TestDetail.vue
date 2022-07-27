@@ -9,12 +9,12 @@
     </v-col>
     </v-row> -->
     <v-col class="mx-1 mt-1">
-    <span style="font-weight:bold;">
-      Nota:&nbsp;  
-    </span>
-    <span>
-      Esta es información recopilada y no garantiza los precios mostrados 
-    </span>
+      <span style="font-weight:bold;">
+        Nota:&nbsp;  
+      </span>
+      <span>
+        Esta es información recopilada y no garantiza los precios mostrados 
+      </span>
     </v-col>
     <v-list two-line>
       <test-item-schedule :item="item"></test-item-schedule>
