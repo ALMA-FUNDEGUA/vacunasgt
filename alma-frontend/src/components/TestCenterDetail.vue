@@ -1,6 +1,9 @@
 <template>
   <section>
     <v-list two-line>
+      <test-contact-information :item="item"></test-contact-information>
+      <v-divider></v-divider>
+
       <item-tests :item="item"></item-tests>
       <v-divider></v-divider>
 
@@ -22,11 +25,13 @@
 <script>
 import { mapGetters } from 'vuex'
 
+import TestContactInformation from './detail/covid_tests/TestContactInformation.vue';
 import ItemTests from './detail/ItemTests.vue'
 import ItemAddress from './detail/covid_tests/TestAddress.vue'
 
 export default {
   components: {
+    TestContactInformation,
     ItemAddress,
     ItemTests,
   },
