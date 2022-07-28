@@ -20,17 +20,65 @@
           </v-container>
         </v-card-title>
 
-        <v-card-text class="pb-0" v-if="item.tests.length > 0 && item.tests[0].specificSchedule">
+        <v-card-text class="pb-0">
           <v-container fluid>
             <v-row dense>
               <v-col cols="1">
-                <v-icon size="25" top> mdi-clock-outline </v-icon>
+                <v-icon size=25 top>
+                  mdi-clock-outline
+                </v-icon>
               </v-col>
 
-              <v-col cols="11">
-                <span class="caption">
-                  {{ item.tests[0].specificSchedule }}
+              <v-col cols="11" class="d-flex flex-column justify-end black--text text-left">
+                <div>
+                  <span v-if="item.tests.length > 0 && item.tests[0].simpleSchedule">
+                    {{ item.tests[0].simpleSchedule }}
+                    <br>
+                  </span>
+
+                  <span v-else>
+                    Horario por confirmar
+                    <br>
+                  </span>
+                </div>
+              </v-col>
+
+              <v-col cols="1">
+                <v-icon size=25 top>
+                  mdi-google-circles
+                </v-icon>
+              </v-col>
+
+              <v-col cols="11" class="d-flex flex-column justify-end black--text text-left">
+                <div v-if="item.tests.length > 0">
+                  {{ item.tests.map(i => i.testType).join(', ') }}
+                </div>
+              </v-col>
+
+              <v-col cols="1">
+                <v-icon size=25 top>
+                  mdi-cash
+                </v-icon>
+              </v-col>
+
+              <v-col cols="11" class="d-flex flex-column justify-end black--text text-left">
+                <span v-if="item.tests.length > 0 && item.tests[0].serviceType">
+                  {{ item.tests[0].serviceType }}
                 </span>
+
+                <span v-else>
+                  Tipo de servicio por confirmar
+                </span>
+              </v-col>
+
+              <v-col cols="1">
+                <v-icon size=25 top>
+                  mdi-phone-outline
+                </v-icon>
+              </v-col>
+
+              <v-col cols="11" class="d-flex flex-column justify-end black--text text-left">
+                {{ item.phoneNumber !== 'N/A' ? item.phoneNumber : "Número por confirmar" }}
               </v-col>
             </v-row>
           </v-container>
