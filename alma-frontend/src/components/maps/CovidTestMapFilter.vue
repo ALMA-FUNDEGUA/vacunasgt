@@ -12,13 +12,13 @@
         >
           <l-icon :icon-url="iconUrl" />
 
-          <!-- <l-popup>
+          <l-popup>
             <list-item-desktop :item="item" popup></list-item-desktop>
 
             <span class="white--text d-none">
               -------------------------------------------------------
             </span>
-          </l-popup> -->
+          </l-popup>
         </l-marker>
 
         <l-control-layers />
@@ -37,11 +37,11 @@ import {
   LTileLayer,
   LControlLayers,
   LIcon,
-  // LPopup,
+  LPopup,
 } from 'vue2-leaflet'
 import 'leaflet/dist/leaflet.css'
 
-// import ListItemDesktop from '@/components/list/TestListItem.Desktop.vue'
+import ListItemDesktop from '@/components/list/TestListItem.Desktop.vue'
 
 export default {
   components: {
@@ -50,9 +50,9 @@ export default {
     LTileLayer,
     LControlLayers,
     LIcon,
-    // LPopup,
+    LPopup,
 
-    // ListItemDesktop,
+    ListItemDesktop,
   },
 
   data: () => ({
