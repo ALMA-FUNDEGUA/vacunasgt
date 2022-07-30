@@ -191,7 +191,12 @@ let actions = {
     const snapshot = await db.collection('centers_covid_tests').get()
     const centers = snapshot.docs.map((doc) => doc.data())
 
-    commit('SET_CENTERS', centers)
+    commit('SET_CENTERS', centers.map(item => ({
+      ...item,
+      name: item.name,
+      maps: item.mapsLink,
+    })))
+
     commit('SET_LOADING', false)
   },
 }

@@ -44,11 +44,6 @@ export default {
     LIcon,
   },
 
-  ngAfterViewChecked: () => {
-    this.map.invalidateSize(true);
-    this.map.center = this.center;
-  },
-
   data: () => ({
     apiKey: process.env.VUE_APP_GOOGLE_MAPS_APIKEY,
     url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
@@ -61,73 +56,12 @@ export default {
     ...mapGetters('covidTestStore', ["selected"]),
 
     hasMap() {
-      return this.selected.maps && this.selected.maps.length;
+      return this.selected.mapsLink && this.selected.mapsLink.length;
     },
 
     locations() {
-      return this.mapsLatLon(this.selected);
-    },
-
-    department: {
-      get() {
-        return this.getDepartment;
-      },
-    },
-
-    municipality: {
-      get() {
-        return this.getMunicipality;
-      },
-    },
-
-    vaccine: {
-      get() {
-        return this.getVaccine;
-      },
-    },
-
-    group: {
-      get() {
-        return this.getGroup;
-      },
-    },
-
-    dose: {
-      get() {
-        return this.getDose;
-      },
-    },
-
-    requirement: {
-      get() {
-        return this.getRequirement;
-      },
-    },
-
-    influx: {
-      get() {
-        return this.getInflux;
-      },
-    },
-
-    entrance: {
-      get() {
-        return this.getEntrance;
-      },
-    },
-
-    centers() {
-      return this._centers.filter((center) => {
-        switch (this.schedule) {
-          case "week":
-            return !!center.schedule.week;
-
-          case "weekend":
-            return !!center.schedule.weekend;
-
-          default:
-            return true;
-        }
+      return this.mapsLatLon({
+        maps: this.selected.mapsLink
       });
     },
   },
@@ -137,63 +71,11 @@ export default {
       setSelected: "SET_SELECTED",
     }),
 
-    formatDose(dose) {
-      switch (dose) {
-        case dose.match(/AGOTADA/)?.input:
-          return "Agotada";
-        case "PRIMERA":
-          return "1era";
-        case "SEGUNDA":
-          return "2nda";
-        case "TERCERA":
-          return "3era";
-        case "CUARTA":
-          return "4ta";
-        default:
-          return dose;
-      }
-      /* const mapper = ([key,]) => {
-        switch (key) {
-          case 'PRIMERA': return '1era'
-          case 'SEGUNDA': return '2nda'
-          default: return key
-        }
-      }
-
-      const formatted = Object.entries(dose).map(mapper).toString()
-      return formatted */
-    },
-
     mapsLatLon(center) {
       const elements = center.maps.split("/");
       const location = elements[elements.length - 2].slice(1).split(",");
       return [location[0], location[1]];
     },
-
-    onSelect(name) {
-      this.setSelected(name);
-      this.detail = true;
-    },
-
-    moveToTop() {
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "smooth",
-      });
-    },
   },
 };
 </script>
-
-<style scoped>
-.center-list-view {
-  color: white !important;
-  background-color: #4f4a88 !important;
-}
-
-.center-list-content {
-  color: #4f4a88 !important;
-  background-color: rgb(245, 245, 245) !important;
-}
-</style>
