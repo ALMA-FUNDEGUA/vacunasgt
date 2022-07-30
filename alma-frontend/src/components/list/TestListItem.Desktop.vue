@@ -51,7 +51,7 @@
 
               <v-col cols="11" class="d-flex flex-column justify-end black--text text-left">
                 <div v-if="item.tests.length > 0">
-                  {{ item.tests.map(i => i.testType).join(', ') }}
+                  {{ formatItemTests(item.tests) }}
                 </div>
               </v-col>
 
@@ -94,7 +94,7 @@
           class="pa-0 caption font-weight-bold"
           style="word-break: break-word"
         >
-          Lugar: {{ item.center }}
+          {{ item.center }}
         </v-card-title>
 
         <v-card-text class="pa-0">
@@ -135,6 +135,8 @@
 </template>
 
 <script>
+import * as _ from 'lodash';
+
 export default {
   props: {
     item: {
@@ -157,42 +159,13 @@ export default {
       })
     },
 
-    getWeekSchedule(item) {
-      let start = ''
-      let end = ''
-
-      if (item.days.monday) {
-        start = 'Lun'
-      } else if (item.days.tuesday) {
-        start = 'Mar'
-      }
-
-      if (item.days.friday) {
-        end = 'Vie'
-      } else if (item.days.thursday) {
-        end = 'Jue'
-      }
-
-      return `${start}-${end}.`
-    },
-
-    getSchedule(item) {
-      let week = ''
-      let weekend = ''
-
-      if (item.schedule.week)
-        week = `${this.getWeekSchedule(item)} ${item.schedule.week}`
-
-      if (item.schedule.weekend) {
-        if (item.days.saturday)
-          weekend = `${weekend} | Sab. ${item.schedule.weekend}`
-
-        if (item.days.sunday)
-          weekend = `${weekend} | Dom. ${item.schedule.weekend}`
-      }
-
-      return `${week}${weekend}`
-    },
+    formatItemTests(tests) {
+      return _.chain(tests)
+        .map('testType')
+        .uniq()
+        .join(', ')
+        .value()
+    }
   },
 }
 </script>
