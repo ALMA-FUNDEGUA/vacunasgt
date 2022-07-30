@@ -20,7 +20,7 @@ let state = () => ({
   municipality: null,
   zone: null,
 
-  testType: null,
+  testType: [],
   serviceType: null,
   simpleSchedule: null,
 })
@@ -53,10 +53,11 @@ let getters = {
       },
 
       { // Filter by testType
-        condition: () => !!state.testType,
+        condition: () => state.testType.length > 0,
         predicate: item => {
           for (const { testType } of item.tests) {
-            if (testType === state.testType)
+            const index = state.testType.indexOf(testType)
+            if (index !== -1)
               return true
           }
 
@@ -130,8 +131,8 @@ let getters = {
   },
 
   testType: state => state.testType,
-  testTypes: (_state, getters) => {
-    const ordered = _.chain(getters.filtered)
+  testTypes: (state) => {
+    const ordered = _.chain(state.centers)
       .map('tests')
       .flatten()
       .map('testType')
