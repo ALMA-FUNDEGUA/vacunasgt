@@ -12,11 +12,10 @@
     </v-list>
 
     <v-col class="mx-1 mt-1 caption">
-      <span style="font-weight: bold;">
-        Nota:&nbsp;  
-      </span>
+      <span style="font-weight: bold"> Nota:&nbsp; </span>
       <span>
-        Esta es información recopilada y no garantiza los precios mostrados.
+        Esta información fue recopilada y el centro se reserva el derecho de
+        cambiar sus precios.
       </span>
     </v-col>
   </section>
@@ -25,7 +24,7 @@
 <script>
 import { mapGetters } from 'vuex'
 
-import TestContactInformation from './detail/covid_tests/TestContactInformation.vue';
+import TestContactInformation from './detail/covid_tests/TestContactInformation.vue'
 import ItemTests from './detail/ItemTests.vue'
 import ItemAddress from './detail/covid_tests/TestAddress.vue'
 
