@@ -14,8 +14,12 @@
     <v-col class="mx-1 mt-1 caption">
       <span style="font-weight: bold"> Nota:&nbsp; </span>
       <span>
-        Esta información fue recopilada y el centro se reserva el derecho de
-        cambiar sus precios.
+        La información presentada es el resultado de la recopilación de
+        información de diferentes establecimientos públicos y privados. Los
+        precios que se muestran están sujetos a cambios y son responsabilidad de
+        cada empresa. Con el fin de mostrar información certera y actualizada,
+        nuestro equipo se encuentra en constante actualización de la base de
+        datos
       </span>
     </v-col>
   </section>
