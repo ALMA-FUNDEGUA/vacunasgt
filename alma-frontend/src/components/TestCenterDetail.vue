@@ -9,9 +9,12 @@
 
       <item-address :item="item"></item-address>
       <v-divider></v-divider>
+
+      <item-observations :item="item"></item-observations>
+      <v-divider></v-divider>
     </v-list>
 
-    <v-col class="mx-1 mt-1 caption">
+    <v-col class="mx-1 mt-1 caption" style="text-align: justify">
       <span style="font-weight: bold"> Nota:&nbsp; </span>
       <span>
         La información presentada es el resultado de la recopilación de
@@ -31,12 +34,14 @@ import { mapGetters } from 'vuex'
 import TestContactInformation from './detail/covid_tests/TestContactInformation.vue'
 import ItemTests from './detail/ItemTests.vue'
 import ItemAddress from './detail/covid_tests/TestAddress.vue'
+import ItemObservations from './detail/TestObservations.vue'
 
 export default {
   components: {
     TestContactInformation,
     ItemAddress,
     ItemTests,
+    ItemObservations,
   },
 
   computed: {
