@@ -4,7 +4,7 @@
       <v-row v-if="$vuetify.breakpoint.mdAndUp && !dialog">
         <v-col class="pb-1">
           <span class="text-h5 font-weight-bold">
-            Centros para hisopados COVID-19
+            Centros para pruebas COVID-19
           </span>
         </v-col>
       </v-row>
@@ -17,13 +17,16 @@
 
       <v-row>
         <v-col>
-          <p class="mb-1 font-weight-medium">Tipo de hisopado</p>
+          <p class="mb-1 font-weight-medium">Tipo de prueba</p>
 
           <v-container>
             <v-row>
-              <v-col cols="12" class="pa-0"
-                  v-for="(type, i) in testTypes"
-                  :key="i">
+              <v-col
+                cols="12"
+                class="pa-0"
+                v-for="(type, i) in testTypes"
+                :key="i"
+              >
                 <v-checkbox
                   v-model="testType"
                   :label="type.text"
@@ -111,13 +114,7 @@ export default {
     },
   },
 
-  data: () => ({
-    testPrice: [
-      { text: 'Gratuito', value: 'Gratuito' },
-      { text: 'Pagado', value: 'Pagado' },
-      { text: 'Ver todos', value: 'Ver todos' },
-    ],
-  }),
+  data: () => ({}),
 
   computed: {
     ...mapGetters('covidTestStore', {
@@ -150,7 +147,7 @@ export default {
       },
 
       set(value) {
-        this.setSchedule(value)
+        if (this.setSchedule) this.setSchedule(value)
       },
     },
 
@@ -172,7 +169,7 @@ export default {
       set(value) {
         this.setMunicipality(value)
       },
-    } 
+    },
   },
 
   methods: {

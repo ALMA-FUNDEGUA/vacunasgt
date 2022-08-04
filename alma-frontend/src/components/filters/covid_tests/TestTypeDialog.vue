@@ -8,7 +8,7 @@
       flat
       hide-details
       readonly
-      placeholder="Hisopado"
+      placeholder="Tipo de prueba"
       class="mr-3"
       @click="dialog = true"
       :background-color="dialog ? '#E4DFFF' : 'none'"
@@ -17,7 +17,7 @@
     <v-dialog v-model="dialog" max-width="670px">
       <v-card :class="{ 'filter-dialog-padding': $vuetify.breakpoint.mdAndUp }">
         <v-card-title>
-          Tipo de Hisopado
+          Tipo de prueba
           <v-spacer></v-spacer>
           <v-btn icon @click="dialog = false">
             <v-icon>mdi-close</v-icon>
@@ -29,9 +29,12 @@
         <section class="my-4">
           <v-container>
             <v-row>
-              <v-col cols="12" class="py-0"
-                  v-for="(type, i) in testTypes"
-                  :key="i">
+              <v-col
+                cols="12"
+                class="py-0"
+                v-for="(type, i) in testTypes"
+                :key="i"
+              >
                 <v-checkbox
                   v-model="testType"
                   :label="type.text"

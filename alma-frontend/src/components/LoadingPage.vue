@@ -2,11 +2,9 @@
   <section>
     <v-dialog fullscreen v-model="loading">
       <v-card rounded="0" flat>
-        <div style="text-align: center;">
+        <div style="text-align: center">
           <div class="loader"></div>
-          <div class="loading-text">
-            Cargando...
-          </div>
+          <div class="loading-text">Cargando...</div>
         </div>
       </v-card>
     </v-dialog>
@@ -14,17 +12,17 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from 'vuex'
 
 export default {
   data: () => ({
     dialog: true,
   }),
-  
+
   computed: {
-    ...mapGetters(['loading'])
-  }
-};
+    ...mapGetters(['loading']),
+  },
+}
 </script>
 
 <style scoped>
@@ -47,6 +45,7 @@ export default {
 
 .loading-text {
   /* width: 90px; */
+  text-align: center;
   position: absolute;
   top: calc(50% - 5px);
   left: calc(50% - 45px);

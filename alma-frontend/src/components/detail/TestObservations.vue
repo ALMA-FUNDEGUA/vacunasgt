@@ -7,6 +7,8 @@
         <span class="font-weight-medium caption">
           {{ item.tests[0].observations }}
         </span>
+
+        <v-else></v-else>
         <div class="mt-1">
           <v-btn rounded @click="onShare" class="mb-2"> Compartir </v-btn>
         </div>
@@ -26,6 +28,9 @@ export default {
   },
 
   methods: {
+    verifyObservation() {
+      return this.item.tests[0].observations
+    },
     openMaps() {
       window.open(`https://waze.com/ul?q=${this.selected.name}`)
     },
