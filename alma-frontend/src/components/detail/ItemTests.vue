@@ -7,28 +7,17 @@
       <template #content>
         <v-container fluid>
           <v-row v-for="(item, i) in testsAvailable" :key="i">
-            <v-col
-              cols="8"
-              offset="2"
-              class="pa-0 caption"
-            >
-              <span class="font-weight-bold">
-                {{ item.testType }}:
-              </span>
+            <v-col cols="8" offset="2" class="pa-0 caption">
+              <span class="font-weight-bold"> {{ item.testType }}: </span>
 
               <span class="font-weight-medium">
-                {{ item.resultTime ? `${item.resultTime} - ` : '' }} {{ formatTestPrice(item) }}
+                {{ item.resultTime ? `${item.resultTime} - ` : '' }}
+                {{ formatTestPrice(item) }}
               </span>
             </v-col>
 
-            <v-col
-              cols="8"
-              offset="2"
-              class="pa-0 pb-2 caption"
-            >
-              <span class="font-weight-bold">
-                Horario:
-              </span>
+            <v-col cols="8" offset="2" class="pa-0 pb-2 caption">
+              <span class="font-weight-bold"> Horario: </span>
 
               <span class="font-weight-medium">
                 {{ item.specificSchedule }}
@@ -53,7 +42,7 @@ export default {
 
   computed: {
     testsAvailable() {
-      return this.item.tests.filter(item => item.available)
+      return this.item.tests.filter((item) => item.available)
     },
   },
 
@@ -63,8 +52,8 @@ export default {
         return 'Servicio Gratuito'
       }
 
-      return `Q${ price }`
-    }
-  }
+      return `Q${price}`
+    },
+  },
 }
 </script>
