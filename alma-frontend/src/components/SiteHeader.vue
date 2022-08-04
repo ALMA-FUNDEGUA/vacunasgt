@@ -63,7 +63,7 @@
             width: 72%;
           "
         >
-          ¡Buscar mi vacuna!
+          Buscar mi vacuna
         </v-btn>
 
         <v-btn
@@ -81,7 +81,7 @@
             width: 72%;
           "
         >
-          ¡Buscar hisopado!
+          Buscar hisopado
         </v-btn>
       </v-container>
       <!-- </v-card> -->

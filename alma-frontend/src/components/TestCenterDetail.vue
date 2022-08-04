@@ -9,14 +9,20 @@
 
       <item-address :item="item"></item-address>
       <v-divider></v-divider>
+
+      <item-observations :item="item"></item-observations>
+      <v-divider></v-divider>
     </v-list>
 
-    <v-col class="mx-1 mt-1 caption">
-      <span style="font-weight: bold;">
-        Nota:&nbsp;  
-      </span>
+    <v-col class="mx-1 mt-1 caption" style="text-align: justify">
+      <span style="font-weight: bold"> Nota:&nbsp; </span>
       <span>
-        Esta es información recopilada y no garantiza los precios mostrados.
+        La información presentada es el resultado de la recopilación de
+        información de diferentes establecimientos públicos y privados. Los
+        precios que se muestran están sujetos a cambios y son responsabilidad de
+        cada empresa. Con el fin de mostrar información certera y actualizada,
+        nuestro equipo se encuentra en constante actualización de la base de
+        datos
       </span>
     </v-col>
   </section>
@@ -25,15 +31,17 @@
 <script>
 import { mapGetters } from 'vuex'
 
-import TestContactInformation from './detail/covid_tests/TestContactInformation.vue';
+import TestContactInformation from './detail/covid_tests/TestContactInformation.vue'
 import ItemTests from './detail/ItemTests.vue'
 import ItemAddress from './detail/covid_tests/TestAddress.vue'
+import ItemObservations from './detail/TestObservations.vue'
 
 export default {
   components: {
     TestContactInformation,
     ItemAddress,
     ItemTests,
+    ItemObservations,
   },
 
   computed: {

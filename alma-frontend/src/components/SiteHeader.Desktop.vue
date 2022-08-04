@@ -17,7 +17,7 @@
             class="mt-5 no-uppercase"
             to="/filters"
           >
-            <span class="font-weight-bold"> ¡Buscar mi vacuna! </span>
+            <span class="font-weight-bold"> Buscar mi vacuna </span>
           </v-btn>
 
           <v-btn
@@ -29,7 +29,7 @@
             class="mt-5 no-uppercase"
             to="/testsfilters"
           >
-            <span class="font-weight-bold"> ¡Buscar hisopados! </span>
+            <span class="font-weight-bold"> Buscar hisopados </span>
           </v-btn>
         </v-col>
 

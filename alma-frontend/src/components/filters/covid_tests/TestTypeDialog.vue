@@ -27,24 +27,22 @@
         <v-divider></v-divider>
 
         <section class="my-4">
-          <v-radio-group v-model="testType">
-            <v-container>
-              <v-row>
-                <v-col
-                  cols="12"
+          <v-container>
+            <v-row>
+              <v-col cols="12" class="py-0"
                   v-for="(type, i) in testTypes"
-                  :key="i"
-                  class="pb-0"
-                >
-                  <v-radio
-                    :label="type.text"
-                    :value="type.value"
-                    color="#6751EE"
-                  ></v-radio>
-                </v-col>
-              </v-row>
-            </v-container>
-          </v-radio-group>
+                  :key="i">
+                <v-checkbox
+                  v-model="testType"
+                  :label="type.text"
+                  :value="type.value"
+                  color="#6751EE"
+                  hide-details
+                  class="mt-1"
+                ></v-checkbox>
+              </v-col>
+            </v-row>
+          </v-container>
         </section>
 
         <v-divider></v-divider>

@@ -17,8 +17,7 @@
               </span>
 
               <span class="font-weight-medium">
-                &nbsp;&nbsp;
-                {{ formatTestPrice(item) }}
+                {{ item.resultTime ? `${item.resultTime} - ` : '' }} {{ formatTestPrice(item) }}
               </span>
             </v-col>
 
