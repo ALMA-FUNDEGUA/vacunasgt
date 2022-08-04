@@ -18,17 +18,23 @@
       <v-row>
         <v-col>
           <p class="mb-1 font-weight-medium">Tipo de hisopado</p>
- 
-          <v-select
-            v-model="testType"
-            placeholder="Ver Todos"
-            :items="testTypes"
-            hide-details
-            outlined
-            dense
-            clearable
-            class="filter-input"
-          ></v-select>
+
+          <v-container>
+            <v-row>
+              <v-col cols="12" class="pa-0"
+                  v-for="(type, i) in testTypes"
+                  :key="i">
+                <v-checkbox
+                  v-model="testType"
+                  :label="type.text"
+                  :value="type.value"
+                  color="#6751EE"
+                  hide-details
+                  class="mt-1"
+                ></v-checkbox>
+              </v-col>
+            </v-row>
+          </v-container>
         </v-col>
       </v-row>
 
@@ -133,7 +139,7 @@ export default {
         return this.getTestType
       },
 
-      set(value) {
+      set(value = []) {
         this.setTestType(value)
       },
     },

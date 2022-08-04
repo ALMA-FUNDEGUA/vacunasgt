@@ -2,15 +2,10 @@
   <section>
     <information-section icon="mdi-magnify" title="Observaciones">
       <template #information>
-        <p class="caption mb-0">
-          <span class="font-weight-bold"> Ingreso: </span>
-          <span class="font-weight-medium">
-            {{ item.entrance }}
-          </span>
-        </p>
+        <p class="caption mb-0"></p>
 
         <span class="font-weight-medium caption">
-          {{ item.address }}
+          {{ item.observations }}
         </span>
         <div class="mt-1">
           <v-btn rounded @click="onShare" class="mb-2"> Compartir </v-btn>
@@ -21,10 +16,10 @@
 </template>
 
 <script>
-import InformationSection from "./InformationSection.vue";
+import InformationSection from './InformationSection.vue'
 
 export default {
-  props: ["item"],
+  props: ['item'],
 
   components: {
     InformationSection,
@@ -32,24 +27,24 @@ export default {
 
   methods: {
     openMaps() {
-      window.open(`https://waze.com/ul?q=${this.selected.name}`);
+      window.open(`https://waze.com/ul?q=${this.selected.name}`)
     },
 
     async onShare() {
       if (navigator.canShare) {
         await navigator.share({
-          title: "VacunasGT Center",
+          title: 'VacunasGT Center',
           url: window.location.href,
-        });
+        })
       } else {
         try {
-          await navigator.clipboard.writeText(window.location.href);
-          alert("URL copiado");
+          await navigator.clipboard.writeText(window.location.href)
+          alert('URL copiado')
         } catch ($e) {
-          alert("No se pudo copiar el URL");
+          alert('No se pudo copiar el URL')
         }
       }
     },
   },
-};
+}
 </script>
