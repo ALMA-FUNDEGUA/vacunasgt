@@ -16,7 +16,7 @@
               class="no-uppercase"
               @click="$router.push('/testscenters')"
             >
-              Buscar hisopado
+              Buscar mi prueba
             </v-btn>
           </v-col>
 
@@ -36,7 +36,7 @@
         </v-btn>
 
         <v-toolbar-title class="pl-0 font-weight-bold">
-          Hisopados
+          Pruebas COVID-19
         </v-toolbar-title>
       </v-app-bar>
       <test-center-filters></test-center-filters>
@@ -49,7 +49,7 @@
           class="no-uppercase"
           @click="$router.push('/testscenters')"
         >
-          Buscar hisopado
+          Buscar mi prueba
         </v-btn>
       </v-app-bar>
     </section>
@@ -71,13 +71,6 @@ export default {
   },
   data: () => ({
     schedule: 'week',
-    schedules: [
-      { text: 'Entre Semana', value: 'week' },
-      { text: 'Fines de Semana', value: 'weekend' },
-    ],
-
-    testTypes: ['PCR', 'Antigeno'],
-    costs: ['Gratis', 'Pagado', 'Ver todos'],
   }),
 }
 </script>

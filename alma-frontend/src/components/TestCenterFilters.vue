@@ -4,7 +4,7 @@
       <v-row v-if="$vuetify.breakpoint.mdAndUp && !dialog">
         <v-col class="pb-1">
           <span class="text-h5 font-weight-bold">
-            Centros para hisopados COVID-19
+            Centros para pruebas COVID-19
           </span>
         </v-col>
       </v-row>
@@ -17,13 +17,16 @@
 
       <v-row>
         <v-col>
-          <p class="mb-1 font-weight-medium">Tipo de hisopado</p>
+          <p class="mb-1 font-weight-medium">Tipo de prueba</p>
 
           <v-container>
             <v-row>
-              <v-col cols="12" class="pa-0"
-                  v-for="(type, i) in testTypes"
-                  :key="i">
+              <v-col
+                cols="12"
+                class="pa-0"
+                v-for="(type, i) in testTypes"
+                :key="i"
+              >
                 <v-checkbox
                   v-model="testType"
                   :label="type.text"
@@ -115,6 +118,49 @@
           ></v-select>
         </v-col>
       </v-row>
+
+      <v-row>
+        <v-col class="pb-1">
+          <span class="font-weight-bold"> Preguntas opcionales </span>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <p class="mb-1 font-weight-medium">
+            ¿Has tenido contacto con alguien COVID-19 positivo?
+          </p>
+
+          <v-select
+            placeholder="Selecciona tu opción"
+            :items="covidContact"
+            hide-details
+            outlined
+            dense
+            clearable
+            class="filter-input"
+          ></v-select>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col>
+          <p class="mb-1 font-weight-medium">
+            Si has tenido síntomas ¿Cuáles han sido?
+          </p>
+          <v-autocomplete
+            placeholder="Selecciona tu opción"
+            :items="covidSymptoms"
+            hide-details
+            outlined
+            dense
+            multiple
+            clearable
+            class="filter-input"
+            autocomplete
+            :menu-props="{ maxHeight: '200' }"
+          ></v-autocomplete>
+        </v-col>
+      </v-row>
     </v-container>
   </section>
 </template>
@@ -129,7 +175,35 @@ export default {
       default: false,
     },
   },
+  
+  data: () => ({
+    covidContact: [
+      { text: 'SÍ', value: 'SÍ' },
+      { text: 'NO', value: 'NO' },
+    ],
+    covidPositive: [
+      { text: 'SÍ', value: 'SÍ' },
+      { text: 'NO', value: 'NO' },
+    ],
 
+    covidSymptoms: [
+      { text: 'Pérdida de olfato', value: 'Anosmia' },
+      { text: 'Dolor de garganta', value: 'Odinofagia' },
+      { text: 'Cansancio', value: 'Malestar general' },
+      { text: 'Tos', value: 'Tos' },
+      { text: 'Fiebre alta', value: 'Fiebre' },
+      {
+        text: 'Labios o cara de color azul/morado',
+        value: 'Labios o cara de color azul/morado',
+      },
+      { text: 'Pérdida de consciencia', value: 'Pérdida de consciencia' },
+      { text: 'Tos con sangre', value: 'Tos con sangre' },
+      { text: 'Arrastra palabras', value: 'Arrastra palabras' },
+      { text: 'Diarrea', value: 'Diarrea' },
+      { text: 'Otro', value: 'Otro' },
+    ],
+  }),
+  
   computed: {
     ...mapGetters('covidTestStore', {
       testTypes: 'testTypes',
@@ -164,7 +238,7 @@ export default {
       },
 
       set(value) {
-        this.setSchedule(value)
+        if (this.setSchedule) this.setSchedule(value)
       },
     },
 

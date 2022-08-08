@@ -8,14 +8,16 @@
           <v-icon>mdi-chevron-left</v-icon>
         </v-btn>
 
-        <span style="
+        <span
+          style="
             font-family: 'Poppins';
             font-style: normal;
             font-weight: 700;
             font-size: 18px;
             line-height: 27px;
-          ">
-          Hisopados
+          "
+        >
+          Pruebas
         </span>
 
         <v-spacer />
@@ -24,13 +26,15 @@
           <v-icon> mdi-filter-variant </v-icon>
         </v-btn>
 
-        <span style="
+        <span
+          style="
             font-family: 'Poppins';
             font-style: normal;
             font-weight: 700;
             font-size: 14px;
             line-height: 21px;
-          ">
+          "
+        >
           Filtros
         </span>
       </v-toolbar>
@@ -38,91 +42,140 @@
       <test-filter-inputs></test-filter-inputs>
       <map-filter></map-filter>
 
-      <v-data-iterator :items="centers" :search="search" :loading="loading" :items-per-page="-1" hide-default-footer>
+      <v-data-iterator
+        :items="centers"
+        :search="search"
+        :loading="loading"
+        :items-per-page="-1"
+        hide-default-footer
+      >
         <template #header="{ items }">
-          <v-card-title class="justify-center"
-            style="font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 18px; line-height: 27px;">
+          <v-card-title
+            class="justify-center"
+            style="
+              font-family: 'Poppins';
+              font-style: normal;
+              font-weight: 700;
+              font-size: 18px;
+              line-height: 27px;
+            "
+          >
             Resultados ({{ items.length }})
           </v-card-title>
           <v-divider></v-divider>
         </template>
 
         <template #default="{ items }">
-          <v-card v-for="(center, i) in items" :key="`center-${i}`" @click="onSelect(center.center)">
+          <v-card
+            v-for="(center, i) in items"
+            :key="`center-${i}`"
+            @click="onSelect(center.center)"
+          >
             <v-card-title
-              style="font-family: 'Poppins'; font-style: normal; font-weight: 700; font-size: 18px; line-height: 27px; color: #000000; text-align:left; word-break: break-word;">
+              style="
+                font-family: 'Poppins';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 27px;
+                color: #000000;
+                text-align: left;
+                word-break: break-word;
+              "
+            >
               <v-row dense>
                 <v-col cols="11">
                   {{ center.center }}
                 </v-col>
 
                 <v-col cols="1">
-                  <v-icon large color=#A698FF>
-                    mdi-chevron-right
-                  </v-icon>
+                  <v-icon large color="#A698FF"> mdi-chevron-right </v-icon>
                 </v-col>
               </v-row>
             </v-card-title>
 
             <v-card-text
-              style="font-family: 'Poppins'; font-style: normal; font-weight: 400; font-size: 14px; line-height: 22px;">
+              style="
+                font-family: 'Poppins';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 22px;
+              "
+            >
               <v-row dense>
                 <v-col cols="1">
-                  <v-icon size=25 top>
-                    mdi-clock-outline
-                  </v-icon>
+                  <v-icon size="25" top> mdi-clock-outline </v-icon>
                 </v-col>
 
-                <v-col cols="11" class="d-flex flex-column justify-end black--text text-left">
+                <v-col
+                  cols="11"
+                  class="d-flex flex-column justify-end black--text text-left"
+                >
                   <div>
-                    <span v-if="center.tests.length > 0 && center.tests[0].specificSchedule">
+                    <span
+                      v-if="
+                        center.tests.length > 0 &&
+                        center.tests[0].specificSchedule
+                      "
+                    >
                       {{ center.tests[0].specificSchedule }}
-                      <br>
+
+                      <br />
                     </span>
 
                     <span v-else>
                       Horario por confirmar
-                      <br>
+                      <br />
                     </span>
                   </div>
                 </v-col>
 
                 <v-col cols="1">
-                  <v-icon size=25 top>
-                    mdi-google-circles
-                  </v-icon>
+                  <v-icon size="25" top> mdi-google-circles </v-icon>
                 </v-col>
 
-                <v-col cols="11" class="d-flex flex-column justify-end black--text text-left">
+                <v-col
+                  cols="11"
+                  class="d-flex flex-column justify-end black--text text-left"
+                >
                   <div v-if="center.tests.length > 0">
-                    {{ center.tests.map(i => i.testType).join(', ') }}
+                    {{ center.tests.map((i) => i.testType).join(', ') }}
                   </div>
                 </v-col>
 
                 <v-col cols="1">
-                  <v-icon size=25 top>
-                    mdi-cash
-                  </v-icon>
+                  <v-icon size="25" top> mdi-cash </v-icon>
                 </v-col>
 
-                <v-col cols="11" class="d-flex flex-column justify-end black--text text-left">
-                  <span v-if="center.tests.length > 0 && center.tests[0].serviceType">
+                <v-col
+                  cols="11"
+                  class="d-flex flex-column justify-end black--text text-left"
+                >
+                  <span
+                    v-if="
+                      center.tests.length > 0 && center.tests[0].serviceType
+                    "
+                  >
                     {{ center.tests[0].serviceType }}
                   </span>
 
-                  <span v-else>
-                    Tipo de servicio por confirmar
-                  </span>
+                  <span v-else> Tipo de servicio por confirmar </span>
                 </v-col>
 
                 <v-col cols="1">
-                  <v-icon size=25 top>
-                    mdi-phone-outline
-                  </v-icon>
+                  <v-icon size="25" top> mdi-phone-outline </v-icon>
                 </v-col>
 
-                <v-col cols="11" class="d-flex flex-column justify-end black--text text-left">
-                  {{ center.phoneNumber !== 'N/A' ? center.phoneNumber : "Número por confirmar" }}
+                <v-col
+                  cols="11"
+                  class="d-flex flex-column justify-end black--text text-left"
+                >
+                  {{
+                    center.phoneNumber !== 'N/A'
+                      ? center.phoneNumber
+                      : 'Número por confirmar'
+                  }}
                 </v-col>
               </v-row>
             </v-card-text>
@@ -173,15 +226,25 @@
         <template #loading>
           <v-row>
             <v-col cols="12">
-              <v-skeleton-loader v-for="item in 3" v-bind:key="item" class="mx-auto" max-width="100%" height="80px"
-                type="card" style="margin-bottom: 1vh"></v-skeleton-loader>
+              <v-skeleton-loader
+                v-for="item in 3"
+                v-bind:key="item"
+                class="mx-auto"
+                max-width="100%"
+                height="80px"
+                type="card"
+                style="margin-bottom: 1vh"
+              ></v-skeleton-loader>
             </v-col>
           </v-row>
         </template>
 
         <template #no-data>
           <div class="d-flex flex-column align-center my-5">
-            <i class="fas fa-hospital-user" style="font-size: 72px; color: #c3c1d8"></i>
+            <i
+              class="fas fa-hospital-user"
+              style="font-size: 72px; color: #c3c1d8"
+            ></i>
 
             <h3>No se encontraron registros</h3>
           </div>
@@ -189,7 +252,10 @@
 
         <template #no-results>
           <div class="d-flex flex-column align-center my-5">
-            <i class="fas fa-hospital-user" style="font-size: 72px; color: #c3c1d8"></i>
+            <i
+              class="fas fa-hospital-user"
+              style="font-size: 72px; color: #c3c1d8"
+            ></i>
 
             <h3>No se encontraron registros</h3>
           </div>
@@ -199,7 +265,12 @@
       <bottom-navigation-mobile></bottom-navigation-mobile>
     </v-card>
 
-    <v-dialog v-model="detail" fullscreen hide-overlay transition="dialog-bottom-transition">
+    <v-dialog
+      v-model="detail"
+      fullscreen
+      hide-overlay
+      transition="dialog-bottom-transition"
+    >
       <center-detail @close="detail = false"></center-detail>
     </v-dialog>
   </section>
@@ -345,7 +416,6 @@ export default {
       //     name: name,
       //   },
       // })
-
     },
 
     moveToTop() {
