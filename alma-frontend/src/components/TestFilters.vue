@@ -11,23 +11,21 @@
 
       <v-row v-else>
         <v-col class="pb-1">
-          <span class="font-weight-bold">
-            ¿Qué estás buscando?
-          </span>
+          <span class="font-weight-bold"> ¿Qué estás buscando? </span>
         </v-col>
       </v-row>
 
       <v-row>
         <v-col>
-          <p class="mb-1 font-weight-medium">
-            Tipo de hisopado
-          </p>
+          <p class="mb-1 font-weight-medium">Tipo de hisopado</p>
 
           <v-select
             placeholder="Ver Todos"
             v-model="test"
             :items="testTypes"
-            hide-details outlined dense
+            hide-details
+            outlined
+            dense
             clearable
             class="filter-input"
           ></v-select>
@@ -53,21 +51,19 @@
 
       <v-row>
         <v-col>
-          <p class="mb-1 font-weight-medium">
-            ¿Gratis o pagado?
-          </p>
+          <p class="mb-1 font-weight-medium">¿Gratis o pagado?</p>
 
           <v-radio-group v-model="dose">
             <v-container>
               <v-row>
-                <v-col cols="12" md="6"
-                    v-for="i in costs" :key="i"
-                    class="pb-0">
-                  <v-radio
-                    :label="i"
-                    :value="i"
-                    color="#6751EE"
-                  ></v-radio>
+                <v-col
+                  cols="12"
+                  md="6"
+                  v-for="i in costs"
+                  :key="i"
+                  class="pb-0"
+                >
+                  <v-radio :label="i" :value="i" color="#6751EE"></v-radio>
                 </v-col>
               </v-row>
             </v-container>
@@ -77,14 +73,14 @@
 
       <v-row>
         <v-col>
-          <p class="mb-1 font-weight-medium">
-            Horario
-          </p>
+          <p class="mb-1 font-weight-medium">Horario</p>
 
           <v-select
             v-model="schedule"
             :items="schedules"
-            hide-details outlined dense
+            hide-details
+            outlined
+            dense
             clearable
             class="filter-input"
           ></v-select>
@@ -130,29 +126,19 @@ export default {
     },
   },
 
-  data: () => ({
-    schedule: 'week',
-    schedules: [
-      { text: 'Entre Semana', value: 'week' },
-      { text: 'Fines de Semana', value: 'weekend' },
-    ],
-
-    // placeholder variables
-    testTypes:['PCR','Antigeno'],
-    costs:['Gratis','Pagado','Ver todos'],
-  }),
+  data: () => ({}),
 
   computed: {
     ...mapGetters({
-      'departments': 'departments',
-      'municipalities': 'municipalities',
-      'vaccines': 'vaccines',
-      'doses': 'doses',
+      departments: 'departments',
+      municipalities: 'municipalities',
+      vaccines: 'vaccines',
+      doses: 'doses',
 
-      'getDepartment': 'department',
-      'getMunicipality': 'municipality',
-      'getVaccine': 'vaccine',
-      'getDose': 'dose',
+      getDepartment: 'department',
+      getMunicipality: 'municipality',
+      getVaccine: 'vaccine',
+      getDose: 'dose',
     }),
 
     department: {
@@ -160,7 +146,7 @@ export default {
         return this.getDepartment
       },
 
-      set(value) { 
+      set(value) {
         this.setDepartment(value)
         this.setMunicipality(null)
         // this.setVaccine(null)
@@ -174,7 +160,7 @@ export default {
         return this.getMunicipality
       },
 
-      set(value) { 
+      set(value) {
         this.setMunicipality(value)
         // this.setVaccine(null)
         // this.setDose(null)
@@ -187,7 +173,7 @@ export default {
         return this.getVaccine
       },
 
-      set(value) { 
+      set(value) {
         this.setVaccine(value)
         // this.setDose(null)
         // this.setGroup(null)
@@ -199,7 +185,7 @@ export default {
         return this.getDose
       },
 
-      set(value) { 
+      set(value) {
         this.setDose(value)
         // this.setGroup(null)
       },
@@ -208,27 +194,27 @@ export default {
 
   methods: {
     ...mapMutations({
-      'setDepartment': 'SET_DEPARTMENT',
-      'setMunicipality': 'SET_MUNICIPALITY',
-      'setVaccine': 'SET_VACCINE',
-      'setDose': 'SET_DOSE',
-      'setGroup': 'SET_GROUP',
+      setDepartment: 'SET_DEPARTMENT',
+      setMunicipality: 'SET_MUNICIPALITY',
+      setVaccine: 'SET_VACCINE',
+      setDose: 'SET_DOSE',
+      setGroup: 'SET_GROUP',
     }),
-  }
+  },
 }
 </script>
 
 <style scoped>
 .filter-input {
-  background-color: #F3F3F3;
-  border: 0px solid white !important; 
+  background-color: #f3f3f3;
+  border: 0px solid white !important;
 }
 
 .v-text-field--outlined >>> fieldset {
   border: 0px solid black;
 }
 
-.v-input--selection-controls__input{
+.v-input--selection-controls__input {
   background: black;
 }
 </style>
