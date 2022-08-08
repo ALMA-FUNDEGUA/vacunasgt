@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 
-import { db } from '../plugins/firebase'
+import { db, analytics } from '../plugins/firebase'
 
 import covidTests from './covidTests'
 
@@ -469,14 +469,45 @@ let mutations = {
   SET_CENTERS: (state, payload) => (state.centers = payload),
   SET_SELECTED: (state, payload) => (state.selected = payload),
 
-  SET_DEPARTMENT: (state, payload) => (state.department = payload),
-  SET_MUNICIPALITY: (state, payload) => (state.municipality = payload),
-  SET_VACCINE: (state, payload) => (state.vaccine = payload),
-  SET_DOSE: (state, payload) => (state.dose = payload),
-  SET_GROUP: (state, payload) => (state.group = payload),
-  SET_REQUIREMENT: (state, payload) => (state.requirement = payload),
-  SET_INFLUX: (state, payload) => (state.influx = payload),
-  SET_ENTRANCE: (state, payload) => (state.entrance = payload),
+  SET_DEPARTMENT: (state, payload) =>{
+    analytics.logEvent('set_center_department', payload)
+    state.department = payload
+  },
+
+  SET_MUNICIPALITY: (state, payload) => {
+    analytics.logEvent('set_center_municipality', payload)
+    state.municipality = payload
+  },
+
+  SET_VACCINE: (state, payload) => {
+    analytics.logEvent('set_center_vaccine', payload)
+    state.vaccine = payload
+  },
+
+  SET_DOSE: (state, payload) => {
+    analytics.logEvent('set_center_dose', payload)
+    state.dose = payload
+  },
+
+  SET_GROUP: (state, payload) => {
+    analytics.logEvent('set_center_group', payload)
+    state.group = payload
+  },
+
+  SET_REQUIREMENT: (state, payload) => {
+    analytics.logEvent('set_center_requirement', payload)
+    state.requirement = payload
+  },
+
+  SET_INFLUX: (state, payload) => {
+    analytics.logEvent('set_center_requirement', payload)
+    state.influx = payload
+  },
+
+  SET_ENTRANCE: (state, payload) => {
+    analytics.logEvent('set_center_requirement', payload)
+    state.entrance = payload
+  },
 }
 
 let actions = {
