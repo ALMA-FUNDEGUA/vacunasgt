@@ -81,7 +81,7 @@
             width: 72%;
           "
         >
-          Buscar hisopado
+          Buscar mi prueba
         </v-btn>
       </v-container>
       <!-- </v-card> -->
