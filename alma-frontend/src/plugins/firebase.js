@@ -1,5 +1,6 @@
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
+import 'firebase/compat/analytics'
 
 const config = {
   apiKey:            process.env.VUE_APP_FIRECONFIG_APIKEY,
@@ -15,3 +16,4 @@ const config = {
 firebase.initializeApp(config)
 
 export const db = firebase.firestore()
+export const analytics = firebase.analytics()
