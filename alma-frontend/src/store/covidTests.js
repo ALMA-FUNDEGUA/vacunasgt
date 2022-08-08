@@ -1,4 +1,4 @@
-import { db } from '../plugins/firebase'
+import { db, analytics } from '../plugins/firebase'
 
 const _ = require('lodash')
 
@@ -176,13 +176,35 @@ let mutations = {
   SET_CENTERS: (state, payload) => state.centers = payload,
   SET_SELECTED: (state, payload) => state.selected = payload,
 
-  SET_DEPARTMENT: (state, payload) => state.department = payload,
-  SET_MUNICIPALITY: (state, payload) => state.municipality = payload,
-  SET_ZONE: (state, payload) => state.zone = payload,
+  SET_DEPARTMENT: (state, payload) => {
+    analytics.logEvent('set_test_department', payload)
+    state.department = payload
+  },
 
-  SET_TEST_TYPE: (state, payload) => state.testType = payload,
-  SET_SERVICE_TYPE: (state, payload) => state.serviceType = payload,
-  SET_SIMPLE_SCHEDULE: (state, payload) => state.simpleSchedule = payload,
+  SET_MUNICIPALITY: (state, payload) => {
+    analytics.logEvent('set_test_municipality', payload)
+    state.municipality = payload
+  },
+
+  SET_ZONE: (state, payload) => {
+    analytics.logEvent('set_test_zone', payload)
+    state.zone = payload
+  },
+
+  SET_TEST_TYPE: (state, payload) => {
+    analytics.logEvent('set_test_type', payload)
+    state.testType = payload
+  },
+
+  SET_SERVICE_TYPE: (state, payload) => {
+    analytics.logEvent('set_test_service_type', payload)
+    state.serviceType = payload
+  },
+
+  SET_SIMPLE_SCHEDULE: (state, payload) => {
+    analytics.logEvent('set_test_schedule', payload)
+    state.simpleSchedule = payload
+  },
 }
 
 let actions = {
