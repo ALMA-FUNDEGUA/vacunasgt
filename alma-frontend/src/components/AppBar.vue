@@ -164,7 +164,7 @@
                   class="no-uppercase font-weight-bold"
                   slot="trigger"
                 >
-                  Dispocisiones
+                  Disposiciones
                 </v-btn>
 
                 <v-btn
