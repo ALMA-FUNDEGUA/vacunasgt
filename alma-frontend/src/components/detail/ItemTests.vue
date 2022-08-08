@@ -7,20 +7,12 @@
       <template #content>
         <v-container fluid>
           <v-row v-for="(item, i) in testsAvailable" :key="i">
-            <v-col cols="8" offset="2" class="pa-0 caption">
+            <v-col cols="8" offset="2" class="pa-0 caption pb-2">
               <span class="font-weight-bold"> {{ item.testType }}: </span>
 
               <span class="font-weight-medium">
                 {{ item.resultTime ? `${item.resultTime} - ` : '' }}
                 {{ formatTestPrice(item) }}
-              </span>
-            </v-col>
-
-            <v-col cols="8" offset="2" class="pa-0 pb-2 caption">
-              <span class="font-weight-bold"> Horario: </span>
-
-              <span class="font-weight-medium">
-                {{ item.specificSchedule }}
               </span>
             </v-col>
           </v-row>
