@@ -78,6 +78,25 @@
       </v-row>
 
       <v-row>
+        <v-col>
+          <p class="mb-1 font-weight-medium">
+            Precio de Hisopado
+          </p>
+
+          <v-select
+            v-model="serviceType"
+            :items="serviceTypes"
+            placeholder="Ver Todos"
+            hide-details
+            outlined
+            dense
+            clearable
+            class="filter-input"
+          ></v-select>
+        </v-col>
+      </v-row>
+
+      <v-row>
         <v-col class="pb-1">
           <span class="font-weight-bold"> Otros filtros </span>
         </v-col>
@@ -156,7 +175,7 @@ export default {
       default: false,
     },
   },
-
+  
   data: () => ({
     covidContact: [
       { text: 'SÍ', value: 'SÍ' },
@@ -184,7 +203,7 @@ export default {
       { text: 'Otro', value: 'Otro' },
     ],
   }),
-
+  
   computed: {
     ...mapGetters('covidTestStore', {
       testTypes: 'testTypes',
@@ -198,6 +217,9 @@ export default {
 
       municipalities: 'municipalities',
       getMunicipality: 'municipality',
+
+      serviceTypes: 'serviceTypes',
+      getServiceType: 'serviceType',
     }),
 
     testType: {
@@ -239,6 +261,16 @@ export default {
         this.setMunicipality(value)
       },
     },
+
+    serviceType: {
+      get() {
+        return this.getServiceType
+      },
+
+      set(value) {
+        this.setServiceType(value)
+      }
+    }
   },
 
   methods: {
@@ -247,6 +279,7 @@ export default {
       setSchedule: 'SET_SIMPLE_SCHEDULE',
       setDepartment: 'SET_DEPARTMENT',
       setMunicipality: 'SET_MUNICIPALITY',
+      setServiceType: 'SET_SERVICE_TYPE'
     }),
   },
 }

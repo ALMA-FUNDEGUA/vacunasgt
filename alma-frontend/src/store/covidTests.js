@@ -221,7 +221,7 @@ let mutations = {
   },
 
   SET_SIMPLE_SCHEDULE: (state, payload) => {
-    analytics.logEvent('set_test_schedule', payload)
+    analytics.logEvent('set_test_sched', payload)
     state.simpleSchedule = payload
   },
 
