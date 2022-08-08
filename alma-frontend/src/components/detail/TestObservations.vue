@@ -2,19 +2,14 @@
   <section>
     <information-section icon="mdi-magnify" title="Observaciones">
       <template #information>
-        <p class="caption mb-0"></p>
-
-        <span class="font-weight-medium caption">
-          {{ item.tests[0].observations }}
-        </span>
-
         <v-col cols="8" class="pa-0 pb-2 caption">
           <span class="font-weight-bold"> </span>
         </v-col>
+
         <v-row
           v-for="(item, i) in testsAvailable.slice(0, 1)"
           :key="i"
-          class="pa-0 pb-5 pt-2 caption"
+          class="pa-0 pb-1 pt-2 caption"
         >
           <span class="font-weight-medium" v-if="item.specificSchedule != null">
             <span class="font-weight-bold"> Horario:</span>
@@ -27,7 +22,12 @@
           </span>
         </v-row>
 
-        <v-else></v-else>
+        <v-row>
+          <span class="font-weight-medium caption mb-5">
+            {{ item.tests[0].observations }}
+          </span>
+        </v-row>
+
         <div class="mt-1">
           <v-btn rounded @click="onShare" class="mb-2"> Compartir </v-btn>
         </div>
