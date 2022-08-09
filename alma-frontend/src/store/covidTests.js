@@ -23,6 +23,9 @@ let state = () => ({
   testType: [],
   serviceType: null,
   simpleSchedule: null,
+
+  covidContact: null,
+  covidSymptoms: null,
 })
 
 let getters = {
@@ -194,7 +197,6 @@ let mutations = {
   SET_CENTERS: (state, payload) => (state.centers = payload),
   SET_SELECTED: (state, payload) => (state.selected = payload),
 
-
   SET_DEPARTMENT: (state, payload) => {
     analytics.logEvent('set_test_department', payload)
     state.department = payload
@@ -225,6 +227,15 @@ let mutations = {
     state.simpleSchedule = payload
   },
 
+  SET_COVID_CONTACT: (state, payload) => {
+    analytics.logEvent('set_covid_contact', payload)
+    state.covidContact = payload
+  },
+
+  SET_COVID_SYMPTOMS: (state, payload) => {
+    analytics.logEvent('set_covid_symptoms', payload)
+    state.covidSymptoms = payload
+  },
 }
 
 let actions = {
