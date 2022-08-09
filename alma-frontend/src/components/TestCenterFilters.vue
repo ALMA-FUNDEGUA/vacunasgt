@@ -17,6 +17,44 @@
 
       <v-row>
         <v-col>
+          <p class="mb-1 font-weight-medium">
+            ¿Has tenido contacto con alguien COVID-19 positivo? *
+          </p>
+
+          <v-select
+            placeholder="Selecciona tu opción"
+            :items="covidContact"
+            hide-details
+            outlined
+            dense
+            clearable
+            class="filter-input"
+          ></v-select>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col>
+          <p class="mb-1 font-weight-medium">
+            Si has tenido síntomas ¿Cuáles han sido? *
+          </p>
+          <v-autocomplete
+            placeholder="Selecciona tu opción"
+            :items="covidSymptoms"
+            hide-details
+            outlined
+            dense
+            multiple
+            clearable
+            class="filter-input"
+            autocomplete
+            :menu-props="{ maxHeight: '200' }"
+          ></v-autocomplete>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col>
           <p class="mb-1 font-weight-medium">Tipo de prueba</p>
 
           <v-container>
@@ -114,49 +152,6 @@
             clearable
             class="filter-input"
           ></v-select>
-        </v-col>
-      </v-row>
-
-      <v-row>
-        <v-col class="pb-1">
-          <span class="font-weight-bold"> Preguntas opcionales </span>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col>
-          <p class="mb-1 font-weight-medium">
-            ¿Has tenido contacto con alguien COVID-19 positivo?
-          </p>
-
-          <v-select
-            placeholder="Selecciona tu opción"
-            :items="covidContact"
-            hide-details
-            outlined
-            dense
-            clearable
-            class="filter-input"
-          ></v-select>
-        </v-col>
-      </v-row>
-
-      <v-row>
-        <v-col>
-          <p class="mb-1 font-weight-medium">
-            Si has tenido síntomas ¿Cuáles han sido?
-          </p>
-          <v-autocomplete
-            placeholder="Selecciona tu opción"
-            :items="covidSymptoms"
-            hide-details
-            outlined
-            dense
-            multiple
-            clearable
-            class="filter-input"
-            autocomplete
-            :menu-props="{ maxHeight: '200' }"
-          ></v-autocomplete>
         </v-col>
       </v-row>
     </v-container>
