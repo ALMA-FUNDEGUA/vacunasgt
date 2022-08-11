@@ -154,6 +154,18 @@
           ></v-select>
         </v-col>
       </v-row>
+
+      <v-row>
+        <v-col>
+          <v-col class="caption" style="text-align: justify">
+            <span style="font-weight: bold"> Nota:&nbsp; </span>
+            <span>
+              Los datos recopilados son totalmente anónimos. Serán usados para
+              (CAMBIAR POR TEXTO OFICIAL)
+            </span>
+          </v-col>
+        </v-col>
+      </v-row>
     </v-container>
   </section>
 </template>
