@@ -9,47 +9,82 @@
         </v-col>
       </v-row>
 
-      <v-row v-else>
+      <v-dialog v-model="covidDialog" max-width="700" persistent>
+        <v-card style="overflow-y: hidden; overflow-x: hidden">
+          <v-btn style="margin-left: 90%" icon @click="exitCovidQuestions">
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+          <v-row>
+            <v-col style="padding: 5% 10% 0% 10%">
+              <p class="mb-1 font-weight-medium">
+                ¿Has tenido contacto con alguien COVID-19 positivo?*
+              </p>
+
+              <v-select
+                placeholder="Selecciona tu opción"
+                :items="covidContact"
+                hide-details
+                outlined
+                dense
+                clearable
+                class="filter-input"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row>
+            <v-col style="padding: 5% 10% 0% 10%">
+              <p class="mb-1 font-weight-medium">
+                Si has tenido síntomas ¿Cuáles han sido?*
+              </p>
+              <v-autocomplete
+                placeholder="Selecciona tu opción"
+                :items="covidSymptoms"
+                hide-details
+                outlined
+                dense
+                multiple
+                clearable
+                class="filter-input"
+                autocomplete
+                :menu-props="{ maxHeight: '200' }"
+              ></v-autocomplete>
+            </v-col>
+          </v-row>
+
+          <v-row
+            ><v-col align="center" justify="center" style="margin-top: 2%">
+              <v-btn
+                color="#FFD789"
+                rounded
+                elevation="0"
+                class="no-uppercase"
+                @click="sendAnswers"
+              >
+                Enviar respuestas
+              </v-btn></v-col
+            ></v-row
+          >
+          <v-row>
+            <v-col>
+              <v-col
+                class="caption"
+                style="text-align: justify; padding: 5%; margin-top: -5%"
+              >
+                <span style="font-weight: bold"> Nota:&nbsp; </span>
+                <span>
+                  Los datos recopilados son totalmente anónimos. Serán usados
+                  para (CAMBIAR POR TEXTO OFICIAL)
+                </span>
+              </v-col>
+            </v-col>
+          </v-row>
+        </v-card>
+      </v-dialog>
+
+      <v-row>
         <v-col class="pb-1">
           <span class="font-weight-bold"> ¿Qué estás buscando? </span>
-        </v-col>
-      </v-row>
-
-      <v-row>
-        <v-col>
-          <p class="mb-1 font-weight-medium">
-            ¿Has tenido contacto con alguien COVID-19 positivo? *
-          </p>
-
-          <v-select
-            placeholder="Selecciona tu opción"
-            :items="covidContact"
-            hide-details
-            outlined
-            dense
-            clearable
-            class="filter-input"
-          ></v-select>
-        </v-col>
-      </v-row>
-
-      <v-row>
-        <v-col>
-          <p class="mb-1 font-weight-medium">
-            Si has tenido síntomas ¿Cuáles han sido? *
-          </p>
-          <v-autocomplete
-            placeholder="Selecciona tu opción"
-            :items="covidSymptoms"
-            hide-details
-            outlined
-            dense
-            multiple
-            clearable
-            class="filter-input"
-            autocomplete
-            :menu-props="{ maxHeight: '200' }"
-          ></v-autocomplete>
         </v-col>
       </v-row>
 
@@ -154,18 +189,6 @@
           ></v-select>
         </v-col>
       </v-row>
-
-      <v-row>
-        <v-col>
-          <v-col class="caption" style="text-align: justify">
-            <span style="font-weight: bold"> Nota:&nbsp; </span>
-            <span>
-              Los datos recopilados son totalmente anónimos. Serán usados para
-              (CAMBIAR POR TEXTO OFICIAL)
-            </span>
-          </v-col>
-        </v-col>
-      </v-row>
     </v-container>
   </section>
 </template>
@@ -182,6 +205,7 @@ export default {
   },
 
   data: () => ({
+    covidDialog: true,
     covidContact: [
       { text: 'SÍ', value: 'SÍ' },
       { text: 'NO', value: 'NO' },
@@ -279,6 +303,13 @@ export default {
   },
 
   methods: {
+    sendAnswers() {
+      this.covidDialog = false
+    },
+
+    exitCovidQuestions() {
+      this.covidDialog = false
+    },
     ...mapMutations('covidTestStore', {
       setTestType: 'SET_TEST_TYPE',
       setSchedule: 'SET_SIMPLE_SCHEDULE',
