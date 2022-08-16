@@ -61,7 +61,7 @@
                 class="no-uppercase"
                 @click="sendAnswers"
               >
-                Enviar respuestas
+                Siguiente
               </v-btn></v-col
             ></v-row
           >
@@ -207,29 +207,37 @@ export default {
   data: () => ({
     covidDialog: true,
     covidContact: [
-      { text: 'SÍ', value: 'SÍ' },
-      { text: 'NO', value: 'NO' },
+      { text: 'Sí', value: 'Sí' },
+      { text: 'No', value: 'No' },
     ],
     covidPositive: [
-      { text: 'SÍ', value: 'SÍ' },
-      { text: 'NO', value: 'NO' },
+      { text: 'Sí', value: 'Sí' },
+      { text: 'No', value: 'No' },
     ],
 
     covidSymptoms: [
-      { text: 'Pérdida de olfato', value: 'Anosmia' },
       { text: 'Dolor de garganta', value: 'Odinofagia' },
-      { text: 'Cansancio', value: 'Malestar general' },
-      { text: 'Tos', value: 'Tos' },
-      { text: 'Fiebre alta', value: 'Fiebre' },
+      { text: 'Mocos', value: 'Mocos' },
+      { text: 'Escalofríos', value: 'Escalofríos' },
+      { text: 'Cansancio', value: 'Cansancio' },
       {
-        text: 'Labios o cara de color azul/morado',
-        value: 'Labios o cara de color azul/morado',
+        text: 'Dolor muscular o articulaciones',
+        value: 'Dolor muscular o articulaciones',
       },
-      { text: 'Pérdida de consciencia', value: 'Pérdida de consciencia' },
-      { text: 'Tos con sangre', value: 'Tos con sangre' },
-      { text: 'Arrastra palabras', value: 'Arrastra palabras' },
+      { text: 'Dolor de cabeza', value: 'Dolor de cabeza' },
+      { text: 'Náuseas', value: 'Náuseas' },
+      { text: 'Dolor de estómago', value: 'Dolor de estómago' },
       { text: 'Diarrea', value: 'Diarrea' },
-      { text: 'Otro', value: 'Otro' },
+      { text: 'Dificultad para respirar', value: 'Dificultad para respirar' },
+      { text: 'Pérdida de olfato', value: 'Pérdida de olfato' },
+      { text: 'Pérdida de gusto', value: 'Pérdida de gusto' },
+      { text: 'Dolor de pecho', value: 'Dolor de pecho' },
+      { text: 'Tos', value: 'Tos' },
+      { text: 'Fiebre alta', value: 'Fiebre alta' },
+      { text: 'Pérdida de consciencia', value: 'Pérdida de consciencia' },
+      { text: 'Convulsiones', value: 'Convulsiones' },
+      { text: 'Arrastra palabras', value: 'Disartria' },
+      { text: 'Tos con sangre', value: 'Tos con sangre' },
     ],
   }),
 
