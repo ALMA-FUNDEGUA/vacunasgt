@@ -32,7 +32,6 @@ let getters = {
   selected: (state) =>
     state.centers.find((center) => state.selected === center.center),
 
-  // TODO: add filters conditions
   filtered: (state) => {
     let centers = state.centers
 
@@ -159,8 +158,6 @@ let getters = {
   simpleSchedule: state => state.simpleSchedule,
   simpleSchedules: (_state, getters) => {
     const ordered = _.chain(getters.filtered)
-      .map('tests')
-      .flatten()
       .map('simpleSchedule')
       .uniq()
       .orderBy()
@@ -177,32 +174,33 @@ let mutations = {
   SET_SELECTED: (state, payload) => state.selected = payload,
 
   SET_DEPARTMENT: (state, payload) => {
-    analytics.logEvent('set_test_department', payload)
+    analytics.logEvent('set_test_department', { value: payload })
     state.department = payload
   },
 
   SET_MUNICIPALITY: (state, payload) => {
-    analytics.logEvent('set_test_municipality', payload)
+    analytics.logEvent('set_test_municipality', { value: payload })
     state.municipality = payload
   },
 
   SET_ZONE: (state, payload) => {
-    analytics.logEvent('set_test_zone', payload)
+    analytics.logEvent('set_test_zone', { value: payload })
     state.zone = payload
   },
 
   SET_TEST_TYPE: (state, payload) => {
-    analytics.logEvent('set_test_type', payload)
+    analytics.logEvent('set_test_type', { value: payload })
     state.testType = payload
   },
 
   SET_SERVICE_TYPE: (state, payload) => {
-    analytics.logEvent('set_test_service_type', payload)
+    analytics.logEvent('set_test_service_type', { value: payload })
     state.serviceType = payload
   },
 
   SET_SIMPLE_SCHEDULE: (state, payload) => {
-    analytics.logEvent('set_test_sched', payload)
+    analytics.logEvent('set_test_sched', { value: payload })
+
     state.simpleSchedule = payload
   },
 }

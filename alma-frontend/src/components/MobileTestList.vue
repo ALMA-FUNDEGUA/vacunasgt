@@ -75,8 +75,8 @@
 
                 <v-col cols="11" class="d-flex flex-column justify-end black--text text-left">
                   <div>
-                    <span v-if="center.tests.length > 0 && center.tests[0].specificSchedule">
-                      {{ center.tests[0].specificSchedule }}
+                    <span v-if="center.specificSchedule">
+                      {{ center.specificSchedule }}
                       <br>
                     </span>
 
