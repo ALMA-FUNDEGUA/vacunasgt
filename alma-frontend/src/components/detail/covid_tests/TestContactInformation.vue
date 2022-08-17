@@ -3,14 +3,38 @@
     <information-section
         icon="mdi-phone-in-talk-outline"
         title="Información de Contacto">
-      <template #information>
-        <span class="font-weight-bold caption">
-          Número:
-        </span>
+      <template #content>
+        <v-container fluid>
+          <v-row>
+            <v-col
+              cols="8"
+              offset="2"
+              class="pa-0 caption"
+            >
+              <span class="font-weight-bold caption">
+                Número:
+              </span>
 
-        <span class="font-weight-medium caption">
-          {{ item.phoneNumber !== 'N/A' ? item.phoneNumber : "Número por confirmar" }}
-        </span>
+              <span class="font-weight-medium caption">
+                {{ item.phoneNumber && item.phoneNumber !== 'N/A' ? item.phoneNumber : "Número por confirmar" }}
+              </span>
+            </v-col>
+
+            <v-col
+              cols="8"
+              offset="2"
+              class="pa-0 pb-2 caption"
+            >
+              <span class="font-weight-bold">
+                Horario:
+              </span>
+
+              <span class="font-weight-medium">
+                {{ item.specificSchedule }}
+              </span>
+            </v-col>
+          </v-row>
+        </v-container>
       </template>
     </information-section>
   </section>
