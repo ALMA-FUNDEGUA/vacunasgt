@@ -20,20 +20,6 @@
                 {{ item.resultTime ? `${item.resultTime} - ` : '' }} {{ formatTestPrice(item) }}
               </span>
             </v-col>
-
-            <v-col
-              cols="8"
-              offset="2"
-              class="pa-0 pb-2 caption"
-            >
-              <span class="font-weight-bold">
-                Horario:
-              </span>
-
-              <span class="font-weight-medium">
-                {{ item.specificSchedule }}
-              </span>
-            </v-col>
           </v-row>
         </v-container>
       </template>

@@ -31,8 +31,8 @@
 
               <v-col cols="11" class="d-flex flex-column justify-end black--text text-left">
                 <div>
-                  <span v-if="item.tests.length > 0 && item.tests[0].simpleSchedule">
-                    {{ item.tests[0].simpleSchedule }}
+                  <span v-if="item.simpleSchedule">
+                    {{ item.simpleSchedule }}
                     <br>
                   </span>
 
@@ -100,11 +100,11 @@
         <v-card-text class="pa-0">
           <v-container fluid class="px-0">
             <v-row dense>
-              <v-col cols="12" v-if="item.tests.length > 0 && item.tests[0].specificSchedule">
+              <v-col cols="12" v-if="item.specificSchedule">
                 <v-icon small top> mdi-clock-outline </v-icon>
 
                 <span class="caption">
-                  {{ item.tests[0].specificSchedule }}
+                  {{ item.specificSchedule }}
                 </span>
               </v-col>
 
