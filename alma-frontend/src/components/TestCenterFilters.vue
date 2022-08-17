@@ -390,13 +390,6 @@ export default {
   },
 
   methods: {
-    itemChange(e) {
-      this.selected = e
-      this.$nextTick(() => {
-        this.searchString = ''
-        this.searchResult = null
-      })
-    },
     sendAnswers() {
       this.covidDialog = false
     },
