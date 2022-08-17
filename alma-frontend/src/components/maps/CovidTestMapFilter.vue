@@ -83,7 +83,7 @@ export default {
     mapsLatLon(center) {
       const elements = center.mapsLink.split('/')
       const location = elements[elements.length - 2].slice(1).split(',')
-      console.log('LOCACION', location[0], location[1])
+
       return [location[0], location[1]]
     },
   },

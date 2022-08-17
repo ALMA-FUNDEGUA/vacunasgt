@@ -14,7 +14,7 @@
                   class="no-uppercase font-weight-bold"
                   slot="trigger"
                 >
-                  Vacunas e Hisopados
+                  Vacunas y Pruebas
                 </v-btn>
 
                 <v-btn
@@ -34,7 +34,7 @@
                   class="no-uppercase"
                   to="/testsfilters"
                 >
-                  Hisopados
+                  Pruebas COVID-19
                 </v-btn>
               </DropdownMenu>
 
@@ -164,7 +164,7 @@
                   class="no-uppercase font-weight-bold"
                   slot="trigger"
                 >
-                  Dispocisiones
+                  Disposiciones
                 </v-btn>
 
                 <v-btn

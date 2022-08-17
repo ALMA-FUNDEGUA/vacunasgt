@@ -4,12 +4,163 @@
       <v-row v-if="$vuetify.breakpoint.mdAndUp && !dialog">
         <v-col class="pb-1">
           <span class="text-h5 font-weight-bold">
-            Centros para hisopados COVID-19
+            Centros para pruebas COVID-19
           </span>
         </v-col>
       </v-row>
 
-      <v-row v-else>
+      <v-row v-if="!$vuetify.breakpoint.mdAndUp">
+        <v-dialog v-model="covidDialog" persistent fullscreen>
+          <v-card style="overflow-y: hidden; overflow-x: hidden">
+            <v-btn style="margin-left: 90%" icon @click="exitCovidQuestions">
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
+            <v-row>
+              <v-col style="padding: 5% 10% 0% 10%">
+                <p class="mb-1 font-weight-medium">
+                  ¿Has tenido contacto con alguien COVID-19 positivo?*
+                </p>
+
+                <v-select
+                  placeholder="Selecciona tu opción"
+                  :items="covidContact"
+                  hide-details
+                  outlined
+                  dense
+                  clearable
+                  class="filter-input"
+                ></v-select>
+              </v-col>
+            </v-row>
+
+            <v-row>
+              <v-col style="padding: 5% 10% 0% 10%">
+                <p class="mb-1 font-weight-medium">
+                  Si has tenido síntomas ¿Cuáles han sido?*
+                </p>
+                <v-autocomplete
+                  placeholder="Selecciona tu opción"
+                  :items="covidSymptoms"
+                  hide-details="auto"
+                  outlined
+                  dense
+                  multiple
+                  clearable
+                  class="filter-input"
+                  autocomplete
+                  :search-input.sync="searchInput"
+                  @change="searchInput = ''"
+                ></v-autocomplete>
+              </v-col>
+            </v-row>
+
+            <v-row
+              ><v-col align="center" justify="center" style="margin-top: 2%">
+                <v-btn
+                  color="#FFD789"
+                  rounded
+                  elevation="0"
+                  class="no-uppercase"
+                  @click="sendAnswers"
+                >
+                  Siguiente
+                </v-btn></v-col
+              ></v-row
+            >
+            <v-row>
+              <v-col>
+                <v-col
+                  class="caption"
+                  style="text-align: justify; padding: 5%; margin-top: -5%"
+                >
+                  <span style="font-weight: bold"> Nota:&nbsp; </span>
+                  <span>
+                    Los datos recopilados son totalmente anónimos. Serán usados
+                    para (CAMBIAR POR TEXTO OFICIAL)
+                  </span>
+                </v-col>
+              </v-col>
+            </v-row>
+          </v-card>
+        </v-dialog>
+      </v-row>
+
+      <v-dialog v-model="covidDialog" max-width="700" persistent v-else>
+        <v-card style="overflow-y: hidden; overflow-x: hidden">
+          <v-btn style="margin-left: 93%" icon @click="exitCovidQuestions">
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+          <v-row>
+            <v-col style="padding: 5% 10% 0% 10%">
+              <p class="mb-1 font-weight-medium">
+                ¿Has tenido contacto con alguien COVID-19 positivo?*
+              </p>
+
+              <v-select
+                placeholder="Selecciona tu opción"
+                :items="covidContact"
+                hide-details
+                outlined
+                dense
+                clearable
+                class="filter-input"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row>
+            <v-col style="padding: 5% 10% 0% 10%">
+              <p class="mb-1 font-weight-medium">
+                Si has tenido síntomas ¿Cuáles han sido?*
+              </p>
+              <v-autocomplete
+                placeholder="Selecciona tu opción"
+                persistent-placeholder="true"
+                :items="covidSymptoms"
+                hide-details
+                outlined
+                dense
+                multiple
+                clearable
+                class="filter-input"
+                autocomplete
+                :search-input.sync="searchInput"
+                @change="searchInput = ''"
+              ></v-autocomplete>
+            </v-col>
+          </v-row>
+
+          <v-row
+            ><v-col align="center" justify="center" style="margin-top: 2%">
+              <v-btn
+                color="#FFD789"
+                rounded
+                elevation="0"
+                class="no-uppercase"
+                @click="sendAnswers"
+              >
+                Siguiente
+              </v-btn></v-col
+            ></v-row
+          >
+          <v-row>
+            <v-col>
+              <v-col
+                class="caption"
+                style="text-align: justify; padding: 5%; margin-top: -5%"
+              >
+                <span style="font-weight: bold"> Nota:&nbsp; </span>
+                <span>
+                  Los datos recopilados son totalmente anónimos. Serán usados
+                  para (CAMBIAR POR TEXTO OFICIAL)
+                </span>
+              </v-col>
+            </v-col>
+          </v-row>
+        </v-card>
+      </v-dialog>
+
+      <v-row>
         <v-col class="pb-1">
           <span class="font-weight-bold"> ¿Qué estás buscando? </span>
         </v-col>
@@ -17,13 +168,16 @@
 
       <v-row>
         <v-col>
-          <p class="mb-1 font-weight-medium">Tipo de hisopado</p>
+          <p class="mb-1 font-weight-medium">Tipo de prueba</p>
 
           <v-container>
             <v-row>
-              <v-col cols="12" class="pa-0"
-                  v-for="(type, i) in testTypes"
-                  :key="i">
+              <v-col
+                cols="12"
+                class="pa-0"
+                v-for="(type, i) in testTypes"
+                :key="i"
+              >
                 <v-checkbox
                   v-model="testType"
                   :label="type.text"
@@ -76,9 +230,7 @@
 
       <v-row>
         <v-col>
-          <p class="mb-1 font-weight-medium">
-            Precio de Hisopado
-          </p>
+          <p class="mb-1 font-weight-medium">Precio de Hisopado</p>
 
           <v-select
             v-model="serviceType"
@@ -130,6 +282,44 @@ export default {
     },
   },
 
+  data: () => ({
+    searchInput: '',
+    covidDialog: true,
+    covidContact: [
+      { text: 'Sí', value: 'Sí' },
+      { text: 'No', value: 'No' },
+    ],
+    covidPositive: [
+      { text: 'Sí', value: 'Sí' },
+      { text: 'No', value: 'No' },
+    ],
+
+    covidSymptoms: [
+      { text: 'Dolor de garganta', value: 'Odinofagia' },
+      { text: 'Mocos', value: 'Mocos' },
+      { text: 'Escalofríos', value: 'Escalofríos' },
+      { text: 'Cansancio', value: 'Cansancio' },
+      {
+        text: 'Dolor muscular o articulaciones',
+        value: 'Dolor muscular o articulaciones',
+      },
+      { text: 'Dolor de cabeza', value: 'Dolor de cabeza' },
+      { text: 'Náuseas', value: 'Náuseas' },
+      { text: 'Dolor de estómago', value: 'Dolor de estómago' },
+      { text: 'Diarrea', value: 'Diarrea' },
+      { text: 'Dificultad para respirar', value: 'Dificultad para respirar' },
+      { text: 'Pérdida de olfato', value: 'Pérdida de olfato' },
+      { text: 'Pérdida de gusto', value: 'Pérdida de gusto' },
+      { text: 'Dolor de pecho', value: 'Dolor de pecho' },
+      { text: 'Tos', value: 'Tos' },
+      { text: 'Fiebre alta', value: 'Fiebre alta' },
+      { text: 'Pérdida de consciencia', value: 'Pérdida de consciencia' },
+      { text: 'Convulsiones', value: 'Convulsiones' },
+      { text: 'Arrastra palabras', value: 'Disartria' },
+      { text: 'Tos con sangre', value: 'Tos con sangre' },
+    ],
+  }),
+
   computed: {
     ...mapGetters('covidTestStore', {
       testTypes: 'testTypes',
@@ -164,7 +354,7 @@ export default {
       },
 
       set(value) {
-        this.setSchedule(value)
+        if (this.setSchedule) this.setSchedule(value)
       },
     },
 
@@ -195,17 +385,26 @@ export default {
 
       set(value) {
         this.setServiceType(value)
-      }
-    }
+      },
+    },
   },
 
   methods: {
+    sendAnswers() {
+      this.covidDialog = false
+    },
+
+    exitCovidQuestions() {
+      this.covidDialog = false
+    },
     ...mapMutations('covidTestStore', {
       setTestType: 'SET_TEST_TYPE',
       setSchedule: 'SET_SIMPLE_SCHEDULE',
       setDepartment: 'SET_DEPARTMENT',
       setMunicipality: 'SET_MUNICIPALITY',
-      setServiceType: 'SET_SERVICE_TYPE'
+      setServiceType: 'SET_SERVICE_TYPE',
+      setCovidContact: 'SET_COVID_CONTACT',
+      setCovidSymptoms: 'SET_COVID_SYMPTOMS',
     }),
   },
 }

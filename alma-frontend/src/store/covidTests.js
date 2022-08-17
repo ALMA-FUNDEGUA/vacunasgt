@@ -23,6 +23,9 @@ let state = () => ({
   testType: [],
   serviceType: null,
   simpleSchedule: null,
+
+  covidContact: null,
+  covidSymptoms: null,
 })
 
 let getters = {
@@ -36,62 +39,64 @@ let getters = {
     let centers = state.centers
 
     const filters = [
-      { // Filter by department
+      {
+        // Filter by department
         condition: () => !!state.department,
         predicate: (item) => item.department === state.department,
       },
 
-      { // Filter by municipality
+      {
+        // Filter by municipality
         condition: () => !!state.municipality,
         predicate: (item) => item.municipality === state.municipality,
       },
 
-      { // Filter by zone
+      {
+        // Filter by zone
         condition: () => !!state.zone,
-        predicate: item => item.zone === state.zone,
+        predicate: (item) => item.zone === state.zone,
       },
 
-      { // Filter by testType
+      {
+        // Filter by testType
         condition: () => state.testType.length > 0,
-        predicate: item => {
+        predicate: (item) => {
           for (const { testType } of item.tests) {
             const index = state.testType.indexOf(testType)
-            if (index !== -1)
-              return true
+            if (index !== -1) return true
           }
 
           return false
         },
       },
 
-      { // Filter by serviceType
+      {
+        // Filter by serviceType
         condition: () => !!state.serviceType,
-        predicate: item => {
+        predicate: (item) => {
           for (const { serviceType } of item.tests) {
-            if (serviceType === state.serviceType)
-              return true
+            if (serviceType === state.serviceType) return true
           }
 
           return false
         },
       },
 
-      { // Filter by simpleSchedule
+      {
+        // Filter by simpleSchedule
         condition: () => !!state.simpleSchedule,
-        predicate: item => {
+        predicate: (item) => {
           for (const { simpleSchedule } of item.tests) {
-            if (simpleSchedule === state.simpleSchedule)
-              return true
+            if (simpleSchedule === state.simpleSchedule) return true
           }
 
           return false
         },
-      }
+      },
     ]
 
     for (const filter of filters)
-      if (filter.condition())
-        centers = centers.filter(filter.predicate)
+      if (filter.condition()) centers = centers.filter(filter.predicate)
 
     return centers
   },
@@ -107,7 +112,7 @@ let getters = {
     return toUpperCase(ordered)
   },
 
-  municipality: state => state.municipality,
+  municipality: (state) => state.municipality,
   municipalities: (_state, getters) => {
     const ordered = _.chain(getters.filtered)
       .map('municipality')
@@ -118,7 +123,7 @@ let getters = {
     return toUpperCase(ordered)
   },
 
-  zone: state => state.zone,
+  zone: (state) => state.zone,
   zones: (_state, getters) => {
     const ordered = _.chain(getters.filtered)
       .map('zone')
@@ -129,8 +134,14 @@ let getters = {
     return toUpperCase(ordered)
   },
 
-  testType: state => state.testType,
+  testType: (state) => state.testType,
   testTypes: (state) => {
+    const OrderCondition = {
+      ANTÍGENO: 0,
+      PCR: 1,
+      'VER TODOS': 2,
+    }
+
     const ordered = _.chain(state.centers)
       .map('tests')
       .flatten()
@@ -139,10 +150,16 @@ let getters = {
       .orderBy()
       .value()
 
-    return toUpperCase(ordered)
+    //if (ordered[1] === 'ANTÍGENO / PCR') {
+    //ordered[1] = 'VER TODOS'
+    //}
+
+    return toUpperCase(ordered).sort(
+      (a, b) => OrderCondition[a.text] - OrderCondition[b.text]
+    )
   },
 
-  serviceType: state => state.serviceType,
+  serviceType: (state) => state.serviceType,
   serviceTypes: (_state, getters) => {
     const ordered = _.chain(getters.filtered)
       .map('tests')
@@ -155,7 +172,7 @@ let getters = {
     return toUpperCase(ordered)
   },
 
-  simpleSchedule: state => state.simpleSchedule,
+  simpleSchedule: (state) => state.simpleSchedule,
   simpleSchedules: (_state, getters) => {
     const ordered = _.chain(getters.filtered)
       .map('simpleSchedule')
@@ -163,15 +180,19 @@ let getters = {
       .orderBy()
       .value()
 
+    // if (ordered[1] === 'Mixto') {
+    //  ordered[1] = 'Lunes a Sábado'
+    //}
+
     return toUpperCase(ordered)
-  }
+  },
 }
 
 let mutations = {
-  SET_LOADING: (state, payload) => state.loading = payload,
+  SET_LOADING: (state, payload) => (state.loading = payload),
 
-  SET_CENTERS: (state, payload) => state.centers = payload,
-  SET_SELECTED: (state, payload) => state.selected = payload,
+  SET_CENTERS: (state, payload) => (state.centers = payload),
+  SET_SELECTED: (state, payload) => (state.selected = payload),
 
   SET_DEPARTMENT: (state, payload) => {
     analytics.logEvent('set_test_department', { value: payload })
@@ -203,6 +224,16 @@ let mutations = {
 
     state.simpleSchedule = payload
   },
+
+  SET_COVID_CONTACT: (state, payload) => {
+    analytics.logEvent('set_covid_contact', payload)
+    state.covidContact = payload
+  },
+
+  SET_COVID_SYMPTOMS: (state, payload) => {
+    analytics.logEvent('set_covid_symptoms', payload)
+    state.covidSymptoms = payload
+  },
 }
 
 let actions = {
@@ -212,11 +243,14 @@ let actions = {
     const snapshot = await db.collection('centers_covid_tests').get()
     const centers = snapshot.docs.map((doc) => doc.data())
 
-    commit('SET_CENTERS', centers.map(item => ({
-      ...item,
-      name: item.name,
-      maps: item.mapsLink,
-    })))
+    commit(
+      'SET_CENTERS',
+      centers.map((item) => ({
+        ...item,
+        name: item.name,
+        maps: item.mapsLink,
+      }))
+    )
 
     commit('SET_LOADING', false)
   },
