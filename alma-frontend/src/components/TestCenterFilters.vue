@@ -41,14 +41,15 @@
                 <v-autocomplete
                   placeholder="Selecciona tu opción"
                   :items="covidSymptoms"
-                  hide-details
+                  hide-details="auto"
                   outlined
                   dense
                   multiple
                   clearable
                   class="filter-input"
                   autocomplete
-                  :menu-props="{ maxHeight: '200' }"
+                  :search-input.sync="searchInput"
+                  @change="searchInput = ''"
                 ></v-autocomplete>
               </v-col>
             </v-row>
@@ -114,6 +115,7 @@
               </p>
               <v-autocomplete
                 placeholder="Selecciona tu opción"
+                persistent-placeholder="true"
                 :items="covidSymptoms"
                 hide-details
                 outlined
@@ -122,7 +124,8 @@
                 clearable
                 class="filter-input"
                 autocomplete
-                :menu-props="{ maxHeight: '200' }"
+                :search-input.sync="searchInput"
+                @change="searchInput = ''"
               ></v-autocomplete>
             </v-col>
           </v-row>
@@ -280,6 +283,7 @@ export default {
   },
 
   data: () => ({
+    searchInput: '',
     covidDialog: true,
     covidContact: [
       { text: 'Sí', value: 'Sí' },
@@ -386,6 +390,13 @@ export default {
   },
 
   methods: {
+    itemChange(e) {
+      this.selected = e
+      this.$nextTick(() => {
+        this.searchString = ''
+        this.searchResult = null
+      })
+    },
     sendAnswers() {
       this.covidDialog = false
     },
