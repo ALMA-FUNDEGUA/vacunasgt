@@ -226,12 +226,12 @@ let mutations = {
   },
 
   SET_COVID_CONTACT: (state, payload) => {
-    analytics.logEvent('set_covid_contact', payload)
+    analytics.logEvent('set_covid_contact', { value: payload })
     state.covidContact = payload
   },
 
   SET_COVID_SYMPTOMS: (state, payload) => {
-    analytics.logEvent('set_covid_symptoms', payload)
+    analytics.logEvent('set_covid_symptoms', { value: payload })
     state.covidSymptoms = payload
   },
 }
