@@ -29,7 +29,7 @@
             class="mt-5 no-uppercase"
             to="/testsfilters"
           >
-            <span class="font-weight-bold"> Buscar hisopados </span>
+            <span class="font-weight-bold"> Buscar mi prueba </span>
           </v-btn>
         </v-col>
 

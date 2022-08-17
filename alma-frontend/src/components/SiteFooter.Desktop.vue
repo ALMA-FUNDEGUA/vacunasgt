@@ -84,7 +84,7 @@
                     "
                     >mdi-magnify</v-icon
                   >
-                  Busca hisopados
+                  Busca tu prueba
                 </v-btn>
 
                 <v-btn
