@@ -4,8 +4,11 @@
       <v-row>
         <v-col cols="12" class="d-flex justify-end">
           <v-text-field
-            :value="modelValue" @input='input'
-            dense outlined :rounded="fab"
+            :value="modelValue"
+            @input="input"
+            dense
+            outlined
+            :rounded="fab"
             hide-details
             placeholder="Buscar Centro..."
             prepend-inner-icon="mdi-magnify"
@@ -13,9 +16,9 @@
             @click:prepend-inner="fab = true"
             @click:append="fab = !fab"
             class="expandable-input"
-            :class="{'closed': !fab}"
+            :class="{ closed: !fab }"
             :dark="!fab"
-            :background-color="!fab ? 'primary' : 'white'"
+            :background-color="!fab ? '#200765' : 'white'"
           ></v-text-field>
         </v-col>
       </v-row>
@@ -36,8 +39,8 @@ export default {
   methods: {
     input(val) {
       this.$emit('input', val)
-    }
-  }
+    },
+  },
 }
 </script>
 
