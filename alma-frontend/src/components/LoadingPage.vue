@@ -29,7 +29,7 @@ export default {
 .loader {
   border: 16px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 16px solid #4f4a88;
+  border-top: 16px solid #200765;
   width: 250px;
   height: 250px;
   position: absolute;
@@ -48,9 +48,9 @@ export default {
   text-align: center;
   position: absolute;
   top: calc(50% - 5px);
-  left: calc(50% - 45px);
+  left: calc(50% - 40px);
   text-align: center;
-  color: #4f4a88;
+  color: #200765;
   font-weight: bold;
 }
 
