@@ -1,13 +1,9 @@
 <template>
   <section>
-    <information-section
-        icon="mdi-map-marker-outline"
-        title="Dirección">
+    <information-section icon="mdi-map-marker-outline" title="Dirección">
       <template #information>
         <p class="caption mb-0">
-          <span class="font-weight-bold">
-            Ingreso:
-          </span>
+          <span class="font-weight-bold"> Ingreso: </span>
           <span class="font-weight-medium">
             {{ item.entrance }}
           </span>
@@ -18,7 +14,12 @@
         </span>
 
         <div>
-          <v-btn color="#65CBF9" rounded class="mt-2 mb-2" @click="openMaps">
+          <v-btn
+            color="#2D7EEF"
+            rounded
+            class="mt-2 mb-2 white--text"
+            @click="openMaps"
+          >
             Abrir en Waze
           </v-btn>
         </div>
@@ -34,7 +35,7 @@
 </template>
 
 <script>
-import InformationSection from './InformationSection.vue';
+import InformationSection from './InformationSection.vue'
 
 export default {
   props: ['item'],
@@ -45,25 +46,24 @@ export default {
 
   methods: {
     openMaps() {
-      window.open(`https://waze.com/ul?q=${this.selected.name}`);
+      window.open(`https://waze.com/ul?q=${this.selected.name}`)
     },
 
     async onShare() {
-      if(navigator.canShare){
+      if (navigator.canShare) {
         await navigator.share({
-          title: "VacunasGT Center",
+          title: 'VacunasGT Center',
           url: window.location.href,
-        });
-      }
-      else{
+        })
+      } else {
         try {
-          await navigator.clipboard.writeText(window.location.href);
-          alert('URL copiado');
-        } catch($e) {
-          alert('No se pudo copiar el URL');
+          await navigator.clipboard.writeText(window.location.href)
+          alert('URL copiado')
+        } catch ($e) {
+          alert('No se pudo copiar el URL')
         }
       }
     },
-  }
+  },
 }
 </script>
