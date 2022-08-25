@@ -8,15 +8,7 @@
           <v-icon>mdi-chevron-left</v-icon>
         </v-btn>
 
-        <span
-          style="
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 18px;
-            line-height: 27px;
-          "
-        >
+        <span style="font-weight: 700; font-size: 18px; line-height: 27px">
           Vacunas
         </span>
 
@@ -26,15 +18,7 @@
           <v-icon> mdi-filter-variant </v-icon>
         </v-btn>
 
-        <span
-          style="
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 14px;
-            line-height: 21px;
-          "
-        >
+        <span style="font-weight: 700; font-size: 14px; line-height: 21px">
           Filtros
         </span>
       </v-toolbar>
@@ -52,13 +36,7 @@
         <template #header="{ items }">
           <v-card-title
             class="justify-center"
-            style="
-              font-family: 'Poppins';
-              font-style: normal;
-              font-weight: 700;
-              font-size: 18px;
-              line-height: 27px;
-            "
+            style="font-weight: 700; font-size: 18px; line-height: 27px"
           >
             Resultados ({{ items.length }})
           </v-card-title>
@@ -74,8 +52,6 @@
           >
             <v-card-title
               style="
-                font-family: 'Poppins';
-                font-style: normal;
                 font-weight: 700;
                 font-size: 18px;
                 line-height: 27px;
@@ -97,14 +73,20 @@
 
             <v-card-subtitle
               class="pb-1"
-              style="text-align:left font-family: 'Poppins'; font-style: normal; font-weight: 400; font-size: 12px; line-height: 22px; color: #848282;"
+              style="
+                text-align: left;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 22px;
+                color: #848282;
+              "
             >
               Ultima actualización de datos:
             </v-card-subtitle>
 
             <v-card-text
               style="
-                font-family: 'Poppins';
                 font-style: normal;
                 font-weight: 400;
                 font-size: 14px;
