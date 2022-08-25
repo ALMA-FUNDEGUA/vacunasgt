@@ -73,10 +73,11 @@
                   class="caption"
                   style="text-align: justify; padding: 5%; margin-top: -5%"
                 >
-                  <span style="font-weight: bold"> Nota:&nbsp; </span>
+                  <span style="font-weight: bold"> Nota:</span>
                   <span>
-                    Los datos recopilados son totalmente anónimos. Serán usados
-                    para (CAMBIAR POR TEXTO OFICIAL)
+                    Gracias por tu respuesta. Los datos que proporcionas son
+                    anónimos y confidenciales, serán utilizados únicamente para
+                    fines estadísticos y de mejora de nuestros servicios.
                   </span>
                 </v-col>
               </v-col>
@@ -149,10 +150,11 @@
                 class="caption"
                 style="text-align: justify; padding: 5%; margin-top: -5%"
               >
-                <span style="font-weight: bold"> Nota:&nbsp; </span>
+                <span style="font-weight: bold"> Nota:</span>
                 <span>
-                  Los datos recopilados son totalmente anónimos. Serán usados
-                  para (CAMBIAR POR TEXTO OFICIAL)
+                  Gracias por tu respuesta. Los datos que proporcionas son
+                  anónimos y confidenciales, serán utilizados únicamente para
+                  fines estadísticos y de mejora de nuestros servicios.
                 </span>
               </v-col>
             </v-col>

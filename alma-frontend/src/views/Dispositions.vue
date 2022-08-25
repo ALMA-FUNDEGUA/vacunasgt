@@ -22,9 +22,6 @@
       >
         <v-card-title
           style="
-            font-family: 'Poppins';
-            font-style: light;
-            font-weight: 500;
             font-size: 15px;
             line-height: 27px;
             color: #000000;
@@ -62,9 +59,6 @@
       >
         <v-card-title
           style="
-            font-family: 'Poppins';
-            font-style: light;
-            font-weight: 500;
             font-size: 15px;
             line-height: 27px;
             color: #000000;
@@ -102,9 +96,6 @@
       >
         <v-card-title
           style="
-            font-family: 'Poppins';
-            font-style: light;
-            font-weight: 500;
             font-size: 15px;
             line-height: 27px;
             color: #000000;
