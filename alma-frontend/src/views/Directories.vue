@@ -16,12 +16,7 @@
       </v-app-bar>
 
       <v-card-title
-        style="
-          font-family: 'Poppins';
-          font-weight: 700;
-          font-size: 18px;
-          line-height: 27px;
-        "
+        style="font-weight: 700; font-size: 18px; line-height: 27px"
       >
       </v-card-title>
 
