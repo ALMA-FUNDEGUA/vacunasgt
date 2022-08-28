@@ -5,7 +5,7 @@
         <v-row justify="center">
           <v-col cols="12" md="13">
             <div class="d-flex justify-space-between align-center">
-              <a href="/" class="text-h4 font-weight-bold site-title"> alma </a>
+              <router-link to="/" class="text-h4 font-weight-bold site-title"> alma </router-link>
 
               <DropdownMenu mode="hover">
                 <v-btn

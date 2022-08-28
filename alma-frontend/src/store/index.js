@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from 'axios'
 
-import { db, analytics } from '../plugins/firebase'
+import { db } from '../plugins/firebase'
+
+import gtag from 'ga-gtag';
 
 import covidTests from './covidTests'
 
@@ -470,72 +471,79 @@ let mutations = {
   SET_SELECTED: (state, payload) => (state.selected = payload),
 
   SET_DEPARTMENT: (state, payload) =>{
-    analytics.logEvent('set_center_department', payload)
     state.department = payload
+
+    gtag('event', 'action', {
+      'action_type': 'select_department',
+      'event_value': payload,
+    })
   },
 
   SET_MUNICIPALITY: (state, payload) => {
-    analytics.logEvent('set_center_municipality', payload)
     state.municipality = payload
+
+    gtag('event', 'action', {
+      'action_type': 'select_municipality',
+      'event_value': payload,
+    })
   },
 
   SET_VACCINE: (state, payload) => {
-    analytics.logEvent('set_center_vaccine', payload)
     state.vaccine = payload
+
+    gtag('event', 'action', {
+      'action_type': 'select_vaccine',
+      'event_value': payload,
+    })
   },
 
   SET_DOSE: (state, payload) => {
-    analytics.logEvent('set_center_dose', payload)
     state.dose = payload
+
+    gtag('event', 'action', {
+      'action_type': 'select_medicine_dose',
+      'event_value': payload,
+    })
   },
 
   SET_GROUP: (state, payload) => {
-    analytics.logEvent('set_center_group', payload)
     state.group = payload
+
+    gtag('event', 'action', {
+      'action_type': 'select_medicine_dose',
+      'event_value': payload,
+    })
   },
 
   SET_REQUIREMENT: (state, payload) => {
-    analytics.logEvent('set_center_requirement', payload)
     state.requirement = payload
+
+    gtag('event', 'action', {
+      'action_type': 'select_medicine_requirement',
+      'event_value': payload,
+    })
   },
 
   SET_INFLUX: (state, payload) => {
-    analytics.logEvent('set_center_requirement', payload)
     state.influx = payload
+
+    gtag('event', 'action', {
+      'action_type': 'select_influx',
+      'event_value': payload,
+    })
   },
 
   SET_ENTRANCE: (state, payload) => {
-    analytics.logEvent('set_center_requirement', payload)
     state.entrance = payload
+
+    gtag('event', 'action', {
+      'action_type': 'select_entrance',
+      'event_value': payload,
+    })
   },
 }
 
 let actions = {
-  CENTROS_HORARIOS_VACUNA: ({ commit }) => {
-    let postParams = {
-      departamento: '',
-      municipio: '',
-      vacuna: '',
-      grupo: '',
-      dosis: '',
-      requisito: '',
-      afluencia: '',
-      ingreso: '',
-      dia: '',
-    }
-    axios
-      .post(process.env.VUE_APP_HOST + '/filtrarCentrosVacunacion', postParams)
-      .then((result) => {
-        let data = result.data.value
-        data.forEach((element) => {
-          delete element.$loki
-        })
-        if (data.length > 0) {
-          commit('set_centros', data)
-        }
-      })
-  },
-
   async fetchCenters({ commit }) {
     commit('SET_LOADING', true)
 

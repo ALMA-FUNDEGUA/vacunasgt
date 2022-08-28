@@ -37,9 +37,7 @@ export default {
       }
 
       if (document.readyState === 'complete') {
-        this.$store.dispatch('CENTROS_HORARIOS_VACUNA')
         this.fetchCenters()
-
         this.fetchCovidTest()
       }
     }

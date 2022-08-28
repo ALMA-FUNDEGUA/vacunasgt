@@ -4,9 +4,15 @@ import router from "./router";
 import vuetify from "./plugins/vuetify";
 import store from "./store";
 import wb from "./registerServiceWorker";
-Vue.prototype.$workbox = wb;
 
+import { install } from 'ga-gtag';
+
+Vue.prototype.$workbox = wb;
 Vue.config.productionTip = false;
+
+install(process.env.VUE_APP_GA_MEASUREMENT_ID, {
+  debug_mode: true,
+})
 
 new Vue({
   router,

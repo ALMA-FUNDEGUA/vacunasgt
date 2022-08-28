@@ -284,7 +284,7 @@ export default {
 
   data: () => ({
     searchInput: '',
-    covidDialog: true,
+    // covidDialog: true,
     covidContact: [
       { text: 'Sí', value: 'Sí' },
       { text: 'No', value: 'No' },
@@ -336,7 +336,19 @@ export default {
 
       serviceTypes: 'serviceTypes',
       getServiceType: 'serviceType',
+
+      getFirstVisitModal: 'firstVisitModal',
     }),
+
+    covidDialog: {
+      get() {
+        return this.getFirstVisitModal
+      },
+
+      set(value) {
+        this.setFirstVisitModal(value)
+      }
+    },
 
     testType: {
       get() {
@@ -405,6 +417,7 @@ export default {
       setServiceType: 'SET_SERVICE_TYPE',
       setCovidContact: 'SET_COVID_CONTACT',
       setCovidSymptoms: 'SET_COVID_SYMPTOMS',
+      setFirstVisitModal: 'SET_FIRST_VISIT_MODAL',
     }),
   },
 }
