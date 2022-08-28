@@ -1,4 +1,5 @@
-import { db, analytics } from '../plugins/firebase'
+import { db } from '../plugins/firebase'
+import gtag from 'ga-gtag';
 
 const _ = require('lodash')
 
@@ -15,6 +16,7 @@ let state = () => ({
   loading: true,
   centers: [],
   selected: null,
+  firstVisitModal: true,
 
   department: null,
   municipality: null,
@@ -34,6 +36,8 @@ let getters = {
   centers: (state) => state.centers,
   selected: (state) =>
     state.centers.find((center) => state.selected === center.center),
+
+  firstVisitModal: state => state.firstVisitModal,
 
   filtered: (state) => {
     let centers = state.centers
@@ -160,8 +164,8 @@ let getters = {
   },
 
   serviceType: (state) => state.serviceType,
-  serviceTypes: (_state, getters) => {
-    const ordered = _.chain(getters.filtered)
+  serviceTypes: (state) => {
+    const ordered = _.chain(state.centers)
       .map('tests')
       .flatten()
       .map('serviceType')
@@ -173,16 +177,12 @@ let getters = {
   },
 
   simpleSchedule: (state) => state.simpleSchedule,
-  simpleSchedules: (_state, getters) => {
-    const ordered = _.chain(getters.filtered)
+  simpleSchedules: (state) => {
+    const ordered = _.chain(state.centers)
       .map('simpleSchedule')
       .uniq()
       .orderBy()
       .value()
-
-    // if (ordered[1] === 'Mixto') {
-    //  ordered[1] = 'Lunes a Sábado'
-    //}
 
     return toUpperCase(ordered)
   },
@@ -194,45 +194,78 @@ let mutations = {
   SET_CENTERS: (state, payload) => (state.centers = payload),
   SET_SELECTED: (state, payload) => (state.selected = payload),
 
+  SET_FIRST_VISIT_MODAL: (state, payload) => state.firstVisitModal = payload,
+
   SET_DEPARTMENT: (state, payload) => {
-    analytics.logEvent('set_test_department', { value: payload })
     state.department = payload
+
+    gtag('event', 'action', {
+      'action_type': 'select_department',
+      'event_value': payload,
+    })
   },
 
   SET_MUNICIPALITY: (state, payload) => {
-    analytics.logEvent('set_test_municipality', { value: payload })
     state.municipality = payload
+
+    gtag('event', 'action', {
+      'action_type': 'select_municipality',
+      'event_value': payload,
+    })
   },
 
   SET_ZONE: (state, payload) => {
-    analytics.logEvent('set_test_zone', { value: payload })
     state.zone = payload
+
+    gtag('event', 'action', {
+      'action_type': 'select_zone',
+      'event_value': payload,
+    })
   },
 
   SET_TEST_TYPE: (state, payload) => {
-    analytics.logEvent('set_test_type', { value: payload })
     state.testType = payload
+
+    gtag('event', 'action', {
+      'action_type': 'select_test_type',
+      'event_value': payload,
+    })
   },
 
   SET_SERVICE_TYPE: (state, payload) => {
-    analytics.logEvent('set_test_service_type', { value: payload })
     state.serviceType = payload
+
+    gtag('event', 'action', {
+      'action_type': 'select_service_type',
+      'event_value': payload,
+    })
   },
 
   SET_SIMPLE_SCHEDULE: (state, payload) => {
-    analytics.logEvent('set_test_sched', { value: payload })
-
     state.simpleSchedule = payload
+
+    gtag('event', 'action', {
+      'action_type': 'select_schedule',
+      'event_value': payload,
+    })
   },
 
   SET_COVID_CONTACT: (state, payload) => {
-    analytics.logEvent('set_covid_contact', { value: payload })
     state.covidContact = payload
+
+    gtag('event', 'action', {
+      'action_type': 'has_covid_contact',
+      'event_value': payload,
+    })
   },
 
   SET_COVID_SYMPTOMS: (state, payload) => {
-    analytics.logEvent('set_covid_symptoms', { value: payload })
     state.covidSymptoms = payload
+
+    gtag('event', 'action', {
+      'action_type': 'covid_symptoms',
+      'event_value': payload,
+    })
   },
 }
 

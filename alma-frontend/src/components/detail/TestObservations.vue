@@ -6,27 +6,15 @@
           <span class="font-weight-bold"> </span>
         </v-col>
 
-        <v-row
-          v-for="(item, i) in testsAvailable.slice(0, 1)"
-          :key="i"
-          class="pa-0 pb-1 pt-2 caption"
-        >
-          <span class="font-weight-medium" v-if="item.specificSchedule != null">
-            <span class="font-weight-bold"> Horario:</span>
-            {{ item.specificSchedule }}
-          </span>
-
-          <span class="font-weight-medium" v-else>
-            <span class="font-weight-bold"> Horario:</span>
-            Por confirmar
-          </span>
-        </v-row>
-
-        <v-row>
-          <span class="font-weight-medium caption mb-5">
+        <v-col cols="8" class="pa-0 pb-2 caption">
+          <span v-if="item.tests[0].observations" class="font-weight-medium caption mb-5">
             {{ item.tests[0].observations }}
           </span>
-        </v-row>
+
+          <span v-else class="caption mb-5">
+            Sin información adicional
+          </span>
+        </v-col>
 
         <div class="mt-1">
           <v-btn rounded @click="onShare" class="mb-2"> Compartir </v-btn>

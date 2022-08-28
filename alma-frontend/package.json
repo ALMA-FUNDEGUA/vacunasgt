@@ -12,6 +12,7 @@
     "core-js": "^3.22.5",
     "dotenv": "^10.0.0",
     "firebase": "^9.0.1",
+    "ga-gtag": "^1.1.1",
     "leaflet": "^1.8.0",
     "lodash": "^4.17.21",
     "register-service-worker": "^1.7.2",
