@@ -3,7 +3,7 @@
     <header class="banner mb-4">
       <v-toolbar flat>
         <v-toolbar-title>
-          <span class="site-title">Alma</span>
+          <span class="site-title">alma</span>
         </v-toolbar-title>
         <v-spacer />
       </v-toolbar>

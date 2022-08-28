@@ -35,7 +35,7 @@
                 text-align: center;
               "
             >
-              Alma
+              alma
             </span>
 
             &nbsp;
