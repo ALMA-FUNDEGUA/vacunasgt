@@ -475,7 +475,7 @@ let mutations = {
 
     gtag('event', 'action', {
       'action_type': 'select_department',
-      'event_value': payload,
+      'event_value': payload || '<< empty_value >>',
     })
   },
 
@@ -484,7 +484,7 @@ let mutations = {
 
     gtag('event', 'action', {
       'action_type': 'select_municipality',
-      'event_value': payload,
+      'event_value': payload || '<< empty_value >>',
     })
   },
 
@@ -493,7 +493,7 @@ let mutations = {
 
     gtag('event', 'action', {
       'action_type': 'select_vaccine',
-      'event_value': payload,
+      'event_value': payload || '<< empty_value >>',
     })
   },
 
@@ -502,7 +502,7 @@ let mutations = {
 
     gtag('event', 'action', {
       'action_type': 'select_medicine_dose',
-      'event_value': payload,
+      'event_value': payload || '<< empty_value >>',
     })
   },
 
@@ -511,7 +511,7 @@ let mutations = {
 
     gtag('event', 'action', {
       'action_type': 'select_medicine_dose',
-      'event_value': payload,
+      'event_value': payload || '<< empty_value >>',
     })
   },
 
@@ -520,7 +520,7 @@ let mutations = {
 
     gtag('event', 'action', {
       'action_type': 'select_medicine_requirement',
-      'event_value': payload,
+      'event_value': payload || '<< empty_value >>',
     })
   },
 
@@ -529,7 +529,7 @@ let mutations = {
 
     gtag('event', 'action', {
       'action_type': 'select_influx',
-      'event_value': payload,
+      'event_value': payload || '<< empty_value >>',
     })
   },
 
@@ -538,7 +538,7 @@ let mutations = {
 
     gtag('event', 'action', {
       'action_type': 'select_entrance',
-      'event_value': payload,
+      'event_value': payload || '<< empty_value >>',
     })
   },
 }

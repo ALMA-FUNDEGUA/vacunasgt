@@ -201,7 +201,7 @@ let mutations = {
 
     gtag('event', 'action', {
       'action_type': 'select_department',
-      'event_value': payload,
+      'event_value': payload || '<< empty_value >>',
     })
   },
 
@@ -210,7 +210,7 @@ let mutations = {
 
     gtag('event', 'action', {
       'action_type': 'select_municipality',
-      'event_value': payload,
+      'event_value': payload || '<< empty_value >>',
     })
   },
 
@@ -219,7 +219,7 @@ let mutations = {
 
     gtag('event', 'action', {
       'action_type': 'select_zone',
-      'event_value': payload,
+      'event_value': payload || '<< empty_value >>',
     })
   },
 
@@ -228,7 +228,7 @@ let mutations = {
 
     gtag('event', 'action', {
       'action_type': 'select_test_type',
-      'event_value': payload,
+      'event_value': payload || '<< empty_value >>',
     })
   },
 
@@ -237,7 +237,7 @@ let mutations = {
 
     gtag('event', 'action', {
       'action_type': 'select_service_type',
-      'event_value': payload,
+      'event_value': payload || '<< empty_value >>',
     })
   },
 
@@ -246,7 +246,7 @@ let mutations = {
 
     gtag('event', 'action', {
       'action_type': 'select_schedule',
-      'event_value': payload,
+      'event_value': payload || '<< empty_value >>',
     })
   },
 
@@ -255,7 +255,7 @@ let mutations = {
 
     gtag('event', 'action', {
       'action_type': 'has_covid_contact',
-      'event_value': payload,
+      'event_value': payload || '<< empty_value >>',
     })
   },
 
@@ -264,7 +264,7 @@ let mutations = {
 
     gtag('event', 'action', {
       'action_type': 'covid_symptoms',
-      'event_value': payload,
+      'event_value': payload || '<< empty_value >>',
     })
   },
 }
