@@ -11,7 +11,7 @@ Vue.prototype.$workbox = wb;
 Vue.config.productionTip = false;
 
 install(process.env.VUE_APP_GA_MEASUREMENT_ID, {
-  debug_mode: true,
+  debug_mode: process.env.NODE_ENV === 'development',
 })
 
 new Vue({
