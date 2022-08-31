@@ -45,6 +45,7 @@
               </p>
 
               <v-autocomplete
+                v-if="!$vuetify.breakpoint.mdAndUp"
                 v-model="hasSymptoms"
                 placeholder="Busca tus síntomas"
                 persistent-placeholder="true"
@@ -55,10 +56,25 @@
                 multiple
                 clearable
                 class="filter-input"
-                autocomplete
                 :search-input.sync="searchInput"
                 @change="searchInput = ''"
               ></v-autocomplete>
+
+              <v-select
+                v-else
+                v-model="hasSymptoms"
+                placeholder="Busca tus síntomas"
+                persistent-placeholder="true"
+                :items="covidSymptoms"
+                hide-details
+                outlined
+                dense
+                multiple
+                clearable
+                class="filter-input"
+                :search-input.sync="searchInput"
+                @change="searchInput = ''"
+              ></v-select>
             </v-col>
           </v-row>
 
@@ -225,10 +241,11 @@ export default {
     ],
 
     covidSymptoms: [
+      { text: 'Cansancio', value: 'Cansancio' },
       { text: 'Dolor de garganta', value: 'Odinofagia' },
       { text: 'Mocos', value: 'Mocos' },
       { text: 'Escalofríos', value: 'Escalofríos' },
-      { text: 'Cansancio', value: 'Cansancio' },
+
       {
         text: 'Dolor muscular o articulaciones',
         value: 'Dolor muscular o articulaciones',
