@@ -16,7 +16,7 @@
         :fullscreen="!$vuetify.breakpoint.mdAndUp"
       >
         <v-card style="overflow-y: hidden; overflow-x: hidden">
-          <v-btn style="margin-left: 93%" icon @click="exitCovidQuestions">
+          <v-btn style="margin-left: 90%" icon @click="exitCovidQuestions">
             <v-icon>mdi-close</v-icon>
           </v-btn>
           <v-row>
@@ -46,7 +46,7 @@
 
               <v-autocomplete
                 v-model="hasSymptoms"
-                placeholder="Selecciona tu opción"
+                placeholder="Busca tus síntomas"
                 persistent-placeholder="true"
                 :items="covidSymptoms"
                 hide-details
@@ -207,7 +207,7 @@
 <script>
 import { mapMutations, mapGetters } from 'vuex'
 
-import gtag from 'ga-gtag';
+import gtag from 'ga-gtag'
 
 export default {
   props: {
@@ -280,7 +280,7 @@ export default {
 
       set(value) {
         this.setFirstVisitModal(value)
-      }
+      },
     },
 
     testType: {
@@ -339,9 +339,9 @@ export default {
       this.covidDialog = false
 
       gtag('event', 'action', {
-        'action_type': 'send_contact_covid',
-        'has_covid': this.hasCovid,
-        'event_value': this.hasSymptoms
+        action_type: 'send_contact_covid',
+        has_covid: this.hasCovid,
+        event_value: this.hasSymptoms,
       })
     },
 
@@ -349,10 +349,10 @@ export default {
       this.covidDialog = false
 
       gtag('event', 'action', {
-        'action_type': 'close_contact_covid_dialog',
+        action_type: 'close_contact_covid_dialog',
       })
     },
-  
+
     ...mapMutations('covidTestStore', {
       setTestType: 'SET_TEST_TYPE',
       setSchedule: 'SET_SIMPLE_SCHEDULE',
