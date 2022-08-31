@@ -252,20 +252,10 @@ let mutations = {
 
   SET_COVID_CONTACT: (state, payload) => {
     state.covidContact = payload
-
-    gtag('event', 'action', {
-      'action_type': 'has_covid_contact',
-      'event_value': payload,
-    })
   },
 
   SET_COVID_SYMPTOMS: (state, payload) => {
     state.covidSymptoms = payload
-
-    gtag('event', 'action', {
-      'action_type': 'covid_symptoms',
-      'event_value': payload,
-    })
   },
 }
 
