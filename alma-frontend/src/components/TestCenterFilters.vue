@@ -9,84 +9,12 @@
         </v-col>
       </v-row>
 
-      <v-row v-if="!$vuetify.breakpoint.mdAndUp">
-        <v-dialog v-model="covidDialog" persistent fullscreen>
-          <v-card style="overflow-y: hidden; overflow-x: hidden">
-            <v-btn style="margin-left: 90%" icon @click="exitCovidQuestions">
-              <v-icon>mdi-close</v-icon>
-            </v-btn>
-            <v-row>
-              <v-col style="padding: 5% 10% 0% 10%">
-                <p class="mb-1 font-weight-medium">
-                  ¿Has tenido contacto con alguien COVID-19 positivo?*
-                </p>
-
-                <v-select
-                  placeholder="Selecciona tu opción"
-                  :items="covidContact"
-                  hide-details
-                  outlined
-                  dense
-                  clearable
-                  class="filter-input"
-                ></v-select>
-              </v-col>
-            </v-row>
-
-            <v-row>
-              <v-col style="padding: 5% 10% 0% 10%">
-                <p class="mb-1 font-weight-medium">
-                  Si has tenido síntomas ¿Cuáles han sido?*
-                </p>
-                <v-autocomplete
-                  placeholder="Selecciona tu opción"
-                  :items="covidSymptoms"
-                  hide-details="auto"
-                  outlined
-                  dense
-                  multiple
-                  clearable
-                  class="filter-input"
-                  autocomplete
-                  :search-input.sync="searchInput"
-                  @change="searchInput = ''"
-                ></v-autocomplete>
-              </v-col>
-            </v-row>
-
-            <v-row
-              ><v-col align="center" justify="center" style="margin-top: 2%">
-                <v-btn
-                  color="#FFD789"
-                  rounded
-                  elevation="0"
-                  class="no-uppercase"
-                  @click="sendAnswers"
-                >
-                  Siguiente
-                </v-btn></v-col
-              ></v-row
-            >
-            <v-row>
-              <v-col>
-                <v-col
-                  class="caption"
-                  style="text-align: justify; padding: 5%; margin-top: -5%"
-                >
-                  <span style="font-weight: bold"> Nota:</span>
-                  <span>
-                    Gracias por tu respuesta. Los datos que proporcionas son
-                    anónimos y confidenciales, serán utilizados únicamente para
-                    fines estadísticos y de mejora de nuestros servicios.
-                  </span>
-                </v-col>
-              </v-col>
-            </v-row>
-          </v-card>
-        </v-dialog>
-      </v-row>
-
-      <v-dialog v-model="covidDialog" max-width="700" persistent v-else>
+      <v-dialog
+        v-model="covidDialog"
+        max-width="700px"
+        persistent
+        :fullscreen="!$vuetify.breakpoint.mdAndUp"
+      >
         <v-card style="overflow-y: hidden; overflow-x: hidden">
           <v-btn style="margin-left: 93%" icon @click="exitCovidQuestions">
             <v-icon>mdi-close</v-icon>
@@ -98,6 +26,7 @@
               </p>
 
               <v-select
+                v-model="hasCovid"
                 placeholder="Selecciona tu opción"
                 :items="covidContact"
                 hide-details
@@ -114,7 +43,9 @@
               <p class="mb-1 font-weight-medium">
                 Si has tenido síntomas ¿Cuáles han sido?*
               </p>
+
               <v-autocomplete
+                v-model="hasSymptoms"
                 placeholder="Selecciona tu opción"
                 persistent-placeholder="true"
                 :items="covidSymptoms"
@@ -276,6 +207,8 @@
 <script>
 import { mapMutations, mapGetters } from 'vuex'
 
+import gtag from 'ga-gtag';
+
 export default {
   props: {
     dialog: {
@@ -286,14 +219,9 @@ export default {
 
   data: () => ({
     searchInput: '',
-    // covidDialog: true,
     covidContact: [
-      { text: 'Sí', value: 'Sí' },
-      { text: 'No', value: 'No' },
-    ],
-    covidPositive: [
-      { text: 'Sí', value: 'Sí' },
-      { text: 'No', value: 'No' },
+      { text: 'Sí', value: true },
+      { text: 'No', value: false },
     ],
 
     covidSymptoms: [
@@ -320,6 +248,9 @@ export default {
       { text: 'Arrastra palabras', value: 'Disartria' },
       { text: 'Tos con sangre', value: 'Tos con sangre' },
     ],
+
+    hasCovid: null,
+    hasSymptoms: [],
   }),
 
   computed: {
@@ -406,11 +337,22 @@ export default {
   methods: {
     sendAnswers() {
       this.covidDialog = false
+
+      gtag('event', 'action', {
+        'action_type': 'send_contact_covid',
+        'has_covid': this.hasCovid,
+        'event_value': this.hasSymptoms
+      })
     },
 
     exitCovidQuestions() {
       this.covidDialog = false
+
+      gtag('event', 'action', {
+        'action_type': 'close_contact_covid_dialog',
+      })
     },
+  
     ...mapMutations('covidTestStore', {
       setTestType: 'SET_TEST_TYPE',
       setSchedule: 'SET_SIMPLE_SCHEDULE',
