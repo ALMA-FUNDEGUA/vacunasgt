@@ -22,7 +22,7 @@
         precios que se muestran están sujetos a cambios y son responsabilidad de
         cada empresa. Con el fin de mostrar información certera y actualizada,
         nuestro equipo se encuentra en constante actualización de la base de
-        datos
+        datos.
       </span>
     </v-col>
   </section>
