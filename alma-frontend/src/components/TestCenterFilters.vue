@@ -48,7 +48,6 @@
                 v-if="!$vuetify.breakpoint.mdAndUp"
                 v-model="hasSymptoms"
                 placeholder="Busca tus síntomas"
-                persistent-placeholder="true"
                 :items="covidSymptoms"
                 hide-details
                 outlined
@@ -64,7 +63,6 @@
                 v-else
                 v-model="hasSymptoms"
                 placeholder="Busca tus síntomas"
-                persistent-placeholder="true"
                 :items="covidSymptoms"
                 hide-details
                 outlined
@@ -164,7 +162,7 @@
         <v-col>
           <p class="mb-1 font-weight-medium">Horario</p>
 
-          <v-select
+          <!-- <v-select
             v-model="schedule"
             :items="schedules"
             placeholder="Ver Todos"
@@ -173,7 +171,28 @@
             dense
             clearable
             class="filter-input"
-          ></v-select>
+          ></v-select> -->
+
+          <v-container>
+            <v-row>
+              <v-col
+                cols="12"
+                class="pa-0"
+                v-for="(type, i) in schedules"
+                :key="i"
+              >
+                <v-checkbox
+                  v-model="schedule"
+                  :label="type.text"
+                  :value="type.text"
+                  color="#6751EE"
+                  hide-details
+                  class="mt-1"
+                  multiple
+                ></v-checkbox>
+              </v-col>
+            </v-row>
+          </v-container>
         </v-col>
       </v-row>
 
