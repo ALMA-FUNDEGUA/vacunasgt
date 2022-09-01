@@ -99,7 +99,7 @@
                 <span>
                   Gracias por tu respuesta. Los datos que proporcionas son
                   anónimos y confidenciales, serán utilizados únicamente para
-                  fines estadísticos y de mejora de nuestros servicios.
+                  fines estadísticos y para mejorar nuestros servicios.
                 </span>
               </v-col>
             </v-col>
