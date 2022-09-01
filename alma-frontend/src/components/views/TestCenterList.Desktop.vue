@@ -14,9 +14,7 @@
               </v-list-item-avatar>
 
               <v-list-item-content>
-                <v-list-item-subtitle class="text-decoration-underline">
-                  Regresar a inicio
-                </v-list-item-subtitle>
+                <v-list-item-subtitle> Regresar a inicio </v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
           </v-list>
