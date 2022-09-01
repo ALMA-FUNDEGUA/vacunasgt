@@ -16,7 +16,7 @@
         :fullscreen="!$vuetify.breakpoint.mdAndUp"
       >
         <v-card style="overflow-y: hidden; overflow-x: hidden">
-          <v-btn style="margin-left: 93%" icon @click="exitCovidQuestions">
+          <v-btn style="margin-left: 90%" icon @click="exitCovidQuestions">
             <v-icon>mdi-close</v-icon>
           </v-btn>
           <v-row>
@@ -45,9 +45,9 @@
               </p>
 
               <v-autocomplete
+                v-if="!$vuetify.breakpoint.mdAndUp"
                 v-model="hasSymptoms"
-                placeholder="Selecciona tu opción"
-                persistent-placeholder="true"
+                placeholder="Busca tus síntomas"
                 :items="covidSymptoms"
                 hide-details
                 outlined
@@ -55,10 +55,24 @@
                 multiple
                 clearable
                 class="filter-input"
-                autocomplete
                 :search-input.sync="searchInput"
                 @change="searchInput = ''"
               ></v-autocomplete>
+
+              <v-select
+                v-else
+                v-model="hasSymptoms"
+                placeholder="Busca tus síntomas"
+                :items="covidSymptoms"
+                hide-details
+                outlined
+                dense
+                multiple
+                clearable
+                class="filter-input"
+                :search-input.sync="searchInput"
+                @change="searchInput = ''"
+              ></v-select>
             </v-col>
           </v-row>
 
@@ -85,7 +99,7 @@
                 <span>
                   Gracias por tu respuesta. Los datos que proporcionas son
                   anónimos y confidenciales, serán utilizados únicamente para
-                  fines estadísticos y de mejora de nuestros servicios.
+                  fines estadísticos y para mejorar nuestros servicios.
                 </span>
               </v-col>
             </v-col>
@@ -148,7 +162,7 @@
         <v-col>
           <p class="mb-1 font-weight-medium">Horario</p>
 
-          <v-select
+          <!-- <v-select
             v-model="schedule"
             :items="schedules"
             placeholder="Ver Todos"
@@ -157,7 +171,28 @@
             dense
             clearable
             class="filter-input"
-          ></v-select>
+          ></v-select> -->
+
+          <v-container>
+            <v-row>
+              <v-col
+                cols="12"
+                class="pa-0"
+                v-for="(type, i) in schedules"
+                :key="i"
+              >
+                <v-checkbox
+                  v-model="schedule"
+                  :label="type.text"
+                  :value="type.text"
+                  color="#6751EE"
+                  hide-details
+                  class="mt-1"
+                  multiple
+                ></v-checkbox>
+              </v-col>
+            </v-row>
+          </v-container>
         </v-col>
       </v-row>
 
@@ -207,7 +242,7 @@
 <script>
 import { mapMutations, mapGetters } from 'vuex'
 
-import gtag from 'ga-gtag';
+import gtag from 'ga-gtag'
 
 export default {
   props: {
@@ -225,10 +260,11 @@ export default {
     ],
 
     covidSymptoms: [
+      { text: 'Cansancio', value: 'Cansancio' },
       { text: 'Dolor de garganta', value: 'Odinofagia' },
       { text: 'Mocos', value: 'Mocos' },
       { text: 'Escalofríos', value: 'Escalofríos' },
-      { text: 'Cansancio', value: 'Cansancio' },
+
       {
         text: 'Dolor muscular o articulaciones',
         value: 'Dolor muscular o articulaciones',
@@ -280,7 +316,7 @@ export default {
 
       set(value) {
         this.setFirstVisitModal(value)
-      }
+      },
     },
 
     testType: {
@@ -339,9 +375,9 @@ export default {
       this.covidDialog = false
 
       gtag('event', 'action', {
-        'action_type': 'send_contact_covid',
-        'has_covid': this.hasCovid,
-        'event_value': this.hasSymptoms
+        action_type: 'send_contact_covid',
+        has_covid: this.hasCovid,
+        event_value: this.hasSymptoms,
       })
     },
 
@@ -349,10 +385,10 @@ export default {
       this.covidDialog = false
 
       gtag('event', 'action', {
-        'action_type': 'close_contact_covid_dialog',
+        action_type: 'close_contact_covid_dialog',
       })
     },
-  
+
     ...mapMutations('covidTestStore', {
       setTestType: 'SET_TEST_TYPE',
       setSchedule: 'SET_SIMPLE_SCHEDULE',
