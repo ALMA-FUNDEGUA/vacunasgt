@@ -14,9 +14,7 @@
               </v-list-item-avatar>
 
               <v-list-item-content>
-                <v-list-item-subtitle class="text-decoration-underline">
-                  Regresar a inicio
-                </v-list-item-subtitle>
+                <v-list-item-subtitle> Regresar a inicio </v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -35,13 +33,13 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from 'vuex'
 
-import AppBar from "@/components/AppBar.vue";
-import SiteFooter from "@/components/SiteFooter.Desktop.vue";
-import MapFilter from '@/components/maps/MapFilter.vue';
-import FilterTopBarDesktop from '@/components/filters/FilterTopBar.Desktop.vue';
-import ListIteratorDesktop from '@/components/list/ListIterator.Desktop.vue';
+import AppBar from '@/components/AppBar.vue'
+import SiteFooter from '@/components/SiteFooter.Desktop.vue'
+import MapFilter from '@/components/maps/MapFilter.vue'
+import FilterTopBarDesktop from '@/components/filters/FilterTopBar.Desktop.vue'
+import ListIteratorDesktop from '@/components/list/ListIterator.Desktop.vue'
 
 export default {
   components: {
@@ -61,7 +59,7 @@ export default {
     ...mapGetters({
       items: 'filtered',
       getVaccine: 'vaccine',
-    })
+    }),
   },
 }
 </script>
