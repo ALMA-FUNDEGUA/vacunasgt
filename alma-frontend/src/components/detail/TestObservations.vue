@@ -48,20 +48,25 @@ export default {
     },
 
     async onShare() {
-      if (navigator.canShare) {
-        await navigator.share({
-          title: 'VacunasGT Center',
-          url: window.location.href,
-        })
-      } else {
-        try {
-          await navigator.clipboard.writeText(window.location.href)
-          alert('URL copiado')
-        } catch ($e) {
-          alert('No se pudo copiar el URL')
-        }
+      const toShareData = {
+        title: 'VacunasGT Center',
+        url: window.location.href,
       }
+
+      if (navigator.canShare && navigator.canShare(toShareData))
+        await navigator.share(toShareData)
+      else
+        await this.copyToClipboard()
     },
+
+    async copyToClipboard() {
+      try {
+        await navigator.clipboard.writeText(window.location.href)
+        alert('URL copiado')
+      } catch ($e) {
+        alert('No se pudo copiar el URL')
+      }
+    }
   },
 }
 </script>
