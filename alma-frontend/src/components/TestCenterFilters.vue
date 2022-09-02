@@ -48,7 +48,7 @@
                 v-if="!$vuetify.breakpoint.mdAndUp"
                 v-model="hasSymptoms"
                 placeholder="Busca tus síntomas"
-                :items="covidSymptoms"
+                :items="orderedSymptoms()"
                 hide-details
                 outlined
                 dense
@@ -63,7 +63,7 @@
                 v-else
                 v-model="hasSymptoms"
                 placeholder="Busca tus síntomas"
-                :items="covidSymptoms"
+                :items="orderedSymptoms()"
                 hide-details
                 outlined
                 dense
@@ -371,6 +371,9 @@ export default {
   },
 
   methods: {
+    orderedSymptoms() {
+      return this.covidSymptoms.sort((a, b) => (a.text > b.text ? 1 : -1))
+    },
     sendAnswers() {
       this.covidDialog = false
 
