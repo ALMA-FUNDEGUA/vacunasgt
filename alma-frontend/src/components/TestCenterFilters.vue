@@ -378,9 +378,13 @@ export default {
       this.covidDialog = false
 
       gtag('event', 'action', {
-        action_type: 'send_contact_covid',
-        has_covid: this.hasCovid,
+        action_type: 'contact_covid_symptoms',
         event_value: this.hasSymptoms,
+      })
+
+      gtag('event', 'action', {
+        action_type: 'contact_covid',
+        event_value: this.hasCovid,
       })
     },
 
