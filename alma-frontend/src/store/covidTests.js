@@ -91,7 +91,8 @@ let getters = {
         condition: () => !!state.simpleSchedule,
         predicate: (item) => {
           for (const { simpleSchedule } of item.tests) {
-            if (simpleSchedule === state.simpleSchedule) return true
+            const index = state.simpleSchedule.indexOf(simpleSchedule)
+            if (index !== -1) return true
           }
 
           return false

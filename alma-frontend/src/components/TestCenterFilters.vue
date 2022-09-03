@@ -45,7 +45,7 @@
               </p>
 
               <v-autocomplete
-                v-if="!$vuetify.breakpoint.mdAndUp"
+                v-if="$vuetify.breakpoint.mdAndUp"
                 v-model="hasSymptoms"
                 placeholder="Busca tus síntomas"
                 :items="orderedSymptoms()"
@@ -70,8 +70,7 @@
                 multiple
                 clearable
                 class="filter-input"
-                :search-input.sync="searchInput"
-                @change="searchInput = ''"
+                :menu-props="{ offsetY: true }"
               ></v-select>
             </v-col>
           </v-row>
@@ -260,29 +259,25 @@ export default {
     ],
 
     covidSymptoms: [
-      { text: 'Cansancio', value: 'Cansancio' },
-      { text: 'Dolor de garganta', value: 'Odinofagia' },
-      { text: 'Mocos', value: 'Mocos' },
-      { text: 'Escalofríos', value: 'Escalofríos' },
-
-      {
-        text: 'Dolor muscular o articulaciones',
-        value: 'Dolor muscular o articulaciones',
-      },
-      { text: 'Dolor de cabeza', value: 'Dolor de cabeza' },
-      { text: 'Náuseas', value: 'Náuseas' },
-      { text: 'Dolor de estómago', value: 'Dolor de estómago' },
-      { text: 'Diarrea', value: 'Diarrea' },
-      { text: 'Dificultad para respirar', value: 'Dificultad para respirar' },
-      { text: 'Pérdida de olfato', value: 'Pérdida de olfato' },
-      { text: 'Pérdida de gusto', value: 'Pérdida de gusto' },
-      { text: 'Dolor de pecho', value: 'Dolor de pecho' },
-      { text: 'Tos', value: 'Tos' },
-      { text: 'Fiebre alta', value: 'Fiebre alta' },
-      { text: 'Pérdida de consciencia', value: 'Pérdida de consciencia' },
-      { text: 'Convulsiones', value: 'Convulsiones' },
-      { text: 'Arrastra palabras', value: 'Disartria' },
-      { text: 'Tos con sangre', value: 'Tos con sangre' },
+      { text: 'Cansancio', value: 'isFatigued' },
+      { text: 'Dolor de garganta', value: 'hasSorethroat' },
+      { text: 'Mocos', value: 'hasRunnyNose' },
+      { text: 'Escalofríos', value: 'hasChills' },
+      { text: 'Dolor muscular o articulaciones', value: 'hasMuscleAche' },
+      { text: 'Dolor de cabeza', value: 'hasHeadache' },
+      { text: 'Náuseas', value: 'hasNausea' },
+      { text: 'Dolor de estómago', value: 'hasStomachache' },
+      { text: 'Diarrea', value: 'hasDiarrhea' },
+      { text: 'Dificultad para respirar', value: 'breathing' },
+      { text: 'Pérdida de olfato', value: 'hasAnosmia' },
+      { text: 'Pérdida de gusto', value: 'hasLossOfTaste' },
+      { text: 'Dolor de pecho', value: 'hasChestpain' },
+      { text: 'Tos', value: 'hasCough' },
+      { text: 'Fiebre alta', value: 'hasFever' },
+      { text: 'Pérdida de consciencia', value: 'isConfused' },
+      { text: 'Convulsiones', value: 'hasConvulsions' },
+      { text: 'Arrastra palabras', value: 'isSlurring' },
+      { text: 'Tos con sangre', value: 'hasBloodycough' },
     ],
 
     hasCovid: null,
@@ -367,13 +362,10 @@ export default {
       set(value) {
         this.setServiceType(value)
       },
-    },
+    }
   },
 
   methods: {
-    orderedSymptoms() {
-      return this.covidSymptoms.sort((a, b) => (a.text > b.text ? 1 : -1))
-    },
     sendAnswers() {
       this.covidDialog = false
 
@@ -406,6 +398,12 @@ export default {
       setCovidSymptoms: 'SET_COVID_SYMPTOMS',
       setFirstVisitModal: 'SET_FIRST_VISIT_MODAL',
     }),
+
+    orderedSymptoms() {
+      return this.covidSymptoms.slice().sort(
+        (a, b) => a.text.localeCompare(b.text),
+      )
+    },
   },
 }
 </script>

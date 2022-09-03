@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve --mode development",
     "build": "vue-cli-service build --mode production",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "preview": "vue-cli-service build --mode development && firebase hosting:channel:deploy preview_link"
   },
   "dependencies": {
     "axios": "^0.21.1",
