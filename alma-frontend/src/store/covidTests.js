@@ -90,18 +90,21 @@ let getters = {
         // Filter by simpleSchedule
         condition: () => !!state.simpleSchedule,
         predicate: (item) => {
-          for (const { simpleSchedule } of item.tests) {
-            const index = state.simpleSchedule.indexOf(simpleSchedule)
-            if (index !== -1) return true
-          }
+          const index = state.simpleSchedule.indexOf(
+            item.simpleSchedule.toUpperCase())
 
+          if (index !== -1) return true
           return false
         },
       },
     ]
 
     for (const filter of filters)
-      if (filter.condition()) centers = centers.filter(filter.predicate)
+      if (filter.condition()) {
+        console.log(centers)
+        centers = centers.filter(filter.predicate)
+        console.log(centers)
+      }
 
     return centers
   },
