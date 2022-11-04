@@ -10,7 +10,7 @@
     </section>
 
     <section v-else>
-      <v-container style="background-color: #F8F6FF">
+      <v-container style="background-color: #f8f6ff">
         <v-row>
           <v-col cols="6" class="pr-0 pb-3">
             <filter-vaccine-dialog></filter-vaccine-dialog>
@@ -34,10 +34,10 @@
 </template>
 
 <script>
-import FilterVaccineDialog from './FilterVaccineDialog.vue';
-import FilterDoseDialog from './FilterDoseDialog.vue';
-import FilterMunicipalityDialog from './FilterMunicipalityDialog.vue';
-import FilterDepartmentDialog from './FilterDepartmentDialog.vue';
+import FilterVaccineDialog from './FilterVaccineDialog.vue'
+import FilterDoseDialog from './FilterDoseDialog.vue'
+import FilterMunicipalityDialog from './FilterMunicipalityDialog.vue'
+import FilterDepartmentDialog from './FilterDepartmentDialog.vue'
 
 export default {
   components: {

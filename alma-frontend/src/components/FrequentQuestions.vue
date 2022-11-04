@@ -487,7 +487,7 @@
             color: #3e3e3e;
           "
         >
-          Ver más preguntas frecuentes Aquí
+          Ver más preguntas frecuentes aquí
         </p>
       </a>
       <!-- </v-col> -->
@@ -510,67 +510,67 @@
 export default {
   computed: {
     activeClass() {
-      return this.edited ? "" : "active-panel-normal";
+      return this.edited ? '' : 'active-panel-normal'
     },
   },
   data: () => ({
     links: [
       {
-        question: "¿Qué es COVID-19?",
+        question: '¿Qué es COVID-19?',
         answer:
-          "COVID-19 es el nombre de la enfermedad causada por el virus coronavirus conocido como SARS-CoV-2. SARS por sus siglas en inglés, se refiere al síndrome respiratorio agudo severo. En 2003 se identificó por primera vez un brote de SARS-CoV-1, una enfermedad parecida a influenza pero con una gran capacidad infectar a las personas.  Originalmente el virus infecta animales, como murciélagos. Debido a cambios en los genes del virus, han aparecido nuevas variantes que afectan humanos. El SARS-CoV-2 es un nuevo coronavirus, que causa la enfermedad conocida como COVID-19, descubierta el 31 de diciembre de 2019 en China.",
-        value: "https://igm.gob.gt/control-migratorio/",
+          'COVID-19 es el nombre de la enfermedad causada por el virus coronavirus conocido como SARS-CoV-2. SARS por sus siglas en inglés, se refiere al síndrome respiratorio agudo severo. En 2003 se identificó por primera vez un brote de SARS-CoV-1, una enfermedad parecida a influenza pero con una gran capacidad infectar a las personas.  Originalmente el virus infecta animales, como murciélagos. Debido a cambios en los genes del virus, han aparecido nuevas variantes que afectan humanos. El SARS-CoV-2 es un nuevo coronavirus, que causa la enfermedad conocida como COVID-19, descubierta el 31 de diciembre de 2019 en China.',
+        value: 'https://igm.gob.gt/control-migratorio/',
       },
 
       {
-        question: "Disposiciones Presidenciales: ",
-        answer: "Última actualización",
-        value: "https://sgp.gob.gt/decretos/",
+        question: 'Disposiciones Presidenciales: ',
+        answer: 'Última actualización',
+        value: 'https://sgp.gob.gt/decretos/',
       },
 
       {
-        question: "Noticias Gubernamentales: ",
-        answer: "Facebook oficial del Gobierno de Guatemala",
-        value: "https://www.facebook.com/guatemalagob/",
+        question: 'Noticias Gubernamentales: ',
+        answer: 'Facebook oficial del Gobierno de Guatemala',
+        value: 'https://www.facebook.com/guatemalagob/',
       },
 
       {
-        question: "Sintomas Comunes",
-        answer: "Facebook de MSPAS",
+        question: 'Sintomas Comunes',
+        answer: 'Facebook de MSPAS',
         value:
-          "https://www.facebook.com/MinisteriodeSaludPublicayAsistenciaSocial/?ref=br_rs",
+          'https://www.facebook.com/MinisteriodeSaludPublicayAsistenciaSocial/?ref=br_rs',
       },
 
       {
-        question: "Ministro de Agricultura, Ganadería y Alimentación: ",
-        answer: "Facebook de MAGA",
-        value: "https://www.facebook.com/maga.gt/",
+        question: 'Ministro de Agricultura, Ganadería y Alimentación: ',
+        answer: 'Facebook de MAGA',
+        value: 'https://www.facebook.com/maga.gt/',
       },
 
       {
-        question: "Ministro de Desarrollo Social: ",
-        answer: "Facebook de MIDES",
-        value: "https://www.facebook.com/MidesGuatemala/",
+        question: 'Ministro de Desarrollo Social: ',
+        answer: 'Facebook de MIDES',
+        value: 'https://www.facebook.com/MidesGuatemala/',
       },
 
       {
-        question: "Ministerio de Gobernación: ",
-        answer: "Facebook de MINGOB",
-        value: "https://www.facebook.com/mingobguate/",
+        question: 'Ministerio de Gobernación: ',
+        answer: 'Facebook de MINGOB',
+        value: 'https://www.facebook.com/mingobguate/',
       },
 
       {
-        question: "Ministerio de Economía: ",
-        answer: "Facebook de MINECO",
-        value: "https://www.facebook.com/GUATEMINECO/",
+        question: 'Ministerio de Economía: ',
+        answer: 'Facebook de MINECO',
+        value: 'https://www.facebook.com/GUATEMINECO/',
       },
 
       {
-        question: "Ministerio de Trabajo y Previsión Social: ",
-        answer: "Facebook de MINTRAB",
-        value: "https://www.facebook.com/Mintrabajoguatemala/",
+        question: 'Ministerio de Trabajo y Previsión Social: ',
+        answer: 'Facebook de MINTRAB',
+        value: 'https://www.facebook.com/Mintrabajoguatemala/',
       },
     ],
   }),
-};
+}
 </script>

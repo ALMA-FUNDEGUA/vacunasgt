@@ -3,7 +3,7 @@
     <header class="banner mb-4">
       <v-toolbar flat>
         <v-toolbar-title>
-          <span class="site-title">Alma</span>
+          <span class="site-title">alma</span>
         </v-toolbar-title>
         <v-spacer />
       </v-toolbar>
@@ -47,25 +47,43 @@
       >
         ¡Hola! Soy Alma y estoy aqui para ayudarte.
       </h2>
+      <v-container>
+        <v-btn
+          rounded
+          color="#FFE6B7"
+          large
+          block
+          class="mt-9 my-5 d-flex justify-center"
+          link
+          to="/filters"
+          style="
+            text-align: center;
+            justify-content: center;
+            text-transform: unset !important;
+            width: 72%;
+          "
+        >
+          Buscar mi vacuna
+        </v-btn>
 
-      <v-btn
-        rounded
-        color="#FFE6B7"
-        large
-        block
-        class="mt-9 my-5 mb-15 d-flex justify-center"
-        link
-        to="/filters"
-        style="
-          text-align: center;
-          justify-content: center;
-          text-transform: unset !important;
-          width: 72%;
-        "
-      >
-        Buscar mi vacuna
-      </v-btn>
-
+        <v-btn
+          rounded
+          color="#FFE6B7"
+          large
+          block
+          class="mt-9 my-5 mb-15 d-flex justify-center"
+          link
+          to="/testsfilters"
+          style="
+            text-align: center;
+            justify-content: center;
+            text-transform: unset !important;
+            width: 72%;
+          "
+        >
+          Buscar mi prueba
+        </v-btn>
+      </v-container>
       <!-- </v-card> -->
     </header>
   </section>

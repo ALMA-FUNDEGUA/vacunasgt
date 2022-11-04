@@ -9,17 +9,17 @@
 
       <filter-dialog></filter-dialog>
     </v-app-bar>
-  </section>  
+  </section>
 </template>
 
 <script>
-import FilterInputs from '../../components/filters/FilterInputs.vue';
-import FilterDialog from './FilterDialog.vue';
+import FilterInputs from '../../components/filters/FilterInputs.vue'
+import FilterDialog from './FilterDialog.vue'
 
 export default {
   components: {
     FilterInputs,
     FilterDialog,
-  }
+  },
 }
 </script>

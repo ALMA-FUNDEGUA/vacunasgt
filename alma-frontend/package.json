@@ -3,19 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "serve": "vue-cli-service serve --mode development",
+    "build": "vue-cli-service build --mode production",
+    "lint": "vue-cli-service lint",
+    "preview": "vue-cli-service build --mode development && firebase hosting:channel:deploy preview_link"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.22.5",
     "dotenv": "^10.0.0",
     "firebase": "^9.0.1",
+    "ga-gtag": "^1.1.1",
     "leaflet": "^1.8.0",
     "lodash": "^4.17.21",
     "register-service-worker": "^1.7.2",
     "twitter-widgets": "^2.0.0",
+    "v-dropdown-menu": "^1.3.2",
     "vue": "^2.6.11",
     "vue-auto-virtual-scroll-list": "^0.3.0",
     "vue-axios": "^3.2.5",

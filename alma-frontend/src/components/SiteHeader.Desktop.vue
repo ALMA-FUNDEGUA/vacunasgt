@@ -17,7 +17,19 @@
             class="mt-5 no-uppercase"
             to="/filters"
           >
-            <span class="font-weight-bold"> ¡Buscar mi vacuna! </span>
+            <span class="font-weight-bold"> Buscar mi vacuna </span>
+          </v-btn>
+
+          <v-btn
+            rounded
+            block
+            large
+            elevation="0"
+            color="#FFE6B7"
+            class="mt-5 no-uppercase"
+            to="/testsfilters"
+          >
+            <span class="font-weight-bold"> Buscar mi prueba </span>
           </v-btn>
         </v-col>
 

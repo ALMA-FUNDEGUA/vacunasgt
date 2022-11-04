@@ -5,26 +5,148 @@
         <v-row justify="center">
           <v-col cols="12" md="13">
             <div class="d-flex justify-space-between align-center">
-              <a href="/" class="text-h4 font-weight-bold site-title"> alma </a>
+              <router-link to="/" class="text-h4 font-weight-bold site-title"> alma </router-link>
 
-              <v-btn
-                text
-                small
-                to="/filters"
-                class="no-uppercase font-weight-bold"
-              >
-                Busca Tu Vacuna
-              </v-btn>
+              <DropdownMenu mode="hover">
+                <v-btn
+                  text
+                  small
+                  class="no-uppercase font-weight-bold"
+                  slot="trigger"
+                >
+                  Vacunas y Pruebas
+                </v-btn>
 
-              <v-btn
-                text
-                small
-                href="https://docs.almabot.com/docs/directorios-existentes-2"
-                target="_blank"
-                class="no-uppercase font-weight-bold"
-              >
-                Directorio de Salud
-              </v-btn>
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  to="/filters"
+                >
+                  Vacunas
+                </v-btn>
+
+                <v-btn
+                  slot="footer"
+                  text
+                  small
+                  class="no-uppercase"
+                  to="/testsfilters"
+                >
+                  Pruebas COVID-19
+                </v-btn>
+              </DropdownMenu>
+
+              <DropdownMenu mode="hover">
+                <v-btn
+                  text
+                  small
+                  class="no-uppercase font-weight-bold"
+                  slot="trigger"
+                >
+                  Directorios
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/direccion-area-de-salud-1"
+                  target="_blank"
+                >
+                  Dirección Área de Salud
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/comisarias-pnc-1"
+                  target="_blank"
+                >
+                  Comisarías PNC
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/instituciones-nacionales"
+                  target="_blank"
+                >
+                  Instituciones nacionales
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/donde-hacerse-hisopados-pcr-y-antigeno-en-el-departamento-de-guatemala-gratis-y-pagados-1"
+                  target="_blank"
+                >
+                  Hisopados
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/paginas-oficiales-de-centros-de-vacunaciones-por-departamento-1"
+                  target="_blank"
+                >
+                  Centros de Vacunación
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/donde-conseguir-oxigeno-1"
+                  target="_blank"
+                >
+                  ¿Dónde conseguir oxígeno?
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/medicos-y-centros-que-atienden-covid-19-en-persona-y-digital-1"
+                  target="_blank"
+                >
+                  Médicos y centros
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/servicios-de-salud-mental-1"
+                  target="_blank"
+                >
+                  Salud Mental
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/listado-de-hospitales-publicos-nacionales-1"
+                  target="_blank"
+                >
+                  Hospitales públicos
+                </v-btn>
+              </DropdownMenu>
 
               <v-btn
                 text
@@ -35,6 +157,49 @@
               >
                 Preguntas Frecuentes
               </v-btn>
+              <DropdownMenu mode="hover">
+                <v-btn
+                  text
+                  small
+                  class="no-uppercase font-weight-bold"
+                  slot="trigger"
+                >
+                  Disposiciones
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/requerimientos-ingresosalida-del-pais"
+                  target="_blank"
+                >
+                  Requerimientos de migración
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/disposiciones-presidenciales-2"
+                  target="_blank"
+                >
+                  Disposiciones presidenciales
+                </v-btn>
+
+                <v-btn
+                  slot="body"
+                  text
+                  small
+                  class="no-uppercase"
+                  href="https://docs.almabot.com/docs/noticias-gubernamentales-y-ministeriales-1"
+                  target="_blank"
+                >
+                  Noticias gubernamentales
+                </v-btn>
+              </DropdownMenu>
 
               <v-btn
                 rounded
@@ -64,7 +229,16 @@
     </v-app-bar>
   </section>
 </template>
+<script>
+import DropdownMenu from 'v-dropdown-menu'
+import 'v-dropdown-menu/dist/v-dropdown-menu.css' // Base style, required.
 
+export default {
+  components: {
+    DropdownMenu,
+  },
+}
+</script>
 <style scoped>
 .site-title {
   color: #7f6cf6;

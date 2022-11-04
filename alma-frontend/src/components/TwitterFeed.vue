@@ -17,6 +17,7 @@
         style="
           color: #3e3e3e;
           font-weight: bold;
+          text-decoration: none;
           height: 40px;
           margin-top: 15px;
           margin-bottom: 10px;
@@ -39,13 +40,13 @@
 
 <script>
 // Enable twitter
-var TwitterWidgetsLoader = require("twitter-widgets");
+var TwitterWidgetsLoader = require('twitter-widgets')
 
 export default {
   mounted() {
-    TwitterWidgetsLoader.load();
+    TwitterWidgetsLoader.load()
   },
-};
+}
 // end
 </script>
 

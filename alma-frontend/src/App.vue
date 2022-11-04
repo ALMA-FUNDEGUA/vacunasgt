@@ -9,12 +9,12 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapGetters, mapActions } from 'vuex'
 
-import LoadingPage from './components/LoadingPage.vue';
+import LoadingPage from './components/LoadingPage.vue'
 
 export default {
-  name: "App",
+  name: 'App',
 
   components: {
     LoadingPage,
@@ -24,36 +24,37 @@ export default {
     //
   }),
 
+  computed: {
+    ...mapGetters('covidTestStore', ['loading', 'centers']),
+  },
+
   created() {
     document.onreadystatechange = () => {
       if (this.$workbox) {
-        this.$workbox.addEventListener("waiting", () => {
-          this.showUpdateUI = true;
-        });
+        this.$workbox.addEventListener('waiting', () => {
+          this.showUpdateUI = true
+        })
       }
 
       if (document.readyState === 'complete') {
-        this.$store.dispatch("CENTROS_HORARIOS_VACUNA");
-        this.fetchCenters();
+        this.fetchCenters()
+        this.fetchCovidTest()
       }
     }
   },
 
-  // beforeMount() {
-  //   this.$store.dispatch("CENTROS_HORARIOS_VACUNA");
-
-  //   this.fetchCenters();
-  // },
-
   methods: {
-    ...mapActions(["fetchCenters"]),
+    ...mapActions(['fetchCenters']),
+    ...mapActions('covidTestStore', {
+      fetchCovidTest: 'fetchCenters',
+    }),
   },
-};
+}
 </script>
 
 <style>
-@import "../src/assets/css/general.css";
-@import "../src/assets/libraries/fontawesome/css/all.css";
+@import '../src/assets/css/general.css';
+@import '../src/assets/libraries/fontawesome/css/all.css';
 
 .no-uppercase {
   text-transform: unset !important;
