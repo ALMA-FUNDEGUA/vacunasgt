@@ -9,12 +9,20 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions } from "vuex";
 
-import LoadingPage from './components/LoadingPage.vue'
+import LoadingPage from "./components/LoadingPage.vue";
+
+import HotJar from "vue-hotjar";
+import Vue from "vue";
+
+Vue.use(HotJar, {
+  id: "2536356",
+  isProduction: true,
+});
 
 export default {
-  name: 'App',
+  name: "App",
 
   components: {
     LoadingPage,
@@ -25,36 +33,36 @@ export default {
   }),
 
   computed: {
-    ...mapGetters('covidTestStore', ['loading', 'centers']),
+    ...mapGetters("covidTestStore", ["loading", "centers"]),
   },
 
   created() {
     document.onreadystatechange = () => {
       if (this.$workbox) {
-        this.$workbox.addEventListener('waiting', () => {
-          this.showUpdateUI = true
-        })
+        this.$workbox.addEventListener("waiting", () => {
+          this.showUpdateUI = true;
+        });
       }
 
-      if (document.readyState === 'complete') {
-        this.fetchCenters()
-        this.fetchCovidTest()
+      if (document.readyState === "complete") {
+        this.fetchCenters();
+        this.fetchCovidTest();
       }
-    }
+    };
   },
 
   methods: {
-    ...mapActions(['fetchCenters']),
-    ...mapActions('covidTestStore', {
-      fetchCovidTest: 'fetchCenters',
+    ...mapActions(["fetchCenters"]),
+    ...mapActions("covidTestStore", {
+      fetchCovidTest: "fetchCenters",
     }),
   },
-}
+};
 </script>
 
 <style>
-@import '../src/assets/css/general.css';
-@import '../src/assets/libraries/fontawesome/css/all.css';
+@import "../src/assets/css/general.css";
+@import "../src/assets/libraries/fontawesome/css/all.css";
 
 .no-uppercase {
   text-transform: unset !important;
