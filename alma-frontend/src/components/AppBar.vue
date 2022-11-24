@@ -1,51 +1,23 @@
 <template>
   <section>
-    <v-app-bar app color="#FFFFFF" elevation="2">
+    <v-app-bar app color="#EAE4F3" elevation="2">
       <v-container>
         <v-row justify="center">
-          <v-col cols="12" md="13">
-            <div class="d-flex justify-space-between align-center">
-              <router-link to="/" class="text-h4 font-weight-bold site-title"> alma </router-link>
+          <v-col cols="11">
+            <div class="d-flex app-bar">
+              <router-link to="/" class="text-h4 font-weight-bold site-title">
+                alma
+              </router-link>
 
               <DropdownMenu mode="hover">
                 <v-btn
                   text
                   small
-                  class="no-uppercase font-weight-bold"
+                  color="#200765"
+                  class="no-uppercase font-weight-black"
                   slot="trigger"
                 >
-                  Vacunas y Pruebas
-                </v-btn>
-
-                <v-btn
-                  slot="body"
-                  text
-                  small
-                  class="no-uppercase"
-                  to="/filters"
-                >
-                  Vacunas
-                </v-btn>
-
-                <v-btn
-                  slot="footer"
-                  text
-                  small
-                  class="no-uppercase"
-                  to="/testsfilters"
-                >
-                  Pruebas COVID-19
-                </v-btn>
-              </DropdownMenu>
-
-              <DropdownMenu mode="hover">
-                <v-btn
-                  text
-                  small
-                  class="no-uppercase font-weight-bold"
-                  slot="trigger"
-                >
-                  Directorios
+                  Directorio
                 </v-btn>
 
                 <v-btn
@@ -151,77 +123,73 @@
               <v-btn
                 text
                 small
-                class="no-uppercase font-weight-bold"
+                class="no-uppercase font-weight-black"
                 href="https://docs.almabot.com/"
                 target="_blank"
+                color="#200765"
               >
                 Preguntas Frecuentes
               </v-btn>
-              <DropdownMenu mode="hover">
+
+              <div>
                 <v-btn
-                  text
-                  small
+                  elevation="0"
+                  icon
+                  color="#200765"
                   class="no-uppercase font-weight-bold"
-                  slot="trigger"
-                >
-                  Disposiciones
-                </v-btn>
-
-                <v-btn
-                  slot="body"
-                  text
-                  small
-                  class="no-uppercase"
-                  href="https://docs.almabot.com/docs/requerimientos-ingresosalida-del-pais"
+                  href="https://www.instagram.com/alma_responde/"
                   target="_blank"
                 >
-                  Requerimientos de migración
+                  <v-icon>mdi-instagram</v-icon>
                 </v-btn>
-
                 <v-btn
-                  slot="body"
-                  text
-                  small
-                  class="no-uppercase"
-                  href="https://docs.almabot.com/docs/disposiciones-presidenciales-2"
+                  elevation="0"
+                  icon
+                  color="#200765"
+                  class="no-uppercase font-weight-bold"
+                  href="https://www.facebook.com/chatbotALMA"
                   target="_blank"
                 >
-                  Disposiciones presidenciales
+                  <v-icon>mdi-facebook</v-icon>
                 </v-btn>
-
                 <v-btn
-                  slot="body"
-                  text
-                  small
-                  class="no-uppercase"
-                  href="https://docs.almabot.com/docs/noticias-gubernamentales-y-ministeriales-1"
+                  elevation="0"
+                  icon
+                  color="#200765"
+                  class="no-uppercase font-weight-bold"
+                  href="https://twitter.com/alma_responde"
                   target="_blank"
                 >
-                  Noticias gubernamentales
+                  <v-icon>mdi-twitter</v-icon>
                 </v-btn>
-              </DropdownMenu>
-
-              <v-btn
+                <v-btn
+                  elevation="0"
+                  icon
+                  color="#200765"
+                  class="no-uppercase font-weight-bold"
+                  href="https://www.tiktok.com/@alma_responde"
+                  target="_blank"
+                >
+                  <template>
+                    <svg width="25px" height="25px" viewBox="0 0 24 24">
+                      <path
+                        fill="currentColor"
+                        d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6c0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"
+                      ></path>
+                    </svg>
+                  </template>
+                </v-btn>
+              </div>
+              <v-text-field
+                v-model="search"
+                hide-details
                 rounded
-                color="#FFE6B7"
-                elevation="0"
-                class="no-uppercase font-weight-bold"
-                href="tel:1801-0054-321"
-              >
-                <v-icon>mdi-phone-outline</v-icon>
-                1-801-00-54321
-              </v-btn>
-
-              <v-btn
-                rounded
-                color="#FFE6B7"
-                elevation="0"
-                class="no-uppercase font-weight-bold"
-                href="https://api.whatsapp.com/send?phone=50224144321&text=Preg%C3%BAntale%20a%20ALMA"
-              >
-                <v-icon>mdi-whatsapp</v-icon>
-                Whatsapp
-              </v-btn>
+                prepend-inner-icon="mdi-magnify"
+                append-icon="mdi-chevron-right"
+                background-color="#FFFFFF"
+                placeholder="Busca tu vacuna aquí"
+                class="text-field"
+              ></v-text-field>
             </div>
           </v-col>
         </v-row>
@@ -230,18 +198,32 @@
   </section>
 </template>
 <script>
-import DropdownMenu from 'v-dropdown-menu'
-import 'v-dropdown-menu/dist/v-dropdown-menu.css' // Base style, required.
+import DropdownMenu from "v-dropdown-menu";
+import "v-dropdown-menu/dist/v-dropdown-menu.css"; // Base style, required.
 
 export default {
   components: {
     DropdownMenu,
   },
-}
+};
 </script>
 <style scoped>
 .site-title {
   color: #7f6cf6;
   text-decoration: none;
+}
+
+.app-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  gap: 40px;
+}
+
+.text-field {
+  font-size: 80%;
+  width: 20%;
 }
 </style>
