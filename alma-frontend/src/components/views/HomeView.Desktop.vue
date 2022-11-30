@@ -6,14 +6,6 @@
       <v-row class="mt-5">
         <v-col cols="9">
           <site-header-desktop></site-header-desktop>
-
-          <v-container fluid>
-            <v-row>
-              <v-col cols="9">
-                <social-media-desktop></social-media-desktop>
-              </v-col>
-            </v-row>
-          </v-container>
         </v-col>
 
         <v-col cols="3">
@@ -32,6 +24,14 @@
           <frequent-questions></frequent-questions>
         </v-col>
       </v-row>
+
+      <v-container fluid>
+        <v-row>
+          <v-col>
+            <social-media-desktop></social-media-desktop>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-container>
 
     <site-footer-desktop></site-footer-desktop>
@@ -53,9 +53,10 @@ export default {
     SiteHeaderDesktop,
     TwitterFeed,
     ContactMeDesktop,
-    SocialMediaDesktop,
+
     FrequentQuestions,
     SiteFooterDesktop,
+    SocialMediaDesktop,
   },
 };
 </script>
