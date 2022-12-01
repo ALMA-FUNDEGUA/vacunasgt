@@ -34,6 +34,14 @@
       </v-container>
     </v-container>
 
+    <v-container fluid>
+      <v-row>
+        <v-col>
+          <language-section-vue></language-section-vue>
+        </v-col>
+      </v-row>
+    </v-container>
+
     <site-footer-desktop></site-footer-desktop>
   </section>
 </template>
@@ -46,6 +54,7 @@ import ContactMeDesktop from "@/components/ContactMe.Desktop.vue";
 import SocialMediaDesktop from "@/components/SocialMedia.Desktop.vue";
 import FrequentQuestions from "@/components/FrequentQuestions.vue";
 import SiteFooterDesktop from "@/components/SiteFooter.Desktop.vue";
+import LanguageSectionVue from "../LanguageSection.vue";
 
 export default {
   components: {
@@ -57,6 +66,7 @@ export default {
     FrequentQuestions,
     SiteFooterDesktop,
     SocialMediaDesktop,
+    LanguageSectionVue,
   },
 };
 </script>
