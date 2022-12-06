@@ -16,6 +16,10 @@ import LoadingPage from "./components/LoadingPage.vue";
 import HotJar from "vue-hotjar";
 import Vue from "vue";
 
+import Textra from "vue-textra";
+
+Vue.use(Textra);
+
 Vue.use(HotJar, {
   id: "2536356",
   isProduction: true,
