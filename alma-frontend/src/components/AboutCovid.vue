@@ -1,43 +1,38 @@
 <template>
   <div>
-    <v-carousel v-model="model" continuous>
-      <v-carousel-item
-        v-for="(color, i) in colors"
-        :key="color"
-      >
-        <v-sheet
-          :color="color"
-          height="100%"
-          tile
-        >
-          <v-row
-            class="fill-height"
-            align="center"
-            justify="center"
-          >
-            <v-card class="text-h2">
-              <v-card-text>
-                Slide {{ i + 1 }}
-              </v-card-text>
-            </v-card>
-          </v-row>
-        </v-sheet>
-      </v-carousel-item>
-    </v-carousel>
+    <swiper
+      :slides-per-view="3"
+      :space-between="50"
+      @swiper="onSwiper"
+      @slideChange="onSlideChange"
+    >
+      <swiper-slide>Slide 1</swiper-slide>
+      <swiper-slide>Slide 2</swiper-slide>
+      <swiper-slide>Slide 3</swiper-slide>
+      ...
+    </swiper>
   </div>
 </template>
 
 <script>
+import { Swiper, SwiperSlide } from 'swiper-vue2'
+
+import 'swiper/swiper-bundle.css'
+
 export default {
-  data: () => ({
-    model: 0,
-    colors: [
-      'primary',
-      'secondary',
-      'yellow darken-2',
-      'red',
-      'orange',
-    ],
-  }),
-}
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+
+  methods: {
+    onSwiper(swiper) {
+      console.log(swiper);
+    },
+
+    onSlideChange() {
+      console.log('slide change');
+    }
+  },
+};
 </script>
