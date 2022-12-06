@@ -1,21 +1,18 @@
 <template>
   <section>
     <app-bar></app-bar>
+    <SiteHeaderDesktop />
 
     <v-container class="mt-5">
-      <v-row class="mt-5">
-        <v-col cols="9">
-          <site-header-desktop></site-header-desktop>
-        </v-col>
-
-        <v-col cols="3">
-          <twitter-feed></twitter-feed>
+      <v-row>
+        <v-col>
+          <social-media-desktop></social-media-desktop>
         </v-col>
       </v-row>
 
       <v-row>
         <v-col>
-          <contact-me-desktop></contact-me-desktop>
+          <AboutCovid />
         </v-col>
       </v-row>
 
@@ -24,14 +21,6 @@
           <frequent-questions></frequent-questions>
         </v-col>
       </v-row>
-
-      <v-container fluid>
-        <v-row>
-          <v-col>
-            <social-media-desktop></social-media-desktop>
-          </v-col>
-        </v-row>
-      </v-container>
     </v-container>
 
     <v-container fluid>
@@ -49,24 +38,21 @@
 <script>
 import AppBar from "@/components/AppBar.vue";
 import SiteHeaderDesktop from "@/components/SiteHeader.Desktop.vue";
-import TwitterFeed from "@/components/TwitterFeed.vue";
-import ContactMeDesktop from "@/components/ContactMe.Desktop.vue";
 import SocialMediaDesktop from "@/components/SocialMedia.Desktop.vue";
 import FrequentQuestions from "@/components/FrequentQuestions.vue";
 import SiteFooterDesktop from "@/components/SiteFooter.Desktop.vue";
 import LanguageSectionVue from "../LanguageSection.vue";
+import AboutCovid from '@/components/AboutCovid.vue';
 
 export default {
   components: {
     AppBar,
     SiteHeaderDesktop,
-    TwitterFeed,
-    ContactMeDesktop,
-
     FrequentQuestions,
     SiteFooterDesktop,
     SocialMediaDesktop,
     LanguageSectionVue,
+    AboutCovid,
   },
 };
 </script>

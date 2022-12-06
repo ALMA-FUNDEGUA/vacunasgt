@@ -1,35 +1,18 @@
 <template>
   <v-container>
-    <!-- <v-row justify="center"> -->
-    <!-- <v-col cols="7"> -->
-    <p
-      class="text-center"
-      style="
-        font-style: normal;
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 27px;
-        color: #3e3e3e;
-        margin-top: 5%;
-      "
-    >
-      ¡Lee lo que otras personas nos preguntan!
+    <p class="faq__title">
+      Estas son algunas de las consultas más frecuentes que me hacen:
     </p>
-    <!-- </v-col> -->
-    <!-- </v-row> -->
 
     <v-row justify="center">
-      <!-- <v-col cols="7"> -->
-      <!-- <ul> -->
       <v-col>
         <v-expansion-panels v-model="panel" :active-class="activeClass">
-          <v-expansion-panel class="my-2">
-            <!-- <v-expansion-panel> -->
+          <v-expansion-panel class="faq__panel">
             <v-expansion-panel-header style="font-weight: bold">
               ¿Qué es COVID-19?
             </v-expansion-panel-header>
+
             <v-expansion-panel-content class="paragraph text-justify">
-              <!-- <a :href="dir.value" target="blank" rel="noopener noreferrer"> -->
               COVID-19 es el nombre de la enfermedad causada por el virus
               coronavirus conocido como SARS-CoV-2. SARS por sus siglas en
               inglés, se refiere al síndrome respiratorio agudo severo. En 2003
@@ -65,19 +48,15 @@
 
                 [Con acceso el 08 de marzo de 2022].
               </p>
-
-              <!-- </a> -->
             </v-expansion-panel-content>
-            <!-- </v-expansion-panel> -->
           </v-expansion-panel>
 
-          <v-expansion-panel class="my-2">
-            <!-- <v-expansion-panel> -->
+          <v-expansion-panel class="faq__panel">
             <v-expansion-panel-header style="font-weight: bold">
               ¿COVID-19 largo?
             </v-expansion-panel-header>
+
             <v-expansion-panel-content class="paragraph text-justify">
-              <!-- <a :href="dir.value" target="blank" rel="noopener noreferrer"> -->
               <p>
                 Aunque la mayoría de las personas con COVID-19 mejora después de
                 unas semanas de haber estado enfermos, algunas personas
@@ -160,21 +139,17 @@
 
                 [Con acceso el 12 de abril de 2022].
               </p>
-
-              <!-- </a> -->
             </v-expansion-panel-content>
-            <!-- </v-expansion-panel> -->
           </v-expansion-panel>
 
-          <v-expansion-panel class="my-2">
-            <!-- <v-expansion-panel> -->
+          <v-expansion-panel class="faq__panel">
             <v-expansion-panel-header
               style="font-weight: bold; line-height: 1.5"
             >
               ¿Requisitos para segundo refuerzo?
             </v-expansion-panel-header>
+
             <v-expansion-panel-content class="paragraph text-justify">
-              <!-- <a :href="dir.value" target="blank" rel="noopener noreferrer"> -->
               <p>
                 Las personas que tienen un esquema primario de Sputnik y que
                 tengan un primer refuerzo de AstraZeneca, Moderna o Pfizer, ya
@@ -271,223 +246,19 @@
             </v-expansion-panel-content>
             <!-- </v-expansion-panel> -->
           </v-expansion-panel>
-
-          <v-expansion-panel class="my-2">
-            <!-- <v-expansion-panel> -->
-            <v-expansion-panel-header style="font-weight: bold">
-              ¿Vacuna contra Hepatitis B?
-            </v-expansion-panel-header>
-            <v-expansion-panel-content class="paragraph text-justify">
-              <!-- <a :href="dir.value" target="blank" rel="noopener noreferrer"> -->
-              <p><b> 1) ¿Qué previene?</b></p>
-
-              <p>
-                La vacuna contra la Hepatitis B previene de la infección por el
-                virus de la hepatitis B y evita el desarrollo de complicaciones,
-                como enfermedades crónicas y cáncer de hígado.
-              </p>
-
-              <p>Fue la primera vacuna para prevenir el cáncer.</p>
-
-              <p><b>2) ¿Cuándo debe administrarse?</b></p>
-              <p><b> MSPAS:</b></p>
-
-              <ul>
-                <li>
-                  La administración es a las 24 horas de vida, o lo antes
-                  posible, antes de cumplir un mes de edad.
-                </li>
-              </ul>
-              <p></p>
-              <p><b> IGSS:</b></p>
-
-              <ul>
-                <li>Se administra una dosis a los recién nacidos.</li>
-                <li>
-                  Para el adulto mayor y población en riesgo (personal de salud,
-                  enfermos crónicos e inmunocomprometidos) , se administran 3
-                  dosis. La segunda 1 mes después de la primera. La tercera, 5
-                  meses después de la segunda.
-                </li>
-              </ul>
-
-              <p></p>
-              <p><b>3) ¿Cuáles son los efectos secundarios?</b></p>
-              <p>
-                Los efectos secundarios más comunes de la vacuna contra la
-                hepatitis B son leves e incluyen:
-              </p>
-              <ul>
-                <li>Fiebre baja</li>
-                <li>Dolor en el brazo por la inyección</li>
-              </ul>
-
-              <p></p>
-              <p>Referencias:</p>
-
-              <p>
-                Organización Panamericana de la Salud. (2021). Hepatitis B. En:
-                <a
-                  href="https://www.paho.org/es/tag/vacunas-contra-hepatitis"
-                  target="_blank"
-                  >https://www.paho.org/es/tag/vacunas-contra-hepatitis</a
-                >
-                . [Con acceso el 25 de abril de 2022].
-              </p>
-
-              <p>
-                Centros para el control y la prevención de enfermedades. (2021).
-                Hepatitis B. En:
-                <a
-                  href="https://www.cdc.gov/vaccines/parents/diseases/hepb-sp.html"
-                  target="_blank"
-                >
-                  https://www.cdc.gov/vaccines/parents/diseases/hepb-sp.html</a
-                >
-                . [Con acceso el 25 de abril de 2022].
-              </p>
-
-              <p>
-                IGSS. (2020). Esquema de vacunación. en:
-                <a
-                  href="https://www.igssgt.org/wp-content/uploads/2020/09/esquema-de-vacunas-IGSS.pdf"
-                  target="_blank"
-                >
-                  https://www.igssgt.org/wp-content/uploads/2020/09/esquema-de-vacunas-IGSS.pdf</a
-                >
-
-                [Con acceso el 28 de abril de 2022].
-              </p>
-
-              <p>
-                SIGSA. (2018). Esquema de vacunación MSPAS. En:
-                <a
-                  href="https://sigsa.mspas.gob.gt/component/jdownloads/send/14-sigsa-web/93-sigsa-17-carne-otros-grupos?option=com_jdownloads"
-                  target="_blank"
-                >
-                  https://sigsa.mspas.gob.gt/component/jdownloads/send/14-sigsa-web/93-sigsa-17-carne-otros-grupos?option=com_jdownloads</a
-                >
-
-                [Con acceso el 2 de mayo de 2022].
-              </p>
-
-              <p>
-                MSPAS. (2021). Esquema de vacunación MSPAS. En:
-                <a
-                  href="https://prensa.gob.gt/comunicado/programa-vacunacion-integral-para-toda-la-familia"
-                  target="_blank"
-                >
-                  https://prensa.gob.gt/comunicado/programa-vacunacion-integral-para-toda-la-familia</a
-                >
-
-                [Con acceso el 2 de mayo de 2022].
-              </p>
-
-              <!-- </a> -->
-            </v-expansion-panel-content>
-            <!-- </v-expansion-panel> -->
-          </v-expansion-panel>
-
-          <v-expansion-panel class="my-2">
-            <!-- <v-expansion-panel> -->
-            <v-expansion-panel-header style="font-weight: bold">
-              ¿A qué edad se pone la vacuna del VPH?
-            </v-expansion-panel-header>
-            <v-expansion-panel-content class="paragraph text-justify">
-              <!-- <a :href="dir.value" target="blank" rel="noopener noreferrer"> -->
-              <p>Sobre la vacuna contra el virus del papiloma humano (VPH)</p>
-
-              <p><b>De los 10 a 14 años, solo a niñas (gratuita) MSPAS:</b></p>
-
-              <ul>
-                <li>
-                  Se necesitan 2 dosis de la vacuna contra el VPH, con 6 meses
-                  entre cada dosis.
-                </li>
-              </ul>
-              <p></p>
-              <p><b>Menores de 15 años, IGSS:</b></p>
-              <ul>
-                <li>Dos dosis. Segunda dosis 6 meses después de la primera.</li>
-              </ul>
-              <p></p>
-              <p>
-                <b>Si se empieza la vacunación después de los 15 años, IGSS:</b>
-              </p>
-              <ul>
-                <li>
-                  Se necesitan 3 dosis de la vacuna contra el VPH, la segunda
-                  dosis 1 mes después de la primera. La tercera dosis, 5 meses
-                  después de la segunda.
-                </li>
-              </ul>
-              <p></p>
-
-              <p>Referencias:</p>
-              <p>
-                IGSS. (2020). Vacuna VPH. en:
-                <a
-                  href="https://www.igssgt.org/wp-content/uploads/2020/09/esquema-de-vacunas-IGSS.pdf"
-                  target="_blank"
-                >
-                  https://www.igssgt.org/wp-content/uploads/2020/09/esquema-de-vacunas-IGSS.pdf</a
-                >
-
-                [Con acceso el 28 de abril de 2022].
-              </p>
-
-              <p>
-                SIGSA. (2018). Esquema de vacunación MSPAS. En:
-                <a
-                  href="https://sigsa.mspas.gob.gt/component/jdownloads/send/14-sigsa-web/93-sigsa-17-carne-otros-grupos?option=com_jdownloads"
-                  target="_blank"
-                >
-                  https://sigsa.mspas.gob.gt/component/jdownloads/send/14-sigsa-web/93-sigsa-17-carne-otros-grupos?option=com_jdownloads</a
-                >
-
-                [Con acceso el 2 de mayo de 2022].
-              </p>
-
-              <p>
-                MSPAS. (2021). Esquema de vacunación MSPAS. En:
-                <a
-                  href="https://prensa.gob.gt/comunicado/programa-vacunacion-integral-para-toda-la-familia"
-                  target="_blank"
-                >
-                  https://prensa.gob.gt/comunicado/programa-vacunacion-integral-para-toda-la-familia</a
-                >
-
-                [Con acceso el 2 de mayo de 2022].
-              </p>
-
-              <!-- </a> -->
-            </v-expansion-panel-content>
-            <!-- </v-expansion-panel> -->
-          </v-expansion-panel>
         </v-expansion-panels>
       </v-col>
       <br />
-      <!-- </ul> -->
-      <!-- </v-col> -->
     </v-row>
 
     <v-row justify="center" class="py-4">
-      <!-- <v-col cols="7" style="text-align:center"> -->
       <a
         href="https://docs.almabot.com/"
         target="blank"
         rel="noopener noreferrer"
       >
-        <p
-          style="
-            font-style: normal;
-            font-weight: 600;
-            font-size: 16px;
-            line-height: 24px;
-            color: #3e3e3e;
-          "
-        >
-          Ver más preguntas frecuentes aquí
+        <p class="faq__link">
+          lee más aquí...
         </p>
       </a>
       <!-- </v-col> -->
@@ -495,24 +266,8 @@
   </v-container>
 </template>
 
-<style>
-.active-panel-normal {
-  color: #6651ee !important;
-  background-color: #f8f6ff !important;
-}
-
-.paragraph {
-  color: #434342 !important;
-}
-</style>
-
 <script>
 export default {
-  computed: {
-    activeClass() {
-      return this.edited ? '' : 'active-panel-normal'
-    },
-  },
   data: () => ({
     links: [
       {
@@ -572,5 +327,53 @@ export default {
       },
     ],
   }),
+
+  computed: {
+    activeClass() {
+      return this.edited ? '' : 'active-panel-normal'
+    },
+  },
 }
 </script>
+
+<style lang="scss" scoped>
+.faq {
+  &__title {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 40px;
+    text-align: center;
+    color: #200765;
+
+    margin-bottom: 40px !important;
+  }
+
+  &__link {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #3e3e3e;
+  }
+
+  &__panel {
+    border-radius: 100px !important;
+    border: none !important;
+    background-color: #D0C2FD !important;
+
+    margin-bottom: 25px;
+  }
+}
+
+.active-panel-normal {
+  color: #6651ee !important;
+  background-color: #f8f6ff !important;
+  border-radius: 15px !important;
+}
+
+.paragraph {
+  color: #434342 !important;
+}
+</style>
