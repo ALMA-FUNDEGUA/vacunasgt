@@ -14,12 +14,8 @@
             Llámame GRATIS desde <br />
             toda Guatemala y con <br />
             gusto resolveré y te <br />
-            atenderé en
-            <span
-              class="display-1 font-weight-bold text-center"
-              style="color: #704eee"
-            >
-              mam
+            atenderé en<span style="color: #704eee"
+              ><textra :data="idiomas" :timer="1.5" infinite="true" />
             </span>
           </h3>
           <v-container>
@@ -40,3 +36,20 @@
     </v-container>
   </section>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      idiomas: [
+        "mam",
+        "kaqchikel",
+        "k'iche",
+        "q'eqchi'",
+        "tz'utujil",
+        "español",
+      ],
+    };
+  },
+};
+</script>
