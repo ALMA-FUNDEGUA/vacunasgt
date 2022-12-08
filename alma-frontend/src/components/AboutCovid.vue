@@ -1,11 +1,13 @@
 <template>
-  <v-container class="mb-5">
+  <v-container class="mt-5">
     <div class="d-flex justify-center">
       <section v-if="$vuetify.breakpoint.mdAndUp">
+
         <p class="information-title" style="color: #200765">
           Información Sobre COVID-19
         </p>
       </section>
+
       <section v-else>
         <span class="text-h6 information-title">
           Informacion Sobre COVID-19
@@ -14,6 +16,7 @@
     </div>
 
     <v-row class="mb-5">
+
       <v-col v-for="(item, i) in items" :key="i" cols="12" md="4">
         <a :href="item.link" style="text-decoration: none">
           <v-card class="information-card">
@@ -27,6 +30,7 @@
             </div>
           </v-card>
         </a>
+
       </v-col>
     </v-row>
   </v-container>
@@ -61,7 +65,6 @@ export default {
     font-family: "Poppins";
     font-style: normal;
     font-weight: 700;
-    font-size: 28px;
     line-height: 50px;
   }
 
@@ -71,6 +74,10 @@ export default {
     font-weight: bold;
     background-color: #d0c2fd;
     border-radius: 100px;
+  }
+
+  &__btn-text {
+    font-size: 1.3rem;
   }
 }
 </style>
