@@ -1,177 +1,91 @@
 <template>
-  <section>
-    <v-container>
-      <v-row>
-        <v-col>
-          <p
-            class="text-center font-weight-bold"
-            style="margin-top: 2%; margin-bottom: -5%"
-          >
-            Comunícate conmigo
-          </p>
-        </v-col>
-      </v-row>
-    </v-container>
+  <div class="d-flex flex-column justify-center align-center py-5 site-header__information">
+    <span class="text-h6 site-header__information-text">
+      Llámame GRATIS o escríbeme por WhatsApp para que uno de mis agentes te ayude a resolver tus dudas
+    </span>
 
-    <v-container>
-      <v-row>
-        <v-col cols="12">
-          <v-card color="#F8F6FF" flat class="rounded-xl">
-            <section
-              class="d-flex flex-column py-5 justify-center align-center"
-            >
-              <section>
-                <!-- <span class="display-4">
-                  📱
-                </span> -->
-                <span style="font-size: 85px"> 📞 </span>
-              </section>
+    <div class="d-flex flex-column site-header__information-actions">
+      <div class="d-flex flex-column justify-end site-header__information-action">
+        <v-btn
+          rounded
+          color="#704EEE"
+          elevation="0"
+          href="tel:1801-0054-321"
+          style="height: 65px; font-size: 20px; width: 100%"
+          class="white--text font-weight-bold"
+        >
+          <v-icon style="margin-right: 6px">
+            mdi-phone-outline
+          </v-icon>
+          
+          <span style="text-transform: none">
+            1-801-00-54321
+          </span>
+        </v-btn>
+      </div>
 
-              <section class="mt-3">
-                <span class="font-weight-bold">
-                  Llama a nuestro Call Center
-                </span>
-              </section>
-
-              <section class="mt-3 text-center">
-                <span class="font-weight-light">
-                  Habla con uno de nuestros agentes para resolver tus dudas
-                </span>
-              </section>
-
-              <section class="mt-3">
-                <v-btn
-                  rounded
-                  color="#FFE6B7"
-                  elevation="0"
-                  href="tel:1-801-00-54321"
-                >
-                  <v-icon style="margin-right: 10px">mdi-phone-outline</v-icon>
-                  1-801-00-54321
-                </v-btn>
-              </section>
-            </section>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
-
-    <v-container>
-      <v-row>
-        <v-col cols="12">
-          <v-card color="#DFF5EB" flat class="rounded-xl">
-            <section
-              class="d-flex flex-column py-5 justify-center align-center"
-            >
-              <section>
-                <!-- <span class="display-4">
-                  𓀊
-                </span> -->
-
-                <span class="display-4">
-                  <v-img
-                    :src="
-                      require('@/assets/icons/svg-contact-me-whatsapp-icon.svg')
-                    "
-                    max-height="140px"
-                    max-width="140px"
-                  ></v-img>
-                </span>
-              </section>
-
-              <section class="mt-3">
-                <span class="font-weight-bold"> Escríbenos por WhatsApp </span>
-              </section>
-
-              <section class="mt-3 text-center">
-                <span class="font-weight-light">
-                  Habla con uno de nuestros agentes para resolver tus dudas
-                </span>
-              </section>
-
-              <section class="mt-3">
-                <v-btn
-                  rounded
-                  color="#FFE6B7"
-                  elevation="0"
-                  target="_blank"
-                  href="https://api.whatsapp.com/send?phone=50224144321&text=Preg%C3%BAntale%20a%20ALMA"
-                >
-                  <v-icon style="margin-right: 10px">mdi-whatsapp</v-icon>
-
-                  <span style="text-transform: none"> WhatsApp </span>
-                </v-btn>
-              </section>
-            </section>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
-
-    <v-container>
-      <v-row>
-        <v-col cols="12">
-          <v-card color="#FFEBE8" flat class="rounded-xl">
-            <section
-              class="d-flex flex-column py-5 justify-center align-center"
-            >
-              <section>
-                <!-- <span class="display-4">
-                  ❤️
-                </span> -->
-
-                <span class="display-4">
-                  <v-img
-                    :src="require('@/assets/icons/svg-contact-me-heart.svg')"
-                    max-height="140px"
-                    max-width="140px"
-                  ></v-img>
-                </span>
-              </section>
-
-              <section class="mt-3">
-                <span class="font-weight-bold">
-                  ¡Sígueme por nuestras redes sociales!
-                </span>
-              </section>
-
-              <section class="mt-3 text-center">
-                <span class="font-weight-light">
-                  Te podrás enterar de muchas cosas relacionadas con COVID y
-                  además pregúntame lo que quieras
-                </span>
-              </section>
-
-              <section class="mt-3" style="width: 100%">
-                <section class="d-flex justify-space-around">
-                  <v-btn
-                    rounded
-                    color="#FFE6B7"
-                    elevation="0"
-                    href="https://twitter.com/alma_responde"
-                    target="_blank"
-                  >
-                    <v-icon style="margin-right: 8px">mdi-twitter</v-icon>
-
-                    <span style="text-transform: none">Twitter</span>
-                  </v-btn>
-
-                  <v-btn
-                    rounded
-                    color="#FFE6B7"
-                    elevation="0"
-                    href="https://www.facebook.com/chatbotALMA"
-                    target="_blank"
-                  >
-                    <v-icon style="margin-right: 8px">mdi-facebook</v-icon>
-                    <span style="text-transform: none">Facebook</span>
-                  </v-btn>
-                </section>
-              </section>
-            </section>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
-  </section>
+      <div class="d-flex flex-column site-header__information-action">
+        <v-btn
+          rounded
+          color="#00B176"
+          elevation="0"
+          href="tel:1801-0054-321"
+          style="height: 65px; font-size: 20px;"
+          class="white--text font-weight-bold"
+        >
+          <v-icon style="margin-right: 6px">
+            mdi-whatsapp
+          </v-icon>
+          
+          <span style="text-transform: none">
+            WhatsApp
+          </span>
+        </v-btn>
+      </div>
+    </div>
+  </div>
 </template>
+
+<style lang="scss" scoped>
+.site-header {
+  &__top-panel {
+    height: 700px;
+    background-image: url('@/assets/images/alma-header.svg');
+  }
+
+  &__title {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 54px;
+    color: #200765;
+  }
+
+  &__information {
+    // height: 500px;
+    gap: 40px;
+  
+    background-color: #BEB1F8;
+    background-image: url('@/assets/images/information-background.svg');
+    background-size: cover;
+
+    &-text {
+      width: 75vw;
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 600;
+      text-align: center;
+      color: #200765;
+    }
+
+    &-actions {
+      gap: 15px;
+    }
+
+    &-action {
+      gap: 15px;
+    }
+  }
+}
+</style>

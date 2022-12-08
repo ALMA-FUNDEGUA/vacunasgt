@@ -9,10 +9,6 @@
         </div>
       </div>
     </v-container>
-    
-    <!-- <div class="site-header__background" style="position: fixed; z-index: -1;">
-      <img src="@/assets/images/information-background.svg">
-    </div> -->
 
     <div class="d-flex flex-column justify-center align-center site-header__information">
       <span class="site-header__information-text">
