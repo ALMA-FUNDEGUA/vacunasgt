@@ -259,7 +259,7 @@
         class="faq__link"
         style="text-decoration: none"
       >
-        <p class="faq__link">lee más aquí...</p>
+        <p class="faq__link">lee más aquí</p>
       </a>
       <!-- </v-col> -->
     </v-row>
@@ -353,7 +353,7 @@ export default {
   &__link {
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 24px;
     color: #200765;
   }
