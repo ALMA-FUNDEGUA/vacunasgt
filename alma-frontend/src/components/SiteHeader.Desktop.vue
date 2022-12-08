@@ -121,7 +121,24 @@
 export default {
   data() {
     return {
-      vaccines: ["influenza"],
+      vaccines: [
+        "influenza",
+        "COVID-19",
+        "hepatitis B",
+        "hepatitis A",
+        "VPH",
+        "varicela",
+        "antirrabica",
+        "BCG",
+        "poliomielitis",
+        "pentavalente",
+        "neuomococo",
+        "rotavirus",
+        "SDR",
+        "DPT",
+        "TDaP",
+        "tétanos",
+      ],
     };
   },
 };
