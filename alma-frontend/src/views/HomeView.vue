@@ -11,13 +11,13 @@
 </template>
 
 <script>
-import HomeViewDesktop from '../components/views/HomeView.Desktop.vue';
-import HomeViewMobile from '../components/views/HomeView.Mobile.vue';
+import HomeViewDesktop from "../components/views/HomeView.Desktop.vue";
+import HomeViewMobile from "../components/views/HomeView.Mobile.vue";
 
 export default {
   components: {
     HomeViewDesktop,
     HomeViewMobile,
-  }
-}
+  },
+};
 </script>

@@ -3,12 +3,11 @@
     <v-container>
       <v-row justify="center">
         <v-col justify="center">
-          <p
-            class="font-weight-bold text-center"
-            style="color: #200765; font-size: larger"
-          >
-            Encuéntrame como @alma_responde en
-          </p>
+          <div class="d-flex justify-center">
+            <p class="information-title" style="color: #200765">
+              Encuéntrame como @alma_responde en
+            </p>
+          </div>
         </v-col>
       </v-row>
     </v-container>
@@ -189,3 +188,22 @@
     </v-container>
   </section>
 </template>
+
+<style lang="scss" scoped>
+.information {
+  &-title {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 50px;
+  }
+
+  &-card {
+    height: 100%;
+    color: #200765;
+    background-color: #d0c2fd;
+    border-radius: 100px;
+  }
+}
+</style>
