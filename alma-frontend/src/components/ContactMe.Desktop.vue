@@ -71,7 +71,7 @@
               </section>
 
               <section class="mt-3">
-                <span class="font-weight-bold"> Escríbenos por WhatsApp </span>
+                <span class="font-weight-bold"> Escríbenos por Whatsapp </span>
               </section>
 
               <section class="mt-3 text-center">
@@ -89,7 +89,7 @@
                 >
                   <v-icon style="margin-right: 6px">mdi-whatsapp</v-icon>
 
-                  <span style="text-transform: none"> WhatsApp </span>
+                  <span style="text-transform: none"> Whatsapp </span>
                 </v-btn>
               </section>
             </section>
