@@ -21,7 +21,7 @@
             >
               <v-icon>mdi-whatsapp</v-icon>
             </v-btn>
-            <v-btn icon color="white" href="tel:1801-0054-321" target="_blank">
+            <v-btn icon color="white" href="tel:1801-0054-321">
               <v-icon>mdi-phone-outline</v-icon>
             </v-btn>
           </div>
