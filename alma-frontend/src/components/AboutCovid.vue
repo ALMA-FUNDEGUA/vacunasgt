@@ -16,7 +16,7 @@
 
     <v-row class="mb-5">
       <v-col v-for="(item, i) in items" :key="i" cols="12" md="4">
-        <a :href="item.link" style="text-decoration: none" target="_blank">
+        <a :href="item.link" style="text-decoration: none">
           <v-card class="information-card">
             <div
               class="d-flex justify-center align-center my-5 mx-1"
@@ -71,6 +71,10 @@ export default {
     font-weight: bold;
     background-color: #d0c2fd;
     border-radius: 100px;
+  }
+  &-card:hover {
+    background-color: #7f6cf6;
+    color: white;
   }
 }
 </style>

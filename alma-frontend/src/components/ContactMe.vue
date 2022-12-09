@@ -30,7 +30,7 @@
           rounded
           color="#00B176"
           elevation="0"
-          href="tel:1801-0054-321"
+          href="https://api.whatsapp.com/send?phone=50224144321&text=Preg%C3%BAntale%20a%20ALMA"
           style="height: 65px; font-size: 20px"
           class="white--text font-weight-bold"
         >
