@@ -1,7 +1,6 @@
 <template>
   <section>
-    <v-btn text class="no-uppercase"
-        @click="dialog = true">
+    <v-btn text class="no-uppercase" @click="dialog = true">
       <v-icon>mdi-filter-variant</v-icon>
       Filtros
     </v-btn>
@@ -25,17 +24,23 @@
         <v-divider></v-divider>
 
         <v-card-actions>
-          <v-btn text @click="clearForm"
-              class="no-uppercase text-decoration-underline">
+          <v-btn
+            text
+            @click="clearForm"
+            class="no-uppercase text-decoration-underline"
+          >
             Borrar
           </v-btn>
 
           <v-spacer></v-spacer>
 
-          <v-btn rounded elevation="0"
-              color="#FFE6B7"
-              class="no-uppercase"
-              @click="dialog = false">
+          <v-btn
+            rounded
+            elevation="0"
+            style="color: #200765; font-weight: bold; background-color: #d0c2fd"
+            class="no-uppercase mt-3"
+            @click="dialog = false"
+          >
             Aplicar Filtros
           </v-btn>
         </v-card-actions>
@@ -45,9 +50,9 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
+import { mapMutations } from "vuex";
 
-import CenterFilters from '../CenterFilters.vue';
+import CenterFilters from "../CenterFilters.vue";
 
 export default {
   components: {
@@ -60,19 +65,19 @@ export default {
 
   methods: {
     ...mapMutations({
-      'setDepartment': 'SET_DEPARTMENT',
-      'setMunicipality': 'SET_MUNICIPALITY',
-      'setVaccine': 'SET_VACCINE',
-      'setDose': 'SET_DOSE',
-      'setGroup': 'SET_GROUP',
+      setDepartment: "SET_DEPARTMENT",
+      setMunicipality: "SET_MUNICIPALITY",
+      setVaccine: "SET_VACCINE",
+      setDose: "SET_DOSE",
+      setGroup: "SET_GROUP",
     }),
 
     clearForm() {
-      this.setVaccine(null)
-      this.setDepartment(null)
-      this.setDose(null)
-      this.setMunicipality(null)
+      this.setVaccine(null);
+      this.setDepartment(null);
+      this.setDose(null);
+      this.setMunicipality(null);
     },
-  }
-}
+  },
+};
 </script>

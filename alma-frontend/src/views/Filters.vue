@@ -9,11 +9,15 @@
             <center-filters></center-filters>
 
             <v-btn
-              color="#FFD789"
+              style="
+                color: #200765;
+                font-weight: bold;
+                background-color: #d0c2fd;
+              "
+              class="no-uppercase mt-3"
               block
               rounded
               elevation="0"
-              class="no-uppercase"
               @click="$router.push('/centers')"
             >
               Buscar mi vacuna
@@ -43,11 +47,11 @@
       <center-filters></center-filters>
       <v-app-bar class="mt-9" flat>
         <v-btn
-          color="#FFD789"
+          style="color: #200765; font-weight: bold; background-color: #d0c2fd"
+          class="no-uppercase mt-3"
           block
           rounded
           elevation="0"
-          class="no-uppercase"
           @click="$router.push('/centers')"
         >
           Buscar mi vacuna

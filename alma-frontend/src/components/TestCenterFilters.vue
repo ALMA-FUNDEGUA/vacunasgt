@@ -78,10 +78,14 @@
           <v-row
             ><v-col align="center" justify="center" style="margin-top: 2%">
               <v-btn
-                color="#FFD789"
+                style="
+                  color: #200765;
+                  font-weight: bold;
+                  background-color: #d0c2fd;
+                "
+                class="no-uppercase mt-3"
                 rounded
                 elevation="0"
-                class="no-uppercase"
                 @click="sendAnswers"
               >
                 Siguiente
