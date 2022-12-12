@@ -1,6 +1,6 @@
 <template>
   <section>
-    <v-container>
+    <v-container style="background-color: #fff">
       <v-row v-if="$vuetify.breakpoint.mdAndUp && !dialog">
         <v-col class="pb-1">
           <span class="text-h5 font-weight-bold">
@@ -239,9 +239,9 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters } from 'vuex'
+import { mapMutations, mapGetters } from "vuex";
 
-import gtag from 'ga-gtag'
+import gtag from "ga-gtag";
 
 export default {
   props: {
@@ -252,32 +252,32 @@ export default {
   },
 
   data: () => ({
-    searchInput: '',
+    searchInput: "",
     covidContact: [
-      { text: 'Sí', value: true },
-      { text: 'No', value: false },
+      { text: "Sí", value: true },
+      { text: "No", value: false },
     ],
 
     covidSymptoms: [
-      { text: 'Cansancio', value: 'isFatigued' },
-      { text: 'Dolor de garganta', value: 'hasSorethroat' },
-      { text: 'Mocos', value: 'hasRunnyNose' },
-      { text: 'Escalofríos', value: 'hasChills' },
-      { text: 'Dolor muscular o articulaciones', value: 'hasMuscleAche' },
-      { text: 'Dolor de cabeza', value: 'hasHeadache' },
-      { text: 'Náuseas', value: 'hasNausea' },
-      { text: 'Dolor de estómago', value: 'hasStomachache' },
-      { text: 'Diarrea', value: 'hasDiarrhea' },
-      { text: 'Dificultad para respirar', value: 'breathing' },
-      { text: 'Pérdida de olfato', value: 'hasAnosmia' },
-      { text: 'Pérdida de gusto', value: 'hasLossOfTaste' },
-      { text: 'Dolor de pecho', value: 'hasChestpain' },
-      { text: 'Tos', value: 'hasCough' },
-      { text: 'Fiebre alta', value: 'hasFever' },
-      { text: 'Pérdida de consciencia', value: 'isConfused' },
-      { text: 'Convulsiones', value: 'hasConvulsions' },
-      { text: 'Arrastra palabras', value: 'isSlurring' },
-      { text: 'Tos con sangre', value: 'hasBloodycough' },
+      { text: "Cansancio", value: "isFatigued" },
+      { text: "Dolor de garganta", value: "hasSorethroat" },
+      { text: "Mocos", value: "hasRunnyNose" },
+      { text: "Escalofríos", value: "hasChills" },
+      { text: "Dolor muscular o articulaciones", value: "hasMuscleAche" },
+      { text: "Dolor de cabeza", value: "hasHeadache" },
+      { text: "Náuseas", value: "hasNausea" },
+      { text: "Dolor de estómago", value: "hasStomachache" },
+      { text: "Diarrea", value: "hasDiarrhea" },
+      { text: "Dificultad para respirar", value: "breathing" },
+      { text: "Pérdida de olfato", value: "hasAnosmia" },
+      { text: "Pérdida de gusto", value: "hasLossOfTaste" },
+      { text: "Dolor de pecho", value: "hasChestpain" },
+      { text: "Tos", value: "hasCough" },
+      { text: "Fiebre alta", value: "hasFever" },
+      { text: "Pérdida de consciencia", value: "isConfused" },
+      { text: "Convulsiones", value: "hasConvulsions" },
+      { text: "Arrastra palabras", value: "isSlurring" },
+      { text: "Tos con sangre", value: "hasBloodycough" },
     ],
 
     hasCovid: null,
@@ -285,127 +285,127 @@ export default {
   }),
 
   computed: {
-    ...mapGetters('covidTestStore', {
-      testTypes: 'testTypes',
-      getTestType: 'testType',
+    ...mapGetters("covidTestStore", {
+      testTypes: "testTypes",
+      getTestType: "testType",
 
-      schedules: 'simpleSchedules',
-      getSchedule: 'simpleSchedule',
+      schedules: "simpleSchedules",
+      getSchedule: "simpleSchedule",
 
-      departments: 'departments',
-      getDepartment: 'department',
+      departments: "departments",
+      getDepartment: "department",
 
-      municipalities: 'municipalities',
-      getMunicipality: 'municipality',
+      municipalities: "municipalities",
+      getMunicipality: "municipality",
 
-      serviceTypes: 'serviceTypes',
-      getServiceType: 'serviceType',
+      serviceTypes: "serviceTypes",
+      getServiceType: "serviceType",
 
-      getFirstVisitModal: 'firstVisitModal',
+      getFirstVisitModal: "firstVisitModal",
     }),
 
     covidDialog: {
       get() {
-        return this.getFirstVisitModal
+        return this.getFirstVisitModal;
       },
 
       set(value) {
-        this.setFirstVisitModal(value)
+        this.setFirstVisitModal(value);
       },
     },
 
     testType: {
       get() {
-        return this.getTestType
+        return this.getTestType;
       },
 
       set(value = []) {
-        this.setTestType(value)
+        this.setTestType(value);
       },
     },
 
     schedule: {
       get() {
-        return this.getSchedule
+        return this.getSchedule;
       },
 
       set(value) {
-        if (this.setSchedule) this.setSchedule(value)
+        if (this.setSchedule) this.setSchedule(value);
       },
     },
 
     department: {
       get() {
-        return this.getDepartment
+        return this.getDepartment;
       },
 
       set(value) {
-        this.setDepartment(value)
+        this.setDepartment(value);
       },
     },
 
     municipality: {
       get() {
-        return this.getMunicipality
+        return this.getMunicipality;
       },
 
       set(value) {
-        this.setMunicipality(value)
+        this.setMunicipality(value);
       },
     },
 
     serviceType: {
       get() {
-        return this.getServiceType
+        return this.getServiceType;
       },
 
       set(value) {
-        this.setServiceType(value)
+        this.setServiceType(value);
       },
-    }
+    },
   },
 
   methods: {
     sendAnswers() {
-      this.covidDialog = false
+      this.covidDialog = false;
 
-      gtag('event', 'action', {
-        action_type: 'contact_covid_symptoms',
+      gtag("event", "action", {
+        action_type: "contact_covid_symptoms",
         event_value: this.hasSymptoms,
-      })
+      });
 
-      gtag('event', 'action', {
-        action_type: 'contact_covid',
+      gtag("event", "action", {
+        action_type: "contact_covid",
         event_value: this.hasCovid,
-      })
+      });
     },
 
     exitCovidQuestions() {
-      this.covidDialog = false
+      this.covidDialog = false;
 
-      gtag('event', 'action', {
-        action_type: 'close_contact_covid_dialog',
-      })
+      gtag("event", "action", {
+        action_type: "close_contact_covid_dialog",
+      });
     },
 
-    ...mapMutations('covidTestStore', {
-      setTestType: 'SET_TEST_TYPE',
-      setSchedule: 'SET_SIMPLE_SCHEDULE',
-      setDepartment: 'SET_DEPARTMENT',
-      setMunicipality: 'SET_MUNICIPALITY',
-      setServiceType: 'SET_SERVICE_TYPE',
-      setCovidContact: 'SET_COVID_CONTACT',
-      setCovidSymptoms: 'SET_COVID_SYMPTOMS',
-      setFirstVisitModal: 'SET_FIRST_VISIT_MODAL',
+    ...mapMutations("covidTestStore", {
+      setTestType: "SET_TEST_TYPE",
+      setSchedule: "SET_SIMPLE_SCHEDULE",
+      setDepartment: "SET_DEPARTMENT",
+      setMunicipality: "SET_MUNICIPALITY",
+      setServiceType: "SET_SERVICE_TYPE",
+      setCovidContact: "SET_COVID_CONTACT",
+      setCovidSymptoms: "SET_COVID_SYMPTOMS",
+      setFirstVisitModal: "SET_FIRST_VISIT_MODAL",
     }),
 
     orderedSymptoms() {
-      return this.covidSymptoms.slice().sort(
-        (a, b) => a.text.localeCompare(b.text),
-      )
+      return this.covidSymptoms
+        .slice()
+        .sort((a, b) => a.text.localeCompare(b.text));
     },
   },
-}
+};
 </script>
 
 <style scoped>

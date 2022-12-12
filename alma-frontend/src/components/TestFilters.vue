@@ -116,7 +116,7 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters } from 'vuex'
+import { mapMutations, mapGetters } from "vuex";
 
 export default {
   props: {
@@ -130,38 +130,38 @@ export default {
 
   computed: {
     ...mapGetters({
-      departments: 'departments',
-      municipalities: 'municipalities',
-      vaccines: 'vaccines',
-      doses: 'doses',
+      departments: "departments",
+      municipalities: "municipalities",
+      vaccines: "vaccines",
+      doses: "doses",
 
-      getDepartment: 'department',
-      getMunicipality: 'municipality',
-      getVaccine: 'vaccine',
-      getDose: 'dose',
+      getDepartment: "department",
+      getMunicipality: "municipality",
+      getVaccine: "vaccine",
+      getDose: "dose",
     }),
 
     department: {
       get() {
-        return this.getDepartment
+        return this.getDepartment;
       },
 
       set(value) {
-        this.setDepartment(value)
-        this.setMunicipality(null)
+        this.setDepartment(value);
+        this.setMunicipality(null);
         // this.setVaccine(null)
-        this.setDose(null)
-        this.setGroup(null)
+        this.setDose(null);
+        this.setGroup(null);
       },
     },
 
     municipality: {
       get() {
-        return this.getMunicipality
+        return this.getMunicipality;
       },
 
       set(value) {
-        this.setMunicipality(value)
+        this.setMunicipality(value);
         // this.setVaccine(null)
         // this.setDose(null)
         // this.setGroup(null)
@@ -170,11 +170,11 @@ export default {
 
     vaccine: {
       get() {
-        return this.getVaccine
+        return this.getVaccine;
       },
 
       set(value) {
-        this.setVaccine(value)
+        this.setVaccine(value);
         // this.setDose(null)
         // this.setGroup(null)
       },
@@ -182,11 +182,11 @@ export default {
 
     dose: {
       get() {
-        return this.getDose
+        return this.getDose;
       },
 
       set(value) {
-        this.setDose(value)
+        this.setDose(value);
         // this.setGroup(null)
       },
     },
@@ -194,14 +194,14 @@ export default {
 
   methods: {
     ...mapMutations({
-      setDepartment: 'SET_DEPARTMENT',
-      setMunicipality: 'SET_MUNICIPALITY',
-      setVaccine: 'SET_VACCINE',
-      setDose: 'SET_DOSE',
-      setGroup: 'SET_GROUP',
+      setDepartment: "SET_DEPARTMENT",
+      setMunicipality: "SET_MUNICIPALITY",
+      setVaccine: "SET_VACCINE",
+      setDose: "SET_DOSE",
+      setGroup: "SET_GROUP",
     }),
   },
-}
+};
 </script>
 
 <style scoped>

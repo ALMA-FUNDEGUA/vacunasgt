@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="background-color: #fff">
     <section v-if="$vuetify.breakpoint.mdAndUp">
       <app-bar></app-bar>
 
@@ -57,10 +57,10 @@
 </template>
 
 <script>
-import TestCenterFilters from '../components/TestCenterFilters.vue'
-import AppBar from '../components/AppBar.vue'
-import SiteFooter from '../components/SiteFooter.Desktop.vue'
-import MapFilter from '../components/maps/CovidTestMapFilter.vue'
+import TestCenterFilters from "../components/TestCenterFilters.vue";
+import AppBar from "../components/AppBar.vue";
+import SiteFooter from "../components/SiteFooter.Desktop.vue";
+import MapFilter from "../components/maps/CovidTestMapFilter.vue";
 
 export default {
   components: {
@@ -70,9 +70,9 @@ export default {
     MapFilter,
   },
   data: () => ({
-    schedule: 'week',
+    schedule: "week",
   }),
-}
+};
 </script>
 
 <style scoped>

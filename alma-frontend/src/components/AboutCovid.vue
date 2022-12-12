@@ -16,7 +16,7 @@
 
     <v-row class="mb-5">
       <v-col v-for="(item, i) in items" :key="i" cols="12" md="4">
-        <a :href="item.link" style="text-decoration: none">
+        <a :href="item.link" style="text-decoration: none" target="_blank">
           <v-card class="information-card">
             <div
               class="d-flex justify-center align-center my-5 mx-1"
