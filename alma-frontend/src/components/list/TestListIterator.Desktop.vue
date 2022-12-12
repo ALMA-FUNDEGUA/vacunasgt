@@ -102,9 +102,9 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import VueAutoVirtualScrollList from 'vue-auto-virtual-scroll-list'
-import ListItemDesktop from '@/components/list/TestListItem.Desktop.vue'
+import { mapGetters } from "vuex";
+import VueAutoVirtualScrollList from "vue-auto-virtual-scroll-list";
+import ListItemDesktop from "@/components/list/TestListItem.Desktop.vue";
 
 export default {
   components: {
@@ -114,14 +114,14 @@ export default {
 
   data: () => ({
     loading: true,
-    search: '',
+    search: "",
   }),
 
   computed: {
-    ...mapGetters('covidTestStore', {
-      items: 'filtered',
+    ...mapGetters("covidTestStore", {
+      items: "filtered",
       // getVaccine: 'vaccine',
     }),
   },
-}
+};
 </script>

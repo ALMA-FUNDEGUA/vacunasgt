@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="background-color: #fff">
     <section v-if="$vuetify.breakpoint.mdAndUp">
       <app-bar></app-bar>
 
@@ -9,11 +9,15 @@
             <test-center-filters></test-center-filters>
 
             <v-btn
-              color="#FFD789"
+              style="
+                color: #200765;
+                font-weight: bold;
+                background-color: #d0c2fd;
+              "
+              class="no-uppercase mt-3"
               block
               rounded
               elevation="0"
-              class="no-uppercase"
               @click="$router.push('/testscenters')"
             >
               Buscar mi prueba
@@ -42,11 +46,11 @@
       <test-center-filters></test-center-filters>
       <v-app-bar class="mt-9" flat>
         <v-btn
-          color="#FFD789"
+          style="color: #200765; font-weight: bold; background-color: #d0c2fd"
+          class="no-uppercase mt-3"
           block
           rounded
           elevation="0"
-          class="no-uppercase"
           @click="$router.push('/testscenters')"
         >
           Buscar mi prueba
@@ -57,10 +61,10 @@
 </template>
 
 <script>
-import TestCenterFilters from '../components/TestCenterFilters.vue'
-import AppBar from '../components/AppBar.vue'
-import SiteFooter from '../components/SiteFooter.Desktop.vue'
-import MapFilter from '../components/maps/CovidTestMapFilter.vue'
+import TestCenterFilters from "../components/TestCenterFilters.vue";
+import AppBar from "../components/AppBar.vue";
+import SiteFooter from "../components/SiteFooter.Desktop.vue";
+import MapFilter from "../components/maps/CovidTestMapFilter.vue";
 
 export default {
   components: {
@@ -70,9 +74,9 @@ export default {
     MapFilter,
   },
   data: () => ({
-    schedule: 'week',
+    schedule: "week",
   }),
-}
+};
 </script>
 
 <style scoped>

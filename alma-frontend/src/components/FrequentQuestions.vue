@@ -50,7 +50,9 @@
               </p>
             </v-expansion-panel-content>
           </v-expansion-panel>
+        </v-expansion-panels>
 
+        <v-expansion-panels v-model="panel" :active-class="activeClass">
           <v-expansion-panel class="faq__panel">
             <v-expansion-panel-header style="font-weight: bold">
               ¿COVID-19 largo?
@@ -141,7 +143,9 @@
               </p>
             </v-expansion-panel-content>
           </v-expansion-panel>
+        </v-expansion-panels>
 
+        <v-expansion-panels v-model="panel" :active-class="activeClass">
           <v-expansion-panel class="faq__panel">
             <v-expansion-panel-header
               style="font-weight: bold; line-height: 1.5"
@@ -259,7 +263,7 @@
         class="faq__link"
         style="text-decoration: none"
       >
-        <p class="faq__link">lee más aquí...</p>
+        <p class="faq__link">lee más aquí</p>
       </a>
       <!-- </v-col> -->
     </v-row>
@@ -346,16 +350,51 @@ export default {
     line-height: 40px;
     text-align: center;
     color: #200765;
+    border-radius: 100px !important;
 
     margin-bottom: 40px !important;
+  }
+
+  &__panel:hover {
+    animation: hoverCard 0.5s ease-in-out;
   }
 
   &__link {
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 24px;
     color: #200765;
+  }
+
+  &__link:hover {
+    color: #6651ee;
+
+    animation: hoverLink 0.5s ease-in-out;
+  }
+
+  @keyframes hoverLink {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes hoverCard {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.03);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 
   &__panel {
@@ -371,6 +410,7 @@ export default {
   color: #6651ee !important;
   background-color: #f8f6ff !important;
   border-radius: 15px !important;
+  animation: none !important;
 }
 
 .paragraph {

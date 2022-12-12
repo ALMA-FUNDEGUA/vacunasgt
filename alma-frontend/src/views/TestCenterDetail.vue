@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="background-color: #fff">
     <section v-if="$vuetify.breakpoint.mdAndUp">
       <app-bar></app-bar>
 
@@ -67,13 +67,13 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
-import 'leaflet/dist/leaflet.css'
+import { mapGetters, mapMutations } from "vuex";
+import "leaflet/dist/leaflet.css";
 
-import AppBar from '../components/AppBar.vue'
-import SiteFooter from '../components/SiteFooter.Desktop.vue'
-import CenterDetail from '../components/TestCenterDetail.vue'
-import SelectedMapDesktop from '../components/maps/covid_tests/TestMap.Desktop.vue'
+import AppBar from "../components/AppBar.vue";
+import SiteFooter from "../components/SiteFooter.Desktop.vue";
+import CenterDetail from "../components/TestCenterDetail.vue";
+import SelectedMapDesktop from "../components/maps/covid_tests/TestMap.Desktop.vue";
 
 export default {
   components: {
@@ -84,21 +84,21 @@ export default {
   },
 
   beforeMount() {
-    this.setSelected(this.$route.params.name)
+    this.setSelected(this.$route.params.name);
   },
 
   computed: {
-    ...mapGetters('covidTestStore', ['selected']),
+    ...mapGetters("covidTestStore", ["selected"]),
   },
 
   methods: {
-    ...mapMutations('covidTestStore', {
-      setSelected: 'SET_SELECTED',
+    ...mapMutations("covidTestStore", {
+      setSelected: "SET_SELECTED",
     }),
 
     onSelect(name) {
-      this.setSelected(name)
+      this.setSelected(name);
     },
   },
-}
+};
 </script>

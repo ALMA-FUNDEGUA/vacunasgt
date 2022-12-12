@@ -37,8 +37,8 @@
           <v-btn
             rounded
             elevation="0"
-            color="#FFE6B7"
-            class="no-uppercase"
+            style="color: #200765; font-weight: bold; background-color: #d0c2fd"
+            class="no-uppercase mt-3"
             @click="dialog = false"
           >
             Aplicar Filtros
@@ -50,9 +50,9 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations } from "vuex";
 
-import CenterFilters from '../TestCenterFilters.vue'
+import CenterFilters from "../TestCenterFilters.vue";
 
 export default {
   components: {
@@ -64,21 +64,21 @@ export default {
   }),
 
   methods: {
-    ...mapMutations('covidTestStore', {
-      setDepartment: 'SET_DEPARTMENT',
-      setMunicipality: 'SET_MUNICIPALITY',
-      setTestType: 'SET_TEST_TYPE',
-      setServiceType: 'SET_SERVICE_TYPE',
-      setSchedule: 'SET_SCHEDULE',
+    ...mapMutations("covidTestStore", {
+      setDepartment: "SET_DEPARTMENT",
+      setMunicipality: "SET_MUNICIPALITY",
+      setTestType: "SET_TEST_TYPE",
+      setServiceType: "SET_SERVICE_TYPE",
+      setSchedule: "SET_SCHEDULE",
     }),
 
     clearForm() {
-      this.setDepartment(null)
-      this.setMunicipality(null)
-      this.setTestType(null)
-      this.setServiceType(null)
-      this.setSchedule(null)
+      this.setDepartment(null);
+      this.setMunicipality(null);
+      this.setTestType(null);
+      this.setServiceType(null);
+      this.setSchedule(null);
     },
   },
-}
+};
 </script>

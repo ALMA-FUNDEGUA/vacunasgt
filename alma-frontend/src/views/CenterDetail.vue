@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="background-color: #fff">
     <section v-if="$vuetify.breakpoint.mdAndUp">
       <app-bar></app-bar>
 
@@ -7,7 +7,10 @@
         <v-row>
           <v-col cols="4" offset="1">
             <div class="d-flex flex-column">
-              <v-card-title class="pl-0 font-weight-bold" style="word-break: break-word; line-height: 27px;">
+              <v-card-title
+                class="pl-0 font-weight-bold"
+                style="word-break: break-word; line-height: 27px"
+              >
                 {{ selected.name }}
               </v-card-title>
             </div>
@@ -45,7 +48,10 @@
         </v-btn>
 
         <div class="d-flex flex-column">
-          <v-card-title class="pl-0 font-weight-bold" style="word-break: break-word; line-height: 27px;">
+          <v-card-title
+            class="pl-0 font-weight-bold"
+            style="word-break: break-word; line-height: 27px"
+          >
             {{ selected.name }}
           </v-card-title>
 

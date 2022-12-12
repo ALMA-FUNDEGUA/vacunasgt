@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="background-color: #fff">
     <section v-if="$vuetify.breakpoint.mdAndUp">
       <app-bar></app-bar>
 
@@ -9,11 +9,15 @@
             <center-filters></center-filters>
 
             <v-btn
-              color="#FFD789"
+              style="
+                color: #200765;
+                font-weight: bold;
+                background-color: #d0c2fd;
+              "
+              class="no-uppercase mt-3"
               block
               rounded
               elevation="0"
-              class="no-uppercase"
               @click="$router.push('/centers')"
             >
               Buscar mi vacuna
@@ -43,11 +47,11 @@
       <center-filters></center-filters>
       <v-app-bar class="mt-9" flat>
         <v-btn
-          color="#FFD789"
+          style="color: #200765; font-weight: bold; background-color: #d0c2fd"
+          class="no-uppercase mt-3"
           block
           rounded
           elevation="0"
-          class="no-uppercase"
           @click="$router.push('/centers')"
         >
           Buscar mi vacuna
@@ -58,10 +62,10 @@
 </template>
 
 <script>
-import CenterFilters from '../components/CenterFilters.vue'
-import AppBar from '../components/AppBar.vue'
-import SiteFooter from '../components/SiteFooter.Desktop.vue'
-import MapFilter from '../components/maps/MapFilter.vue'
+import CenterFilters from "../components/CenterFilters.vue";
+import AppBar from "../components/AppBar.vue";
+import SiteFooter from "../components/SiteFooter.Desktop.vue";
+import MapFilter from "../components/maps/MapFilter.vue";
 
 export default {
   components: {
@@ -70,5 +74,5 @@ export default {
     SiteFooter,
     MapFilter,
   },
-}
+};
 </script>

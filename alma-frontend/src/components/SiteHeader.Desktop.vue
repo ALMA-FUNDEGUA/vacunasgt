@@ -15,8 +15,6 @@
       </div>
     </v-container>
 
-
-
     <div
       class="d-flex flex-column justify-center align-center site-header__information"
     >
@@ -50,7 +48,8 @@
             rounded
             color="#00B176"
             elevation="0"
-            href="tel:1801-0054-321"
+            href="https://api.whatsapp.com/send?phone=50224144321&text=Preg%C3%BAntale%20a%20ALMA"
+            target="_blank"
             style="height: 65px; font-size: 20px"
             class="white--text font-weight-bold"
           >
@@ -115,7 +114,6 @@
 }
 </style>
 
-
 <script>
 export default {
   data() {
@@ -127,19 +125,18 @@ export default {
         "hepatitis A",
         "VPH",
         "varicela",
-        "antirrabica",
+        "antirabia",
         "BCG",
         "poliomielitis",
-        "pentavalente",
+        "5 en 1 (pentavalente)",
         "neuomococo",
         "rotavirus",
         "SDR",
         "DPT",
         "TDaP",
-        "tétanos",
+        "tétano",
       ],
     };
   },
 };
 </script>
-

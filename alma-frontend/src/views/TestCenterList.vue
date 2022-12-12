@@ -11,13 +11,13 @@
 </template>
 
 <script>
-import CenterListDesktop from '@/components/views/TestCenterList.Desktop.vue'
-import CenterListMobile from '@/components/MobileTestList.vue'
+import CenterListDesktop from "@/components/views/TestCenterList.Desktop.vue";
+import CenterListMobile from "@/components/MobileTestList.vue";
 
 export default {
   components: {
     CenterListDesktop,
     CenterListMobile,
   },
-}
+};
 </script>

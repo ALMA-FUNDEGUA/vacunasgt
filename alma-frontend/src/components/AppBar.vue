@@ -9,6 +9,17 @@
                 alma
               </router-link>
 
+              <v-btn
+                text
+                small
+                color="#200765"
+                class="no-uppercase font-weight-black"
+                slot="trigger"
+                to="/testsfilters"
+              >
+                Pruebas de COVID-19
+              </v-btn>
+
               <DropdownMenu mode="hover">
                 <v-btn
                   text
@@ -180,6 +191,8 @@
                   </template>
                 </v-btn>
               </div>
+
+              <!-- 
               <v-text-field
                 v-model="search"
                 hide-details
@@ -189,7 +202,7 @@
                 background-color="#FFFFFF"
                 placeholder="Busca tu vacuna aquí"
                 class="text-field"
-              ></v-text-field>
+              ></v-text-field>-->
             </div>
           </v-col>
         </v-row>

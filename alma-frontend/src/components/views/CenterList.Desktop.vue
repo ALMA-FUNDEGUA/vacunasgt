@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="background-color: #fff">
     <app-bar></app-bar>
 
     <filter-top-bar-desktop></filter-top-bar-desktop>
@@ -33,13 +33,13 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 
-import AppBar from '@/components/AppBar.vue'
-import SiteFooter from '@/components/SiteFooter.Desktop.vue'
-import MapFilter from '@/components/maps/MapFilter.vue'
-import FilterTopBarDesktop from '@/components/filters/FilterTopBar.Desktop.vue'
-import ListIteratorDesktop from '@/components/list/ListIterator.Desktop.vue'
+import AppBar from "@/components/AppBar.vue";
+import SiteFooter from "@/components/SiteFooter.Desktop.vue";
+import MapFilter from "@/components/maps/MapFilter.vue";
+import FilterTopBarDesktop from "@/components/filters/FilterTopBar.Desktop.vue";
+import ListIteratorDesktop from "@/components/list/ListIterator.Desktop.vue";
 
 export default {
   components: {
@@ -52,14 +52,14 @@ export default {
 
   data: () => ({
     loading: true,
-    search: '',
+    search: "",
   }),
 
   computed: {
     ...mapGetters({
-      items: 'filtered',
-      getVaccine: 'vaccine',
+      items: "filtered",
+      getVaccine: "vaccine",
     }),
   },
-}
+};
 </script>

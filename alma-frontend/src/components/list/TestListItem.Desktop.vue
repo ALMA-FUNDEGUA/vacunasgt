@@ -24,61 +24,67 @@
           <v-container fluid>
             <v-row dense>
               <v-col cols="1">
-                <v-icon size=25 top>
-                  mdi-clock-outline
-                </v-icon>
+                <v-icon size="25" top> mdi-clock-outline </v-icon>
               </v-col>
 
-              <v-col cols="11" class="d-flex flex-column justify-end black--text text-left">
+              <v-col
+                cols="11"
+                class="d-flex flex-column justify-end black--text text-left"
+              >
                 <div>
                   <span v-if="item.simpleSchedule">
                     {{ item.simpleSchedule }}
-                    <br>
+                    <br />
                   </span>
 
                   <span v-else>
                     Horario por confirmar
-                    <br>
+                    <br />
                   </span>
                 </div>
               </v-col>
 
               <v-col cols="1">
-                <v-icon size=25 top>
-                  mdi-google-circles
-                </v-icon>
+                <v-icon size="25" top> mdi-google-circles </v-icon>
               </v-col>
 
-              <v-col cols="11" class="d-flex flex-column justify-end black--text text-left">
+              <v-col
+                cols="11"
+                class="d-flex flex-column justify-end black--text text-left"
+              >
                 <div v-if="item.tests.length > 0">
                   {{ formatItemTests(item.tests) }}
                 </div>
               </v-col>
 
               <v-col cols="1">
-                <v-icon size=25 top>
-                  mdi-cash
-                </v-icon>
+                <v-icon size="25" top> mdi-cash </v-icon>
               </v-col>
 
-              <v-col cols="11" class="d-flex flex-column justify-end black--text text-left">
+              <v-col
+                cols="11"
+                class="d-flex flex-column justify-end black--text text-left"
+              >
                 <span v-if="item.tests.length > 0 && item.tests[0].serviceType">
                   {{ item.tests[0].serviceType }}
                 </span>
 
-                <span v-else>
-                  Tipo de servicio por confirmar
-                </span>
+                <span v-else> Tipo de servicio por confirmar </span>
               </v-col>
 
               <v-col cols="1">
-                <v-icon size=25 top>
-                  mdi-phone-outline
-                </v-icon>
+                <v-icon size="25" top> mdi-phone-outline </v-icon>
               </v-col>
 
-              <v-col cols="11" class="d-flex flex-column justify-end black--text text-left">
-                {{ item.phoneNumber !== 'N/A' ? item.phoneNumber : "Número por confirmar" }}
+              <v-col
+                cols="11"
+                class="d-flex flex-column justify-end black--text text-left"
+              >
+                {{
+                  item.phoneNumber !== "N/A"
+                    ? item.phoneNumber
+                    : "Número por confirmar"
+                }}
               </v-col>
             </v-row>
           </v-container>
@@ -135,7 +141,7 @@
 </template>
 
 <script>
-import * as _ from 'lodash';
+import * as _ from "lodash";
 
 export default {
   props: {
@@ -152,20 +158,16 @@ export default {
   methods: {
     onSelect(name) {
       this.$router.push({
-        name: 'TestsCenterDetailView',
+        name: "TestsCenterDetailView",
         params: {
           name: name,
         },
-      })
+      });
     },
 
     formatItemTests(tests) {
-      return _.chain(tests)
-        .map('testType')
-        .uniq()
-        .join(', ')
-        .value()
-    }
+      return _.chain(tests).map("testType").uniq().join(", ").value();
+    },
   },
-}
+};
 </script>
