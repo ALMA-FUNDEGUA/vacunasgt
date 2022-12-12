@@ -7,8 +7,8 @@
         <v-icon large class="item-icon"> mdi-home </v-icon>
       </v-btn>
 
-      <v-btn @click="$router.push('/filters')">
-        <span class="item-text"> Vacunas </span>
+      <v-btn @click="$router.push('/testsfilters')">
+        <span class="item-text"> Pruebas </span>
 
         <v-icon large class="item-icon"> mdi-needle </v-icon>
       </v-btn>
@@ -19,10 +19,14 @@
         <v-icon large class="item-icon"> mdi-account-box </v-icon>
       </v-btn>
 
-      <v-btn href="https://docs.almabot.com/" target="blank">
-        <span class="item-text"> Preguntas </span>
+      <v-btn href="https://api.whatsapp.com/send?phone=50224144321&text=Preg%C3%BAntale%20a%20ALMA" target="blank">
+        <span class="item-text">
+          WhatsApp
+        </span>
 
-        <v-icon large class="item-icon"> mdi-help-circle </v-icon>
+        <v-icon large class="item-icon">
+          mdi-whatsapp
+        </v-icon>
       </v-btn>
     </v-bottom-navigation>
   </section>

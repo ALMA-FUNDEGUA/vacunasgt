@@ -9,7 +9,7 @@
     </div>
 
     <p class="my-5 site-header-text text-center">
-      Resuelve tus dudas sobre vacunas e identifica los servicios de salud más cercanos a ti  
+      Encuentra tus vacunas y servicios de salud mas cercanos.
     </p>
   </section>
 </template>

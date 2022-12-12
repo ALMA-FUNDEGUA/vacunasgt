@@ -4,6 +4,8 @@
     <contact-me></contact-me>
     <social-media></social-media>
     <AboutCovid />
+    <FrequentQuestions/>
+    <SiteFooter/>
   </section>
 </template>
 
@@ -12,6 +14,8 @@ import ContactMe from "@/components/ContactMe.vue";
 import SocialMedia from "@/components/SocialMedia.vue";
 import SiteHeader from "@/components/SiteHeader.vue";
 import AboutCovid from '@/components/AboutCovid.vue';
+import FrequentQuestions from "@/components/FrequentQuestions.vue";
+import SiteFooter from "@/components/SiteFooter.vue";
 
 export default {
   components: {
@@ -19,6 +23,8 @@ export default {
     SiteHeader,
     SocialMedia,
     AboutCovid,
+    FrequentQuestions,
+    SiteFooter,
   },
 };
 </script>

@@ -3,9 +3,10 @@
     class="d-flex flex-column justify-center align-center py-5 site-header__information"
   >
     <span class="text-h6 site-header__information-text mt-3">
-      Llámame GRATIS o escríbeme por WhatsApp para que uno de mis agentes te
-      ayude a resolver tus dudas
+      Llámame GRATIS o escríbeme por WhatsApp
     </span>
+
+    <!-- Llámame GRATIS o escríbeme por WhatsApp para que uno de mis agentes te ayude a resolver tus dudas -->
 
     <div class="d-flex flex-column site-header__information-actions">
       <div
@@ -60,15 +61,14 @@
   }
 
   &__information {
-    // height: 500px;
-    gap: 40px;
+    gap: 20px;
 
     background-color: #beb1f8;
     background-image: url("@/assets/images/information-background.svg");
     background-size: cover;
 
     &-text {
-      width: 75vw;
+      width: 85vw;
       font-family: "Poppins";
       font-style: normal;
       font-weight: 600;
