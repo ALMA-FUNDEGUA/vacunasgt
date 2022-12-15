@@ -10,7 +10,13 @@
       </div>
 
       <hr class="mt-4" />
+
       <v-row>
+        <v-col>
+          <div class="mt-2">
+            <span class="font-weight-light"> ©️ 2022 All Rights Reserved </span>
+          </div>
+        </v-col>
         <v-col class="text-right">
           <div class="mt-1">
             <v-btn
