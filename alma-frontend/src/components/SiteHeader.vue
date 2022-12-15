@@ -1,15 +1,13 @@
 <template>
   <section class="mt-5">
-    <p class="site-title text-center">
-      alma
-    </p>
+    <p class="site-title text-center">alma</p>
 
     <div class="d-flex justify-center">
-      <img src="@/assets/images/alma-short.svg" height="300px">
+      <img src="@/assets/images/alma-short.svg" height="300px" />
     </div>
 
     <p class="my-5 site-header-text text-center">
-      Encuentra tus vacunas y servicios de salud mas cercanos.
+      Encuentra tus vacunas y servicios de salud más cercanos.
     </p>
   </section>
 </template>
@@ -23,7 +21,7 @@
 }
 
 .site-header-text {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
   font-size: 25px;
