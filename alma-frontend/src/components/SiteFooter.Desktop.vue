@@ -30,6 +30,49 @@
             <v-btn icon color="white" href="tel:1801-0054-321">
               <v-icon>mdi-phone-outline</v-icon>
             </v-btn>
+            <v-btn
+              icon
+              color="white"
+              href="https://twitter.com/alma_responde"
+              target="_blank"
+            >
+              <v-icon>mdi-twitter</v-icon>
+            </v-btn>
+
+            <v-btn
+              icon
+              color="white"
+              href="https://www.instagram.com/alma_responde/"
+              target="_blank"
+            >
+              <v-icon>mdi-instagram</v-icon>
+            </v-btn>
+
+            <v-btn
+              icon
+              color="white"
+              href="https://www.facebook.com/chatbotALMA"
+              target="_blank"
+            >
+              <v-icon>mdi-facebook</v-icon>
+            </v-btn>
+            <v-btn
+              elevation="0"
+              icon
+              color="white"
+              class="no-uppercase font-weight-bold"
+              href="https://www.tiktok.com/@alma_responde"
+              target="_blank"
+            >
+              <template>
+                <svg width="24px" height="24px" viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6c0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"
+                  ></path>
+                </svg>
+              </template>
+            </v-btn>
           </div>
         </v-col>
       </v-row>
