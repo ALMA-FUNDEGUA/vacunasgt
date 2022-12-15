@@ -23,7 +23,7 @@
               <v-col justify="center">
                 <p
                   class="font-weight- text-center"
-                  style="color: #200765; font-size: medium"
+                  style="color: #200765; font-size: large"
                 >
                   de 8:00 a 17:00 hrs. de lunes a viernes y<br />
                   sábados de 8:00 a 12:00 hrs.
