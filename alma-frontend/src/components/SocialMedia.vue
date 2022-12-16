@@ -7,7 +7,7 @@
             class="font-weight-bold text-center mt-2 mb-4 text-h6"
             style="color: #200765"
           >
-            Encuéntrame como <br />
+            Búscame como <br />
             @alma_responde en
           </p>
         </v-col>
