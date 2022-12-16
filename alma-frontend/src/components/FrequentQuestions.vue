@@ -1,8 +1,18 @@
 <template>
   <v-container>
-    <p class="faq__title">
-      Estas son algunas de las consultas más frecuentes que me hacen:
-    </p>
+    <section v-if="$vuetify.breakpoint.mdAndUp">
+      <div class="d-flex justify-center mb-n5">
+        <p class="faq__title" style="color: #200765">Dudas frecuentes:</p>
+      </div>
+    </section>
+
+    <section v-else>
+      <div class="d-flex justify-center mb-n8">
+        <span class="text-h6 faq__title" style="color: #200765">
+          Dudas frecuentes:
+        </span>
+      </div>
+    </section>
 
     <v-row justify="center">
       <v-col>
@@ -345,11 +355,9 @@ export default {
   &__title {
     font-family: "Poppins";
     font-style: normal;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 28px;
-    line-height: 40px;
-    text-align: center;
-    color: #200765;
+    line-height: 50px;
     border-radius: 100px !important;
 
     margin-bottom: 40px !important;

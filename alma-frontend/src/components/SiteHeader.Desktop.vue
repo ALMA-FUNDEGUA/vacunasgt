@@ -2,14 +2,13 @@
   <div>
     <v-container class="py-0 mt-5">
       <div class="d-flex justify-end align-center site-header__top-panel">
-        <div style="width: 600px">
+        <div style="width: 600px" class="mt-n15">
           <span class="site-header__title">
-            ¡Hola! Soy Alma, estoy aquí para responder tus dudas sobre vacunas
-            de
+            Encuentra vacunas contra
             <span style="color: #704eee"
               ><textra :data="vaccines" :timer="1.5" infinite="true" />
             </span>
-            e identificar los servicios de salud más cercanos a ti
+            para ti y tu familia
           </span>
         </div>
       </div>
