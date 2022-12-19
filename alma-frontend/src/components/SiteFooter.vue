@@ -271,7 +271,7 @@
                     target="_blank"
                     v-bind="attrs"
                     v-on="on"
-                    href="https://www.facebook.com/chatbotALMA"
+                    href="https://www.tiktok.com/@alma_responde"
                     style="color: white; margin-top: 35px"
                   >
                     <!-- <i
@@ -287,7 +287,7 @@
                   </v-btn>
                 </template>
 
-                <span>Facebook</span>
+                <span>Tiktok</span>
               </v-tooltip>
             </div>
           </div>
