@@ -1,5 +1,5 @@
 <template>
-  <v-app style="background-color: #EAE4F3">
+  <v-app style="background-color: #eae4f3">
     <loading-page></loading-page>
 
     <v-main class="no-scroll">

@@ -12,6 +12,20 @@
       <div
         class="d-flex flex-column justify-end site-header__information-action"
       >
+        <div class="d-flex flex-column site-header__information-action">
+          <v-btn
+            rounded
+            color="#00B176"
+            elevation="0"
+            href="https://api.whatsapp.com/send?phone=50224144321&text=Preg%C3%BAntale%20a%20ALMA"
+            style="height: 65px; font-size: 20px"
+            class="white--text font-weight-bold"
+          >
+            <v-icon style="margin-right: 6px"> mdi-whatsapp </v-icon>
+
+            <span style="text-transform: none"> WhatsApp </span>
+          </v-btn>
+        </div>
         <v-btn
           rounded
           color="#704EEE"
@@ -23,21 +37,6 @@
           <v-icon style="margin-right: 6px"> mdi-phone-outline </v-icon>
 
           <span style="text-transform: none"> 1-801-00-54321 </span>
-        </v-btn>
-      </div>
-
-      <div class="d-flex flex-column site-header__information-action">
-        <v-btn
-          rounded
-          color="#00B176"
-          elevation="0"
-          href="https://api.whatsapp.com/send?phone=50224144321&text=Preg%C3%BAntale%20a%20ALMA"
-          style="height: 65px; font-size: 20px"
-          class="white--text font-weight-bold"
-        >
-          <v-icon style="margin-right: 6px"> mdi-whatsapp </v-icon>
-
-          <span style="text-transform: none"> WhatsApp </span>
         </v-btn>
       </div>
     </div>
