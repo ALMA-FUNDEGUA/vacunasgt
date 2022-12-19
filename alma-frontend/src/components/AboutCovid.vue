@@ -3,13 +3,13 @@
     <div class="d-flex justify-center">
       <section v-if="$vuetify.breakpoint.mdAndUp">
         <p class="information-title" style="color: #200765">
-          Información sobre COVID-19
+          Te puede interesar
         </p>
       </section>
 
       <section v-else>
         <span class="text-h6 information-title" style="color: #200765">
-          Información sobre COVID-19
+          Te puede interesar
         </span>
       </section>
     </div>
@@ -38,17 +38,17 @@ export default {
   data: () => ({
     items: [
       {
-        label: "Encuentra tu vacuna",
+        label: "Vacunas COVID-19",
         link: "/filters",
       },
 
       {
-        label: "Encuentra hisopados ",
+        label: "Hisopados COVID-19",
         link: "/testsfilters",
       },
 
       {
-        label: "Disposiciones",
+        label: "Disposiciones COVID-19",
         link: "https://docs.almabot.com/",
       },
     ],
