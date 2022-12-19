@@ -5,7 +5,7 @@
         <v-col justify="center">
           <div class="d-flex justify-center">
             <p class="information-title" style="color: #200765">
-              Encuéntrame como @alma_responde en
+              Búscame como @alma_responde en
             </p>
           </div>
         </v-col>

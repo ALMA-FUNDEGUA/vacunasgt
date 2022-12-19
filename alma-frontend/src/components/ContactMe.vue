@@ -3,7 +3,7 @@
     class="d-flex flex-column justify-center align-center py-5 site-header__information"
   >
     <span class="text-h6 site-header__information-text mt-3">
-      Llámame GRATIS o escríbeme por WhatsApp
+      Escríbeme por WhatsApp o llámame GRATIS
     </span>
 
     <!-- Llámame GRATIS o escríbeme por WhatsApp para que uno de mis agentes te ayude a resolver tus dudas -->

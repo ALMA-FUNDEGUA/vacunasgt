@@ -17,12 +17,9 @@
       </v-container>
     </section>
 
-    <footer
-      :class="white ? 'footer-light' : 'footer-dark'"
-      style="background: #f8f6ff"
-    >
+    <footer>
       <v-container>
-        <v-row justify="center">
+        <v-row justify="center" class="mt-8">
           <div class="d-flex flex-column align-center">
             <span
               class="footer-title text-center"
@@ -62,11 +59,11 @@
                 />
               </svg>
               <a
-                @click="$router.push('/filters')"
+                @click="$router.push('/testsfilters')"
                 style="text-decoration: none"
                 class="footerLinks"
               >
-                Busca tu vacuna
+                Busca tu prueba
               </a></span
             >
             &nbsp;
