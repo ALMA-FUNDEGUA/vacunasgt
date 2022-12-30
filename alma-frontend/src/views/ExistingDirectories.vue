@@ -133,7 +133,7 @@
       </v-card>
 
       <v-card
-        href="https://docs.almabot.com/docs/paginas-oficiales-de-centros-de-vacunaciones-por-departamento-1"
+        href="https://tools.almabot.com/"
         target="_blank"
       >
         <v-card-title
