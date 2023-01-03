@@ -18,10 +18,25 @@
       class="d-flex flex-column justify-center align-center site-header__information"
     >
       <span class="site-header__information-text justify-center">
-        ¡Escríbeme por WhatsApp o llámame GRATIS!
+        Encuentra información sobre lugares, horarios y disponibilidad de
+        vacunas
       </span>
 
       <div class="d-flex site-header__information-actions">
+        <div class="d-flex flex-column site-header__information-action">
+          <v-btn
+            rounded
+            color="#704EEE"
+            elevation="0"
+            href="tel:1801-0054-321"
+            style="height: 65px; font-size: 20px"
+            class="white--text font-weight-bold"
+          >
+            <v-icon style="margin-right: 6px"> mdi-phone-outline </v-icon>
+
+            <span style="text-transform: none"> 1-801-00-54321 </span>
+          </v-btn>
+        </div>
         <div class="d-flex flex-column site-header__information-action">
           <v-btn
             rounded
@@ -36,28 +51,6 @@
 
             <span style="text-transform: none"> WhatsApp </span>
           </v-btn>
-
-          <span class="text-center">
-            Disponible en español los siete días de la semana, las 24 horas.
-          </span>
-        </div>
-        <div class="d-flex flex-column site-header__information-action">
-          <v-btn
-            rounded
-            color="#704EEE"
-            elevation="0"
-            href="tel:1801-0054-321"
-            style="height: 65px; font-size: 20px"
-            class="white--text font-weight-bold"
-          >
-            <v-icon style="margin-right: 6px"> mdi-phone-outline </v-icon>
-
-            <span style="text-transform: none"> 1-801-00-54321 </span>
-          </v-btn>
-
-          <span class="text-center">
-            Disponible en español los siete días de la semana, las 24 horas.
-          </span>
         </div>
       </div>
     </div>
