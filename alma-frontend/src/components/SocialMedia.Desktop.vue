@@ -172,20 +172,6 @@
         </v-col>
       </v-row>
     </v-container>
-
-    <v-container>
-      <v-row justify="center">
-        <v-col justify="center">
-          <p
-            class="font-weight- text-center"
-            style="color: #200765; font-size: large"
-          >
-            Disponible en español de 7:00 a 20:00 hrs. de lunes a <br />
-            viernes y sábados de 8:00 a 12:00 hrs.
-          </p>
-        </v-col>
-      </v-row>
-    </v-container>
   </section>
 </template>
 
