@@ -7,8 +7,7 @@
             class="font-weight-bold text-center mt-2 mb-4 text-h6"
             style="color: #200765"
           >
-            Búscame como <br />
-            @alma_responde en
+            También puedes realizar consultas aquí
           </p>
         </v-col>
       </v-row>
