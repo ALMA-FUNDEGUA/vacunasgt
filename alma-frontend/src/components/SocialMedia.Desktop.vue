@@ -5,7 +5,7 @@
         <v-col justify="center">
           <div class="d-flex justify-center">
             <p class="information-title" style="color: #200765">
-              Búscame como @alma_responde en
+              También puedes realizar consultas aquí
             </p>
           </div>
         </v-col>
