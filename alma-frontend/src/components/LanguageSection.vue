@@ -18,22 +18,20 @@
               ><textra :data="lang" :timer="1.5" infinite="true" />
             </span>
           </h3>
-          <v-container>
-            <v-row justify="center">
-              <v-col justify="center">
-                <p
-                  class="font-weight- text-center"
-                  style="color: #200765; font-size: large"
-                >
-                  de 8:00 a 17:00 hrs. de lunes a viernes y<br />
-                  sábados de 8:00 a 12:00 hrs.
-                </p>
-              </v-col>
-            </v-row>
-          </v-container>
         </v-col>
       </v-row>
     </v-container>
+
+    <v-row justify="center">
+      <v-col justify="center">
+        <p class="text-center mt-5" style="color: #200765; font-size: large">
+          Servicio GRATUITO en español los siete días de la semana, las 24
+          horas. <br />
+          En k'iche', kaqchikel, mam y tz'utujil de 8:00 a 17:00 hrs. de lunes a
+          viernes y sábados a 8:00 a 12:00 hrs.
+        </p>
+      </v-col>
+    </v-row>
   </section>
 </template>
 
