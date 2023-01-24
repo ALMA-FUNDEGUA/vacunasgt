@@ -2,11 +2,11 @@
   <div>
     <v-container class="py-0 mt-5">
       <div class="d-flex justify-end align-center site-header__top-panel">
-        <div style="width: 600px" class="mt-n15">
+        <div style="width: 650px" class="mt-n15">
           <span class="site-header__title">
-            Encuentra vacunas contra
+            Encuentra vacunas que previenen
             <span style="color: #704eee"
-              ><textra :data="vaccines" :timer="1.5" infinite="true" />
+              ><textra :data="vaccines" :timer="1.5" infinite=true />
             </span>
             para ti y tu familia
           </span>
@@ -68,7 +68,7 @@
     font-family: "Poppins";
     font-style: normal;
     font-weight: 700;
-    font-size: 40px;
+    font-size: 36px;
     line-height: 54px;
     color: #200765;
   }
@@ -109,22 +109,23 @@ export default {
   data() {
     return {
       vaccines: [
-        "influenza",
         "COVID-19",
-        "hepatitis B",
-        "hepatitis A",
-        "VPH",
-        "varicela",
-        "antirabia",
-        "BCG",
+        "neumococo",
+        "influenza (gripe)",
+        "tuberculosis",
+        "rabia",
+        "hepatitis b",
         "poliomielitis",
-        "5 en 1 (pentavalente)",
-        "neuomococo",
         "rotavirus",
-        "SDR",
-        "DPT",
-        "TDaP",
-        "tétano",
+        "difteria ",
+        "tétanos ",
+        "tos ferina",
+        "meningitis ",
+        "sarampión",
+        "paperas ",
+        "rubéola",
+        "fiebre amarilla",
+        "virus del papiloma humano"
       ],
     };
   },
