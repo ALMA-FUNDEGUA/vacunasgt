@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "covid-19-bot"
-  }
+    "default": "covid-19-bot",
+    "dev": "alma--dev"
+  },
+  "targets": {},
+  "etags": {}
 }
